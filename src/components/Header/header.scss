@@ -1,0 +1,13 @@
+.dropdown-menu {
+  opacity: 0;
+  display: block;
+  position: absolute!important;
+  transition: opacity 0s;
+  pointer-events: none;
+}
+
+.show {
+  opacity: 1;
+  transition: opacity 0.2s;
+  pointer-events: all;
+}
