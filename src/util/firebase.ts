@@ -9,13 +9,13 @@ import { IS_DEV } from "./util";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-    apiKey: "AIzaSyAO4oPQUlxawJpf6hX-j_Ey_rVzUeBZtGM",
-    authDomain: "met-bath.firebaseapp.com",
-    projectId: "met-bath",
-    storageBucket: "met-bath.appspot.com",
-    messagingSenderId: "765987701304",
-    appId: "1:765987701304:web:b8704cdeecce71e2ee5ccd",
-    measurementId: "G-P8ZC28Z99D"
+    apiKey: "AIzaSyBkMG6UJ1bfGBYl5pQP08rAk3eQBI2Geio",
+    authDomain: "robert-lucas.firebaseapp.com",
+    projectId: "robert-lucas",
+    storageBucket: "robert-lucas.appspot.com",
+    messagingSenderId: "597127804780",
+    appId: "1:597127804780:web:58a7ea379d53bed90da549",
+    measurementId: "G-MQZJQK7SPC"
   };
 
 
