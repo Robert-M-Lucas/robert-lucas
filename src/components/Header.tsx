@@ -19,12 +19,12 @@ export default function Header({ hidden = false }: Props) {
                     <Navbar.Toggle aria-controls="main-navbar" />
                     <Navbar.Collapse id="main-navbar">
                         <Nav className="me-auto">
-                            <Nav.Link as={Link} to={INDEX_PATH} active={isActive(INDEX_PATH)}>Home</Nav.Link>
-                            <Nav.Link as={Link} to={PROJECTS_PATH} active={isActive(PROJECTS_PATH)}>Projects</Nav.Link>
+                            <Nav.Link viewTransition as={Link} to={INDEX_PATH} active={isActive(INDEX_PATH)}>Home</Nav.Link>
+                            <Nav.Link viewTransition as={Link} to={PROJECTS_PATH} active={isActive(PROJECTS_PATH)}>Projects</Nav.Link>
                         </Nav>
                         <Nav>
-                            {/*<Nav.Link as={Link} to="/login">Login</Nav.Link>*/}
-                            {/*<Nav.Link as={Link} to="/signup">Sign Up</Nav.Link>*/}
+                            {/*<Nav.Link viewTransitionas={Link} to="/login">Login</Nav.Link>*/}
+                            {/*<Nav.Link viewTransitionas={Link} to="/signup">Sign Up</Nav.Link>*/}
                         </Nav>
                     </Navbar.Collapse>
                 </Container>

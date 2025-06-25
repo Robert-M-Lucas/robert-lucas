@@ -15,7 +15,7 @@ export default function ProjectsIndexPage() {
             <h1>Projects</h1>
             <ul>
                 {PROJECT_LIST.map(project => <li>
-                    <Link to={getProjectPath(project.name)}>{project.title}</Link>
+                    <Link viewTransition to={getProjectPath(project.name)}>{project.title}</Link>
                 </li>)}
             </ul>
         </Container>

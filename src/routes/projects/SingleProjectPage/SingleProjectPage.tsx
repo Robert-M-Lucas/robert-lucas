@@ -6,6 +6,9 @@ import {Container} from "react-bootstrap";
 import {Project} from "./project.ts";
 import {PROJECTS_PATH} from "../../../router.tsx";
 import HeaderSpacer from "../../../components/HeaderSpacer.tsx";
+import RenderTechnologies from "../../../components/project_entry_utils/RenderTechnologies.tsx";
+import RenderButtonLinks from "../../../components/project_entry_utils/RenderButtonLinks.tsx";
+import RenderProjectDate from "../../../components/project_entry_utils/RenderProjectDate.tsx";
 
 export default function SingleProjectPage() {
     const params = useParams();
@@ -29,9 +32,26 @@ function SingleProjectPageRenderer(project: Project) {
         <Header/>
         <HeaderSpacer/>
         <Container>
-            <Link to={PROJECTS_PATH} className="text-decoration-none">‹ Projects List</Link>
+            <div>
+                <Link viewTransition to={PROJECTS_PATH} className="text-decoration-none">‹ Projects List</Link>
+            </div>
+
+
+            
             <h1 className={project.subtitle ? "mb-0" : "mb-3"}>{project.title}</h1>
+            <div className="mb-1">
+                <RenderProjectDate ms_since_epoch={project.ms_since_epoch}/>
+                {project.technologies.length > 0 && <>
+                    &nbsp;|&nbsp;
+                    <RenderTechnologies technologies={project.technologies}/>
+                </>}
+            </div>
+
+            {project.image && <img className="rounded-2 mb-2" src={project.image} alt={"Project Image"}/>}
+
             {project.subtitle && <p className="text-muted">{project.subtitle}</p>}
+            <RenderButtonLinks project={project}/>
+            <hr/>
             {project.page()}
         </Container>
     </FooterWrapper>;
