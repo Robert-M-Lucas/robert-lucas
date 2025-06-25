@@ -18,7 +18,8 @@ export const GOOGLE_PLAY_LINK: LinkType = {
         style={{color: "#46af1c"}} href={url} target={"_blank"}>
         Google Play
     </a>,
-    getButtonElement: (url: string) => <Button variant="success" href={url} target="_blank">
+    getButtonElement: (url: string) => <Button variant="success" href={url} target="_blank"
+                                               onClick={(e) => e.stopPropagation()}>
         <div className="d-flex flex-row align-items-center">
             <GooglePlay/><span className="ps-2">Google Play</span>
         </div>
@@ -31,7 +32,8 @@ export const GITHUB_LINK: LinkType = {
         style={{color: "#af8d1c"}} href={url} target={"_blank"}>
         Github
     </a>,
-    getButtonElement: (url: string) => <Button variant="warning" href={url} target="_blank">
+    getButtonElement: (url: string) => <Button variant="warning" href={url} target="_blank"
+                                               onClick={(e) => e.stopPropagation()}>
         <div className="d-flex flex-row align-items-center">
             <Github/><span className="ps-2">Github</span>
         </div>
