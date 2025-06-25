@@ -57,7 +57,7 @@ function CompactEntry({project}: EntryProps) {
         <h2 className="mb-0">{project.title}</h2>
         <div className="d-flex justify-content-start align-items-center mb-2">
             <RenderProjectDate ms_since_epoch={project.ms_since_epoch}/> &nbsp;|&nbsp;
-            <RenderTechsAndLinks technologies={project.technologies} links={project.links}/>
+            <RenderTechsAndLinks currently_working_on={project.currently_working_on} technologies={project.technologies} links={project.links}/>
         </div>
         <p className={"text-muted"}>{project.subtitle}</p>
     </div>;
@@ -71,7 +71,7 @@ function ExpandedEntry({project}: EntryProps) {
             <RenderProjectDate ms_since_epoch={project.ms_since_epoch}/>
             {project.technologies.length > 0 && <>
                 &nbsp;|&nbsp;
-                <RenderTechnologies technologies={project.technologies}/>
+                <RenderTechnologies currently_working_on={project.currently_working_on} technologies={project.technologies}/>
             </>}
         </div>
 

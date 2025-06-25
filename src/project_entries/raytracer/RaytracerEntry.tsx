@@ -19,19 +19,20 @@ import failed3 from "./assets/failed3.png";
 import failed4 from "./assets/failed4.png";
 import failed5 from "./assets/failed5.png";
 
-import {CURRENTLY_WORKING_ON, RUST} from "../../routes/projects/SingleProjectPage/technology.tsx";
+import {RUST} from "../../routes/projects/SingleProjectPage/technology.tsx";
 import ProjImage from "../../components/project_entry_utils/ProjImage.tsx";
 import ProjParagraph from "../../components/project_entry_utils/ProjParagraph.tsx";
 import {GITHUB_LINK} from "../../routes/projects/SingleProjectPage/links.tsx";
 
 export const RaytracerProject: Project = {
+    currently_working_on: false,
     name: "raytracer",
     title: "Raytracer",
     subtitle: "A raytracing engine supporting reflections, refraction, direct lighting and indirect lighting",
     ms_since_epoch: null,
     image: {image: render, alt: "Raytracer render"},
     page: RaytracingEntryPage,
-    technologies: [CURRENTLY_WORKING_ON, RUST],
+    technologies: [RUST],
     links: [{url: "https://github.com/Robert-M-Lucas/raytracing-two", type: GITHUB_LINK}],
 }
 
@@ -39,9 +40,9 @@ function RaytracingEntryPage() {
     return <>
         <ProjParagraph>I created a raytracing engine in Rust to learn the language, learn more about computer graphics, practice working with vectors in 3D space and to apply my physics knowledge.</ProjParagraph>
 
-        <ProjImage image={preview} alt={"Raytracer preview"} caption={" Preview with reduced resolution and lighting calculations"}/>
+        <ProjImage image={preview} alt={"Raytracer preview"} caption={"Preview with reduced resolution and lighting calculations"}/>
 
-        <ProjImage image={render} alt={"Render with full lighting effects. Note that one of the squares at the back is white in colour, but appears slightly red as it is receiving indirect lighting from the red square"}/>
+        <ProjImage image={render} alt={"Full raytracing render"} caption={"Render with full lighting effects. Note that one of the squares at the back is white in colour, but appears slightly red as it is receiving indirect lighting from the red square"}/>
 
         <ProjParagraph>The principle behind raytracing is to shoot rays from a point, to a pixel on a virtual screen and then continue the rays until they hit something that you can use to calculate the ray's colour.</ProjParagraph>
 

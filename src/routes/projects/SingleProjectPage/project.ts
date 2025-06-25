@@ -8,6 +8,7 @@ export interface ProjectImage {
 }
 
 export interface Project {
+    currently_working_on: boolean;
     name: string;
     alt_names?: string[];
     title: string;

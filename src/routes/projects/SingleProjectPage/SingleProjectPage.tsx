@@ -56,7 +56,7 @@ function SingleProjectPageRenderer(project: Project) {
                 <RenderProjectDate ms_since_epoch={project.ms_since_epoch}/>
                 {project.technologies.length > 0 && <>
                     &nbsp;|&nbsp;
-                    <RenderTechnologies technologies={project.technologies}/>
+                    <RenderTechnologies currently_working_on={project.currently_working_on} technologies={project.technologies}/>
                 </>}
             </div>
 

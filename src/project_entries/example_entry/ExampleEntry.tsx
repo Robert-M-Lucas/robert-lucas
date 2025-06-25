@@ -4,6 +4,7 @@ import {TYPESCRIPT} from "../../routes/projects/SingleProjectPage/technology.tsx
 import {GITHUB_LINK, GOOGLE_PLAY_LINK} from "../../routes/projects/SingleProjectPage/links.tsx";
 
 export const ExampleProject: Project = {
+    currently_working_on: false,
     name: "example_entry",
     alt_names: ["example"],
     title: "Example Entry",
