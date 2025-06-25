@@ -1,4 +1,4 @@
-import {Technology} from "../../routes/projects/SingleProjectPage/technology.tsx";
+import {Technology} from "../routes/projects/SingleProjectPage/technology.tsx";
 
 export interface Props {
     technologies: Technology[]

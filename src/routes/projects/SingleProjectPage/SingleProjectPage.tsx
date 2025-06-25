@@ -1,21 +1,35 @@
-import {Link, useParams} from "react-router-dom";
+import {Link, useNavigate, useParams} from "react-router-dom";
 import PROJECT_LIST from "./project_list.ts";
 import FooterWrapper from "../../../components/FooterWrapper.tsx";
 import Header from "../../../components/Header.tsx";
 import {Container} from "react-bootstrap";
 import {Project} from "./project.ts";
-import {PROJECTS_PATH} from "../../../router.tsx";
+import {getProjectPath, PROJECTS_PATH} from "../../../router.tsx";
 import HeaderSpacer from "../../../components/HeaderSpacer.tsx";
-import RenderTechnologies from "../../../components/project_entry_utils/RenderTechnologies.tsx";
-import RenderButtonLinks from "../../../components/project_entry_utils/RenderButtonLinks.tsx";
-import RenderProjectDate from "../../../components/project_entry_utils/RenderProjectDate.tsx";
+import RenderTechnologies from "../../../components/RenderTechnologies.tsx";
+import RenderButtonLinks from "../../../components/RenderButtonLinks.tsx";
+import RenderProjectDate from "../../../components/RenderProjectDate.tsx";
+import FullscreenCenter from "../../../components/FullscreenCenter.tsx";
+import ProjectImage from "../../../components/project_entry_utils/ProjectImage.tsx";
 
 export default function SingleProjectPage() {
     const params = useParams();
+    const navigate = useNavigate();
     if (params.project) {
         for (const project of PROJECT_LIST) {
             if (project.name === params.project) {
                 return SingleProjectPageRenderer(project);
+            }
+        }
+
+        for (const project of PROJECT_LIST) {
+            if (project.alt_names) {
+                for (const alt_name of project.alt_names) {
+                    if (alt_name === params.project) {
+                        setTimeout(() => navigate(getProjectPath(project.name), { replace: true, viewTransition: true}), 0);
+                        return <FullscreenCenter>Redirecting</FullscreenCenter>;
+                    }
+                }
             }
         }
 
@@ -36,8 +50,6 @@ function SingleProjectPageRenderer(project: Project) {
                 <Link viewTransition to={PROJECTS_PATH} className="text-decoration-none">‹ Projects List</Link>
             </div>
 
-
-            
             <h1 className={project.subtitle ? "mb-0" : "mb-3"}>{project.title}</h1>
             <div className="mb-1">
                 <RenderProjectDate ms_since_epoch={project.ms_since_epoch}/>
@@ -47,9 +59,9 @@ function SingleProjectPageRenderer(project: Project) {
                 </>}
             </div>
 
-            {project.image && <img className="rounded-2 mb-2" src={project.image} alt={"Project Image"}/>}
+            {project.image && <ProjectImage image={project.image.image} alt={project.image.alt}/>}
 
-            {project.subtitle && <p className="text-muted">{project.subtitle}</p>}
+            {project.subtitle && <p className="text-muted mb-2">{project.subtitle}</p>}
             <RenderButtonLinks project={project}/>
             <hr/>
             {project.page()}
