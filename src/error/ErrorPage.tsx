@@ -6,9 +6,18 @@ export default function ErrorPage() {
     const error = useRouteError();
     console.log(error);
 
-    const statusText = (error && typeof error === "object" && "statusText" in error) ? String(error.statusText) : "Unknown error";
+    let statusText = "Unknown error";
 
-    let errorTitle = "An Error Occurred:";
+    if (error && typeof error === "object") {
+        if ("statusText" in error) {
+            statusText = String(error.statusText);
+        }
+        else if ("message" in error) {
+            statusText = String(error.message);
+        }
+    }
+
+        let errorTitle = "An Error Occurred:";
     if (error && typeof error === "object" && "status" in error && error.status === 404) {
         errorTitle = "404 - Page Not Found";
     }
