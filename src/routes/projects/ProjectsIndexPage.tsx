@@ -1,6 +1,6 @@
 import FooterWrapper from "../../components/FooterWrapper";
 import Header from "../../components/Header.tsx";
-import {Button, Container} from "react-bootstrap";
+import {Button, Card, Container} from "react-bootstrap";
 import PROJECT_LIST from "./SingleProjectPage/project_list.ts";
 import HeaderSpacer from "../../components/HeaderSpacer.tsx";
 import {useState} from "react";
@@ -21,13 +21,28 @@ export default function ProjectsIndexPage() {
         <Header/>
         <HeaderSpacer/>
         <Container className="pb-5">
-            <h1>Projects</h1>
-            <p className="text-muted">Click on any project to learn more</p>
-            <Button variant={"outline-dark"} onClick={() => {setCompact(!compact)}} href={"#"}>{compact ? "Switch to expanded view" : "Switch to compact view"}</Button>
-                {PROJECT_LIST.map((project, i) => <div key={i}><hr/>{compact ?
+            <div className="d-flex justify-content-between">
+                <div>
+                    <h1>Projects</h1>
+                    <p className="text-muted">Click on any project to learn more</p>
+                </div>
+                <div>
+                    <Button variant={"outline-dark"} onClick={() => {setCompact(!compact)}} href={"#"}>{compact ? "Switch to expanded view" : "Switch to compact view"}</Button>
+                </div>
+            </div>
+
+            {PROJECT_LIST.map((project, i) => <div key={i}><hr/>{compact ?
                     <CompactEntry project={project}/> :
                     <ExpandedEntry project={project}/>}</div>)
                 }
+
+            <hr/>
+            <Card className={"mt-5 text-center"}>
+                <Card.Title className={"mt-3"}>Migration in progress</Card.Title>
+                <Card.Body>
+                    This list is incomplete as projects are still being transferred from my <a href={"https://robertlucas.pythonanywhere.com"} target={"_blank"}>old website</a>.
+                </Card.Body>
+            </Card>
         </Container>
     </FooterWrapper>;
 }

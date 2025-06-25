@@ -18,6 +18,6 @@ export const PortfolioTwoProject: Project = {
 
 function PortfolioTwoEntryPage() {
     return <>
-        TODO
+        This entry is still being written
     </>;
 }
