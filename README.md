@@ -1,4 +1,4 @@
-# Budget-19
+# Robert-Lucas
 
 ## Starting Development
 
@@ -51,7 +51,7 @@ firebase hosting:channel:deploy [Test Deployment Name]
 
 ### Production Deployment
 
-Making a [pull request](https://github.com/Robert-M-Lucas/budget-19/compare)
+Making a [pull request](https://github.com/Robert-M-Lucas/robert-lucas/compare)
 will automatically create a tiles deployment to Firebase (i.e. not
 overwrite the production app). You should see a message below your new pull
 request notifying you that your changes are being deployed (to a test URL). Click on
