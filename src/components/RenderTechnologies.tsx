@@ -10,8 +10,8 @@ export default function RenderTechnologies({ technologies }: Props) {
     }
 
     return <span>
-        {technologies.map((technology, i) => <>
+        {technologies.map((technology, i) => <span key={i}>
             {technology.getElement()} {i !== technologies.length - 1 && "●"}
-        </>)}
+        </span>)}
     </span>;
 }

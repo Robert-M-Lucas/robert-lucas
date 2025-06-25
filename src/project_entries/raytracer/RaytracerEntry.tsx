@@ -20,7 +20,8 @@ import failed4 from "./assets/failed4.png";
 import failed5 from "./assets/failed5.png";
 
 import {RUST} from "../../routes/projects/SingleProjectPage/technology.tsx";
-import ProjectImage from "../../components/project_entry_utils/ProjectImage.tsx";
+import ProjImage from "../../components/project_entry_utils/ProjImage.tsx";
+import ProjParagraph from "../../components/project_entry_utils/ProjParagraph.tsx";
 
 export const RaytracerProject: Project = {
     name: "raytracer",
@@ -35,58 +36,58 @@ export const RaytracerProject: Project = {
 
 function RaytracingEntryPage() {
     return <>
-        <p>I created a raytracing engine in Rust to learn the language, learn more about computer graphics, practice working with vectors in 3D space and to apply my physics knowledge.</p>
+        <ProjParagraph>I created a raytracing engine in Rust to learn the language, learn more about computer graphics, practice working with vectors in 3D space and to apply my physics knowledge.</ProjParagraph>
 
-        <ProjectImage image={preview} alt={"Raytracer preview"} caption={" Preview with reduced resolution and lighting calculations"}/>
+        <ProjImage image={preview} alt={"Raytracer preview"} caption={" Preview with reduced resolution and lighting calculations"}/>
 
-        <ProjectImage image={render} alt={"Render with full lighting effects. Note that one of the squares at the back is white in colour, but appears slightly red as it is receiving indirect lighting from the red square"}/>
+        <ProjImage image={render} alt={"Render with full lighting effects. Note that one of the squares at the back is white in colour, but appears slightly red as it is receiving indirect lighting from the red square"}/>
 
-        <p>The principle behind raytracing is to shoot rays from a point, to a pixel on a virtual screen and then continue the rays until they hit something that you can use to calculate the ray's colour.</p>
+        <ProjParagraph>The principle behind raytracing is to shoot rays from a point, to a pixel on a virtual screen and then continue the rays until they hit something that you can use to calculate the ray's colour.</ProjParagraph>
 
-        <ProjectImage image={raytracing} alt={"Raytracing diagram"} caption={"Raytracing diagram"} source={{name: "Wikimedia", url: "https://commons.wikimedia.org/wiki/File:Ray_trace_diagram.svg"}}/>
+        <ProjImage image={raytracing} alt={"Raytracing diagram"} caption={"Raytracing diagram"} source={{name: "Wikimedia", url: "https://commons.wikimedia.org/wiki/File:Ray_trace_diagram.svg"}}/>
 
-        <p>The benefit of raytracing over other rendering techniques is that it supports true realtime reflection (and refraction) as when you hit a reflective surface, you can 'draw' another ray in the reflected direction and use the colour that ray finds. Direct lighting is also quite simple as you can draw a line from the point on the object you've hit to all the light sources in the scene and any light sources that have an uninterrupted path to the object contribute to its lighting.</p>
+        <ProjParagraph>The benefit of raytracing over other rendering techniques is that it supports true realtime reflection (and refraction) as when you hit a reflective surface, you can 'draw' another ray in the reflected direction and use the colour that ray finds. Direct lighting is also quite simple as you can draw a line from the point on the object you've hit to all the light sources in the scene and any light sources that have an uninterrupted path to the object contribute to its lighting.</ProjParagraph>
 
-        <p>The difficult part comes with indirect lighting (shown in the full render). There is no easy way to calculate indirect lighting, so you must emit hundreds of rays from the object in random directions, calculate their colours and then apply it to the object.</p>
+        <ProjParagraph>The difficult part comes with indirect lighting (shown in the full render). There is no easy way to calculate indirect lighting, so you must emit hundreds of rays from the object in random directions, calculate their colours and then apply it to the object.</ProjParagraph>
 
-        <ProjectImage image={indirect} alt={"Indirect lighting diagram"} source={{name: "Scratchapixel", url: "https://www.scratchapixel.com/lessons/3d-basic-rendering/ray-tracing-overview/light-transport-ray-tracing-whitted.html"}}/>
+        <ProjImage image={indirect} alt={"Indirect lighting diagram"} source={{name: "Scratchapixel", url: "https://www.scratchapixel.com/lessons/3d-basic-rendering/ray-tracing-overview/light-transport-ray-tracing-whitted.html"}}/>
 
-        <ProjectImage image={indirect2} alt={"Indirect lighting example"} source={{name: "Scratchapixel", url: "https://www.scratchapixel.com/lessons/3d-basic-rendering/global-illumination-path-tracing/global-illumination-path-tracing-practical-implementation.html"}}/>
+        <ProjImage image={indirect2} alt={"Indirect lighting example"} source={{name: "Scratchapixel", url: "https://www.scratchapixel.com/lessons/3d-basic-rendering/global-illumination-path-tracing/global-illumination-path-tracing-practical-implementation.html"}}/>
 
-        <p>For developing this project, I took an approach of layering increasingly complex mathematical abstractions until I had a toolkit I could use to calculate the colour of every pixel on the screen. For example, I started with a 3D vector:</p>
+        <ProjParagraph>For developing this project, I took an approach of layering increasingly complex mathematical abstractions until I had a toolkit I could use to calculate the colour of every pixel on the screen. For example, I started with a 3D vector:</ProjParagraph>
 
-        <ProjectImage image={v3} alt={"3D vector implementation code"} caption={"Snippet of 3D vector implementation with utility functions"}/>
+        <ProjImage legacyNaturalWidth image={v3} alt={"3D vector implementation code"} caption={"Snippet of 3D vector implementation with utility functions"}/>
 
-        <ProjectImage image={v3_op} alt={"3D vector operation implementation code"} caption={"Implementing operators for 3D vectors for easier use"}/>
+        <ProjImage legacyNaturalWidth image={v3_op} alt={"3D vector operation implementation code"} caption={"Implementing operators for 3D vectors for easier use"}/>
 
-        <p>I'd then use a 3D vector to make a line:</p>
+        <ProjParagraph>I'd then use a 3D vector to make a line:</ProjParagraph>
 
-        <ProjectImage image={line} alt={"Line implementation code"} caption={"Snippet of implementation for a line"}/>
+        <ProjImage legacyNaturalWidth image={line} alt={"Line implementation code"} caption={"Snippet of implementation for a line"}/>
 
-        <p>And then I'd use this in the calculations needed for a plane:</p>
+        <ProjParagraph>And then I'd use this in the calculations needed for a plane:</ProjParagraph>
 
-        <ProjectImage image={plane} alt={"Plane implementation code"} caption={"Snippet of implementation for a plane"}/>
+        <ProjImage legacyNaturalWidth image={plane} alt={"Plane implementation code"} caption={"Snippet of implementation for a plane"}/>
         
-        <ProjectImage image={plane_intersection} alt={"Plane intersection code"} caption={"Calculating the intersection between the plane and a line by using matrices and Cramer's rule"}/>
+        <ProjImage legacyNaturalWidth image={plane_intersection} alt={"Plane intersection code"} caption={"Calculating the intersection between the plane and a line by using matrices and Cramer's rule"}/>
 
-        <p> And when inputting a pixel's ray, this (ignoring other factors such as reflections and lighting) would tell me whether to show the colour of the plane or the colour behind it for a given pixel.</p>
+        <ProjParagraph> And when inputting a pixel's ray, this (ignoring other factors such as reflections and lighting) would tell me whether to show the colour of the plane or the colour behind it for a given pixel.</ProjParagraph>
 
-        <ProjectImage image={finding_object} alt={"Code for finding the closest object on a ray"} caption={"Finding the closest object given a ray (line)"}/>
+        <ProjImage legacyNaturalWidth image={finding_object} alt={"Code for finding the closest object on a ray"} caption={"Finding the closest object given a ray (line)"}/>
 
-        <p>Scene configuration:</p>
+        <ProjParagraph>Scene configuration:</ProjParagraph>
 
-        <ProjectImage image={object_config} alt={"Object configuration code"} caption={"Object configuration"}/>
+        <ProjImage legacyNaturalWidth image={object_config} alt={"Object configuration code"} caption={"Object configuration"}/>
 
-        <ProjectImage image={light_config} alt={"Light configuration code"} caption={"Light configuration"}/>
+        <ProjImage legacyNaturalWidth image={light_config} alt={"Light configuration code"} caption={"Light configuration"}/>
 
-        <ProjectImage image={scene_config} alt={"Scene configuration code"} caption={"Scene configuration"}/>
+        <ProjImage legacyNaturalWidth image={scene_config} alt={"Scene configuration code"} caption={"Scene configuration"}/>
 
-        <p>Failed renders from development:</p>
+        <ProjParagraph>Failed renders from development:</ProjParagraph>
 
-        <ProjectImage image={failed1} alt={"Screenshot of failed render"} caption={"Incorrect screen width"}/>
-        <ProjectImage image={failed2} alt={"Screenshot of failed render"} caption={"Too much light"}/>
-        <ProjectImage image={failed3} alt={"Screenshot of failed render"} caption={"I don't even want to know"}/>
-        <ProjectImage image={failed4} alt={"Screenshot of failed render"} caption={"Refraction is annoying"}/>
-        <ProjectImage image={failed5} alt={"Screenshot of failed render"} caption={"What"}/>
+        <ProjImage image={failed1} alt={"Screenshot of failed render"} caption={"Incorrect screen width"}/>
+        <ProjImage image={failed2} alt={"Screenshot of failed render"} caption={"Too much light"}/>
+        <ProjImage image={failed3} alt={"Screenshot of failed render"} caption={"I don't even want to know"}/>
+        <ProjImage image={failed4} alt={"Screenshot of failed render"} caption={"Refraction is annoying"}/>
+        <ProjImage image={failed5} alt={"Screenshot of failed render"} caption={"What"}/>
     </>;
 }

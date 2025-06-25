@@ -1,5 +1,5 @@
 import {Project} from "../../routes/projects/SingleProjectPage/project.ts";
-import logo from "../../assets/logo.png";
+import logo from "../../assets/icon.png";
 import {TYPESCRIPT} from "../../routes/projects/SingleProjectPage/technology.tsx";
 
 export const ExampleProject: Project = {

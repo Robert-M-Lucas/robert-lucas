@@ -10,7 +10,8 @@ import RenderTechnologies from "../../../components/RenderTechnologies.tsx";
 import RenderButtonLinks from "../../../components/RenderButtonLinks.tsx";
 import RenderProjectDate from "../../../components/RenderProjectDate.tsx";
 import FullscreenCenter from "../../../components/FullscreenCenter.tsx";
-import ProjectImage from "../../../components/project_entry_utils/ProjectImage.tsx";
+import ProjImage from "../../../components/project_entry_utils/ProjImage.tsx";
+import RenderLegacyWarning from "../../../components/RenderLegacyWarning.tsx";
 
 export default function SingleProjectPage() {
     const params = useParams();
@@ -59,11 +60,16 @@ function SingleProjectPageRenderer(project: Project) {
                 </>}
             </div>
 
-            {project.image && <ProjectImage image={project.image.image} alt={project.image.alt}/>}
+            {project.image && <ProjImage image={project.image.image} alt={project.image.alt}/>}
 
             {project.subtitle && <p className="text-muted mb-2">{project.subtitle}</p>}
+
             <RenderButtonLinks project={project}/>
+
             <hr/>
+
+            {project.ms_since_epoch === null && <RenderLegacyWarning/>}
+
             {project.page()}
         </Container>
     </FooterWrapper>;

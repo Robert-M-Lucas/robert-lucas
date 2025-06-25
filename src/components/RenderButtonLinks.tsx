@@ -33,8 +33,8 @@ export default function RenderButtonLinks({ project }: Props) {
     }
 
     return <div className="mb-1">
-        {buttons.map((button, i) => <>
+        {buttons.map((button, i) => <span key={i}>
             {button} {i !== buttons.length - 1 && <span className="px-2"></span>}
-        </>)}
+        </span>)}
     </div>;
 }
