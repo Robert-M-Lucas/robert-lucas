@@ -6,7 +6,7 @@ import {Container} from "react-bootstrap";
 import {Project} from "./project.ts";
 import {getProjectPath, PROJECTS_PATH} from "../../../router.tsx";
 import HeaderSpacer from "../../../components/HeaderSpacer.tsx";
-import RenderTechnologies from "../../../components/RenderTechnologies.tsx";
+import RenderTechnologies from "../../../components/RenderTechsAndLinks.tsx";
 import RenderButtonLinks from "../../../components/RenderButtonLinks.tsx";
 import RenderProjectDate from "../../../components/RenderProjectDate.tsx";
 import FullscreenCenter from "../../../components/FullscreenCenter.tsx";
@@ -64,7 +64,7 @@ function SingleProjectPageRenderer(project: Project) {
 
             {project.subtitle && <p className="text-muted mb-2">{project.subtitle}</p>}
 
-            <RenderButtonLinks project={project}/>
+            <RenderButtonLinks links={project.links}/>
 
             <hr/>
 

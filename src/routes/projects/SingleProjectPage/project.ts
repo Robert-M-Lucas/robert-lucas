@@ -1,5 +1,6 @@
 import {JSX} from "react";
 import {Technology} from "./technology.ts";
+import {ProjectLink} from "./links.tsx";
 
 export interface ProjectImage {
     image: string;
@@ -14,7 +15,6 @@ export interface Project {
     ms_since_epoch: number | null; // No date indicates legacy entry
     image?: ProjectImage;
     technologies: Technology[];
-    github?: string;
-    google_play?: string;
+    links: ProjectLink[];
     page: () => JSX.Element
 }

@@ -1,40 +1,17 @@
-import {Project} from "../routes/projects/SingleProjectPage/project.ts";
-import {Button} from "react-bootstrap";
-import {Github, GooglePlay} from "react-bootstrap-icons";
+import { ProjectLink } from "../routes/projects/SingleProjectPage/links.tsx";
 
 export interface Props {
-    project: Project;
+    links: ProjectLink[];
 }
 
-export default function RenderButtonLinks({ project }: Props) {
-    const buttons = [];
-
-    if (project.github) {
-        buttons.push(
-            <Button variant="warning" href={project.github} target="_blank">
-                <div className="d-flex flex-row align-items-center">
-                    <Github/><span className="ps-2">Github</span>
-                </div>
-            </Button>
-        );
-    }
-    if (project.google_play) {
-        buttons.push(
-                <Button variant="success" href={project.google_play} target="_blank">
-                    <div className="d-flex flex-row align-items-center">
-                        <GooglePlay/><span className="ps-2">Google Play</span>
-                    </div>
-                </Button>
-            );
-    }
-
-    if (buttons.length === 0) {
+export default function RenderButtonLinks({ links }: Props) {
+    if (links.length === 0) {
         return <></>;
     }
 
     return <div className="mb-1">
-        {buttons.map((button, i) => <span key={i}>
-            {button} {i !== buttons.length - 1 && <span className="px-2"></span>}
+        {links.map((link, i) => <span key={i}>
+            {link.type.getButtonElement(link.url)} {(i !== links.length - 1) && <span className="mx-1"></span>}
         </span>)}
     </div>;
 }

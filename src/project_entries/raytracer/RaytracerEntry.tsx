@@ -19,9 +19,10 @@ import failed3 from "./assets/failed3.png";
 import failed4 from "./assets/failed4.png";
 import failed5 from "./assets/failed5.png";
 
-import {RUST} from "../../routes/projects/SingleProjectPage/technology.tsx";
+import {CURRENTLY_WORKING_ON, RUST} from "../../routes/projects/SingleProjectPage/technology.tsx";
 import ProjImage from "../../components/project_entry_utils/ProjImage.tsx";
 import ProjParagraph from "../../components/project_entry_utils/ProjParagraph.tsx";
+import {GITHUB_LINK} from "../../routes/projects/SingleProjectPage/links.tsx";
 
 export const RaytracerProject: Project = {
     name: "raytracer",
@@ -30,8 +31,8 @@ export const RaytracerProject: Project = {
     ms_since_epoch: null,
     image: {image: render, alt: "Raytracer render"},
     page: RaytracingEntryPage,
-    technologies: [RUST],
-    github: "https://github.com/Robert-M-Lucas/raytracing-two",
+    technologies: [CURRENTLY_WORKING_ON, RUST],
+    links: [{url: "https://github.com/Robert-M-Lucas/raytracing-two", type: GITHUB_LINK}],
 }
 
 function RaytracingEntryPage() {

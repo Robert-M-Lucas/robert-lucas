@@ -30,7 +30,7 @@ export default function ErrorPage() {
                     <p>{statusText}</p>
                     <p style={{color: "grey"}}>
                         <b><a style={{textDecoration: "none"}} href="/"
-                              onClick={() => navigate(-1)}>Back</a></b> ● <b><a
+                              onClick={() => navigate(-1)}>Back</a></b> • <b><a
                         style={{textDecoration: "none"}} href="/">Home</a></b>
                     </p>
                 </div>
