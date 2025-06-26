@@ -1,0 +1,1 @@
+<Pimg image={indirect} alt={"TODO"} source={{name: "Scratchapixel", url: "https://www.scratchapixel.com/lessons/3d-basic-rendering/ray-tracing-overview/light-transport-ray-tracing-whitted.html"}}/>

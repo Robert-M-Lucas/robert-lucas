@@ -1,5 +1,7 @@
 import {Project} from "../../routes/projects/SingleProjectPage/project.ts";
-import django_code from "./assets/djanco_code.txt";
+import django_image from "./assets/django_image.txt";
+import django_code from  "./assets/djanco_code.txt"
+import react_image from "./assets/react_image.txt";
 import react_code from "./assets/react_code.txt";
 
 import {
@@ -22,7 +24,7 @@ import PcodeSrc from "../../components/project_entry_utils/PcodeSrc.tsx";
 export const PortfolioTwoProject: Project = {
     currently_working_on: true,
     name: "portfolio_two",
-    title: "Portfolio Website (This Website)",
+    title: "Portfolio Website (This Website) - [Writing In Progress]",
     subtitle: "This website, created to replace my old portfolio website",
     ms_since_epoch: 1750860747000,
     page: PortfolioTwoEntryPage,
@@ -48,7 +50,15 @@ function PortfolioTwoEntryPage() {
         <PcodeSrc codeSrc={react_code} language={"tsx"} caption={"React code for the expanded project list view"}/>
 
         <Pp>
-            This page is still being written
+            Not only does React code save time in creating dynamic UI, it also encourages better design patterns as better abstractions are easier to make.
+        </Pp>
+
+        <PcodeSrc codeSrc={django_image} language={"html"} caption={"Old HTML template code for inserting an image"}/>
+
+        <PcodeSrc codeSrc={react_image} language={"tsx"} caption={"The current equivalent"}/>
+
+        <Pp>
+            Finally, the vast number of React-compatible libraries allow the easy inclusion of additional functionality (such as the addition of the above code blocks) whereas in Django, the extra effort required to add these led me to use images instead.
         </Pp>
     </ProjWrapper>;
 }

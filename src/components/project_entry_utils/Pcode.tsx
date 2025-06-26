@@ -1,4 +1,7 @@
-import {CopyBlock, github} from 'react-code-blocks';
+import {
+    a11yLight,
+    CopyBlock
+} from 'react-code-blocks';
 import {Card} from "react-bootstrap";
 
 export interface Props {
@@ -13,7 +16,7 @@ export default function Pcode({ code, language, caption }: Props) {
             text={code}
             language={language}
             showLineNumbers={true}
-            theme={github}
+            theme={a11yLight}
             codeBlock
         />
     </Card>

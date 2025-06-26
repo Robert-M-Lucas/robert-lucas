@@ -47,7 +47,7 @@ function SingleProjectPageRenderer(project: Project) {
     return <FooterWrapper>
         <Header/>
         <HeaderSpacer/>
-        <Container>
+        <Container style={{maxWidth: "1000px"}}>
             <div>
                 <Link viewTransition to={PROJECTS_PATH} className="text-decoration-none">‹ Projects List</Link>
             </div>

@@ -1,5 +1,5 @@
 import {JSX} from "react";
-import {Github, Globe, GooglePlay} from "react-bootstrap-icons";
+import {BoxSeamFill, Github, Globe, GooglePlay} from "react-bootstrap-icons";
 import {Button} from "react-bootstrap";
 
 export interface LinkType {
@@ -31,15 +31,31 @@ export const GOOGLE_PLAY_LINK: LinkType = {
 export const GITHUB_LINK: LinkType = {
     getTextElement: (url: string) => <a
         className={"fw-bold"}
-        style={{color: "#af8d1c"}} href={url} target={"_blank"}
+        style={{color: "#000000"}} href={url} target={"_blank"}
         onClick={(e) => e.stopPropagation()}>
         <Github style={{marginBottom: "4px", marginRight: "4px"}}/>
         Github
     </a>,
-    getButtonElement: (url: string) => <Button variant="warning" href={url} target="_blank"
+    getButtonElement: (url: string) => <Button variant="dark" href={url} target="_blank"
                                                onClick={(e) => e.stopPropagation()}>
         <div className="d-flex flex-row align-items-center">
             <Github/><span className="ps-2">Github</span>
+        </div>
+    </Button>
+}
+
+export const CRATES_LINK: LinkType = {
+    getTextElement: (url: string) => <a
+        className={"fw-bold"}
+        style={{color: "#e8af40"}} href={url} target={"_blank"}
+        onClick={(e) => e.stopPropagation()}>
+        <BoxSeamFill style={{marginBottom: "4px", marginRight: "4px"}}/>
+        Crates.io
+    </a>,
+    getButtonElement: (url: string) => <Button variant="warning" href={url} target="_blank"
+                                               onClick={(e) => e.stopPropagation()}>
+        <div className="d-flex flex-row align-items-center">
+            <BoxSeamFill/><span className="ps-2">Crates.io</span>
         </div>
     </Button>
 }
@@ -48,12 +64,12 @@ export function createCustomLink(name: string): LinkType {
     return {
         getTextElement: (url: string) => <a
             className={"fw-bold"}
-            style={{color: "#000000"}} href={url} target={"_blank"}
+            style={{color: "#0dcaf0"}} href={url} target={"_blank"}
             onClick={(e) => e.stopPropagation()}>
             <Globe style={{marginBottom: "4px", marginRight: "4px"}}/>
             {name}
         </a>,
-        getButtonElement: (url: string) => <Button variant="dark" href={url} target="_blank"
+        getButtonElement: (url: string) => <Button variant="info" href={url} target="_blank"
                                                    onClick={(e) => e.stopPropagation()}>
             <div className="d-flex flex-row align-items-center">
                 <Globe/><span className="ps-2">{name}</span>

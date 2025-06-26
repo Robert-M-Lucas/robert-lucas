@@ -18,9 +18,15 @@ import {BezierProject} from "../../../project_entries/bezier/BezierEntry.tsx";
 import {PiProject} from "../../../project_entries/pi/PiEntry.tsx";
 import {CompressionProject} from "../../../project_entries/compression/CompressionEntry.tsx";
 import {GeometricPatternProject} from "../../../project_entries/geometric_pattern/GeometricPatternEntry.tsx";
+import {CompileTimeRegexProject} from "../../../project_entries/constant_regex/CompileTimeRegexEntry.tsx";
+import {Whython8Project} from "../../../project_entries/whython-8/Whython8Entry.tsx";
+import {RssProject} from "../../../project_entries/rss/RssEntry.tsx";
 
 const PROJECT_LIST = [
     PortfolioTwoProject,
+    RssProject,
+    CompileTimeRegexProject,
+    Whython8Project,
     Whython7Project,
     PythonSudokuProject,
     RaytracingProject,

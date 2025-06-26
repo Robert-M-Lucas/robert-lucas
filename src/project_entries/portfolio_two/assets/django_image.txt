@@ -1,0 +1,1 @@
+{% include 'projects/default_image_snippet.html' with img_src='projects/raytracing/indirect.png' source_name='Scratchapixel' source='https://www.scratchapixel.com/lessons/3d-basic-rendering/ray-tracing-overview/light-transport-ray-tracing-whitted.html' %}
