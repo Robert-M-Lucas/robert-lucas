@@ -3,7 +3,7 @@ import { Project } from "../projects/SingleProjectPage/project"
 import RenderTechsAndLinks from "../../components/RenderTechsAndLinks.tsx"
 import RenderButtonLinks from "../../components/RenderButtonLinks.tsx"
 import { AnimatePresence, motion } from "framer-motion"
-import { RefObject, useEffect, useRef, useState } from "react"
+import { useEffect, useState } from "react"
 import "./blur-bottom.css"
 import { getProjectPath } from "../../router.tsx"
 import { useNavigate } from "react-router-dom"
@@ -14,8 +14,14 @@ export interface Props {
 }
 
 export function ProjectSpotlight({ project, projectCycleTime }: Props) {
-  const wrapperRef: RefObject<HTMLDivElement | null> = useRef(null)
-  const imgRef: RefObject<HTMLImageElement | null> = useRef(null)
+  const [wrapper, setWrapper] = useState<HTMLDivElement | null>(null)
+  const wrapperRef = (wrapper: HTMLDivElement) => {
+    setWrapper(wrapper)
+  }
+  const [img, setImg] = useState<HTMLImageElement | null>(null)
+  const imgRef = (img: HTMLImageElement) => {
+    setImg(img)
+  }
   const [fadeActive, setFadeActive] = useState(false)
   const [isExiting, setIsExiting] = useState(false)
   const navigate = useNavigate()
@@ -31,24 +37,22 @@ export function ProjectSpotlight({ project, projectCycleTime }: Props) {
     }
   }, [project])
 
-  useEffect(() => {
-    const checkHeight = () => {
-      if (imgRef.current && wrapperRef.current) {
-        const imgHeight = imgRef.current.offsetHeight
-        const wrapperHeight = wrapperRef.current.offsetHeight
-        setFadeActive(imgHeight > wrapperHeight)
+  const checkHeight = () => {
+    if (img && wrapper) {
+      const imgHeight = img.offsetHeight
+      const wrapperHeight = wrapper.offsetHeight
+      const new_f = imgHeight > wrapperHeight
+      if (fadeActive !== new_f) {
+        setFadeActive(new_f)
       }
     }
+  }
 
-    if (imgRef.current?.complete) {
-      checkHeight()
-    } else if (imgRef.current) {
-      imgRef.current.onload = checkHeight
-    }
-
+  useEffect(() => {
+    setTimeout(checkHeight, 100)
     window.addEventListener("resize", checkHeight)
     return () => window.removeEventListener("resize", checkHeight)
-  }, [imgRef, project])
+  }, [img, wrapper])
 
   return (
     <AnimatePresence>

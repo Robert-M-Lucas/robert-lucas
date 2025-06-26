@@ -78,75 +78,77 @@ export default function IndexPage() {
       >
         <Header />
 
-        <div
-          className={
-            "d-flex flex-column justify-content-end align-items-center"
-          }
-          style={{ height: "20vh" }}
-        >
-          <AnimatePresence>
-            {showHeading && (
-              <motion.div
-                key={currentHeading.split(" ").length}
-                initial="hidden"
-                whileInView="visible"
-                exit={"hidden"}
-                transition={{ staggerChildren: 0.15 }}
-                className={
-                  "d-flex flex-column justify-content-center align-items-center"
-                }
-              >
-                <h1 className={"display-1 fw-bold text-center"}>
-                  {currentHeading.split(" ").map((word, index) => (
-                    <React.Fragment key={index}>
-                      <motion.span
-                        className="inline-block"
-                        transition={transition}
-                        variants={variants}
+        <div>
+          <div
+            className={
+              "d-flex flex-column justify-content-end align-items-center"
+            }
+            style={{ height: "15vh" }}
+          >
+            <AnimatePresence>
+              {showHeading && (
+                <motion.div
+                  key={currentHeading.split(" ").length}
+                  initial="hidden"
+                  whileInView="visible"
+                  exit={"hidden"}
+                  transition={{ staggerChildren: 0.15 }}
+                  className={
+                    "d-flex flex-column justify-content-center align-items-center"
+                  }
+                >
+                  <h1 className={"display-1 fw-bold text-center"}>
+                    {currentHeading.split(" ").map((word, index) => (
+                      <React.Fragment key={index}>
+                        <motion.span
+                          className="inline-block"
+                          transition={transition}
+                          variants={variants}
+                        >
+                          {word}
+                        </motion.span>
+                        {index < currentHeading.split(" ").length - 1 && " "}
+                      </React.Fragment>
+                    ))}
+                  </h1>
+                  {showSubtitle && current_project && (
+                    <motion.span transition={transition} variants={variants}>
+                      <Link
+                        viewTransition
+                        className={"text-decoration-none"}
+                        to={getProjectPath(current_project.name)}
                       >
-                        {word}
-                      </motion.span>
-                      {index < currentHeading.split(" ").length - 1 && " "}
-                    </React.Fragment>
-                  ))}
-                </h1>
-                {showSubtitle && current_project && (
-                  <motion.span transition={transition} variants={variants}>
-                    <Link
-                      viewTransition
-                      className={"text-decoration-none"}
-                      to={getProjectPath(current_project.name)}
-                    >
-                      › Jump to my current project
-                    </Link>
-                    &nbsp;&nbsp;/&nbsp;&nbsp;
-                    <Link
-                      viewTransition
-                      className={"text-decoration-none"}
-                      to={PROJECTS_PATH}
-                      onClick={() => {
-                        clearProjectScrollProgress()
-                      }}
-                    >
-                      All projects
-                    </Link>
-                  </motion.span>
-                )}
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </div>
+                        › Jump to my current project
+                      </Link>
+                      &nbsp;&nbsp;/&nbsp;&nbsp;
+                      <Link
+                        viewTransition
+                        className={"text-decoration-none"}
+                        to={PROJECTS_PATH}
+                        onClick={() => {
+                          clearProjectScrollProgress()
+                        }}
+                      >
+                        All projects
+                      </Link>
+                    </motion.span>
+                  )}
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
 
-        <div
-          className={
-            "d-flex flex-column justify-content-center align-items-center"
-          }
-          style={{ height: "60vh" }}
-        >
-          <ProjectSpotlight
-            project={SHOWCASE_PROJECT_LIST[projectIndex]}
-            projectCycleTime={projectCycleTime}
-          />
+          <div
+            className={
+              "d-flex flex-column justify-content-center align-items-center"
+            }
+            style={{ height: "65vh" }}
+          >
+            <ProjectSpotlight
+              project={SHOWCASE_PROJECT_LIST[projectIndex]}
+              projectCycleTime={projectCycleTime}
+            />
+          </div>
         </div>
 
         <Button

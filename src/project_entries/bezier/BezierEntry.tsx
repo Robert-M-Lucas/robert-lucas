@@ -9,7 +9,7 @@ import { PYTHON } from "../../routes/projects/SingleProjectPage/technology.tsx"
 export const BezierProject: Project = {
   name: "bezier",
   title: "Bézier Curves",
-  subtitle: "Demonstation of how bezier curves are formed. Created in PyGame",
+  subtitle: "Demonstation of how bezier curves are formed. Created in PyGame.",
   ms_since_epoch: null,
   image: { image: bezier, alt: "TODO" },
   technologies: [PYTHON],
