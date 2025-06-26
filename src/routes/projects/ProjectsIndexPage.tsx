@@ -80,10 +80,10 @@ function CompactEntry({project}: EntryProps) {
     const navigate = useNavigate();
     return <div style={{cursor: "pointer"}} onClick={async () => navigate(getProjectPath(project.name), {viewTransition: true})}>
         <RenderProjectName title={project.title} legacy={project.ms_since_epoch === null}/>
-        <div className="d-flex justify-content-start align-items-center mb-2">
-            <RenderProjectDate ms_since_epoch={project.ms_since_epoch}/> &nbsp;|&nbsp;
+        <span className="mb-2">
+            <RenderProjectDate ms_since_epoch={project.ms_since_epoch}/> |&nbsp;
             <RenderTechsAndLinks currently_working_on={project.currently_working_on} technologies={project.technologies} links={project.links}/>
-        </div>
+        </span>
         <p className={"text-muted"}>{project.subtitle}</p>
     </div>;
 }
@@ -92,13 +92,13 @@ function ExpandedEntry({project}: EntryProps) {
     const navigate = useNavigate();
     return <div style={{cursor: "pointer"}} onClick={async () => navigate(getProjectPath(project.name), {viewTransition: true})}>
         <RenderProjectName title={project.title} margin={!project.subtitle} legacy={project.ms_since_epoch === null}/>
-        <div className="mb-1">
+        <span className="mb-1">
             <RenderProjectDate ms_since_epoch={project.ms_since_epoch}/>
             {project.technologies.length > 0 && <>
                 &nbsp;|&nbsp;
                 <RenderTechnologies currently_working_on={project.currently_working_on} technologies={project.technologies}/>
             </>}
-        </div>
+        </span>
 
         {project.image && <ProjImage image={project.image.image} alt={project.image.alt}/>}
 
