@@ -74,7 +74,7 @@ function ChessEntryPage() {
         game.
     </ProjParagraph>
 
-    <ProjImage image={heatmap} alt={"TODO"} caption={"Pawn heatmap - AI starts at top"}/>
+    <ProjImage legacyNaturalWidth image={heatmap} alt={"TODO"} caption={"Pawn heatmap - AI starts at top"}/>
 
     <ProjParagraph>
         For the networking I used a library I had previously made for other projects with a few updates. The library essentially works by allowing you to define 'packets' which have a 

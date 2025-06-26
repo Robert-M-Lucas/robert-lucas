@@ -37,8 +37,8 @@ function EnigmaEntryPage() {
         <ProjLink href="https://en.wikipedia.org/wiki/Enigma_rotor_details#Rotor_wiring_tables">Wikipedia</ProjLink> and wrote code to convert
         them into integer arrays representing how letters map to each other.
     </ProjParagraph>
-    <ProjImage image={python} alt={"TODO"} caption={"Python program to convert rotor wiring strings to integer arrays"}/>
-    <ProjImage image={enigma_data} alt={"TODO"} caption={"All the data relating to the Enigma"}/>
+    <ProjImage legacyNaturalWidth image={python} alt={"TODO"} caption={"Python program to convert rotor wiring strings to integer arrays"}/>
+    <ProjImage legacyNaturalWidth image={enigma_data} alt={"TODO"} caption={"All the data relating to the Enigma"}/>
     <ProjParagraph>
         To get the encoding forwards you just get the array of the rotor you want and get the new number at the current number's index in that array. Backwards this is a little
         more complicated as you have to find the index of the input but a simple linear search does the trick.

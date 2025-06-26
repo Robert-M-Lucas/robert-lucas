@@ -38,7 +38,7 @@ function GeometricPatternEntryPage() {
         can be set to 'None' to make it have no effect. The random color variance is achieved by generating a random shade of grey and adding or subtracting
         it from the triangle's color
     </ProjParagraph>
-    <ProjImage image={code} alt={"TODO"} caption={"Code for getting the color of a triangle (without random colour variation)"}/>
-    <ProjImage image={options_code} alt={"TODO"} caption={"Options available"}/>
+    <ProjImage legacyNaturalWidth image={code} alt={"TODO"} caption={"Code for getting the color of a triangle (without random colour variation)"}/>
+    <ProjImage legacyNaturalWidth image={options_code} alt={"TODO"} caption={"Options available"}/>
     </ProjWrapper>;
 }

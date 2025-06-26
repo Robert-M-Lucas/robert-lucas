@@ -44,9 +44,9 @@ function WebsiteEntryPage() {
         header is highlighted.
     </ProjParagraph>
 
-    <ProjImage image={projects_code} alt={"TODO"} caption={"Project list template"}/>
+    <ProjImage legacyNaturalWidth image={projects_code} alt={"TODO"} caption={"Project list template"}/>
 
-    <ProjImage image={project_data} alt={"TODO"} caption={"Data used to generate list and start of this page"}/>
+    <ProjImage legacyNaturalWidth image={project_data} alt={"TODO"} caption={"Data used to generate list and start of this page"}/>
 
     <hr/>
 

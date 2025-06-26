@@ -42,6 +42,6 @@ function SudokuSolverEntryPage() {
         I revisited this project using rust with a combination of algorithmic solving and bruteforce solving. I tested multiple different combinations and found
         solving as much as possible using the Sudoku rules first, then brute-forcing the rest to be the fastest approach. It is able to solve most Sudokus in milliseconds.
     </ProjParagraph>
-    <ProjImage image={output2} alt={"TODO"} caption={"Unsolved and solved"}/>
+    <ProjImage legacyNaturalWidth image={output2} alt={"TODO"} caption={"Unsolved and solved"}/>
     </ProjWrapper>;
 }

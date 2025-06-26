@@ -68,26 +68,26 @@ function RaytracingEntryPage() {
         For developing this project, I took an approach of layering increasingly complex mathematical abstractions until I had a toolkit I could use to calculate the colour of every pixel on the screen.
         For example, I started with a 3D vector:
     </ProjParagraph>
-    <ProjImage image={v3} alt={"TODO"} caption={"Snippet of 3D vector implementation with utility functions"}/>
-    <ProjImage image={v3_op} alt={"TODO"} caption={"Implementing operators for 3D vectors for easier use"}/>
+    <ProjImage legacyNaturalWidth image={v3} alt={"TODO"} caption={"Snippet of 3D vector implementation with utility functions"}/>
+    <ProjImage legacyNaturalWidth image={v3_op} alt={"TODO"} caption={"Implementing operators for 3D vectors for easier use"}/>
     <ProjParagraph>
         I'd then use a 3D vector to make a line:
     </ProjParagraph>
-    <ProjImage image={line} alt={"TODO"} caption={"Snippet of implementation for a line"}/>
+    <ProjImage legacyNaturalWidth image={line} alt={"TODO"} caption={"Snippet of implementation for a line"}/>
     <ProjParagraph>
         And then I'd use this in the calculations needed for a plane:
     </ProjParagraph>
-    <ProjImage image={plane} alt={"TODO"} caption={"Snippet of implementation for a plane"}/>
-    <ProjImage image={plane_intersection} alt={"TODO"} caption={"Calculating the intersection between the plane and a line by using matrices and Cramer's rule"}/>
+    <ProjImage legacyNaturalWidth image={plane} alt={"TODO"} caption={"Snippet of implementation for a plane"}/>
+    <ProjImage legacyNaturalWidth image={plane_intersection} alt={"TODO"} caption={"Calculating the intersection between the plane and a line by using matrices and Cramer's rule"}/>
     <ProjParagraph>
         And when inputting a pixel's ray, this (ignoring other factors such as reflections and lighting) would tell me whether to show the colour of the plane or 
         the colour behind it for a given pixel.
     </ProjParagraph>
-    <ProjImage image={finding_object} alt={"TODO"} caption={"Finding the closest object given a ray (line)"}/>
+    <ProjImage legacyNaturalWidth image={finding_object} alt={"TODO"} caption={"Finding the closest object given a ray (line)"}/>
     <ProjParagraph>Scene configuration:</ProjParagraph>
-    <ProjImage image={object_config} alt={"TODO"} caption={"Object configuration"}/>
-    <ProjImage image={light_config} alt={"TODO"} caption={"Light configuration"}/>
-    <ProjImage image={scene_config} alt={"TODO"} caption={"Scene configuration"}/>
+    <ProjImage legacyNaturalWidth image={object_config} alt={"TODO"} caption={"Object configuration"}/>
+    <ProjImage legacyNaturalWidth image={light_config} alt={"TODO"} caption={"Light configuration"}/>
+    <ProjImage legacyNaturalWidth image={scene_config} alt={"TODO"} caption={"Scene configuration"}/>
     <ProjParagraph>Failed renders from development</ProjParagraph>
     <ProjImage image={failed1} alt={"TODO"} caption={"Incorrect screen width"}/>
     <ProjImage image={failed2} alt={"TODO"} caption={"Too much light"}/>

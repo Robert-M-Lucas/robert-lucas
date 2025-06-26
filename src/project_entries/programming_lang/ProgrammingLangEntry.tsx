@@ -34,7 +34,7 @@ function ProgrammingLangEntryPage() {
         <ProjLink href="https://github.com/Robert-M-Lucas/ProgrammingLanguage/blob/master/README.md">readme</ProjLink> and the documentation can be
         found in the <ProjLink href="https://github.com/Robert-M-Lucas/ProgrammingLanguage/wiki">wiki</ProjLink>.
     </ProjParagraph>
-    <ProjImage image={tictactoe} alt={"TODO"} caption={"Snippet of Tic Tac Toe written in my programming language (outdated version) with my extension's highlighting"}/>
+    <ProjImage legacyNaturalWidth image={tictactoe} alt={"TODO"} caption={"Snippet of Tic Tac Toe written in my programming language (outdated version) with my extension's highlighting"}/>
     <ProjParagraph>
         I have made a primitive VSCode extension that provides basic syntax highlighting and autocompletion to make programming in my language a bit easier. It is still, however,
         missing many features as it only uses VSCodes grammar support, not a language server so a large amount of IntelliSense features aren't available. Most of the JSON that

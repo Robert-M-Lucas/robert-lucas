@@ -37,6 +37,6 @@ function Whython4EntryPage() {
         of my language (sensibly named 'Whython 5') based on this one with support for dynamically allocated memory and
         a call stack.
     </ProjParagraph>
-    <ProjImage image={tictactoe} alt={"TODO"} caption={"Tic Tac Toe written in Whython 4"}/>
+    <ProjImage legacyNaturalWidth image={tictactoe} alt={"TODO"} caption={"Tic Tac Toe written in Whython 4"}/>
     </ProjWrapper>;
 }
