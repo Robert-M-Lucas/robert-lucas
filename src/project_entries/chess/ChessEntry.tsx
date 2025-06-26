@@ -11,7 +11,6 @@ import Pp from "../../components/project_entry_utils/Pp.tsx";
 import {CSHARP, NETCODE, UNITY} from "../../routes/projects/SingleProjectPage/technology.tsx";
     
 export const ChessProject: Project = {
-    currently_working_on: false,
     name: "chess",
     title: "Chess",
     subtitle: "A hybrid 3D-2D chess game with local play, multiplayer, custom net code and a chess AI using a minimax algorithm",

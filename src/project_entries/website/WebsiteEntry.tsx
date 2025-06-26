@@ -13,7 +13,6 @@ import Pa from "../../components/project_entry_utils/Pa.tsx";
 import Phr from "../../components/project_entry_utils/Phr.tsx";
     
 export const WebsiteProject: Project = {
-    currently_working_on: false,
     name: "website",
     title: "Old Website",
     subtitle: "My previous website demonstrating past projects",

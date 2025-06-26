@@ -10,9 +10,9 @@ import Pa from "../../components/project_entry_utils/Pa.tsx";
 import Phr from "../../components/project_entry_utils/Phr.tsx";
 
 export const ProgrammingLangProject: Project = {
-    currently_working_on: false,
     name: "programming_lang",
     title: "Custom Programming Language (RLC)",
+    short_title: "Custom Programming Language",
     subtitle: "Creating my own programming language",
     ms_since_epoch: null,
     image: {image: tictactoe, alt: "TODO"},

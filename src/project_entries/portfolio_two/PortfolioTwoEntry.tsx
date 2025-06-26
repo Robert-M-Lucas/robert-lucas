@@ -23,8 +23,10 @@ import PcodeSrc from "../../components/project_entry_utils/PcodeSrc.tsx";
 
 export const PortfolioTwoProject: Project = {
     currently_working_on: true,
+    currently_writing: true,
     name: "portfolio_two",
-    title: "Portfolio Website (This Website) - [Writing In Progress]",
+    title: "Portfolio Website (This Website)",
+    short_title: "Portfolio Website",
     subtitle: "This website, created to replace my old portfolio website",
     ms_since_epoch: 1750860747000,
     page: PortfolioTwoEntryPage,

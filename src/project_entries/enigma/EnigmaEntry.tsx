@@ -10,7 +10,6 @@ import {CSHARP, UNITY} from "../../routes/projects/SingleProjectPage/technology.
 import Pa from "../../components/project_entry_utils/Pa.tsx";
     
 export const EnigmaProject: Project = {
-    currently_working_on: false,
     name: "enigma",
     title: "Enigma Simulator",
     subtitle: "An enigma simulator with support for almost all the features of the real machine",

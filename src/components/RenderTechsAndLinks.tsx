@@ -2,7 +2,7 @@ import {Technology} from "../routes/projects/SingleProjectPage/technology.tsx";
 import {ProjectLink} from "../routes/projects/SingleProjectPage/links.tsx";
 
 export interface Props {
-    currently_working_on: boolean;
+    currently_working_on?: boolean;
     technologies: Technology[]
     links?: ProjectLink[]
 }

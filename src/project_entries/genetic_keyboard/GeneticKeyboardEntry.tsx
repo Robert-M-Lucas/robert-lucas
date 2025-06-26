@@ -8,7 +8,6 @@ import Pp from "../../components/project_entry_utils/Pp.tsx";
 import {CSHARP} from "../../routes/projects/SingleProjectPage/technology.tsx";
     
 export const GeneticKeyboardProject: Project = {
-    currently_working_on: false,
     name: "genetic_keyboard",
     title: "Genetic Keyboard",
     subtitle: "Using a genetic algorithm to create the perfect keyboard",

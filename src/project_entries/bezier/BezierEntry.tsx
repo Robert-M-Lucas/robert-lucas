@@ -7,7 +7,6 @@ import Pp from "../../components/project_entry_utils/Pp.tsx";
 import {PYTHON} from "../../routes/projects/SingleProjectPage/technology.tsx";
     
 export const BezierProject: Project = {
-    currently_working_on: false,
     name: "bezier",
     title: "Bézier Curves",
     subtitle: "Demonstation of how bezier curves are formed. Created in PyGame",

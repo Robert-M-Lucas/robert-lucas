@@ -25,7 +25,6 @@ import Pp from "../../components/project_entry_utils/Pp.tsx";
 import {RUST} from "../../routes/projects/SingleProjectPage/technology.tsx";
     
 export const RaytracingProject: Project = {
-    currently_working_on: false,
     name: "raytracing",
     title: "Raytracing Engine",
     subtitle: "A raytracing engine supporting reflections, refraction, direct lighting and indirect lighting",

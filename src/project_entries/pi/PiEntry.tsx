@@ -6,7 +6,6 @@ import {CPP} from "../../routes/projects/SingleProjectPage/technology.tsx";
 import Pa from "../../components/project_entry_utils/Pa.tsx";
 
 export const PiProject: Project = {
-    currently_working_on: false,
     name: "pi",
     title: "Pi Calculator",
     subtitle: "A program that calculates π using a physics simulation",

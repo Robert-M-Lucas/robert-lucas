@@ -11,7 +11,6 @@ import Pp from "../../components/project_entry_utils/Pp.tsx";
 import {CSHARP, UNITY} from "../../routes/projects/SingleProjectPage/technology.tsx";
     
 export const TerrainGeneratorProject: Project = {
-    currently_working_on: false,
     name: "terrain_generator",
     title: "Random Terrain Generator",
     subtitle: "Generating terrain meshes in Unity using Perlin noise",

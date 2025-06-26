@@ -10,7 +10,6 @@ import Pp from "../../components/project_entry_utils/Pp.tsx";
 import {PYTHON} from "../../routes/projects/SingleProjectPage/technology.tsx";
     
 export const GeometricPatternProject: Project = {
-    currently_working_on: false,
     name: "geometric_pattern",
     title: "Geometric Pattern Generator",
     subtitle: "Generating a geometric pattern for use in future projects",

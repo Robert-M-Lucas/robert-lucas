@@ -13,7 +13,6 @@ import Pul from "../../components/project_entry_utils/Pul.tsx";
 import Pli from "../../components/project_entry_utils/Pli.tsx";
 
 export const PythonSudokuProject: Project = {
-    currently_working_on: false,
     name: "python_sudoku",
     title: "Python Sudoku Solver",
     subtitle: "A 16x faster Sudoku-solving algorithm than my previous low-level implementation despite being written in Python. 450x faster in Rust with no low-level optimisations",

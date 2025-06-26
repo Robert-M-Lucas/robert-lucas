@@ -13,7 +13,6 @@ import Pul from "../../components/project_entry_utils/Pul.tsx";
 import Pli from "../../components/project_entry_utils/Pli.tsx";
     
 export const FractalProject: Project = {
-    currently_working_on: false,
     name: "fractal",
     title: "Mandlebrot Fractal Explorer",
     subtitle: "An app that renders and allows you to explore the Madlebrot (and burning ship) fractal",

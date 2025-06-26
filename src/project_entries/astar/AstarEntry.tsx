@@ -7,7 +7,6 @@ import Pp from "../../components/project_entry_utils/Pp.tsx";
 import {CSHARP, UNITY, ANDROID} from "../../routes/projects/SingleProjectPage/technology.tsx";
     
 export const AstarProject: Project = {
-    currently_working_on: false,
     name: "astar",
     title: "A* Pathfinding",
     subtitle: "A simple program that demonstrates the A* pathfinding algorithm for PC and Android",

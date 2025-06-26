@@ -9,7 +9,6 @@ import {RUST} from "../../routes/projects/SingleProjectPage/technology.tsx";
 import Pa from "../../components/project_entry_utils/Pa.tsx";
     
 export const Whython4Project: Project = {
-    currently_working_on: false,
     name: "whython-4",
     title: "Whython 4",
     subtitle: "An more modern and maintainable programming language with better flow control and function support",

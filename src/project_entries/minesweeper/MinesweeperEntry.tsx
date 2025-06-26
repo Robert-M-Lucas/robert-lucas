@@ -9,7 +9,6 @@ import Pp from "../../components/project_entry_utils/Pp.tsx";
 import {CSHARP, UNITY, ANDROID} from "../../routes/projects/SingleProjectPage/technology.tsx";
     
 export const MinesweeperProject: Project = {
-    currently_working_on: false,
     name: "minesweeper",
     title: "Infinite Minesweeper",
     subtitle: "A game that allows you to play Minesweeper on an infinite plane",

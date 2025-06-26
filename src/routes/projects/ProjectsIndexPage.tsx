@@ -10,7 +10,7 @@ import RenderProjectDate from "../../components/RenderProjectDate.tsx";
 import RenderTechnologies from "../../components/RenderTechsAndLinks.tsx";
 import Pimg from "../../components/project_entry_utils/Pimg.tsx";
 import RenderButtonLinks from "../../components/RenderButtonLinks.tsx";
-import {useNavigate} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import {getProjectPath} from "../../router.tsx";
 import RenderProjectName from "../../components/RenderProjectName.tsx";
 
@@ -42,6 +42,14 @@ export default function ProjectsIndexPage() {
         sessionStorage.setItem(COMPACT_STORAGE_KEY, String(!compact));
     };
 
+    let current_project: Project | null = null;
+    for (const project of PROJECT_LIST) {
+        if (project.currently_working_on) {
+            current_project = project;
+            break;
+        }
+    }
+
     return <FooterWrapper>
         <Header/>
         <HeaderSpacer/>
@@ -50,6 +58,15 @@ export default function ProjectsIndexPage() {
                 <div>
                     <h1>Projects</h1>
                     <p className="text-muted">Click on any project to learn more</p>
+                    {current_project &&
+                        <p className={"mb-0"}>
+                            <Link viewTransition
+                                  className={"text-decoration-none"}
+                                  to={getProjectPath(current_project.name)}>
+                                › Jump to my current project ({current_project.short_title ?? current_project.title})
+                            </Link>
+                        </p>
+                    }
                 </div>
                 <div>
                     <Button variant={"outline-dark"} onClick={handleCompactClick} href={"#"}>{compact ? "Switch to expanded view" : "Switch to compact view"}</Button>
@@ -79,10 +96,10 @@ interface EntryProps {
 function CompactEntry({project}: EntryProps) {
     const navigate = useNavigate();
     return <div style={{cursor: "pointer"}} onClick={async () => navigate(getProjectPath(project.name), {viewTransition: true})}>
-        <RenderProjectName title={project.title} legacy={project.ms_since_epoch === null}/>
+        <RenderProjectName title={project.title} legacy={project.ms_since_epoch === null} currently_writing={project.currently_writing}/>
         <span className="mb-2">
             <RenderProjectDate ms_since_epoch={project.ms_since_epoch}/> |&nbsp;
-            <RenderTechsAndLinks currently_working_on={project.currently_working_on} technologies={project.technologies} links={project.links}/>
+            <RenderTechsAndLinks currently_working_on={project.currently_working_on ?? false} technologies={project.technologies} links={project.links}/>
         </span>
         <p className={"text-muted"}>{project.subtitle}</p>
     </div>;
@@ -91,12 +108,12 @@ function CompactEntry({project}: EntryProps) {
 function ExpandedEntry({project}: EntryProps) {
     const navigate = useNavigate();
     return <div style={{cursor: "pointer"}} onClick={async () => navigate(getProjectPath(project.name), {viewTransition: true})}>
-        <RenderProjectName title={project.title} margin={!project.subtitle} legacy={project.ms_since_epoch === null}/>
+        <RenderProjectName title={project.title} currently_writing={project.currently_writing} margin={!project.subtitle} legacy={project.ms_since_epoch === null}/>
         <span className="mb-1">
             <RenderProjectDate ms_since_epoch={project.ms_since_epoch}/>
             {project.technologies.length > 0 && <>
                 &nbsp;|&nbsp;
-                <RenderTechnologies currently_working_on={project.currently_working_on} technologies={project.technologies}/>
+                <RenderTechnologies currently_working_on={project.currently_working_on ?? false} technologies={project.technologies}/>
             </>}
         </span>
 

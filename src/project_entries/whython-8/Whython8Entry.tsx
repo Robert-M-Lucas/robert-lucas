@@ -4,9 +4,9 @@ import {GITHUB_LINK} from "../../routes/projects/SingleProjectPage/links.tsx";
 import ProjWrapper from "../../components/project_entry_utils/ProjWrapper.tsx";
 
 export const Whython8Project: Project = {
-    currently_working_on: false,
+    currently_writing: true,
     name: "whython-8",
-    title: "Whython 8 - [Writing In Progress]",
+    title: "Whython 8",
     subtitle: "TODO",
     ms_since_epoch: 1726665540000,
     page: Whython8Page,

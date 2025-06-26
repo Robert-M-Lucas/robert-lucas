@@ -4,9 +4,9 @@ import {CRATES_LINK, GITHUB_LINK} from "../../routes/projects/SingleProjectPage/
 import ProjWrapper from "../../components/project_entry_utils/ProjWrapper.tsx";
 
 export const RssProject: Project = {
-    currently_working_on: false,
+    currently_writing: true,
     name: "rss",
-    title: "RSS - [Writing In Progress]",
+    title: "RSS",
     subtitle: "TODO",
     ms_since_epoch: 1716902340000,
     page: RssPage,

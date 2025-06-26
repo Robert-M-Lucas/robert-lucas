@@ -10,7 +10,6 @@ import {RUST, PYTHON} from "../../routes/projects/SingleProjectPage/technology.t
 import Phr from "../../components/project_entry_utils/Phr.tsx";
     
 export const SudokuSolverProject: Project = {
-    currently_working_on: false,
     name: "sudoku_solver",
     title: "Sudoku Solver",
     subtitle: "Solving sudoku puzzles",

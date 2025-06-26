@@ -6,7 +6,6 @@ import {RUST} from "../../routes/projects/SingleProjectPage/technology.tsx";
 import code from "./assets/code.png"
     
 export const Whython7Project: Project = {
-    currently_working_on: false,
     name: "whython-7",
     title: "Whython 7",
     subtitle: "An in-development programming language created in Rust compiling to assembly",

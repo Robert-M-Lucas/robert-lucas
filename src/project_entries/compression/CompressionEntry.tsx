@@ -7,7 +7,6 @@ import Pp from "../../components/project_entry_utils/Pp.tsx";
 import {CSHARP} from "../../routes/projects/SingleProjectPage/technology.tsx";
     
 export const CompressionProject: Project = {
-    currently_working_on: false,
     name: "compression",
     title: "Compression Algorithm",
     subtitle: "A simple program to test custom compression algoritms and combinations of algorithms",

@@ -21,7 +21,6 @@ import {CPP} from "../../routes/projects/SingleProjectPage/technology.tsx";
 import Pa from "../../components/project_entry_utils/Pa.tsx";
     
 export const ProgrammingLang2Project: Project = {
-    currently_working_on: false,
     name: "programming_lang_2",
     title: "Custom Programming Language 2",
     subtitle: "Improved programming language with support for many types and conditional logic",
