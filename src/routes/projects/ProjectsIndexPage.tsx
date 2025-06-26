@@ -3,7 +3,7 @@ import Header from "../../components/Header.tsx";
 import {Button, Card, Container} from "react-bootstrap";
 import PROJECT_LIST from "./SingleProjectPage/project_list.ts";
 import HeaderSpacer from "../../components/HeaderSpacer.tsx";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {Project} from "./SingleProjectPage/project.ts";
 import RenderTechsAndLinks from "../../components/RenderTechsAndLinks.tsx";
 import RenderProjectDate from "../../components/RenderProjectDate.tsx";
@@ -14,9 +14,33 @@ import {useNavigate} from "react-router-dom";
 import {getProjectPath} from "../../router.tsx";
 import RenderProjectName from "../../components/RenderProjectName.tsx";
 
+const COMPACT_STORAGE_KEY = "compactProjectView"
+const SCROLL_STORAGE_KEY = "scrollProjectView"
 
 export default function ProjectsIndexPage() {
-    const [compact, setCompact] = useState(false);
+    const [compact, setCompact] = useState(() => {
+        return sessionStorage.getItem(COMPACT_STORAGE_KEY) === 'true';
+    });
+
+    useEffect(() => {
+        const savedScroll = sessionStorage.getItem(SCROLL_STORAGE_KEY);
+        if (savedScroll) {
+            window.scrollTo({left: 0, top: parseInt(savedScroll, 10), behavior: "instant"});
+        }
+    }, []);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            sessionStorage.setItem(SCROLL_STORAGE_KEY, window.scrollY.toString());
+        };
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
+    const handleCompactClick = () => {
+        setCompact(!compact);
+        sessionStorage.setItem(COMPACT_STORAGE_KEY, String(!compact));
+    };
 
     return <FooterWrapper>
         <Header/>
@@ -28,7 +52,7 @@ export default function ProjectsIndexPage() {
                     <p className="text-muted">Click on any project to learn more</p>
                 </div>
                 <div>
-                    <Button variant={"outline-dark"} onClick={() => {setCompact(!compact)}} href={"#"}>{compact ? "Switch to expanded view" : "Switch to compact view"}</Button>
+                    <Button variant={"outline-dark"} onClick={handleCompactClick} href={"#"}>{compact ? "Switch to expanded view" : "Switch to compact view"}</Button>
                 </div>
             </div>
 
@@ -55,7 +79,7 @@ interface EntryProps {
 function CompactEntry({project}: EntryProps) {
     const navigate = useNavigate();
     return <div style={{cursor: "pointer"}} onClick={async () => navigate(getProjectPath(project.name), {viewTransition: true})}>
-        <RenderProjectName title={project.name} legacy={project.ms_since_epoch === null}/>
+        <RenderProjectName title={project.title} legacy={project.ms_since_epoch === null}/>
         <div className="d-flex justify-content-start align-items-center mb-2">
             <RenderProjectDate ms_since_epoch={project.ms_since_epoch}/> &nbsp;|&nbsp;
             <RenderTechsAndLinks currently_working_on={project.currently_working_on} technologies={project.technologies} links={project.links}/>
