@@ -24,7 +24,7 @@ export default function ProjImage({image, alt, caption, source, legacyNaturalWid
             if (img == null) return;
             const handleLoad = () => {
                 if (img && img.naturalWidth) {
-                    setWidth(`${img.naturalWidth / 2}`);
+                    setWidth(`${img.naturalWidth / 2}px`);
                 }
             };
 
@@ -39,7 +39,7 @@ export default function ProjImage({image, alt, caption, source, legacyNaturalWid
 
 
     return <div style={{maxWidth: "100%"}} className="mb-3">
-        <img ref={imgRef} className="rounded-2" src={image} alt={alt} style={{ width: width === "auto" ? "auto" : `${width}px`, maxWidth: "100%"}}/>
+        <img ref={imgRef} className="rounded-2" src={image} alt={alt} style={{ width: width === "auto" ? "auto" : `${width}`, maxWidth: "100%", maxHeight: "80vh"}}/>
         {caption && <p className="text-muted mb-0">{caption} {source &&
         <>[Source: <a href={source.url} target="_blank">{source.name}</a>]</>
         }</p>}

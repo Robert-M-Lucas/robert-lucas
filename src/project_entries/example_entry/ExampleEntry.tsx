@@ -2,6 +2,7 @@ import {Project} from "../../routes/projects/SingleProjectPage/project.ts";
 import logo from "../../assets/icon.png";
 import {TYPESCRIPT} from "../../routes/projects/SingleProjectPage/technology.tsx";
 import {GITHUB_LINK, GOOGLE_PLAY_LINK} from "../../routes/projects/SingleProjectPage/links.tsx";
+import ProjWrapper from "../../components/project_entry_utils/ProjWrapper.tsx";
 
 export const ExampleProject: Project = {
     currently_working_on: false,
@@ -17,8 +18,8 @@ export const ExampleProject: Project = {
         {url: "https://github.com/Robert-M-Lucas/", type: GITHUB_LINK},
         {url: "https://example.com", type: GOOGLE_PLAY_LINK}
     ],
-}
+};
 
 function ExampleEntryPage() {
-    return <>Example Entry</>;
+    return <ProjWrapper>Example Entry</ProjWrapper>;
 }

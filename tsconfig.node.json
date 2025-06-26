@@ -5,6 +5,7 @@
     "module": "ESNext",
     "moduleResolution": "bundler",
     "allowSyntheticDefaultImports": true,
+    "typeRoots": ["./node_modules/@types", "./types"],
     "strict": true
   },
   "include": ["vite.config.ts"]

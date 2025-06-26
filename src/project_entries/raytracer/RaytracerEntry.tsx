@@ -23,6 +23,7 @@ import {RUST} from "../../routes/projects/SingleProjectPage/technology.tsx";
 import ProjImage from "../../components/project_entry_utils/ProjImage.tsx";
 import ProjParagraph from "../../components/project_entry_utils/ProjParagraph.tsx";
 import {GITHUB_LINK} from "../../routes/projects/SingleProjectPage/links.tsx";
+import ProjWrapper from "../../components/project_entry_utils/ProjWrapper.tsx";
 
 export const RaytracerProject: Project = {
     currently_working_on: false,
@@ -37,7 +38,7 @@ export const RaytracerProject: Project = {
 }
 
 function RaytracingEntryPage() {
-    return <>
+    return <ProjWrapper>
         <ProjParagraph>I created a raytracing engine in Rust to learn the language, learn more about computer graphics, practice working with vectors in 3D space and to apply my physics knowledge.</ProjParagraph>
 
         <ProjImage image={preview} alt={"Raytracer preview"} caption={"Preview with reduced resolution and lighting calculations"}/>
@@ -91,5 +92,5 @@ function RaytracingEntryPage() {
         <ProjImage image={failed3} alt={"Screenshot of failed render"} caption={"I don't even want to know"}/>
         <ProjImage image={failed4} alt={"Screenshot of failed render"} caption={"Refraction is annoying"}/>
         <ProjImage image={failed5} alt={"Screenshot of failed render"} caption={"What"}/>
-    </>;
+    </ProjWrapper>;
 }

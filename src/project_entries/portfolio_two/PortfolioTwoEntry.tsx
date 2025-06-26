@@ -1,7 +1,8 @@
 import {Project} from "../../routes/projects/SingleProjectPage/project.ts";
 
-import {REACT, TYPESCRIPT} from "../../routes/projects/SingleProjectPage/technology.tsx";
+import {CSS, HTML, JAVASCRIPT, REACT, TYPESCRIPT} from "../../routes/projects/SingleProjectPage/technology.tsx";
 import {createCustomLink, GITHUB_LINK} from "../../routes/projects/SingleProjectPage/links.tsx";
+import ProjWrapper from "../../components/project_entry_utils/ProjWrapper.tsx";
 
 export const PortfolioTwoProject: Project = {
     currently_working_on: true,
@@ -10,7 +11,7 @@ export const PortfolioTwoProject: Project = {
     subtitle: "This website, created to replace my old portfolio website",
     ms_since_epoch: 1750860747000,
     page: PortfolioTwoEntryPage,
-    technologies: [TYPESCRIPT, REACT],
+    technologies: [TYPESCRIPT, REACT, HTML, JAVASCRIPT, CSS],
     links: [
         {url: "https://github.com/Robert-M-Lucas/robert-lucas", type: GITHUB_LINK},
         {url: "https://robertlucas.pythonanywhere.com", type: createCustomLink("Old Website")}
@@ -18,7 +19,7 @@ export const PortfolioTwoProject: Project = {
 }
 
 function PortfolioTwoEntryPage() {
-    return <>
+    return <ProjWrapper>
         This entry is still being written
-    </>;
+    </ProjWrapper>;
 }
