@@ -1,7 +1,7 @@
 export interface Props {
-    children?: React.ReactNode
+  children?: React.ReactNode
 }
 
 export default function Pul({ children }: Props) {
-    return <ul>{children}</ul>
+  return <ul>{children}</ul>
 }

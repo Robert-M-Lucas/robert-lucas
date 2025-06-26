@@ -1,41 +1,41 @@
 .image-wrapper {
-    position: relative;
-    max-height: 50vh;
-    overflow: hidden;
+  position: relative;
+  max-height: 40vh;
+  overflow: hidden;
 }
 
 .image-wrapper img {
-    display: block;
-    width: 100%;
-    height: auto;
-    object-fit: cover;
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
 }
 
 /* Overlay is hidden by default */
 .fade-overlay {
-    display: none;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 35%; /* fade zone */
-    pointer-events: none;
+  display: none;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 35%; /* fade zone */
+  pointer-events: none;
 
-    background: linear-gradient(
-            to bottom,
-            rgba(255,255,255,0) 0%,
-            rgba(255,255,255,0.2) 40%,
-            rgba(255,255,255,0.6) 70%,
-            rgba(255,255,255,1) 100%
-    );
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.2) 40%,
+    rgba(255, 255, 255, 0.6) 70%,
+    rgba(255, 255, 255, 1) 100%
+  );
 
-    mask-image: linear-gradient(to bottom, transparent 0%, black 100%);
-    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 100%);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+  mask-image: linear-gradient(to bottom, transparent 0%, black 100%);
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 100%);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 /* Activated only when image overflows */
 .image-wrapper.fade-active .fade-overlay {
-    display: block;
+  display: block;
 }

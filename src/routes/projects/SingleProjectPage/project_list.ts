@@ -21,31 +21,63 @@ import { GeometricPatternProject } from "../../../project_entries/geometric_patt
 import { CompileTimeRegexProject } from "../../../project_entries/constant_regex/CompileTimeRegexEntry.tsx"
 import { Whython8Project } from "../../../project_entries/whython-8/Whython8Entry.tsx"
 import { RssProject } from "../../../project_entries/rss/RssEntry.tsx"
+import { Project } from "./project.ts"
 
-const PROJECT_LIST = [
-    PortfolioTwoProject,
-    RssProject,
-    CompileTimeRegexProject,
-    Whython8Project,
-    Whython7Project,
-    PythonSudokuProject,
-    RaytracingProject,
-    TerrainGeneratorProject,
-    WebsiteProject,
-    ChessProject,
-    MinesweeperProject,
-    FractalProject,
-    Whython4Project,
-    ProgrammingLang2Project,
-    SudokuSolverProject,
-    GeneticKeyboardProject,
-    AstarProject,
-    EnigmaProject,
-    ProgrammingLangProject,
-    BezierProject,
-    PiProject,
-    CompressionProject,
-    GeometricPatternProject,
+export const PROJECT_LIST = [
+  PortfolioTwoProject,
+  RssProject,
+  CompileTimeRegexProject,
+  Whython8Project,
+  Whython7Project,
+  PythonSudokuProject,
+  RaytracingProject,
+  TerrainGeneratorProject,
+  WebsiteProject,
+  ChessProject,
+  MinesweeperProject,
+  FractalProject,
+  Whython4Project,
+  ProgrammingLang2Project,
+  SudokuSolverProject,
+  GeneticKeyboardProject,
+  AstarProject,
+  EnigmaProject,
+  ProgrammingLangProject,
+  BezierProject,
+  PiProject,
+  CompressionProject,
+  GeometricPatternProject,
 ]
 
-export default PROJECT_LIST
+export const SHOWCASE_PROJECT_LIST = [
+  PortfolioTwoProject,
+  RssProject,
+  CompileTimeRegexProject,
+  Whython8Project,
+  Whython7Project,
+  PythonSudokuProject,
+  RaytracingProject,
+  TerrainGeneratorProject,
+  WebsiteProject,
+  ChessProject,
+  MinesweeperProject,
+  FractalProject,
+  Whython4Project,
+  SudokuSolverProject,
+  GeneticKeyboardProject,
+  AstarProject,
+  EnigmaProject,
+  BezierProject,
+  GeometricPatternProject,
+]
+
+export function getCurrentProject() {
+  let current_project: Project | null = null
+  for (const project of PROJECT_LIST) {
+    if (project.currently_working_on) {
+      current_project = project
+      break
+    }
+  }
+  return current_project
+}

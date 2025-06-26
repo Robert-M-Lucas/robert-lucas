@@ -21,7 +21,7 @@ Sync packages: `npm install`
 Serve webpage locally: `npm run dev`
 
 > If you use WebStorm (Jetbrains), `npm run dev` and firebase deployment
-will be automatically set up as run configs from files in `.run`
+> will be automatically set up as run configs from files in `.run`
 
 ### Firebase
 
@@ -30,6 +30,7 @@ Install Firebase tools: `npm install -g firebase-tools`
 Login to Firebase: `firebase login`
 
 Configure Firebase settings: `firebase init`
+
 > :warning: Overwrites current settings! You shouldn't need to use this!
 
 Configure Firebase emulator(s): `firebase init emulators`
@@ -39,11 +40,12 @@ Start Firebase emulator(s): `firebase emulators:start`
 ## Deployment
 
 > :warning: Do not use `firebase deploy` to deploy! This will circumvent GitHub and deploy
-to the live website!
+> to the live website!
 
 ### Test Deployment
 
 Creating a tiles deployment to Firebase:
+
 ```
 npm run build
 firebase hosting:channel:deploy [Test Deployment Name]

@@ -1,7 +1,7 @@
 export interface Props {
-    children?: React.ReactNode
+  children?: React.ReactNode
 }
 
 export default function Ph1({ children }: Props) {
-    return <h2>{children}</h2>
+  return <h2>{children}</h2>
 }
