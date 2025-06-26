@@ -55,7 +55,7 @@ export default function ProjectsIndexPage() {
     <FooterWrapper>
       <Header />
       <HeaderSpacer />
-      <Container className="pb-5">
+      <Container className="pb-5" style={{ maxWidth: "1000px" }}>
         <div className="d-flex justify-content-between">
           <div className="pe-2">
             <h1>Projects</h1>

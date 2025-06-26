@@ -83,7 +83,7 @@ export default function IndexPage() {
             className={
               "d-flex flex-column justify-content-end align-items-center"
             }
-            style={{ height: "15vh" }}
+            style={{ height: "17vh" }}
           >
             <AnimatePresence>
               {showHeading && (
@@ -142,7 +142,7 @@ export default function IndexPage() {
             className={
               "d-flex flex-column justify-content-center align-items-center"
             }
-            style={{ height: "65vh" }}
+            style={{ height: "63vh" }}
           >
             <ProjectSpotlight
               project={SHOWCASE_PROJECT_LIST[projectIndex]}
