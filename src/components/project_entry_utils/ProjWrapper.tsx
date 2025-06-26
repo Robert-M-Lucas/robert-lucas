@@ -1,9 +1,9 @@
-import {ReactNode} from "react";
+import { ReactNode } from "react"
 
 export interface Props {
-    children?: ReactNode;
+  children?: ReactNode
 }
 
-export default function ProjWrapper({children}: Props) {
-    return <>{children}</>;
+export default function ProjWrapper({ children }: Props) {
+  return <>{children}</>
 }
