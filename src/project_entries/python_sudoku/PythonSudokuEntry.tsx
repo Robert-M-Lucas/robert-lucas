@@ -21,7 +21,7 @@ export const PythonSudokuProject: Project = {
   subtitle:
     "A 16x faster Sudoku-solving algorithm than my previous low-level implementation despite being written in Python. 450x faster in Rust with no low-level optimisations",
   ms_since_epoch: null,
-  image: { image: timings, alt: "TODO" },
+  image: { image: rust_timings, alt: "TODO" },
   technologies: [PYTHON, RUST],
   links: [],
   page: PythonSudokuEntryPage,

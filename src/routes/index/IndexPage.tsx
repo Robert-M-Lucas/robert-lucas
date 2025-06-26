@@ -8,9 +8,10 @@ import {
 } from "../projects/SingleProjectPage/project_list.ts"
 import React from "react"
 import { AnimatePresence, motion, Transition } from "framer-motion"
-import { getProjectPath } from "../../router.tsx"
+import { getProjectPath, PROJECTS_PATH } from "../../router.tsx"
 import { Link } from "react-router-dom"
 import { Button } from "react-bootstrap"
+import { clearProjectScrollProgress } from "../../util/util.ts"
 
 export const projectCycleTime = 15000
 
@@ -116,8 +117,18 @@ export default function IndexPage() {
                       className={"text-decoration-none"}
                       to={getProjectPath(current_project.name)}
                     >
-                      › Jump to my current project (
-                      {current_project.short_title ?? current_project.title})
+                      › Jump to my current project
+                    </Link>
+                    &nbsp;&nbsp;/&nbsp;&nbsp;
+                    <Link
+                      viewTransition
+                      className={"text-decoration-none"}
+                      to={PROJECTS_PATH}
+                      onClick={() => {
+                        clearProjectScrollProgress()
+                      }}
+                    >
+                      All projects
                     </Link>
                   </motion.span>
                 )}
@@ -153,16 +164,6 @@ export default function IndexPage() {
             window.location.hash = "#continued"
           }}
         >
-          {/*<div className={"ps-3 pe-3"}>*/}
-          {/*  <span*/}
-          {/*    className={*/}
-          {/*      "text-nowrap d-flex justify-content-center align-items-center"*/}
-          {/*    }*/}
-          {/*  >*/}
-          {/*    /!*<ArrowDown size={"30px"} />{" "}*!/*/}
-          {/*    <p className={"mt-3"}>Technology, experience, education</p>*/}
-          {/*  </span>*/}
-          {/*</div>*/}
           Technology, experience, education
         </Button>
 
