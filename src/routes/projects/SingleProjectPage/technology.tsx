@@ -1,5 +1,5 @@
 import {JSX} from "react";
-import {Android, Css, GpuCard, HddNetwork, Javascript, Typescript, Unity} from "react-bootstrap-icons";
+import {Android, BootstrapFill, Css, GpuCard, HddNetwork, Javascript, Typescript, Unity} from "react-bootstrap-icons";
 import Rust from "../../../components/Icons/Rust.tsx";
 import ReactIcon from "../../../components/Icons/ReactIcon.tsx";
 import Java from "../../../components/Icons/Java.tsx";
@@ -72,4 +72,8 @@ export const CSS: Technology = {
 
 export const DJANGO: Technology = {
     getElement: () => <span className={"fw-bold"} style={{color: "#092e20"}}><Django style={{marginBottom: "4px", marginRight: "4px"}}/>Django</span>,
+}
+
+export const BOOTSTRAP: Technology = {
+    getElement: () => <span className={"fw-bold"} style={{color: "#7952b3"}}><BootstrapFill style={{marginBottom: "4px", marginRight: "4px"}}/>Bootstrap</span>,
 }

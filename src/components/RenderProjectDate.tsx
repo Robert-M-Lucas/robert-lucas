@@ -25,5 +25,5 @@ function formatDate(ms_since_epoch: number) {
 }
 
 export default function RenderProjectDate({ms_since_epoch}: Props) {
-    return <span className="text-muted">{ms_since_epoch ? formatDate(ms_since_epoch) : "Legacy Project - No Date"}</span>;
+    return <span className="text-muted text-nowrap">{ms_since_epoch ? formatDate(ms_since_epoch) : "Legacy Project - No Date"}</span>;
 }

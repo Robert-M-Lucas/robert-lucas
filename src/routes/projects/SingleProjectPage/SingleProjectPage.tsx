@@ -12,6 +12,7 @@ import RenderProjectDate from "../../../components/RenderProjectDate.tsx";
 import FullscreenCenter from "../../../components/FullscreenCenter.tsx";
 import ProjImage from "../../../components/project_entry_utils/ProjImage.tsx";
 import RenderLegacyWarning from "../../../components/RenderLegacyWarning.tsx";
+import RenderProjectName from "../../../components/RenderProjectName.tsx";
 
 export default function SingleProjectPage() {
     const params = useParams();
@@ -51,7 +52,7 @@ function SingleProjectPageRenderer(project: Project) {
                 <Link viewTransition to={PROJECTS_PATH} className="text-decoration-none">‹ Projects List</Link>
             </div>
 
-            <h1 className={project.subtitle ? "mb-0" : "mb-3"}>{project.title}</h1>
+            <RenderProjectName title={project.title} margin={!project.subtitle} legacy={project.ms_since_epoch === null} large/>
             <div className="mb-1">
                 <RenderProjectDate ms_since_epoch={project.ms_since_epoch}/>
                 {project.technologies.length > 0 && <>

@@ -12,6 +12,7 @@ import ProjImage from "../../components/project_entry_utils/ProjImage.tsx";
 import RenderButtonLinks from "../../components/RenderButtonLinks.tsx";
 import {useNavigate} from "react-router-dom";
 import {getProjectPath} from "../../router.tsx";
+import RenderProjectName from "../../components/RenderProjectName.tsx";
 
 
 export default function ProjectsIndexPage() {
@@ -54,7 +55,7 @@ interface EntryProps {
 function CompactEntry({project}: EntryProps) {
     const navigate = useNavigate();
     return <div style={{cursor: "pointer"}} onClick={async () => navigate(getProjectPath(project.name), {viewTransition: true})}>
-        <h2 className="mb-0">{project.title}</h2>
+        <RenderProjectName title={project.name} legacy={project.ms_since_epoch === null}/>
         <div className="d-flex justify-content-start align-items-center mb-2">
             <RenderProjectDate ms_since_epoch={project.ms_since_epoch}/> &nbsp;|&nbsp;
             <RenderTechsAndLinks currently_working_on={project.currently_working_on} technologies={project.technologies} links={project.links}/>
@@ -66,7 +67,7 @@ function CompactEntry({project}: EntryProps) {
 function ExpandedEntry({project}: EntryProps) {
     const navigate = useNavigate();
     return <div style={{cursor: "pointer"}} onClick={async () => navigate(getProjectPath(project.name), {viewTransition: true})}>
-        <h2 className={project.subtitle ? "mb-0" : "mb-3"}>{project.title}</h2>
+        <RenderProjectName title={project.title} margin={!project.subtitle} legacy={project.ms_since_epoch === null}/>
         <div className="mb-1">
             <RenderProjectDate ms_since_epoch={project.ms_since_epoch}/>
             {project.technologies.length > 0 && <>

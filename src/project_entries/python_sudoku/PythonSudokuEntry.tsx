@@ -26,7 +26,7 @@ function PythonSudokuEntryPage() {
 <h2>Introduction</h2>
     <ProjParagraph>
         I was given a challenge to simply solve Sudoku puzzles as quickly as possible. In Python. While I initially
-        disliked this idea as Python is very, very
+        disliked this idea as Python is very, very&nbsp;
         <ProjLink href="https://camo.githubusercontent.com/0cb1c98bd27100216504434d3cf05ff06e4d8e8289fca4fd76aee490f6463170/68747470733a2f2f6e696b6c61732d686565722e6769746875622e696f2f73706565642d636f6d70617269736f6e2f6173736574732f6c61746573742f636f6d62696e65645f726573756c74732e706e67">
             slow
         </ProjLink>,
@@ -122,9 +122,9 @@ function PythonSudokuEntryPage() {
     </ProjParagraph>
     <ProjParagraph>
         <i><span className="text-muted">"Non-core library calls have significant overhead, so single-element accesses of numpy arrays are actually about
-        5x slower than the equivalent Python list accesses. [...]"</span></i> -
-        <ProjLink href="https://www.reddit.com/r/Python/comments/qcky3m/comment/hhgp8nd">this comment</ProjLink>
-        helpfully explained why this might be and my testing revealed consistent results with Python lists being faster
+        5x slower than the equivalent Python list accesses. [...]"</span></i> -&nbsp;
+        <ProjLink href="https://www.reddit.com/r/Python/comments/qcky3m/comment/hhgp8nd">this comment</ProjLink> helpfully
+        explained why this might be and my testing revealed consistent results with Python lists being faster
         for frequent assignments and Numpy being faster for SIMD-like instructions i.e. ones that can be vectorised.
     </ProjParagraph>
     <ProjParagraph>
@@ -142,13 +142,13 @@ function PythonSudokuEntryPage() {
     <h2>Conclusion</h2>
     <ProjImage image={timings} alt={"TODO"} caption={"540µ per puzzle! In Python!"}/>
     <ProjParagraph>
-        Being challenged to optimise an algorithm in Python, a famously
+        Being challenged to optimise an algorithm in Python, a famously&nbsp;
         <ProjLink href="https://camo.githubusercontent.com/0cb1c98bd27100216504434d3cf05ff06e4d8e8289fca4fd76aee490f6463170/68747470733a2f2f6e696b6c61732d686565722e6769746875622e696f2f73706565642d636f6d70617269736f6e2f6173736574732f6c61746573742f636f6d62696e65645f726573756c74732e706e67">
             slow
         </ProjLink>
-        language, was a surprisingly fun challenge as it forced me to focus on algorithmic improvements as opposed to
+        &nbsp;language, was a surprisingly fun challenge as it forced me to focus on algorithmic improvements as opposed to
         data structure and other niche optimisations. This implementation ended up being ~6x faster than
-        <ProjLink href="sudoku_solver.html">my other solution</ProjLink> created a while ago in Rust - a low-level language!
+        &nbsp;<ProjLink href="sudoku_solver.html">my other solution</ProjLink> created a while ago in Rust - a low-level language!
         To give some credit to my old implementation, I selected the simplest backtracking algorithm for that project
         and instead focused on improving speed through Rust's data structures and more niche optimisations so that project
         did have different goals and thus different outcomes.

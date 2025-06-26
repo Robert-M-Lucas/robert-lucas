@@ -8,17 +8,17 @@ import website from "./assets/website.png";
 import {Project} from "../../routes/projects/SingleProjectPage/project.ts";
 import ProjWrapper from "../../components/project_entry_utils/ProjWrapper.tsx";
 import ProjParagraph from "../../components/project_entry_utils/ProjParagraph.tsx";
-import {PYTHON, JAVASCRIPT, HTML, DJANGO, CSS} from "../../routes/projects/SingleProjectPage/technology.tsx";
+import {PYTHON, JAVASCRIPT, HTML, DJANGO, CSS, BOOTSTRAP} from "../../routes/projects/SingleProjectPage/technology.tsx";
 import ProjLink from "../../components/project_entry_utils/ProjLink.tsx";
     
 export const WebsiteProject: Project = {
     currently_working_on: false,
     name: "website",
-    title: "Website",
-    subtitle: "A website demonstrating my past projects",
+    title: "Old Website",
+    subtitle: "My previous website demonstrating past projects",
     ms_since_epoch: null,
     image: {image: website, alt: "TODO"},
-    technologies: [PYTHON, JAVASCRIPT, HTML, CSS, DJANGO],
+    technologies: [PYTHON, JAVASCRIPT, BOOTSTRAP, HTML, CSS, DJANGO],
     links: [],
     page: WebsiteEntryPage
 };
