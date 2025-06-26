@@ -4,14 +4,20 @@ import Header from "../../components/Header.tsx"
 import { ProjectSpotlight } from "./ProjectSpotlight.tsx"
 import PROJECT_LIST from "../projects/SingleProjectPage/project_list.ts"
 
-export const projectCycleTime = 1000000
+export const projectCycleTime = 15000
 
 export default function IndexPage() {
-    const [projectIndex, setProjectIndex] = useState<number>(12)
+    const [projectIndex, setProjectIndex] = useState<number>(0)
 
     useEffect(() => {
         const interval = setInterval(() => {
-            setProjectIndex((prev) => prev + 1)
+            setProjectIndex((prev) => {
+                if (prev + 1 == PROJECT_LIST.length) {
+                    return 0
+                } else {
+                    return prev + 1
+                }
+            })
         }, projectCycleTime)
 
         return () => clearInterval(interval)
@@ -29,7 +35,10 @@ export default function IndexPage() {
                         "d-flex justify-content-center align-items-center"
                     }
                 >
-                    <ProjectSpotlight project={PROJECT_LIST[projectIndex]} />
+                    <ProjectSpotlight
+                        project={PROJECT_LIST[projectIndex]}
+                        projectCycleTime={projectCycleTime}
+                    />
                 </div>
                 <Header hidden />
             </div>

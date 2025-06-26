@@ -4,18 +4,21 @@ import RenderTechsAndLinks from "../../components/RenderTechsAndLinks.tsx"
 import RenderButtonLinks from "../../components/RenderButtonLinks.tsx"
 import { AnimatePresence, motion } from "framer-motion"
 import { RefObject, useEffect, useRef, useState } from "react"
-import { projectCycleTime } from "./IndexPage.tsx"
 import "./blur-bottom.css"
+import { getProjectPath } from "../../router.tsx"
+import { useNavigate } from "react-router-dom"
 
 export interface Props {
     project: Project
+    projectCycleTime: number
 }
 
-export function ProjectSpotlight({ project }: Props) {
+export function ProjectSpotlight({ project, projectCycleTime }: Props) {
     const wrapperRef: RefObject<HTMLDivElement | null> = useRef(null)
     const imgRef: RefObject<HTMLImageElement | null> = useRef(null)
     const [fadeActive, setFadeActive] = useState(false)
     const [isExiting, setIsExiting] = useState(false)
+    const navigate = useNavigate()
 
     useEffect(() => {
         setIsExiting(false)
@@ -67,6 +70,12 @@ export function ProjectSpotlight({ project }: Props) {
                             opacity: 1,
                         },
                     }}
+                    style={{ cursor: "pointer" }}
+                    onClick={async () =>
+                        navigate(getProjectPath(project.name), {
+                            viewTransition: true,
+                        })
+                    }
                 >
                     <Card style={{ maxWidth: "80vw" }}>
                         <Card.Body>
@@ -105,6 +114,29 @@ export function ProjectSpotlight({ project }: Props) {
                                 <RenderButtonLinks links={project.links} />
                             </Card.Footer>
                         )}
+                        <motion.div
+                            initial="start"
+                            animate="end"
+                            transition={{
+                                duration: projectCycleTime / 1000,
+                            }}
+                            variants={{
+                                start: {
+                                    width: "0%",
+                                },
+                                end: {
+                                    width: "100%",
+                                },
+                            }}
+                            style={{
+                                position: "absolute",
+                                bottom: "0",
+                                left: "0",
+                                height: "5px",
+                                backgroundColor: "lightgrey",
+                                color: "black",
+                            }}
+                        ></motion.div>
                     </Card>
                 </motion.div>
             )}
