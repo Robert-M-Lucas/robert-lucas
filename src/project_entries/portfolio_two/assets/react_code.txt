@@ -1,0 +1,19 @@
+function ExpandedEntry({project}: EntryProps) {
+    const navigate = useNavigate();
+    return <div style={{cursor: "pointer"}} onClick={async () => navigate(getProjectPath(project.name), {viewTransition: true})}>
+        <RenderProjectName title={project.title} margin={!project.subtitle} legacy={project.ms_since_epoch === null}/>
+        <span className="mb-1">
+            <RenderProjectDate ms_since_epoch={project.ms_since_epoch}/>
+            {project.technologies.length > 0 && <>
+                &nbsp;|&nbsp;
+                <RenderTechnologies currently_working_on={project.currently_working_on} technologies={project.technologies}/>
+            </>}
+        </span>
+
+        {project.image && <Pimg image={project.image.image} alt={project.image.alt}/>}
+
+        {project.subtitle && <p className="text-muted mb-2">{project.subtitle}</p>}
+
+        <RenderButtonLinks links={project.links}/>
+    </div>;
+}

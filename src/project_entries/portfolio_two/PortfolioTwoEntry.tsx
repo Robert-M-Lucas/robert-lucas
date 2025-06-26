@@ -1,4 +1,6 @@
 import {Project} from "../../routes/projects/SingleProjectPage/project.ts";
+import django_code from "./assets/djanco_code.txt";
+import react_code from "./assets/react_code.txt";
 
 import {
     BOOTSTRAP,
@@ -11,6 +13,11 @@ import {
 import {createCustomLink, GITHUB_LINK} from "../../routes/projects/SingleProjectPage/links.tsx";
 import ProjWrapper from "../../components/project_entry_utils/ProjWrapper.tsx";
 import Pp from "../../components/project_entry_utils/Pp.tsx";
+import Pa from "../../components/project_entry_utils/Pa.tsx";
+import PLink from "../../components/project_entry_utils/PLink.tsx";
+import {getProjectPath} from "../../router.tsx";
+import {WebsiteProject} from "../website/WebsiteEntry.tsx";
+import PcodeSrc from "../../components/project_entry_utils/PcodeSrc.tsx";
 
 export const PortfolioTwoProject: Project = {
     currently_working_on: true,
@@ -29,8 +36,16 @@ export const PortfolioTwoProject: Project = {
 function PortfolioTwoEntryPage() {
     return <ProjWrapper>
         <Pp>
-            This webs
+            This website was created to replace my <Pa href={"https://robertlucas.pythonanywhere.com"}>old portfolio website</Pa>, the ported write-up of which you can find <PLink to={getProjectPath(WebsiteProject.name)}>here</PLink>. It was created using Django, a templating framework for Python (i.e. a framework where the server is responsible for generating individual webpages to send to the client). This contrasts React's approach (with which this website is created with) where the website is a single bundle sent to the client (although some parts can be loaded dynamically if too big).
         </Pp>
+
+        <Pp>
+            Django's approach creates a large amount of friction with dynamic content as you are presented with the choice of either statically rendering data into a template on the server, then sending this to the client, or sending the client Javascript to load content dynamically. The first option can cause first-page-load delays as the server fetches data for the page, whereas the latter can be very difficult to implement, as it must be done over conventional web requests, with all the drawbacks, and hard to integrate libraries of vanilla JS.
+        </Pp>
+
+        <PcodeSrc codeSrc={django_code} language={"html"} caption={"Old HTML template code for showing the project list"}/>
+
+        <PcodeSrc codeSrc={react_code} language={"tsx"} caption={"React code for the expanded project list view"}/>
 
         <Pp>
             This page is still being written
