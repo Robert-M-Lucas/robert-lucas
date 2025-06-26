@@ -48,7 +48,7 @@ export function ProjectSpotlight({ project, projectCycleTime }: Props) {
 
         window.addEventListener("resize", checkHeight)
         return () => window.removeEventListener("resize", checkHeight)
-    }, [imgRef])
+    }, [imgRef, project])
 
     return (
         <AnimatePresence>
