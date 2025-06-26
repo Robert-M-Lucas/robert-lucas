@@ -12,8 +12,7 @@ import code from "./assets/code.png"
 export const Whython7Project: Project = {
   name: "whython-7",
   title: "Whython 7",
-  subtitle:
-    "An in-development programming language created in Rust compiling to assembly",
+  subtitle: "A precursor to Whython-8",
   ms_since_epoch: null,
   image: { image: code, alt: "TODO" },
   technologies: [RUST, X86_64_ASM, COMPILERS],

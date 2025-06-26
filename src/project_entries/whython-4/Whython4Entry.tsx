@@ -15,7 +15,7 @@ export const Whython4Project: Project = {
   name: "whython-4",
   title: "Whython 4",
   subtitle:
-    "An more modern and maintainable programming language with better flow control and function support",
+    "An more modern and maintainable programming language with better flow control and function support. A precursor to Whython-7/8",
   ms_since_epoch: null,
   image: { image: whython_4_short, alt: "TODO" },
   technologies: [RUST, COMPILERS],

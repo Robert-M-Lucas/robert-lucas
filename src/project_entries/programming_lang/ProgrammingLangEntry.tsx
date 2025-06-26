@@ -15,7 +15,7 @@ import Phr from "../../components/project_entry_utils/Phr.tsx"
 export const ProgrammingLangProject: Project = {
   name: "programming_lang",
   title: "Custom Programming Language (RLC)",
-  short_title: "Custom Programming Language",
+  short_title: "Programming Language",
   subtitle: "Creating my own programming language",
   ms_since_epoch: null,
   image: { image: tictactoe, alt: "TODO" },

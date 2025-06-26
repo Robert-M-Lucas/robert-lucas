@@ -1,11 +1,9 @@
-import {
-  PLACEHOLDER_IMAGE,
-  Project,
-} from "../../routes/projects/SingleProjectPage/project.ts"
+import { Project } from "../../routes/projects/SingleProjectPage/project.ts"
 import django_image from "./assets/django_image.txt"
 import django_code from "./assets/djanco_code.txt"
 import react_image from "./assets/react_image.txt"
 import react_code from "./assets/react_code.txt"
+import code from "./assets/code.png"
 
 import {
   BOOTSTRAP,
@@ -33,7 +31,7 @@ export const PortfolioTwoProject: Project = {
   name: "portfolio_two",
   title: "Portfolio Website (This Website)",
   short_title: "Portfolio Website",
-  image: PLACEHOLDER_IMAGE,
+  image: { image: code, alt: "Image of some code used in this website" },
   subtitle: "This website, created to replace my old portfolio website",
   ms_since_epoch: 1750860747000,
   page: PortfolioTwoEntryPage,

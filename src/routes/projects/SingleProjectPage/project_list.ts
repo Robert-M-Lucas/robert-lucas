@@ -54,7 +54,6 @@ export const SHOWCASE_PROJECT_LIST = [
   RssProject,
   CompileTimeRegexProject,
   Whython8Project,
-  Whython7Project,
   PythonSudokuProject,
   RaytracingProject,
   TerrainGeneratorProject,

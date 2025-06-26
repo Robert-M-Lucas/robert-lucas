@@ -49,7 +49,7 @@ export function ProjectSpotlight({ project, projectCycleTime }: Props) {
   }
 
   useEffect(() => {
-    setTimeout(checkHeight, 100)
+    setTimeout(checkHeight, 500)
     window.addEventListener("resize", checkHeight)
     return () => window.removeEventListener("resize", checkHeight)
   }, [img, wrapper])
