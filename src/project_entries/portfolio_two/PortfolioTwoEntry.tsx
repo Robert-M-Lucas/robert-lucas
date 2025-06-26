@@ -10,6 +10,7 @@ import {
 } from "../../routes/projects/SingleProjectPage/technology.tsx";
 import {createCustomLink, GITHUB_LINK} from "../../routes/projects/SingleProjectPage/links.tsx";
 import ProjWrapper from "../../components/project_entry_utils/ProjWrapper.tsx";
+import Pp from "../../components/project_entry_utils/Pp.tsx";
 
 export const PortfolioTwoProject: Project = {
     currently_working_on: true,
@@ -27,6 +28,12 @@ export const PortfolioTwoProject: Project = {
 
 function PortfolioTwoEntryPage() {
     return <ProjWrapper>
-        This entry is still being written
+        <Pp>
+            This webs
+        </Pp>
+
+        <Pp>
+            This page is still being written
+        </Pp>
     </ProjWrapper>;
 }

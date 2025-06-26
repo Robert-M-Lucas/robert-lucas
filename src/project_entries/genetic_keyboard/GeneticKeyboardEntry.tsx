@@ -1,10 +1,10 @@
-import ProjImage from "../../components/project_entry_utils/ProjImage.tsx";
+import Pimg from "../../components/project_entry_utils/Pimg.tsx";
 import genetic_survival from "./assets/genetic_survival.png";
 import keyboard from "./assets/keyboard.png";
 import {GITHUB_LINK} from "../../routes/projects/SingleProjectPage/links.tsx";
 import {Project} from "../../routes/projects/SingleProjectPage/project.ts";
 import ProjWrapper from "../../components/project_entry_utils/ProjWrapper.tsx";
-import ProjParagraph from "../../components/project_entry_utils/ProjParagraph.tsx";
+import Pp from "../../components/project_entry_utils/Pp.tsx";
 import {CSHARP} from "../../routes/projects/SingleProjectPage/technology.tsx";
     
 export const GeneticKeyboardProject: Project = {
@@ -23,30 +23,30 @@ export const GeneticKeyboardProject: Project = {
 
 function GeneticKeyboardEntryPage() {
     return <ProjWrapper>
-    <ProjParagraph>
+    <Pp>
         This project was my first experience with genetic algorithms. This program generates a population of random keyboards, then it tests their speed
         on some sample text (James Bond: Casino Royale in this case) by evaluating finger travel time and finally it discards the worst half and combines the surviving ones
         to make the next generation of keyboards repeating the cycle.
-    </ProjParagraph>
+    </Pp>
 
-    <ProjImage image={keyboard} alt={"TODO"} caption={"Best keyboard layout according to the current version of my program"}/>
+    <Pimg image={keyboard} alt={"TODO"} caption={"Best keyboard layout according to the current version of my program"}/>
 
-    <ProjParagraph>
+    <Pp>
         Currently this algorithm simply discards the worst x keyboards however to more closely mimic natural selection, I want to make the selection look more like this:
-    </ProjParagraph>
+    </Pp>
 
-    <ProjImage image={genetic_survival} alt={"TODO"} caption={"Best top-left to worst bottom-right; Black squares are eliminated."} source={{name: "Carykh", url: "https://www.youtube.com/watch?v=GOFws_hhZs8"}}/>
+    <Pimg image={genetic_survival} alt={"TODO"} caption={"Best top-left to worst bottom-right; Black squares are eliminated."} source={{name: "Carykh", url: "https://www.youtube.com/watch?v=GOFws_hhZs8"}}/>
 
-    <ProjParagraph>
+    <Pp>
         This could remove the need for my current solution of adding completely random keyboards in to each generation to prevent the algorithm from finding a local maximum
         or it could be used in conjunction with it.
-    </ProjParagraph>
+    </Pp>
 
-    <ProjParagraph>
+    <Pp>
         I also want to improve the inheritance algorithm as I believe it isn't too suitable for keyboards because it doesn't actually lead children to inherit good traits from parents.
         Currently, a random key position is selected and in that position, a key is selected randomly from either of the two parents. If both parents' keys have already been used, 
         a random key is placed there instead. I don't believe this is a great solution as the most important traits of a keyboard are the keys' positions relative to each other
         - something that isn't inherited well.
-    </ProjParagraph>
+    </Pp>
     </ProjWrapper>;
 }

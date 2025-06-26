@@ -13,7 +13,7 @@ export interface Props {
     legacyNaturalWidth?: boolean;
 }
 
-export default function ProjImage({image, alt, caption, source, legacyNaturalWidth}: Props) {
+export default function Pimg({image, alt, caption, source, legacyNaturalWidth}: Props) {
     const imgRef: RefObject<HTMLImageElement | null> = useRef(null);
     const [width, setWidth] = useState("auto");
 

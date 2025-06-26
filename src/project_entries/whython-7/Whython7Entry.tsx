@@ -1,7 +1,7 @@
 import {GITHUB_LINK} from "../../routes/projects/SingleProjectPage/links.tsx";
 import {Project} from "../../routes/projects/SingleProjectPage/project.ts";
 import ProjWrapper from "../../components/project_entry_utils/ProjWrapper.tsx";
-import ProjParagraph from "../../components/project_entry_utils/ProjParagraph.tsx";
+import Pp from "../../components/project_entry_utils/Pp.tsx";
 import {RUST} from "../../routes/projects/SingleProjectPage/technology.tsx";
 import code from "./assets/code.png"
     
@@ -22,12 +22,12 @@ export const Whython7Project: Project = {
 function Whython7EntryPage() {
     return <ProjWrapper>
 
-    <ProjParagraph>
+    <Pp>
         This is a currently under development programming language built in a completely different manner to previous iterations.
-    </ProjParagraph>
-    <ProjParagraph>
+    </Pp>
+    <Pp>
         This iteration has Rust-like syntax and compiles down to assembly without the use of IL tool such as LLVM. Only
         the final assembling and linking steps are handled by other programs (NASM and MSVC respectively).
-    </ProjParagraph>
+    </Pp>
     </ProjWrapper>;
 }
