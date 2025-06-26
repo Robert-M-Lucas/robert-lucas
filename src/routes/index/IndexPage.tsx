@@ -8,7 +8,7 @@ import { AnimatePresence, motion, Transition } from "framer-motion"
 
 export const projectCycleTime = 15000
 
-const transition: Transition = { duration: 1, ease: [0.25, 0.1, 0.25, 1] }
+const transition: Transition = { duration: 1.5, ease: [0.25, 0.1, 0.25, 1] }
 const variants = {
     hidden: { filter: "blur(10px)", transform: "translateY(20%)", opacity: 0 },
     visible: { filter: "blur(0)", transform: "translateY(0)", opacity: 1 },
@@ -80,12 +80,12 @@ export default function IndexPage() {
                                 initial="hidden"
                                 whileInView="visible"
                                 exit={"hidden"}
-                                transition={{ staggerChildren: 0.1 }}
+                                transition={{ staggerChildren: 0.15 }}
                                 className={
                                     "d-flex flex-column justify-content-center align-items-center"
                                 }
                             >
-                                <h1 className={"display-1 fw-bold"}>
+                                <h1 className={"display-1 fw-bold text-center"}>
                                     {currentHeading
                                         .split(" ")
                                         .map((word, index) => (

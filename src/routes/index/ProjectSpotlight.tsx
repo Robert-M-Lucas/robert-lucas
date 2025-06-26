@@ -102,7 +102,7 @@ export function ProjectSpotlight({ project, projectCycleTime }: Props) {
                                         <div className="fade-overlay" />
                                     </div>
                                 )}
-                                <p>{project.subtitle}</p>
+                                <p className="mb-0">{project.subtitle}</p>
                             </Card.Text>
                         </Card.Body>
                         {project.links.length !== 0 && (
