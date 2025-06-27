@@ -11,3 +11,7 @@ export interface ImpImage {
 export function clearProjectScrollProgress() {
   sessionStorage.setItem(SCROLL_STORAGE_KEY, window.scrollY.toString())
 }
+
+export function copyText(text: string) {
+  navigator.clipboard.writeText(text).then()
+}

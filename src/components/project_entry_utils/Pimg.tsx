@@ -8,7 +8,7 @@ export interface ImageSource {
 export interface Props {
   image: string
   alt: string
-  caption?: string
+  caption?: string | React.ReactNode
   source?: ImageSource
   legacyNaturalWidth?: boolean
 }
@@ -44,7 +44,7 @@ export default function Pimg({
   }, [image, legacyNaturalWidth, imgRef])
 
   return (
-    <div style={{ maxWidth: "100%" }} className="mb-3">
+    <div style={{ maxWidth: "100%" }} className="mb-2">
       <img
         ref={imgRef}
         className="rounded-2"

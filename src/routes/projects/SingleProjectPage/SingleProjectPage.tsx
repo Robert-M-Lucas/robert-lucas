@@ -3,7 +3,7 @@ import { PROJECT_LIST } from "./project_list.ts"
 import FooterWrapper from "../../../components/FooterWrapper.tsx"
 import Header from "../../../components/Header.tsx"
 import { Container } from "react-bootstrap"
-import { Project } from "./project.ts"
+import { isProjectLegacy, Project } from "./project.ts"
 import { getProjectPath, PROJECTS_PATH } from "../../../router.tsx"
 import HeaderSpacer from "../../../components/HeaderSpacer.tsx"
 import RenderTechnologies from "../../../components/RenderTechsAndLinks.tsx"
@@ -13,6 +13,7 @@ import FullscreenCenter from "../../../components/FullscreenCenter.tsx"
 import Pimg from "../../../components/project_entry_utils/Pimg.tsx"
 import RenderLegacyWarning from "../../../components/RenderLegacyWarning.tsx"
 import RenderProjectName from "../../../components/RenderProjectName.tsx"
+import RenderIsWritingWarning from "../../../components/RenderIsWritingWarning.tsx"
 
 export default function SingleProjectPage() {
   const params = useParams()
@@ -67,7 +68,7 @@ function SingleProjectPageRenderer(project: Project) {
         <RenderProjectName
           title={project.title}
           margin={!project.subtitle}
-          legacy={project.ms_since_epoch === null}
+          legacy={isProjectLegacy(project)}
           large
         />
         <div className="mb-1">
@@ -95,7 +96,8 @@ function SingleProjectPageRenderer(project: Project) {
 
         <hr />
 
-        {project.ms_since_epoch === null && <RenderLegacyWarning />}
+        {isProjectLegacy(project) && <RenderLegacyWarning />}
+        {project.currently_writing && <RenderIsWritingWarning />}
 
         {project.page()}
       </Container>

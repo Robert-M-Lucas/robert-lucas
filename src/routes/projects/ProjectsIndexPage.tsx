@@ -7,11 +7,10 @@ import {
 } from "./SingleProjectPage/project_list.ts"
 import HeaderSpacer from "../../components/HeaderSpacer.tsx"
 import { useEffect, useState } from "react"
-import { Project } from "./SingleProjectPage/project.ts"
+import { isProjectLegacy, Project } from "./SingleProjectPage/project.ts"
 import RenderTechsAndLinks from "../../components/RenderTechsAndLinks.tsx"
 import RenderProjectDate from "../../components/RenderProjectDate.tsx"
 import RenderTechnologies from "../../components/RenderTechsAndLinks.tsx"
-import Pimg from "../../components/project_entry_utils/Pimg.tsx"
 import RenderButtonLinks from "../../components/RenderButtonLinks.tsx"
 import { Link, useNavigate } from "react-router-dom"
 import { getProjectPath } from "../../router.tsx"
@@ -130,7 +129,7 @@ function CompactEntry({ project }: EntryProps) {
     >
       <RenderProjectName
         title={project.title}
-        legacy={project.ms_since_epoch === null}
+        legacy={isProjectLegacy(project)}
         currently_writing={project.currently_writing}
       />
       <span className="mb-2">
@@ -159,7 +158,7 @@ function ExpandedEntry({ project }: EntryProps) {
         title={project.title}
         currently_writing={project.currently_writing}
         margin={!project.subtitle}
-        legacy={project.ms_since_epoch === null}
+        legacy={isProjectLegacy(project)}
       />
       <span className="mb-1">
         <RenderProjectDate ms_since_epoch={project.ms_since_epoch} />
@@ -175,7 +174,17 @@ function ExpandedEntry({ project }: EntryProps) {
       </span>
 
       {project.image && (
-        <Pimg image={project.image.image} alt={project.image.alt} />
+        <div style={{ maxWidth: "100%" }} className="mb-2">
+          <img
+            className="rounded-2"
+            src={project.image.image}
+            alt={project.image.alt}
+            style={{
+              maxWidth: "100%",
+              maxHeight: "80vh",
+            }}
+          />
+        </div>
       )}
 
       {project.subtitle && (

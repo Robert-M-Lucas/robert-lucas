@@ -1,6 +1,14 @@
-import { JSX } from "react"
-import { BoxSeamFill, Github, Globe, GooglePlay } from "react-bootstrap-icons"
+import { JSX, useEffect, useState } from "react"
+import {
+  BoxSeamFill,
+  Clipboard2Check,
+  Github,
+  Globe,
+  GooglePlay,
+  Terminal,
+} from "react-bootstrap-icons"
 import { Button } from "react-bootstrap"
+import { copyText } from "../../../util/util.ts"
 
 export interface LinkType {
   getTextElement: (url: string) => JSX.Element
@@ -94,6 +102,89 @@ export const CRATES_LINK: LinkType = {
       </div>
     </Button>
   ),
+}
+
+export const COPYABLE_COMMAND_LINK: LinkType = {
+  getTextElement: (url: string) => (
+    <CopyableCommandLinkButton url={url} isButton={false} />
+  ),
+  getButtonElement: (url: string) => (
+    <CopyableCommandLinkButton url={url} isButton={true} />
+  ),
+}
+
+function CopyableCommandLinkButton({
+  url,
+  isButton,
+}: {
+  url: string
+  isButton: boolean
+}) {
+  const [clicked, setClicked] = useState(false)
+  const [timeoutS, setTimeoutS] = useState<NodeJS.Timeout | null>(null)
+
+  useEffect(() => {
+    return () => {
+      if (timeoutS) {
+        window.clearTimeout(timeoutS)
+      }
+    }
+  }, [timeoutS])
+
+  return (
+    <>
+      {isButton ? (
+        <Button
+          variant={clicked ? "outline-success" : "outline-secondary"}
+          onClick={(e) => {
+            e.stopPropagation()
+            copyText(url)
+            setClicked(true)
+            setTimeoutS(
+              setTimeout(() => {
+                setClicked(false)
+              }, 3000)
+            )
+          }}
+        >
+          <div className="d-flex flex-row align-items-center font-monospace">
+            {clicked ? (
+              <Clipboard2Check style={{ marginBottom: "2px" }} />
+            ) : (
+              <Terminal style={{ marginBottom: "2px" }} />
+            )}
+            <span className="ps-2">{url}</span>
+          </div>
+        </Button>
+      ) : (
+        <a
+          className={
+            "fw-bold font-monospace" +
+            (clicked ? " text-success" : " text-secondary")
+          }
+          onClick={(e) => {
+            e.stopPropagation()
+            copyText(url)
+            setClicked(true)
+            setTimeoutS(
+              setTimeout(() => {
+                setClicked(false)
+              }, 2000)
+            )
+          }}
+        >
+          {clicked ? (
+            <Clipboard2Check
+              style={{ marginBottom: "4px", marginRight: "4px" }}
+            />
+          ) : (
+            <Terminal style={{ marginBottom: "4px", marginRight: "4px" }} />
+          )}
+          {url}
+        </a>
+      )}
+    </>
+  )
 }
 
 export function createCustomLink(name: string): LinkType {

@@ -11,14 +11,14 @@ import {
   Typescript,
   Unity,
 } from "react-bootstrap-icons"
-import Rust from "../../../components/Icons/Rust.tsx"
-import ReactIcon from "../../../components/Icons/ReactIcon.tsx"
-import Java from "../../../components/Icons/Java.tsx"
-import CSharp from "../../../components/Icons/CSharp.tsx"
-import Python from "../../../components/Icons/Python.tsx"
-import CPlusPlus from "../../../components/Icons/CPlusPlus.tsx"
-import Html from "../../../components/Icons/Html.tsx"
-import Django from "../../../components/Icons/Django.tsx"
+import Rust from "../../../components/icons/Rust.tsx"
+import ReactIcon from "../../../components/icons/ReactIcon.tsx"
+import Java from "../../../components/icons/Java.tsx"
+import CSharp from "../../../components/icons/CSharp.tsx"
+import Python from "../../../components/icons/Python.tsx"
+import CPlusPlus from "../../../components/icons/CPlusPlus.tsx"
+import Html from "../../../components/icons/Html.tsx"
+import Django from "../../../components/icons/Django.tsx"
 
 export interface Technology {
   getElement: () => JSX.Element

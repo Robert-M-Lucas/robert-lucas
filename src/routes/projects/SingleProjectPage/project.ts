@@ -26,3 +26,7 @@ export interface Project {
   links: ProjectLink[]
   page: () => JSX.Element
 }
+
+export function isProjectLegacy(project: Project) {
+  return project.ms_since_epoch === null
+}
