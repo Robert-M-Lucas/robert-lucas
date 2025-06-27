@@ -12,10 +12,11 @@ import { getProjectPath, PROJECTS_PATH } from "../../router.tsx"
 import { Link } from "react-router-dom"
 import { Button } from "react-bootstrap"
 import { clearProjectScrollProgress } from "../../util/util.ts"
+import { isMobile } from "react-device-detect"
 
 export const projectCycleTime = 15000
 
-const transition: Transition = { duration: 1.5, ease: [0.25, 0.1, 0.25, 1] }
+const transition: Transition = { duration: 1.3, ease: [0.25, 0.1, 0.25, 1] }
 const variants = {
   hidden: { filter: "blur(10px)", transform: "translateY(20%)", opacity: 0 },
   visible: { filter: "blur(0)", transform: "translateY(0)", opacity: 1 },
@@ -27,6 +28,8 @@ export default function IndexPage() {
   )
   const [currentHeading, setCurrentHeading] = useState("Robert Lucas")
   const [showHeading, setShowHeading] = useState(true)
+  const [initialHeadingHeight, setInitialHeadingHeight] = useState(0)
+  const headingRef = useRef<HTMLDivElement | null>(null)
   const [showSubtitle, setShowSubtitle] = useState(false)
 
   const timeout: RefObject<NodeJS.Timeout | null> = useRef(null)
@@ -50,6 +53,8 @@ export default function IndexPage() {
       clearTimeout(timeout.current)
     }
     timeout.current = setTimeout(() => {
+      if (headingRef.current)
+        setInitialHeadingHeight(headingRef.current.clientHeight)
       setShowHeading(false)
       if (timeout.current) {
         clearTimeout(timeout.current)
@@ -58,7 +63,7 @@ export default function IndexPage() {
         setShowHeading(true)
         setCurrentHeading("Click on any project")
         setShowSubtitle(true)
-      }, 1200)
+      }, 1500)
     }, 5000)
 
     return () => {
@@ -81,13 +86,14 @@ export default function IndexPage() {
         <div>
           <div
             className={
-              "d-flex flex-column justify-content-end align-items-center"
+              "d-flex flex-column justify-content-center align-items-center"
             }
-            style={{ height: "19vh" }}
+            style={isMobile ? { marginTop: "10px" } : { height: "15vh" }}
           >
             <AnimatePresence>
               {showHeading && (
                 <motion.div
+                  ref={headingRef}
                   key={currentHeading.split(" ").length}
                   initial="hidden"
                   whileInView="visible"
@@ -95,6 +101,14 @@ export default function IndexPage() {
                   transition={{ staggerChildren: 0.15 }}
                   className={
                     "d-flex flex-column justify-content-center align-items-center"
+                  }
+                  variants={
+                    initialHeadingHeight === 0
+                      ? {}
+                      : {
+                          hidden: { height: `${initialHeadingHeight}px` },
+                          visible: { height: "auto" },
+                        }
                   }
                 >
                   <h1 className={"display-1 fw-bold text-center"}>
