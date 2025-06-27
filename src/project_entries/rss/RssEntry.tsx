@@ -20,12 +20,12 @@ import Ph1 from "../../components/project_entry_utils/Ph1.tsx"
 import Pol from "../../components/project_entry_utils/Pol.tsx"
 import Pimg from "../../components/project_entry_utils/Pimg.tsx"
 import PmarkdownSrc from "../../components/project_entry_utils/PmarkdownSrc.tsx"
-
+//
 export const RssProject: Project = {
   name: "rss",
   title: "RSS",
   subtitle:
-    "A tool allowing the creation of single-file Rust projects with embedded compiled binaries enabling similar usage to Python scripts",
+    "Single file Rust projects with embedded binary enable Rust's use as a scripting language",
   image: { image: usage, alt: "Image of the RSS tool recompiling a file" },
   ms_since_epoch: 1716902340000,
   page: RssPage,

@@ -18,7 +18,7 @@ import {
 export const MinesweeperProject: Project = {
   name: "minesweeper",
   title: "Infinite Minesweeper",
-  subtitle: "A game that allows you to play Minesweeper on an infinite plane",
+  subtitle: "Minesweeper on an infinite plane",
   ms_since_epoch: null,
   image: { image: minesweeper, alt: "TODO" },
   technologies: [CSHARP, UNITY, ANDROID],

@@ -13,7 +13,7 @@ export const Whython8Project: Project = {
   name: "whython-8",
   title: "Whython 8",
   subtitle:
-    "A high-level language with functions, classes, methods, importing, and detailed error messages, compiling to assembly",
+    "A high-level language with functions, classes, methods, importing, and detailed error messages - compiling to assembly",
   image: { image: error, alt: "A Whython-8 error message" },
   ms_since_epoch: 1726665540000,
   page: Whython8Page,
