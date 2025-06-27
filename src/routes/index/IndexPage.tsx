@@ -156,7 +156,7 @@ export default function IndexPage() {
             className={
               "d-flex flex-column justify-content-center align-items-center"
             }
-            style={{ height: "63vh" }}
+            style={isMobile ? { height: "60vh" } : { height: "63vh" }}
           >
             <ProjectSpotlight
               project={SHOWCASE_PROJECT_LIST[projectIndex]}
@@ -166,15 +166,17 @@ export default function IndexPage() {
         </div>
 
         <Button
-          className={"text-nowrap"}
+          className={
+            "text-nowrap mb-2 mx-2" + (isMobile ? "" : " align-self-center")
+          }
           variant={"outline-success"}
-          style={{
-            position: "absolute",
-            bottom: "10px",
-            left: "50%",
-            transform: "translateX(-50%)",
-            cursor: "pointer",
-          }}
+          // style={{
+          //   position: "absolute",
+          //   bottom: "10px",
+          //   left: "50%",
+          //   transform: "translateX(-50%)",
+          //   cursor: "pointer",
+          // }}
           onClick={() => {
             window.location.hash = ""
             window.location.hash = "#continued"
@@ -183,7 +185,7 @@ export default function IndexPage() {
           Technology, experience, education
         </Button>
 
-        <Header hidden />
+        {/*<Header hidden />*/}
       </div>
       <section id={"continued"}>
         <p>Hello</p>

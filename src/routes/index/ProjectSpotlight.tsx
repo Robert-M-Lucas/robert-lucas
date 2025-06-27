@@ -75,12 +75,13 @@ export function ProjectSpotlight({ project, projectCycleTime }: Props) {
               opacity: 1,
             },
           }}
-          style={{ cursor: "pointer" }}
-          onClick={async () =>
-            navigate(getProjectPath(project.name), {
-              viewTransition: true,
-            })
-          }
+          style={isExiting ? { pointerEvents: "none" } : { cursor: "pointer" }}
+          onClick={async () => {
+            if (!isExiting)
+              navigate(getProjectPath(project.name), {
+                viewTransition: true,
+              })
+          }}
         >
           <Card style={{ width: "min(90vw, 900px)" }}>
             <Card.Body className={isMobile ? "px-2 pt-2 pb-1" : ""}>
