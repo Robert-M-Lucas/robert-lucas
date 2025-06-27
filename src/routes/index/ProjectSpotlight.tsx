@@ -89,8 +89,8 @@ export function ProjectSpotlight({ project, projectCycleTime }: Props) {
               <Card.Title>
                 <RenderProjectName
                   title={project.short_title ?? project.title}
-                  legacy={isProjectLegacy(project)}
-                  currently_writing={project.currently_writing}
+                  legacy={!isMobile && isProjectLegacy(project)}
+                  currently_writing={!isMobile && project.currently_writing}
                 />
               </Card.Title>
               <Card.Subtitle>
