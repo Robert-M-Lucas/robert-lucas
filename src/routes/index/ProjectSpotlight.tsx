@@ -7,6 +7,7 @@ import { useEffect, useState } from "react"
 import "./blur-bottom.css"
 import { getProjectPath } from "../../router.tsx"
 import { useNavigate } from "react-router-dom"
+import { isMobile } from "react-device-detect"
 
 export interface Props {
   project: Project
@@ -82,9 +83,11 @@ export function ProjectSpotlight({ project, projectCycleTime }: Props) {
           }
         >
           <Card style={{ width: "min(90vw, 900px)" }}>
-            <Card.Body>
+            <Card.Body className={isMobile ? "px-2 pt-2 pb-1" : ""}>
               <Card.Title>
-                <h1>{project.title}</h1>
+                <h1 className={"mb-0"}>
+                  {project.short_title ?? project.title}
+                </h1>
               </Card.Title>
               <Card.Subtitle>
                 <RenderTechsAndLinks technologies={project.technologies} />

@@ -13,7 +13,7 @@ import { Link } from "react-router-dom"
 import { Button } from "react-bootstrap"
 import { clearProjectScrollProgress } from "../../util/util.ts"
 
-export const projectCycleTime = 1500000
+export const projectCycleTime = 15000
 
 const transition: Transition = { duration: 1.5, ease: [0.25, 0.1, 0.25, 1] }
 const variants = {
@@ -23,8 +23,7 @@ const variants = {
 
 export default function IndexPage() {
   const [projectIndex, setProjectIndex] = useState<number>(
-    // Math.floor(Math.random() * SHOWCASE_PROJECT_LIST.length)
-    17
+    Math.floor(Math.random() * SHOWCASE_PROJECT_LIST.length)
   )
   const [currentHeading, setCurrentHeading] = useState("Robert Lucas")
   const [showHeading, setShowHeading] = useState(true)
@@ -84,7 +83,7 @@ export default function IndexPage() {
             className={
               "d-flex flex-column justify-content-end align-items-center"
             }
-            style={{ height: "17vh" }}
+            style={{ height: "19vh" }}
           >
             <AnimatePresence>
               {showHeading && (
@@ -157,7 +156,7 @@ export default function IndexPage() {
           variant={"outline-success"}
           style={{
             position: "absolute",
-            bottom: "20px",
+            bottom: "10px",
             left: "50%",
             transform: "translateX(-50%)",
             cursor: "pointer",
