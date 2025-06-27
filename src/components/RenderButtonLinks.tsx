@@ -10,7 +10,7 @@ export default function RenderButtonLinks({ links }: Props) {
   }
 
   return (
-    <div className="mb-1">
+    <div className="mb-1" style={{ lineHeight: "45px" }}>
       {links.map((link, i) => (
         <span key={i}>
           {link.type.getButtonElement(link.url)}{" "}
