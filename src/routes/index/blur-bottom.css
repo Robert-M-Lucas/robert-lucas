@@ -1,6 +1,6 @@
 .image-wrapper {
   position: relative;
-  max-height: min(40vh, 70vw);
+  max-height: min(40vh, 60vw);
   overflow: hidden;
 }
 
