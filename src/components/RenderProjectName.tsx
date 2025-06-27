@@ -16,17 +16,17 @@ export default function RenderProjectName({
   return large ? (
     <h1 className={margin ? "mb-3" : "mb-0"}>
       {title}
-      {legacy && <span className={"text-muted"}> [Legacy]</span>}
+      {legacy && <span className={"text-muted"}>&nbsp;• [Legacy]</span>}
       {currently_writing && (
-        <span className={"text-muted"}> [Currently Writing]</span>
+        <span className={"text-muted"}>&nbsp;• [Currently Writing]</span>
       )}
     </h1>
   ) : (
     <h2 className={margin ? "mb-3" : "mb-0"}>
       {title}
-      {legacy && <span className={"text-muted"}> [Legacy]</span>}
+      {legacy && <span className={"text-muted"}>&nbsp;• [Legacy Project]</span>}
       {currently_writing && (
-        <span className={"text-muted"}> [Currently Writing]</span>
+        <span className={"text-muted"}>&nbsp;• [Currently Writing]</span>
       )}
     </h2>
   )

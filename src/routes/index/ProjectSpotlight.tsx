@@ -1,5 +1,5 @@
 import { Card } from "react-bootstrap"
-import { Project } from "../projects/SingleProjectPage/project"
+import { isProjectLegacy, Project } from "../projects/SingleProjectPage/project"
 import RenderTechsAndLinks from "../../components/RenderTechsAndLinks.tsx"
 import RenderButtonLinks from "../../components/RenderButtonLinks.tsx"
 import { AnimatePresence, motion } from "framer-motion"
@@ -8,6 +8,7 @@ import "./blur-bottom.css"
 import { getProjectPath } from "../../router.tsx"
 import { useNavigate } from "react-router-dom"
 import { isMobile } from "react-device-detect"
+import RenderProjectName from "../../components/RenderProjectName.tsx"
 
 export interface Props {
   project: Project
@@ -86,9 +87,11 @@ export function ProjectSpotlight({ project, projectCycleTime }: Props) {
           <Card style={{ width: "min(90vw, 900px)" }}>
             <Card.Body className={isMobile ? "px-2 pt-2 pb-1" : ""}>
               <Card.Title>
-                <h1 className={"mb-0"}>
-                  {project.short_title ?? project.title}
-                </h1>
+                <RenderProjectName
+                  title={project.short_title ?? project.title}
+                  legacy={isProjectLegacy(project)}
+                  currently_writing={project.currently_writing}
+                />
               </Card.Title>
               <Card.Subtitle>
                 <RenderTechsAndLinks technologies={project.technologies} />
@@ -117,7 +120,9 @@ export function ProjectSpotlight({ project, projectCycleTime }: Props) {
                   "d-flex justify-content-center align-items-center bg-white"
                 }
               >
-                <RenderButtonLinks links={project.links} />
+                <RenderButtonLinks
+                  links={isMobile ? project.links.slice(0, 2) : project.links}
+                />
               </Card.Footer>
             )}
             <motion.div
