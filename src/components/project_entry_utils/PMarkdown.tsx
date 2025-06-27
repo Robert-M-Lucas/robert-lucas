@@ -6,7 +6,7 @@ export interface Props {
   caption?: string
 }
 
-export default function Pmarkdown({ markdown, caption }: Props) {
+export default function PMarkdown({ markdown, caption }: Props) {
   return (
     <>
       <Card className={caption ? "mb-0" : "mb-3"}>

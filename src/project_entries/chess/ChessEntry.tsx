@@ -1,4 +1,4 @@
-import Pimg from "../../components/project_entry_utils/Pimg.tsx"
+import P_img from "../../components/project_entry_utils/P_img.tsx"
 import heatmap from "./assets/heatmap.png"
 import alphabeta from "./assets/alphabeta.png"
 import minimax from "./assets/minimax.png"
@@ -7,7 +7,7 @@ import chess from "./assets/chess.png"
 import { GITHUB_LINK } from "../../routes/projects/SingleProjectPage/links.tsx"
 import { Project } from "../../routes/projects/SingleProjectPage/project.ts"
 import ProjWrapper from "../../components/project_entry_utils/ProjWrapper.tsx"
-import Pp from "../../components/project_entry_utils/Pp.tsx"
+import P_p from "../../components/project_entry_utils/P_p.tsx"
 import {
   CSHARP,
   NETCODE,
@@ -31,20 +31,20 @@ export const ChessProject: Project = {
 function ChessEntryPage() {
   return (
     <ProjWrapper>
-      <Pp>
+      <P_p>
         When I created this game I wanted it to support singleplayer,
         multiplayer and vs AI and it now supports all three (as well as AI vs AI
         for fun and testing).
-      </Pp>
-      <Pp>
+      </P_p>
+      <P_p>
         The singleplayer was relatively easy to implement however there were
         some interesting parts to creating it such as using an exponential
         function to smoothly raise and lower the squares as well as using a
         virtual dolly zoom to smoothly change between 3D and a 2D orthographic
         effect.
-      </Pp>
+      </P_p>
 
-      <Pimg
+      <P_img
         image={dolly_zoom}
         alt={"TODO"}
         caption={"The dolly zoom equation I used."}
@@ -54,7 +54,7 @@ function ChessEntryPage() {
         }}
       />
 
-      <Pp>
+      <P_p>
         The multiplayer was the most fun part to code as all I had to do was
         modify net code I had made previously to be reusable as well as add some
         improvements. The net code functions by having each packet have its
@@ -66,16 +66,16 @@ function ChessEntryPage() {
         reusable as well as allowing the server to be separated from a client in
         the future while not adding too much overhead. The connection currently
         works by entering the host's IP while they have a server open.
-      </Pp>
+      </P_p>
 
-      <Pp>
+      <P_p>
         For the AI I used a custom Minimax algorithm that essentially assumes
         that at every move the player will make the best move for themselves
         (worst for the AI) and the AI will do the same. This can be quite
         difficult to imagine so a diagram is useful.
-      </Pp>
+      </P_p>
 
-      <Pimg
+      <P_img
         image={minimax}
         alt={"TODO"}
         caption={
@@ -87,7 +87,7 @@ function ChessEntryPage() {
         }}
       />
 
-      <Pp>
+      <P_p>
         One of the optimisations I implemented was Alpha-Beta pruning.
         Essentially if you find that the node won't be chosen in the above layer
         no matter what there is no reason to continue exploring its children.
@@ -100,9 +100,9 @@ function ChessEntryPage() {
         difficult things to implement due to it being somewhat confusing to
         implement with recursion and it being difficult to check if it is
         working properly due to how large the tree becomes in a chess game.
-      </Pp>
+      </P_p>
 
-      <Pimg
+      <P_img
         image={alphabeta}
         alt={"TODO"}
         caption={"Alpha-Beta pruning diagram"}
@@ -112,7 +112,7 @@ function ChessEntryPage() {
         }}
       />
 
-      <Pp>
+      <P_p>
         I also experimented with multithreading the AI but found it to be
         significantly slower despite limiting the threads to one less than the
         number of logical threads available. It also made the graphical part of
@@ -120,23 +120,23 @@ function ChessEntryPage() {
         I'm planning to add support for transposition tables using Zobrist
         Hashing which would allow the AI to use previous evaluations of boards
         it has already seen instead of recalculating them.
-      </Pp>
-      <Pp>
+      </P_p>
+      <P_p>
         For calculating the score of a board I used a combination of giving
         values to pieces, as well as adding a heatmap to tell the AI that{" "}
         <i>generally</i> certain pieces are better in certain places such as the
         rooks being in the middle ranks. I'm also planning to give the AI a book
         of openings to help it at the start of the game.
-      </Pp>
+      </P_p>
 
-      <Pimg
+      <P_img
         legacyNaturalWidth
         image={heatmap}
         alt={"TODO"}
         caption={"Pawn heatmap - AI starts at top"}
       />
 
-      <Pp>
+      <P_p>
         For the networking I used a library I had previously made for other
         projects with a few updates. The library essentially works by allowing
         you to define 'packets' which have a UID and contain serialisable data.
@@ -144,8 +144,8 @@ function ChessEntryPage() {
         the recipient which can define how to handle certain packets. This
         allows you to work with named, typed data at all points when interacting
         with the library.
-      </Pp>
-      <Pp>
+      </P_p>
+      <P_p>
         The formatting and sending of packets is a bit more complicated. First
         is the length of the whole packet so the recipient knows when this
         packet ends and the next starts. Next is the UID which defines how the
@@ -153,13 +153,13 @@ function ChessEntryPage() {
         data length bytes and the actual data so the recipient know how to split
         up the data for decoding. The packets don't need to contain names for
         each item of data or their type as the UID provides all of this.
-      </Pp>
-      <Pp>
+      </P_p>
+      <P_p>
         This doesn't even cover the large amount of internal builtin packets
         that handle clients connecting, disconnecting, being kicked, connecting
         with a password and more that is all handled behind the scenes by the
         library.
-      </Pp>
+      </P_p>
     </ProjWrapper>
   )
 }

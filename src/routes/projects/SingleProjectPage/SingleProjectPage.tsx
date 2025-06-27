@@ -10,7 +10,7 @@ import RenderTechnologies from "../../../components/RenderTechsAndLinks.tsx"
 import RenderButtonLinks from "../../../components/RenderButtonLinks.tsx"
 import RenderProjectDate from "../../../components/RenderProjectDate.tsx"
 import FullscreenCenter from "../../../components/FullscreenCenter.tsx"
-import Pimg from "../../../components/project_entry_utils/Pimg.tsx"
+import P_img from "../../../components/project_entry_utils/P_img.tsx"
 import RenderLegacyWarning from "../../../components/RenderLegacyWarning.tsx"
 import RenderProjectName from "../../../components/RenderProjectName.tsx"
 import RenderIsWritingWarning from "../../../components/RenderIsWritingWarning.tsx"
@@ -85,7 +85,7 @@ function SingleProjectPageRenderer(project: Project) {
         </div>
 
         {project.image && (
-          <Pimg image={project.image.image} alt={project.image.alt} />
+          <P_img image={project.image.image} alt={project.image.alt} />
         )}
 
         {project.subtitle && (

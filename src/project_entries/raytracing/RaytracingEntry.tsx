@@ -1,4 +1,4 @@
-import Pimg from "../../components/project_entry_utils/Pimg.tsx"
+import P_img from "../../components/project_entry_utils/P_img.tsx"
 import failed5 from "./assets/failed5.png"
 import failed4 from "./assets/failed4.png"
 import failed3 from "./assets/failed3.png"
@@ -21,7 +21,7 @@ import preview from "./assets/preview.png"
 import { GITHUB_LINK } from "../../routes/projects/SingleProjectPage/links.tsx"
 import { Project } from "../../routes/projects/SingleProjectPage/project.ts"
 import ProjWrapper from "../../components/project_entry_utils/ProjWrapper.tsx"
-import Pp from "../../components/project_entry_utils/Pp.tsx"
+import P_p from "../../components/project_entry_utils/P_p.tsx"
 import { RUST } from "../../routes/projects/SingleProjectPage/technology.tsx"
 
 export const RaytracingProject: Project = {
@@ -44,29 +44,29 @@ export const RaytracingProject: Project = {
 function RaytracingEntryPage() {
   return (
     <ProjWrapper>
-      <Pp>
+      <P_p>
         I created a raytracing engine in Rust to learn the language, learn more
         about computer graphics, practice working with vectors in 3D space and
         to apply my physics knowledge.
-      </Pp>
-      <Pimg
+      </P_p>
+      <P_img
         image={preview}
         alt={"TODO"}
         caption={"Preview with reduced resolution and lighting calculations"}
       />
-      <Pimg
+      <P_img
         image={render}
         alt={"TODO"}
         caption={
           "Render with full lighting effects. Note that one of the squares at the back is white in colour, but appears slightly red as it is receiving indirect lighting from the red square"
         }
       />
-      <Pp>
+      <P_p>
         The principle behind raytracing is to shoot rays from a point, to a
         pixel on a virtual screen and then continue the rays until they hit
         something that you can use to calculate the ray's colour.
-      </Pp>
-      <Pimg
+      </P_p>
+      <P_img
         image={raytracing}
         alt={"TODO"}
         caption={"Raytracing diagram"}
@@ -75,7 +75,7 @@ function RaytracingEntryPage() {
           url: "https://commons.wikimedia.org/wiki/File:Ray_trace_diagram.svg",
         }}
       />
-      <Pp>
+      <P_p>
         The benefit of raytracing over other rendering techniques is that it
         supports true realtime reflection (and refraction) as when you hit a
         reflective surface, you can 'draw' another ray in the reflected
@@ -83,14 +83,14 @@ function RaytracingEntryPage() {
         quite simple as you can draw a line from the point on the object you've
         hit to all the light sources in the scene and any light sources that
         have an uninterrupted path to the object contribute to its lighting.
-      </Pp>
-      <Pp>
+      </P_p>
+      <P_p>
         The difficult part comes with indirect lighting (shown in the full
         render). There is no easy way to calculate indirect lighting, so you
         must emit hundreds of rays from the object in random directions,
         calculate their colours and then apply it to the object.
-      </Pp>
-      <Pimg
+      </P_p>
+      <P_img
         image={indirect}
         alt={"TODO"}
         source={{
@@ -98,7 +98,7 @@ function RaytracingEntryPage() {
           url: "https://www.scratchapixel.com/lessons/3d-basic-rendering/ray-tracing-overview/light-transport-ray-tracing-whitted.html",
         }}
       />
-      <Pimg
+      <P_img
         image={indirect2}
         alt={"TODO"}
         source={{
@@ -106,39 +106,39 @@ function RaytracingEntryPage() {
           url: "https://www.scratchapixel.com/lessons/3d-basic-rendering/global-illumination-path-tracing/global-illumination-path-tracing-practical-implementation.html",
         }}
       />
-      <Pp>
+      <P_p>
         For developing this project, I took an approach of layering increasingly
         complex mathematical abstractions until I had a toolkit I could use to
         calculate the colour of every pixel on the screen. For example, I
         started with a 3D vector:
-      </Pp>
-      <Pimg
+      </P_p>
+      <P_img
         legacyNaturalWidth
         image={v3}
         alt={"TODO"}
         caption={"Snippet of 3D vector implementation with utility functions"}
       />
-      <Pimg
+      <P_img
         legacyNaturalWidth
         image={v3_op}
         alt={"TODO"}
         caption={"Implementing operators for 3D vectors for easier use"}
       />
-      <Pp>I'd then use a 3D vector to make a line:</Pp>
-      <Pimg
+      <P_p>I'd then use a 3D vector to make a line:</P_p>
+      <P_img
         legacyNaturalWidth
         image={line}
         alt={"TODO"}
         caption={"Snippet of implementation for a line"}
       />
-      <Pp>And then I'd use this in the calculations needed for a plane:</Pp>
-      <Pimg
+      <P_p>And then I'd use this in the calculations needed for a plane:</P_p>
+      <P_img
         legacyNaturalWidth
         image={plane}
         alt={"TODO"}
         caption={"Snippet of implementation for a plane"}
       />
-      <Pimg
+      <P_img
         legacyNaturalWidth
         image={plane_intersection}
         alt={"TODO"}
@@ -146,46 +146,46 @@ function RaytracingEntryPage() {
           "Calculating the intersection between the plane and a line by using matrices and Cramer's rule"
         }
       />
-      <Pp>
+      <P_p>
         And when inputting a pixel's ray, this (ignoring other factors such as
         reflections and lighting) would tell me whether to show the colour of
         the plane or the colour behind it for a given pixel.
-      </Pp>
-      <Pimg
+      </P_p>
+      <P_img
         legacyNaturalWidth
         image={finding_object}
         alt={"TODO"}
         caption={"Finding the closest object given a ray (line)"}
       />
-      <Pp>Scene configuration:</Pp>
-      <Pimg
+      <P_p>Scene configuration:</P_p>
+      <P_img
         legacyNaturalWidth
         image={object_config}
         alt={"TODO"}
         caption={"Object configuration"}
       />
-      <Pimg
+      <P_img
         legacyNaturalWidth
         image={light_config}
         alt={"TODO"}
         caption={"Light configuration"}
       />
-      <Pimg
+      <P_img
         legacyNaturalWidth
         image={scene_config}
         alt={"TODO"}
         caption={"Scene configuration"}
       />
-      <Pp>Failed renders from development</Pp>
-      <Pimg image={failed1} alt={"TODO"} caption={"Incorrect screen width"} />
-      <Pimg image={failed2} alt={"TODO"} caption={"Too much light"} />
-      <Pimg
+      <P_p>Failed renders from development</P_p>
+      <P_img image={failed1} alt={"TODO"} caption={"Incorrect screen width"} />
+      <P_img image={failed2} alt={"TODO"} caption={"Too much light"} />
+      <P_img
         image={failed3}
         alt={"TODO"}
         caption={"I don't even want to know"}
       />
-      <Pimg image={failed4} alt={"TODO"} caption={"Refraction is annoying"} />
-      <Pimg image={failed5} alt={"TODO"} caption={"What"} />
+      <P_img image={failed4} alt={"TODO"} caption={"Refraction is annoying"} />
+      <P_img image={failed5} alt={"TODO"} caption={"What"} />
     </ProjWrapper>
   )
 }

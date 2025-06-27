@@ -1,9 +1,9 @@
-import Pimg from "../../components/project_entry_utils/Pimg.tsx"
+import P_img from "../../components/project_entry_utils/P_img.tsx"
 import compression from "./assets/compression.png"
 import { GITHUB_LINK } from "../../routes/projects/SingleProjectPage/links.tsx"
 import { Project } from "../../routes/projects/SingleProjectPage/project.ts"
 import ProjWrapper from "../../components/project_entry_utils/ProjWrapper.tsx"
-import Pp from "../../components/project_entry_utils/Pp.tsx"
+import P_p from "../../components/project_entry_utils/P_p.tsx"
 import { CSHARP } from "../../routes/projects/SingleProjectPage/technology.tsx"
 
 export const CompressionProject: Project = {
@@ -26,7 +26,7 @@ export const CompressionProject: Project = {
 function CompressionEntryPage() {
   return (
     <ProjWrapper>
-      <Pp>
+      <P_p>
         This was a quick project I made to test compression algorithms and how
         they worked with different file types. I found that dictionary encoding
         worked best with text (I used the full text of Casino Royale to test
@@ -35,8 +35,8 @@ function CompressionEntryPage() {
         works best which makes sense as delta encoding adds no file size and
         increases the likelihood of long runs as instead of runs just being
         repeated pixels, they could be repeated pixels or constant gradients.
-      </Pp>
-      <Pimg
+      </P_p>
+      <P_img
         image={compression}
         alt={"TODO"}
         caption={

@@ -7,7 +7,7 @@ export interface Props {
   caption?: string
 }
 
-export default function Pcode({ code, language, caption }: Props) {
+export default function PCode({ code, language, caption }: Props) {
   return (
     <>
       <Card className={caption ? "mb-0" : "mb-3"}>

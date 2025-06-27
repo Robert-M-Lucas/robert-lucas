@@ -2,7 +2,7 @@ export interface Props {
   children?: React.ReactNode
 }
 
-export default function Pmono({ children }: Props) {
+export default function PMono({ children }: Props) {
   return (
     <span
       className={"font-monospace rounded-1"}

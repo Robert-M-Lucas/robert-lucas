@@ -3,7 +3,7 @@ export interface Props {
   children?: React.ReactNode
 }
 
-export default function Pp({ muted = false, children }: Props) {
+export default function P_p({ muted = false, children }: Props) {
   return (
     <p
       className={"mb-3" + (muted ? " text-muted" : "")}

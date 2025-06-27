@@ -5,7 +5,7 @@ export interface Props {
   children?: ReactNode
 }
 
-export default function Pa({ href, children }: Props) {
+export default function P_a({ href, children }: Props) {
   return (
     <a href={href} target={"_blank"} className={"text-decoration-none"}>
       {children}

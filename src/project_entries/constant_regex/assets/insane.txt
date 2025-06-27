@@ -1,0 +1,5 @@
+for entry in structure {
+    if !regex!("hell[a-z]+o+").test(entry) {
+        return
+    }
+}

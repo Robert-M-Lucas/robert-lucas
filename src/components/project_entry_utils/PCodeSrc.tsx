@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import Pcode from "./Pcode.tsx"
+import PCode from "./PCode.tsx"
 
 export interface Props {
   codeSrc: string
@@ -7,7 +7,7 @@ export interface Props {
   caption?: string
 }
 
-export default function PcodeSrc({ codeSrc, language, caption }: Props) {
+export default function PCodeSrc({ codeSrc, language, caption }: Props) {
   const [code, setCode] = useState("")
 
   useEffect(() => {
@@ -18,5 +18,5 @@ export default function PcodeSrc({ codeSrc, language, caption }: Props) {
       })
   }, [codeSrc])
 
-  return <Pcode code={code} language={language} caption={caption} />
+  return <PCode code={code} language={language} caption={caption} />
 }

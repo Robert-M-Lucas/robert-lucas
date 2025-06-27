@@ -13,7 +13,7 @@ export interface Props {
   legacyNaturalWidth?: boolean
 }
 
-export default function Pimg({
+export default function P_img({
   image,
   alt,
   caption,

@@ -1,15 +1,15 @@
-import Pimg from "../../components/project_entry_utils/Pimg.tsx"
+import P_img from "../../components/project_entry_utils/P_img.tsx"
 import tictactoe from "./assets/tictactoe.png"
 import whython_4_short from "./assets/whython_4_short.png"
 import { GITHUB_LINK } from "../../routes/projects/SingleProjectPage/links.tsx"
 import { Project } from "../../routes/projects/SingleProjectPage/project.ts"
 import ProjWrapper from "../../components/project_entry_utils/ProjWrapper.tsx"
-import Pp from "../../components/project_entry_utils/Pp.tsx"
+import P_p from "../../components/project_entry_utils/P_p.tsx"
 import {
   COMPILERS,
   RUST,
 } from "../../routes/projects/SingleProjectPage/technology.tsx"
-import Pa from "../../components/project_entry_utils/Pa.tsx"
+import P_a from "../../components/project_entry_utils/P_a.tsx"
 
 export const Whython4Project: Project = {
   name: "whython-4",
@@ -31,24 +31,24 @@ export const Whython4Project: Project = {
 function Whython4EntryPage() {
   return (
     <ProjWrapper>
-      <Pp>
+      <P_p>
         This project is quite similar to my{" "}
-        <Pa href="programming_lang_2">second programming language</Pa>, however
-        this project is created in Rust which has far better developer
+        <P_a href="programming_lang_2">second programming language</P_a>,
+        however this project is created in Rust which has far better developer
         ergonomics and far fewer (no) difficult to diagnose SEGFAULTS. This has
         allowed me to create a much more maintainable project with more features
         (such as functions) due as the project is generally better structured.
         Due to it still having the same core framework as my last language, it
         still doesn't have a stack or dynamically allocated memory making
         recursion not possible.
-      </Pp>
-      <Pp>
+      </P_p>
+      <P_p>
         I see this language as being more of a stepping stone as I'm planning on
         building on creating a fourth iteration of my language (sensibly named
         'Whython 5') based on this one with support for dynamically allocated
         memory and a call stack.
-      </Pp>
-      <Pimg
+      </P_p>
+      <P_img
         legacyNaturalWidth
         image={tictactoe}
         alt={"TODO"}

@@ -1,0 +1,5 @@
+for entry in structure {
+    if !hello_regex.test(entry) {
+        return
+    }
+}

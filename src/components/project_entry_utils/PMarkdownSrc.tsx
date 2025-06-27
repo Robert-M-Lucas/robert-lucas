@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react"
-import Pmarkdown from "./Pmarkdown.tsx"
+import PMarkdown from "./PMarkdown.tsx"
 
 export interface Props {
   markdownSrc: string
   caption?: string
 }
 
-export default function PmarkdownSrc({ markdownSrc, caption }: Props) {
+export default function PMarkdownSrc({ markdownSrc, caption }: Props) {
   const [markdown, setMarkdown] = useState("")
 
   useEffect(() => {
@@ -17,5 +17,5 @@ export default function PmarkdownSrc({ markdownSrc, caption }: Props) {
       })
   }, [markdownSrc])
 
-  return <Pmarkdown markdown={markdown} caption={caption} />
+  return <PMarkdown markdown={markdown} caption={caption} />
 }

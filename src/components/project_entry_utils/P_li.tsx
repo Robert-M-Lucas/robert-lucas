@@ -2,6 +2,6 @@ export interface Props {
   children?: React.ReactNode
 }
 
-export default function Pli({ children }: Props) {
+export default function P_li({ children }: Props) {
   return <li>{children}</li>
 }

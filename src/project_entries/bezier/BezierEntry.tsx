@@ -1,9 +1,9 @@
-import Pimg from "../../components/project_entry_utils/Pimg.tsx"
+import P_img from "../../components/project_entry_utils/P_img.tsx"
 import bezier from "./assets/bezier.gif"
 import { GITHUB_LINK } from "../../routes/projects/SingleProjectPage/links.tsx"
 import { Project } from "../../routes/projects/SingleProjectPage/project.ts"
 import ProjWrapper from "../../components/project_entry_utils/ProjWrapper.tsx"
-import Pp from "../../components/project_entry_utils/Pp.tsx"
+import P_p from "../../components/project_entry_utils/P_p.tsx"
 import { PYTHON } from "../../routes/projects/SingleProjectPage/technology.tsx"
 
 export const BezierProject: Project = {
@@ -25,12 +25,12 @@ export const BezierProject: Project = {
 function BezierEntryPage() {
   return (
     <ProjWrapper>
-      <Pimg
+      <P_img
         image={bezier}
         alt={"TODO"}
         caption={"My program demonstrating how Bezier curves are generated"}
       />
-      <Pp>
+      <P_p>
         While this certainly isn't the most efficient way to create Bézier
         Curves, it is the nicest way of demonstrating how they are created I've
         seen. In the above animation every dot moves along its line at a
@@ -40,8 +40,8 @@ function BezierEntryPage() {
         blue, green) to see how the curve is built up or turn off the working
         entirely and just have a solid line that responds to any changes you
         make immediately.
-      </Pp>
-      <Pp>
+      </P_p>
+      <P_p>
         An interesting problem with Bézier Curves is that getting a curve with
         an even resolution is very difficult. In the animation above, despite
         the points that create the curve moving at a constant speed along their
@@ -52,16 +52,16 @@ function BezierEntryPage() {
         it and take a large number of points due to the simplicity of the
         program but in a performance limited application this wouldn't be good
         enough.
-      </Pp>
-      <Pp>
+      </P_p>
+      <P_p>
         Bezier curves are very useful showing up in both graphic design tools to
         make smooth curves as well as video games to, for example, make smooth
         curves in roads.
-      </Pp>
-      <Pp>
+      </P_p>
+      <P_p>
         While I haven't yet found a good opportunity, I'm hoping to eventually
         use Bézier Curves in a Unity project.
-      </Pp>
+      </P_p>
     </ProjWrapper>
   )
 }
