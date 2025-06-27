@@ -23,7 +23,7 @@ export interface ProjectLink {
 export const GOOGLE_PLAY_LINK: LinkType = {
   getTextElement: (url: string) => (
     <a
-      className={"fw-bold"}
+      className={"fw-bold text-nowrap"}
       style={{ color: "#46af1c" }}
       href={url}
       target={"_blank"}
@@ -51,7 +51,7 @@ export const GOOGLE_PLAY_LINK: LinkType = {
 export const GITHUB_LINK: LinkType = {
   getTextElement: (url: string) => (
     <a
-      className={"fw-bold"}
+      className={"fw-bold text-nowrap"}
       style={{ color: "#000000" }}
       href={url}
       target={"_blank"}
@@ -79,7 +79,7 @@ export const GITHUB_LINK: LinkType = {
 export const CRATES_LINK: LinkType = {
   getTextElement: (url: string) => (
     <a
-      className={"fw-bold"}
+      className={"fw-bold text-nowrap"}
       style={{ color: "#e8af40" }}
       href={url}
       target={"_blank"}
@@ -159,7 +159,7 @@ function CopyableCommandLinkButton({
       ) : (
         <a
           className={
-            "fw-bold font-monospace" +
+            "fw-bold font-monospace text-nowrap" +
             (clicked ? " text-success" : " text-secondary")
           }
           onClick={(e) => {
@@ -191,7 +191,7 @@ export function createCustomLink(name: string): LinkType {
   return {
     getTextElement: (url: string) => (
       <a
-        className={"fw-bold"}
+        className={"fw-bold text-nowrap"}
         style={{ color: "#0dcaf0" }}
         href={url}
         target={"_blank"}
