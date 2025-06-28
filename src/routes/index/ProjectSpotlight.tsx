@@ -9,13 +9,15 @@ import { getProjectPath } from "../../router.tsx"
 import { useNavigate } from "react-router-dom"
 import { isMobile } from "react-device-detect"
 import RenderProjectName from "../../components/RenderProjectName.tsx"
+import { Pause, SkipEnd, SkipStart } from "react-bootstrap-icons"
 
 export interface Props {
   project: Project
   projectCycleTime: number
+  index: number
 }
 
-export function ProjectSpotlight({ project, projectCycleTime }: Props) {
+export function ProjectSpotlight({ project, projectCycleTime, index }: Props) {
   const [wrapper, setWrapper] = useState<HTMLDivElement | null>(null)
   const wrapperRef = (wrapper: HTMLDivElement) => {
     setWrapper(wrapper)
@@ -117,17 +119,16 @@ export function ProjectSpotlight({ project, projectCycleTime }: Props) {
                 <p className="mb-0">{project.subtitle}</p>
               </div>
             </Card.Body>
-            {project.links.length !== 0 && (
-              <Card.Footer
-                className={
-                  "d-flex justify-content-center align-items-center bg-white"
-                }
-              >
-                <RenderButtonLinks
-                  links={isMobile ? project.links.slice(0, 2) : project.links}
-                />
-              </Card.Footer>
-            )}
+            <Card.Footer
+              className={
+                "d-flex justify-content-center align-items-center bg-white"
+              }
+              style={{ minHeight: "33px" }}
+            >
+              <RenderButtonLinks
+                links={isMobile ? project.links.slice(0, 2) : project.links}
+              />
+            </Card.Footer>
             <motion.div
               initial="start"
               animate="end"
@@ -151,6 +152,40 @@ export function ProjectSpotlight({ project, projectCycleTime }: Props) {
                 color: "black",
               }}
             ></motion.div>
+            <div
+              style={{
+                position: "absolute",
+                bottom: "5px",
+                left: "0",
+                color: "gray",
+              }}
+            >
+              <SkipStart
+                size={25}
+                style={{ cursor: "pointer" }}
+                onClick={(e) => e.stopPropagation()}
+              />
+              <Pause
+                size={25}
+                style={{ cursor: "pointer" }}
+                onClick={(e) => e.stopPropagation()}
+              />
+              <SkipEnd
+                size={25}
+                style={{ cursor: "pointer" }}
+                onClick={(e) => e.stopPropagation()}
+              />
+            </div>
+            <div
+              style={{
+                position: "absolute",
+                bottom: "5px",
+                right: "5px",
+                color: "gray",
+              }}
+            >
+              {index + 1}
+            </div>
           </Card>
         </motion.div>
       )}

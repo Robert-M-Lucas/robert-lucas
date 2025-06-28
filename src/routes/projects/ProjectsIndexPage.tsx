@@ -27,7 +27,6 @@ export default function ProjectsIndexPage() {
   useEffect(() => {
     const savedScroll = sessionStorage.getItem(SCROLL_STORAGE_KEY)
     if (savedScroll) {
-      console.log("Bruh")
       window.scrollTo({
         left: 0,
         top: parseInt(savedScroll, 10),

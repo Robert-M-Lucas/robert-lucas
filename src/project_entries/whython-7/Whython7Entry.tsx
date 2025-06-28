@@ -8,6 +8,9 @@ import {
   X86_64_ASM,
 } from "../../routes/projects/SingleProjectPage/technology.tsx"
 import code from "./assets/code.png"
+import PLink from "../../components/project_entry_utils/PLink.tsx"
+import { getProjectPath } from "../../router.tsx"
+import { Whython8Project } from "../whython-8/Whython8Entry.tsx"
 
 export const Whython7Project: Project = {
   name: "whython-7",
@@ -28,6 +31,13 @@ export const Whython7Project: Project = {
 function Whython7EntryPage() {
   return (
     <ProjWrapper>
+      <P_p>
+        <i>
+          This projects write up was unfinished on the old website. See{" "}
+          <PLink to={getProjectPath(Whython8Project.name)}>Whython-8</PLink> as
+          it includes the features developed in Whython-7 as well as many more.
+        </i>
+      </P_p>
       <P_p>
         This is a currently under development programming language built in a
         completely different manner to previous iterations.

@@ -163,6 +163,7 @@ export default function IndexPage() {
             <ProjectSpotlight
               project={SHOWCASE_PROJECT_LIST[projectIndex]}
               projectCycleTime={projectCycleTime}
+              index={projectIndex}
             />
           </div>
         </div>

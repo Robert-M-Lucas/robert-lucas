@@ -8,7 +8,7 @@ export interface Props {
 
 export default function PLink({ to, children }: Props) {
   return (
-    <Link to={to} className={"text-decoration-none"}>
+    <Link viewTransition to={to} className={"text-decoration-none"}>
       {children}
     </Link>
   )
