@@ -1,0 +1,49 @@
+let regex = {
+    struct Regex;
+    impl Regex {
+        pub const fn test(&self, input: &str) -> bool {
+            const T0_SUCCESS: bool = false;
+            const T0: [(const_regex_regex_transformer::automata::TransitionType, usize); 1usize] = [(const_regex_regex_transformer::automata::TransitionType::Single(1744830464u32), 1usize), ];
+            const T1_SUCCESS: bool = false;
+            const T1: [(const_regex_regex_transformer::automata::TransitionType, usize); 1usize] = [(const_regex_regex_transformer::automata::TransitionType::Single(1694498816u32), 2usize), ];
+            const T2_SUCCESS: bool = false;
+            const T2: [(const_regex_regex_transformer::automata::TransitionType, usize); 1usize] = [(const_regex_regex_transformer::automata::TransitionType::Single(1811939328u32), 3usize), ];
+            const T3_SUCCESS: bool = false;
+            const T3: [(const_regex_regex_transformer::automata::TransitionType, usize); 1usize] = [(const_regex_regex_transformer::automata::TransitionType::Single(1811939328u32), 4usize), ];
+            const T4_SUCCESS: bool = false;
+            const T4: [(const_regex_regex_transformer::automata::TransitionType, usize); 1usize] = [(const_regex_regex_transformer::automata::TransitionType::Range(1627389952u32, 2046820352u32), 5usize), ];
+            const T5_SUCCESS: bool = false;
+            const T5: [(const_regex_regex_transformer::automata::TransitionType, usize); 2usize] = [(const_regex_regex_transformer::automata::TransitionType::Range(1627389952u32, 2046820352u32), 5usize), (const_regex_regex_transformer::automata::TransitionType::Single(1862270976u32), 6usize), ];
+            const T6_SUCCESS: bool = true;
+            const T6: [(const_regex_regex_transformer::automata::TransitionType, usize); 1usize] = [(const_regex_regex_transformer::automata::TransitionType::Single(1862270976u32), 6usize), ];
+            const TRANSITIONS: [(bool, &[(const_regex_regex_transformer::automata::TransitionType, usize)]); 7usize] = [(T0_SUCCESS, &T0), (T1_SUCCESS, &T1), (T2_SUCCESS, &T2), (T3_SUCCESS, &T3), (T4_SUCCESS, &T4), (T5_SUCCESS, &T5), (T6_SUCCESS, &T6), ];
+            let mut state = 0;
+            let mut string_pos = 0;
+            'outer: loop {
+                if state >= TRANSITIONS.len() { panic!("Invalid DFA state!"); }
+                let (success_state, ts) = &TRANSITIONS[state];
+                if string_pos == input.as_bytes().len() { return *success_state; }
+                let (c, d) = const_regex_util::next_char(input, string_pos);
+                string_pos = d;
+                let mut i = 0;
+                let len = ts.len();
+                while i < len {
+                    let (t, ns) = &ts[i];
+                    let r = match t {
+                        const_regex_regex_transformer::automata::TransitionType::Single(a) => *a == c,
+                        const_regex_regex_transformer::automata::TransitionType::Range(a, b) => *a <= c && c <= *b,
+                        const_regex_regex_transformer::automata::TransitionType::ExcludeRange(a, b) => c < *a || *b > c,
+                        const_regex_regex_transformer::automata::TransitionType::Any => true
+                    };
+                    if r {
+                        state = *ns;
+                        continue 'outer;
+                    }
+                    i += 1;
+                }
+                return false;
+            }
+        }
+    }
+    Regex {}
+};

@@ -1,0 +1,3 @@
+Mine            : 7.873047ms | 7ns per request
+Regex [naive   ]: 8.217107403s | 8.217µs per request
+Regex [sensible]: 15.436395ms | 15ns per request
