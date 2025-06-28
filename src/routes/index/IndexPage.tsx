@@ -1,4 +1,4 @@
-import { RefObject, useEffect, useRef, useState } from "react"
+import React, { RefObject, useEffect, useRef, useState } from "react"
 import FooterWrapper from "../../components/FooterWrapper.tsx"
 import Header from "../../components/Header.tsx"
 import { ProjectSpotlight } from "./ProjectSpotlight.tsx"
@@ -6,7 +6,6 @@ import {
   getCurrentProject,
   SHOWCASE_PROJECT_LIST,
 } from "../projects/SingleProjectPage/project_list.ts"
-import React from "react"
 import { AnimatePresence, motion, Transition } from "framer-motion"
 import { getProjectPath, PROJECTS_PATH } from "../../router.tsx"
 import { Link } from "react-router-dom"
@@ -32,10 +31,13 @@ export default function IndexPage() {
   const [initialHeadingHeight, setInitialHeadingHeight] = useState(0)
   const headingRef = useRef<HTMLDivElement | null>(null)
   const [showSubtitle, setShowSubtitle] = useState(false)
+  const [currentInterval, setCurrentInterval] = useState<NodeJS.Timeout | null>(
+    null
+  )
 
   const timeout: RefObject<NodeJS.Timeout | null> = useRef(null)
 
-  useEffect(() => {
+  const startInterval = () => {
     const interval = setInterval(() => {
       setProjectIndex((prev) => {
         if (prev + 1 == SHOWCASE_PROJECT_LIST.length) {
@@ -45,9 +47,42 @@ export default function IndexPage() {
         }
       })
     }, projectCycleTime)
+    setCurrentInterval(interval)
+  }
 
-    return () => clearInterval(interval)
+  const skipNext = () => {
+    if (currentInterval) clearInterval(currentInterval)
+    setProjectIndex((prev) => {
+      if (prev + 1 == SHOWCASE_PROJECT_LIST.length) {
+        return 0
+      } else {
+        return prev + 1
+      }
+    })
+    startInterval()
+  }
+
+  const skipPrev = () => {
+    if (currentInterval) clearInterval(currentInterval)
+    setProjectIndex((prev) => {
+      if (prev == 0) {
+        return SHOWCASE_PROJECT_LIST.length - 1
+      } else {
+        return prev - 1
+      }
+    })
+    startInterval()
+  }
+
+  useEffect(() => {
+    startInterval()
   }, [])
+
+  useEffect(() => {
+    return () => {
+      if (currentInterval) clearInterval(currentInterval)
+    }
+  }, [currentInterval])
 
   useEffect(() => {
     if (timeout.current) {
@@ -164,6 +199,8 @@ export default function IndexPage() {
               project={SHOWCASE_PROJECT_LIST[projectIndex]}
               projectCycleTime={projectCycleTime}
               index={projectIndex}
+              skipNext={skipNext}
+              skipPrev={skipPrev}
             />
           </div>
         </div>

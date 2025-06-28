@@ -15,9 +15,17 @@ export interface Props {
   project: Project
   projectCycleTime: number
   index: number
+  skipNext: () => void
+  skipPrev: () => void
 }
 
-export function ProjectSpotlight({ project, projectCycleTime, index }: Props) {
+export function ProjectSpotlight({
+  project,
+  projectCycleTime,
+  index,
+  skipNext,
+  skipPrev,
+}: Props) {
   const [wrapper, setWrapper] = useState<HTMLDivElement | null>(null)
   const wrapperRef = (wrapper: HTMLDivElement) => {
     setWrapper(wrapper)
@@ -163,7 +171,10 @@ export function ProjectSpotlight({ project, projectCycleTime, index }: Props) {
               <SkipStart
                 size={25}
                 style={{ cursor: "pointer" }}
-                onClick={(e) => e.stopPropagation()}
+                onClick={(e) => {
+                  e.stopPropagation()
+                  skipPrev()
+                }}
               />
               <Pause
                 size={25}
@@ -173,7 +184,10 @@ export function ProjectSpotlight({ project, projectCycleTime, index }: Props) {
               <SkipEnd
                 size={25}
                 style={{ cursor: "pointer" }}
-                onClick={(e) => e.stopPropagation()}
+                onClick={(e) => {
+                  e.stopPropagation()
+                  skipNext()
+                }}
               />
             </div>
             <div
