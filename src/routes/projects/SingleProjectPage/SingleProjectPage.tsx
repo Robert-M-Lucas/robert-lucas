@@ -14,6 +14,7 @@ import P_img from "../../../components/project_entry_utils/P_img.tsx"
 import RenderLegacyWarning from "../../../components/RenderLegacyWarning.tsx"
 import RenderProjectName from "../../../components/RenderProjectName.tsx"
 import RenderIsWritingWarning from "../../../components/RenderIsWritingWarning.tsx"
+import ScrollToTop from "../../../components/ScrollToTop.tsx"
 
 export default function SingleProjectPage() {
   const params = useParams()
@@ -52,6 +53,7 @@ export default function SingleProjectPage() {
 function SingleProjectPageRenderer(project: Project) {
   return (
     <FooterWrapper>
+      <ScrollToTop />
       <Header />
       <HeaderSpacer />
       <Container style={{ maxWidth: "1000px" }}>

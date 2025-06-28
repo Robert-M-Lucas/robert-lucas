@@ -13,6 +13,7 @@ import { Link } from "react-router-dom"
 import { Button } from "react-bootstrap"
 import { clearProjectScrollProgress } from "../../util/util.ts"
 import { isMobile } from "react-device-detect"
+import ScrollToTop from "../../components/ScrollToTop.tsx"
 
 export const projectCycleTime = 15000
 
@@ -77,6 +78,7 @@ export default function IndexPage() {
 
   return (
     <FooterWrapper>
+      <ScrollToTop />
       <div
         className="d-flex flex-column justify-content-between"
         style={{ height: "100vh" }}

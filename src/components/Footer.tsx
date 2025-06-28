@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom"
+import { INDEX_PATH } from "../router.tsx"
 
 type HeightUnit = "px" | "rem" | "vh"
 type HeightProp = `${number}${HeightUnit}` | "0"
@@ -15,9 +16,17 @@ export function Footer({ margin = "0" }: Props) {
       <div className="text-white" style={{ padding: "2.5rem 0" }}>
         <ul className="nav justify-content-center pt-0 mt-0 pb-3 mb-3">
           <li className="nav-item">
+            <Link viewTransition to={INDEX_PATH} className="nav-link">
+              Home
+            </Link>
+          </li>
+          <li className="text-secondary d-flex justify-content-center align-items-center pb-1">
+            •
+          </li>
+          <li className="nav-item">
             <Link
               to="#"
-              className="nav-link px- py-0"
+              className="nav-link"
               onClick={() => window.scrollTo(0, 0)}
             >
               Top
