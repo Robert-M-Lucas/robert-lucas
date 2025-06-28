@@ -38,7 +38,6 @@ export const PROJECT_LIST = [
   FractalProject,
   Whython4Project,
   ProgrammingLang2Project,
-  SudokuSolverProject,
   GeneticKeyboardProject,
   AstarProject,
   EnigmaProject,
