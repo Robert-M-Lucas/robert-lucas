@@ -8,8 +8,8 @@ import code from "./assets/code.png"
 import {
   BOOTSTRAP,
   CSS,
+  FIREBASE,
   HTML,
-  JAVASCRIPT,
   REACT,
   TYPESCRIPT,
 } from "../../routes/projects/SingleProjectPage/technology.tsx"
@@ -35,7 +35,7 @@ export const PortfolioTwoProject: Project = {
   subtitle: "This website, created to replace my old portfolio website",
   ms_since_epoch: 1750860747000,
   page: PortfolioTwoEntryPage,
-  technologies: [TYPESCRIPT, REACT, BOOTSTRAP, HTML, JAVASCRIPT, CSS],
+  technologies: [TYPESCRIPT, REACT, FIREBASE, BOOTSTRAP, HTML, CSS],
   links: [
     {
       url: "https://github.com/Robert-M-Lucas/robert-lucas",

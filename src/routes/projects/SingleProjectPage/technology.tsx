@@ -19,6 +19,7 @@ import Python from "../../../components/icons/Python.tsx"
 import CPlusPlus from "../../../components/icons/CPlusPlus.tsx"
 import Html from "../../../components/icons/Html.tsx"
 import Django from "../../../components/icons/Django.tsx"
+import Firebase from "../../../components/icons/Firebase.tsx"
 
 export interface Technology {
   getElement: () => JSX.Element
@@ -99,7 +100,7 @@ export const UNITY: Technology = {
 export const ANDROID: Technology = {
   getElement: () => (
     <span className={"fw-bold text-nowrap"} style={{ color: "#2edf85" }}>
-      <Android style={{ marginBottom: "4px", marginRight: "4px" }} />
+      <Android style={{ marginRight: "4px" }} />
       Android
     </span>
   ),
@@ -185,6 +186,15 @@ export const COMPILERS: Technology = {
         style={{ marginBottom: "4px", marginRight: "4px" }}
       />
       Compilers
+    </span>
+  ),
+}
+
+export const FIREBASE: Technology = {
+  getElement: () => (
+    <span className={"fw-bold text-nowrap"} style={{ color: "#DD2C00" }}>
+      <Firebase style={{ marginBottom: "4px", marginRight: "4px" }} />
+      Firebase
     </span>
   ),
 }
