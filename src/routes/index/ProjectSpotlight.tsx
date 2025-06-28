@@ -51,6 +51,9 @@ export function ProjectSpotlight({ project, projectCycleTime }: Props) {
   }
 
   useEffect(() => {
+    if (img) {
+      img.onload = checkHeight
+    }
     setTimeout(checkHeight, 500)
     window.addEventListener("resize", checkHeight)
     return () => window.removeEventListener("resize", checkHeight)
@@ -96,7 +99,7 @@ export function ProjectSpotlight({ project, projectCycleTime }: Props) {
               <Card.Subtitle>
                 <RenderTechsAndLinks technologies={project.technologies} />
               </Card.Subtitle>
-              <Card.Text>
+              <div>
                 {project.image && (
                   <div
                     ref={wrapperRef}
@@ -112,7 +115,7 @@ export function ProjectSpotlight({ project, projectCycleTime }: Props) {
                   </div>
                 )}
                 <p className="mb-0">{project.subtitle}</p>
-              </Card.Text>
+              </div>
             </Card.Body>
             {project.links.length !== 0 && (
               <Card.Footer
