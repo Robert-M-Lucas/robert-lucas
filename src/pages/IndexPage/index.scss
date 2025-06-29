@@ -1,0 +1,52 @@
+.appear {
+  opacity: 0;
+  filter: blur(4px);
+  transition: all 1.5s;
+}
+
+.shown {
+  opacity: 1!important;
+  filter: none!important;
+  transform: none!important;
+}
+
+.trans-delay-250 {
+  transition-delay: 250ms;
+}
+
+.trans-delay-500 {
+  transition-delay: 500ms;
+}
+
+.trans-delay-1000 {
+  transition-delay: 1000ms;
+}
+
+/*
+.delayed-appear {
+    transform: translateY(40px);
+}
+*/
+
+.delayed-appear:nth-child(2) {
+  transition-delay: 100ms;
+}
+.delayed-appear:nth-child(3) {
+  transition-delay: 200ms;
+}
+.delayed-appear:nth-child(4) {
+  transition-delay: 300ms;
+}
+.delayed-appear:nth-child(5) {
+  transition-delay: 600ms;
+}
+
+.bg {
+  filter: blur(10px);
+  transition: all 6s;
+}
+
+.unblur {
+  filter: none;
+  transition: all 6s;
+}
