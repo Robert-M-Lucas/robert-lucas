@@ -20,7 +20,6 @@ import P_h1 from "../../components/project_entry_utils/P_h1.tsx"
 import P_ol from "../../components/project_entry_utils/P_ol.tsx"
 import P_img from "../../components/project_entry_utils/P_img.tsx"
 import PMarkdownSrc from "../../components/project_entry_utils/PMarkdownSrc.tsx"
-import P_h2 from "../../components/project_entry_utils/P_h2.tsx"
 
 export const RssProject: Project = {
   name: "rss",

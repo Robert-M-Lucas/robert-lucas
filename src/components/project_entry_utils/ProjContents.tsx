@@ -4,7 +4,7 @@ import {
 } from "../../routes/projects/SingleProjectPage/heading_context.ts"
 import { useState } from "react"
 import { AnimatePresence, motion } from "framer-motion"
-import { ArrowLeft, Triangle } from "react-bootstrap-icons"
+import { Triangle } from "react-bootstrap-icons"
 
 export interface Props {
   renderLeft?: number
