@@ -5,7 +5,7 @@ import {
   CRATES_LINK,
   GITHUB_LINK,
 } from "../../routes/projects/SingleProjectPage/links.tsx"
-import ProjWrapper from "../../components/project_entry_utils/ProjWrapper.tsx"
+import ProjWrapper from "../../components/project_entry_utils/project_wrapper/ProjWrapper.tsx"
 import usage from "./assets/usage.png"
 import normal_usage from "./assets/normal_usage.png"
 import layout from "./assets/layout.png"

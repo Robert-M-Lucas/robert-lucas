@@ -6,7 +6,7 @@ import projects_code from "./assets/projects_code.png"
 import private_page from "./assets/private_page.png"
 import website from "./assets/website.png"
 import { Project } from "../../routes/projects/SingleProjectPage/project.ts"
-import ProjWrapper from "../../components/project_entry_utils/ProjWrapper.tsx"
+import ProjWrapper from "../../components/project_entry_utils/project_wrapper/ProjWrapper.tsx"
 import P_p from "../../components/project_entry_utils/P_p.tsx"
 import {
   PYTHON,

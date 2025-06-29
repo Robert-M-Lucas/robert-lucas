@@ -2,7 +2,7 @@ import P_img from "../../components/project_entry_utils/P_img.tsx"
 import rust_timings from "./assets/rust_timings.png"
 import timings from "./assets/timings.png"
 import { Project } from "../../routes/projects/SingleProjectPage/project.ts"
-import ProjWrapper from "../../components/project_entry_utils/ProjWrapper.tsx"
+import ProjWrapper from "../../components/project_entry_utils/project_wrapper/ProjWrapper.tsx"
 import P_p from "../../components/project_entry_utils/P_p.tsx"
 import {
   PYTHON,

@@ -6,7 +6,7 @@ import two_layers from "./assets/two_layers.png"
 import one_layer from "./assets/one_layer.png"
 import perlin from "./assets/perlin.png"
 import { Project } from "../../routes/projects/SingleProjectPage/project.ts"
-import ProjWrapper from "../../components/project_entry_utils/ProjWrapper.tsx"
+import ProjWrapper from "../../components/project_entry_utils/project_wrapper/ProjWrapper.tsx"
 import P_p from "../../components/project_entry_utils/P_p.tsx"
 import {
   CSHARP,

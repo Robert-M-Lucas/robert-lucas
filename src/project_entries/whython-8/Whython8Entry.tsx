@@ -5,8 +5,9 @@ import {
   X86_64_ASM,
 } from "../../routes/projects/SingleProjectPage/technology.tsx"
 import { GITHUB_LINK } from "../../routes/projects/SingleProjectPage/links.tsx"
-import ProjWrapper from "../../components/project_entry_utils/ProjWrapper.tsx"
+import ProjWrapper from "../../components/project_entry_utils/project_wrapper/ProjWrapper.tsx"
 import error from "./assets/error.png"
+import P_h1 from "../../components/project_entry_utils/P_h1.tsx"
 
 export const Whython8Project: Project = {
   currently_writing: true,
@@ -27,5 +28,16 @@ export const Whython8Project: Project = {
 }
 
 function Whython8Page() {
-  return <ProjWrapper>TODO</ProjWrapper>
+  return (
+    <ProjWrapper>
+      <P_h1>Overview</P_h1>
+      <P_h1>Parsing</P_h1>
+      <P_h1>Importing</P_h1>
+      <P_h1>Name Resolution</P_h1>
+      <P_h1>Compilation</P_h1>
+      <P_h1>Assembly</P_h1>
+      <P_h1>Error Handling</P_h1>
+      <P_h1>Future Improvements</P_h1>
+    </ProjWrapper>
+  )
 }
