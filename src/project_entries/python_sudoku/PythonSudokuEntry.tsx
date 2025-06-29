@@ -91,7 +91,9 @@ function PythonSudokuEntryPage() {
         solve hard puzzles and, at this point, I was making far more progress
         with backtracking.
       </P_p>
-      <P_h2>Backtracking - Final Implementation</P_h2>
+      <P_h2 contents_title={"Backtracking"}>
+        Backtracking - Final Implementation
+      </P_h2>
       <P_p>
         My final implementation used a backtracking approach, that is, guessing
         one cell at a time and when you reach a dead end going back a layer and

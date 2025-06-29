@@ -38,6 +38,7 @@ export const CompileTimeRegexProject: Project = {
 function CompileTimeRegexPage() {
   return (
     <ProjWrapper>
+      <P_h1>Overview</P_h1>
       <P_p>
         This year at university (Year 2, 2024/2025), we had a year-long
         'Algorithms and Complexity' module, covering a large variety of topics.

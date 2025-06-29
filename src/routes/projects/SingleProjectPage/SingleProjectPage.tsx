@@ -15,10 +15,15 @@ import RenderLegacyWarning from "../../../components/RenderLegacyWarning.tsx"
 import RenderProjectName from "../../../components/RenderProjectName.tsx"
 import RenderIsWritingWarning from "../../../components/RenderIsWritingWarning.tsx"
 import ScrollToTop from "../../../components/ScrollToTop.tsx"
+import { useState } from "react"
+import { Heading, HeadingContext } from "./heading_context.ts"
+import ProjContents from "../../../components/project_entry_utils/ProjContents.tsx"
+import useWindowDimensions from "../../../util/useWindowDimensions.tsx"
 
 export default function SingleProjectPage() {
   const params = useParams()
   const navigate = useNavigate()
+
   if (params.project) {
     for (const project of PROJECT_LIST) {
       if (project.name === params.project) {
@@ -50,59 +55,83 @@ export default function SingleProjectPage() {
   throw Error("No project specified")
 }
 
+export const maxProjectTextWidth = 1000
+
 function SingleProjectPageRenderer(project: Project) {
+  const [headings, setHeadings] = useState<Heading[]>([])
+
+  const registerHeading = (heading: Heading) => {
+    setHeadings((prev) => {
+      for (const existing of prev) {
+        if (existing.id == heading.id) {
+          return prev
+        }
+      }
+      return [...prev, heading]
+    })
+  }
+
+  const screenDimensions = useWindowDimensions()
+  const remaining = (screenDimensions.width - maxProjectTextWidth) / 2
+  const render_contents_left = remaining > 340
+
   return (
     <FooterWrapper>
       <ScrollToTop />
       <Header />
       <HeaderSpacer />
-      <Container style={{ maxWidth: "1000px" }}>
-        <div>
-          <Link
-            viewTransition
-            to={PROJECTS_PATH}
-            className="text-decoration-none"
-          >
-            ‹ Projects List
-          </Link>
-        </div>
+      <HeadingContext.Provider value={{ headings, registerHeading }}>
+        {render_contents_left && <ProjContents renderLeft={remaining} />}
+        <Container style={{ maxWidth: maxProjectTextWidth }}>
+          <div>
+            <Link
+              viewTransition
+              to={PROJECTS_PATH}
+              className="text-decoration-none"
+            >
+              ‹ Projects List
+            </Link>
+          </div>
 
-        <RenderProjectName
-          title={project.title}
-          margin={!project.subtitle}
-          legacy={isProjectLegacy(project)}
-          large
-        />
-        <div className="mb-1">
-          <RenderProjectDate ms_since_epoch={project.ms_since_epoch} />
-          {project.technologies.length > 0 && (
-            <>
-              &nbsp;|&nbsp;
-              <RenderTechnologies
-                currently_working_on={project.currently_working_on}
-                technologies={project.technologies}
-              />
-            </>
+          <RenderProjectName
+            title={project.title}
+            margin={!project.subtitle}
+            legacy={isProjectLegacy(project)}
+            large
+          />
+          <div className="mb-1">
+            <RenderProjectDate ms_since_epoch={project.ms_since_epoch} />
+            {project.technologies.length > 0 && (
+              <>
+                &nbsp;|&nbsp;
+                <RenderTechnologies
+                  currently_working_on={project.currently_working_on}
+                  technologies={project.technologies}
+                />
+              </>
+            )}
+          </div>
+
+          {project.image && (
+            <P_img image={project.image.image} alt={project.image.alt} />
           )}
-        </div>
 
-        {project.image && (
-          <P_img image={project.image.image} alt={project.image.alt} />
-        )}
+          {project.subtitle && (
+            <p className="text-muted mb-2">{project.subtitle}</p>
+          )}
 
-        {project.subtitle && (
-          <p className="text-muted mb-2">{project.subtitle}</p>
-        )}
+          <RenderButtonLinks links={project.links} />
 
-        <RenderButtonLinks links={project.links} />
+          {!render_contents_left && <ProjContents />}
 
-        <hr />
+          <hr />
 
-        {isProjectLegacy(project) && <RenderLegacyWarning />}
-        {project.currently_writing && <RenderIsWritingWarning />}
+          {isProjectLegacy(project) && <RenderLegacyWarning />}
+          {project.currently_writing && <RenderIsWritingWarning />}
 
-        {project.page()}
-      </Container>
+          {project.page()}
+        </Container>
+      </HeadingContext.Provider>
     </FooterWrapper>
   )
 }
