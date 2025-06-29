@@ -78,26 +78,27 @@ export default function ProjContents({ renderLeft }: Props) {
             </a>
 
             <AnimatePresence initial={false}>
-              {(toggleSections[index] || renderLeft) && (
-                <motion.div
-                  initial={{ height: 0, opacity: 0 }}
-                  animate={{ height: "auto", opacity: 1 }}
-                  exit={{ height: 0, opacity: 0 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  {section.children.map(({ id, level, text }) => (
-                    <a
-                      key={id}
-                      className="list-group-item list-group-item-action small"
-                      href={`#${id}`}
-                    >
-                      <span style={{ paddingLeft: (level - 1) * 32 }}>
-                        {text}
-                      </span>
-                    </a>
-                  ))}
-                </motion.div>
-              )}
+              {(toggleSections[index] || renderLeft) &&
+                groupedHeadings[index].children.length > 0 && (
+                  <motion.div
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: "auto", opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    {section.children.map(({ id, level, text }) => (
+                      <a
+                        key={id}
+                        className="list-group-item list-group-item-action small"
+                        href={`#${id}`}
+                      >
+                        <span style={{ paddingLeft: (level - 1) * 32 }}>
+                          {text}
+                        </span>
+                      </a>
+                    ))}
+                  </motion.div>
+                )}
             </AnimatePresence>
           </>
         ))}
