@@ -73,6 +73,7 @@ export function ProjectSpotlight() {
         if (paused) {
           controls.start("visible").then()
           progressControls.set("start")
+          progressControls.stop()
         } else {
           startTimeout()
         }
@@ -242,12 +243,22 @@ export function ProjectSpotlight() {
           }}
         ></motion.div>
         <div
-          style={{
-            position: "absolute",
-            bottom: "5px",
-            left: "0",
-            color: "gray",
-          }}
+          style={
+            isMobile
+              ? {
+                  position: "absolute",
+                  bottom: "-2px",
+                  left: "0",
+                  color: "gray",
+                  transform: "translateY(100%)",
+                }
+              : {
+                  position: "absolute",
+                  bottom: "5px",
+                  left: "0",
+                  color: "gray",
+                }
+          }
         >
           <SkipStart
             size={25}
