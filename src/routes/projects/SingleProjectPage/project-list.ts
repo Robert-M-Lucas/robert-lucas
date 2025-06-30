@@ -23,7 +23,7 @@ import { Whython8Project } from "../../../project_entries/whython-8/Whython8Entr
 import { RssProject } from "../../../project_entries/rss/RssEntry.tsx"
 import { Project } from "./project.ts"
 
-export const PROJECT_LIST = [
+export const ProjectList = [
   PortfolioTwoProject,
   RssProject,
   CompileTimeRegexProject,
@@ -71,7 +71,7 @@ export const SHOWCASE_PROJECT_LIST = [
 
 export function getCurrentProject() {
   let current_project: Project | null = null
-  for (const project of PROJECT_LIST) {
+  for (const project of ProjectList) {
     if (project.currently_working_on) {
       current_project = project
       break

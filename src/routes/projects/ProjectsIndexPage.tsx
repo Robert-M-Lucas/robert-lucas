@@ -3,8 +3,8 @@ import Header from "../../components/Header.tsx"
 import { Button, Card, Container } from "react-bootstrap"
 import {
   getCurrentProject,
-  PROJECT_LIST,
-} from "./SingleProjectPage/project_list.ts"
+  ProjectList,
+} from "./SingleProjectPage/project-list.ts"
 import HeaderSpacer from "../../components/HeaderSpacer.tsx"
 import { useEffect, useState } from "react"
 import { isProjectLegacy, Project } from "./SingleProjectPage/project.ts"
@@ -83,7 +83,7 @@ export default function ProjectsIndexPage() {
           </div>
         </div>
 
-        {PROJECT_LIST.map((project, i) => (
+        {ProjectList.map((project, i) => (
           <div key={i}>
             <hr />
             {compact ? (

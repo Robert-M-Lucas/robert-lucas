@@ -2,10 +2,7 @@ import React, { RefObject, useEffect, useRef, useState } from "react"
 import FooterWrapper from "../../components/FooterWrapper.tsx"
 import Header from "../../components/Header.tsx"
 import { ProjectSpotlight } from "./ProjectSpotlight.tsx"
-import {
-  getCurrentProject,
-  SHOWCASE_PROJECT_LIST,
-} from "../projects/SingleProjectPage/project_list.ts"
+import { getCurrentProject } from "../projects/SingleProjectPage/project-list.ts"
 import { AnimatePresence, motion, Transition } from "framer-motion"
 import { getProjectPath, PROJECTS_PATH } from "../../router.tsx"
 import { Link } from "react-router-dom"
@@ -14,8 +11,6 @@ import { clearProjectScrollProgress } from "../../util/util.ts"
 import { isMobile } from "react-device-detect"
 import ScrollToTop from "../../components/ScrollToTop.tsx"
 
-export const projectCycleTime = 15000
-
 const transition: Transition = { duration: 1.3, ease: [0.25, 0.1, 0.25, 1] }
 const variants = {
   hidden: { filter: "blur(10px)", transform: "translateY(20%)", opacity: 0 },
@@ -23,66 +18,13 @@ const variants = {
 }
 
 export default function IndexPage() {
-  const [projectIndex, setProjectIndex] = useState<number>(
-    Math.floor(Math.random() * SHOWCASE_PROJECT_LIST.length)
-  )
   const [currentHeading, setCurrentHeading] = useState("Robert Lucas")
   const [showHeading, setShowHeading] = useState(true)
   const [initialHeadingHeight, setInitialHeadingHeight] = useState(0)
   const headingRef = useRef<HTMLDivElement | null>(null)
   const [showSubtitle, setShowSubtitle] = useState(false)
-  const [currentInterval, setCurrentInterval] = useState<NodeJS.Timeout | null>(
-    null
-  )
 
   const timeout: RefObject<NodeJS.Timeout | null> = useRef(null)
-
-  const startInterval = () => {
-    const interval = setInterval(() => {
-      setProjectIndex((prev) => {
-        if (prev + 1 == SHOWCASE_PROJECT_LIST.length) {
-          return 0
-        } else {
-          return prev + 1
-        }
-      })
-    }, projectCycleTime)
-    setCurrentInterval(interval)
-  }
-
-  const skipNext = () => {
-    if (currentInterval) clearInterval(currentInterval)
-    setProjectIndex((prev) => {
-      if (prev + 1 == SHOWCASE_PROJECT_LIST.length) {
-        return 0
-      } else {
-        return prev + 1
-      }
-    })
-    startInterval()
-  }
-
-  const skipPrev = () => {
-    if (currentInterval) clearInterval(currentInterval)
-    setProjectIndex((prev) => {
-      if (prev == 0) {
-        return SHOWCASE_PROJECT_LIST.length - 1
-      } else {
-        return prev - 1
-      }
-    })
-    startInterval()
-  }
-
-  useEffect(() => {
-    startInterval()
-  }, [])
-
-  useEffect(() => {
-    return () => {
-      if (currentInterval) clearInterval(currentInterval)
-    }
-  }, [currentInterval])
 
   useEffect(() => {
     if (timeout.current) {
@@ -109,7 +51,7 @@ export default function IndexPage() {
     }
   }, [])
 
-  const current_project = getCurrentProject()
+  const currentProject = getCurrentProject()
 
   return (
     <FooterWrapper>
@@ -162,12 +104,12 @@ export default function IndexPage() {
                       </React.Fragment>
                     ))}
                   </h1>
-                  {showSubtitle && current_project && (
+                  {showSubtitle && currentProject && (
                     <motion.span transition={transition} variants={variants}>
                       <Link
                         viewTransition
                         className={"text-decoration-none"}
-                        to={getProjectPath(current_project.name)}
+                        to={getProjectPath(currentProject.name)}
                       >
                         › Jump to my current project
                       </Link>
@@ -195,13 +137,7 @@ export default function IndexPage() {
             }
             style={isMobile ? { height: "60vh" } : { height: "63vh" }}
           >
-            <ProjectSpotlight
-              project={SHOWCASE_PROJECT_LIST[projectIndex]}
-              projectCycleTime={projectCycleTime}
-              index={projectIndex}
-              skipNext={skipNext}
-              skipPrev={skipPrev}
-            />
+            <ProjectSpotlight />
           </div>
         </div>
 
@@ -210,13 +146,6 @@ export default function IndexPage() {
             "text-nowrap mb-2 mx-2" + (isMobile ? "" : " align-self-center")
           }
           variant={"outline-success"}
-          // style={{
-          //   position: "absolute",
-          //   bottom: "10px",
-          //   left: "50%",
-          //   transform: "translateX(-50%)",
-          //   cursor: "pointer",
-          // }}
           onClick={() => {
             window.location.hash = ""
             window.location.hash = "#continued"

@@ -1,5 +1,5 @@
 import { Link, useNavigate, useParams } from "react-router-dom"
-import { PROJECT_LIST } from "./project_list.ts"
+import { ProjectList } from "./project-list.ts"
 import FooterWrapper from "../../../components/FooterWrapper.tsx"
 import Header from "../../../components/Header.tsx"
 import { Container } from "react-bootstrap"
@@ -16,7 +16,7 @@ import RenderProjectName from "../../../components/RenderProjectName.tsx"
 import RenderIsWritingWarning from "../../../components/RenderIsWritingWarning.tsx"
 import ScrollToTop from "../../../components/ScrollToTop.tsx"
 import { useState } from "react"
-import { Heading, HeadingContext } from "./heading_context.ts"
+import { Heading, HeadingContext } from "./heading-context.ts"
 import ProjContents from "../../../components/project_entry_utils/ProjContents.tsx"
 import useWindowDimensions from "../../../util/useWindowDimensions.tsx"
 
@@ -25,13 +25,13 @@ export default function SingleProjectPage() {
   const navigate = useNavigate()
 
   if (params.project) {
-    for (const project of PROJECT_LIST) {
+    for (const project of ProjectList) {
       if (project.name === params.project) {
         return SingleProjectPageRenderer(project)
       }
     }
 
-    for (const project of PROJECT_LIST) {
+    for (const project of ProjectList) {
       if (project.alt_names) {
         for (const alt_name of project.alt_names) {
           if (alt_name === params.project) {

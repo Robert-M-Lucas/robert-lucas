@@ -1,7 +1,7 @@
 import {
   Heading,
   useHeadingContext,
-} from "../../routes/projects/SingleProjectPage/heading_context.ts"
+} from "../../routes/projects/SingleProjectPage/heading-context.ts"
 import { useState } from "react"
 import { AnimatePresence, motion } from "framer-motion"
 import { Triangle } from "react-bootstrap-icons"
