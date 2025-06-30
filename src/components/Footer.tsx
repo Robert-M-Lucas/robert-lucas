@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import { INDEX_PATH } from "../router.tsx"
+import { indexPath } from "../router.tsx"
 
 type HeightUnit = "px" | "rem" | "vh"
 type HeightProp = `${number}${HeightUnit}` | "0"
@@ -16,7 +16,7 @@ export function Footer({ margin = "0" }: Props) {
       <div className="text-white" style={{ padding: "2.5rem 0" }}>
         <ul className="nav justify-content-center pt-0 mt-0 pb-3 mb-3">
           <li className="nav-item">
-            <Link viewTransition to={INDEX_PATH} className="nav-link">
+            <Link viewTransition to={indexPath} className="nav-link">
               Home
             </Link>
           </li>

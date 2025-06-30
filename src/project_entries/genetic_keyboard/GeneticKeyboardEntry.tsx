@@ -1,23 +1,23 @@
 import P_img from "../../components/project_entry_utils/P_img.tsx"
 import genetic_survival from "./assets/genetic_survival.png"
 import keyboard from "./assets/keyboard.png"
-import { GITHUB_LINK } from "../../routes/projects/SingleProjectPage/links.tsx"
+import { githubLink } from "../../routes/projects/SingleProjectPage/links.tsx"
 import { Project } from "../../routes/projects/SingleProjectPage/project.ts"
 import ProjWrapper from "../../components/project_entry_utils/project_wrapper/ProjWrapper.tsx"
 import P_p from "../../components/project_entry_utils/P_p.tsx"
-import { CSHARP } from "../../routes/projects/SingleProjectPage/technology.tsx"
+import { cSharpTechnology } from "../../routes/projects/SingleProjectPage/technology.tsx"
 
 export const GeneticKeyboardProject: Project = {
   name: "genetic_keyboard",
   title: "Genetic Keyboard",
   subtitle: "Using a genetic algorithm to create the perfect keyboard",
-  ms_since_epoch: null,
+  msSinceEpoch: null,
   image: { image: keyboard, alt: "TODO" },
-  technologies: [CSHARP],
+  technologies: [cSharpTechnology],
   links: [
     {
       url: "https://github.com/Robert-M-Lucas/GeneticKeyboard",
-      type: GITHUB_LINK,
+      type: githubLink,
     },
   ],
   page: GeneticKeyboardEntryPage,

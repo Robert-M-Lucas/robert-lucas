@@ -5,8 +5,8 @@ import { Project } from "../../routes/projects/SingleProjectPage/project.ts"
 import ProjWrapper from "../../components/project_entry_utils/project_wrapper/ProjWrapper.tsx"
 import P_p from "../../components/project_entry_utils/P_p.tsx"
 import {
-  PYTHON,
-  RUST,
+  pythonTechnology,
+  rustTechnology,
 } from "../../routes/projects/SingleProjectPage/technology.tsx"
 import P_a from "../../components/project_entry_utils/P_a.tsx"
 import P_h1 from "../../components/project_entry_utils/P_h1.tsx"
@@ -20,9 +20,9 @@ export const PythonSudokuProject: Project = {
   title: "Python Sudoku Solver",
   subtitle:
     "A 16x faster Sudoku-solving algorithm despite being written in Python. 450x faster in Rust with no additional optimisations.",
-  ms_since_epoch: null,
+  msSinceEpoch: null,
   image: { image: rust_timings, alt: "TODO" },
-  technologies: [PYTHON, RUST],
+  technologies: [pythonTechnology, rustTechnology],
   links: [],
   page: PythonSudokuEntryPage,
 }
@@ -91,7 +91,7 @@ function PythonSudokuEntryPage() {
         solve hard puzzles and, at this point, I was making far more progress
         with backtracking.
       </P_p>
-      <P_h2 contents_title={"Backtracking"}>
+      <P_h2 contentsTitle={"Backtracking"}>
         Backtracking - Final Implementation
       </P_h2>
       <P_p>

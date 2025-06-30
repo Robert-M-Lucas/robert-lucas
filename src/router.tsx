@@ -4,18 +4,18 @@ import IndexPage from "./routes/index/IndexPage.tsx"
 import ProjectsIndexPage from "./routes/projects/ProjectsIndexPage.tsx"
 import SingleProjectPage from "./routes/projects/SingleProjectPage/SingleProjectPage.tsx"
 
-export const INDEX_PATH = "/"
-export const PROJECTS_PATH = "/projects"
-export const getProjectPath = (project: string) => `${PROJECTS_PATH}/${project}`
+export const indexPath = "/"
+export const projectsPath = "/projects"
+export const getProjectPath = (project: string) => `${projectsPath}/${project}`
 
 export const router = createBrowserRouter([
   {
-    path: INDEX_PATH,
+    path: indexPath,
     element: <IndexPage />,
     errorElement: <ErrorPage />,
   },
   {
-    path: PROJECTS_PATH,
+    path: projectsPath,
     element: <ProjectsIndexPage />,
     errorElement: <ErrorPage />,
   },

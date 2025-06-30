@@ -2,13 +2,13 @@ import P_img from "../../components/project_entry_utils/P_img.tsx"
 import enigma_data from "./assets/enigma_data.png"
 import python from "./assets/python.png"
 import enigma from "./assets/enigma.png"
-import { GITHUB_LINK } from "../../routes/projects/SingleProjectPage/links.tsx"
+import { githubLink } from "../../routes/projects/SingleProjectPage/links.tsx"
 import { Project } from "../../routes/projects/SingleProjectPage/project.ts"
 import ProjWrapper from "../../components/project_entry_utils/project_wrapper/ProjWrapper.tsx"
 import P_p from "../../components/project_entry_utils/P_p.tsx"
 import {
-  CSHARP,
-  UNITY,
+  cSharpTechnology,
+  unityTechnology,
 } from "../../routes/projects/SingleProjectPage/technology.tsx"
 import P_a from "../../components/project_entry_utils/P_a.tsx"
 
@@ -17,13 +17,13 @@ export const EnigmaProject: Project = {
   title: "Enigma Simulator",
   subtitle:
     "An enigma simulator with support for almost all the features of the real machine",
-  ms_since_epoch: null,
+  msSinceEpoch: null,
   image: { image: enigma, alt: "TODO" },
-  technologies: [CSHARP, UNITY],
+  technologies: [cSharpTechnology, unityTechnology],
   links: [
     {
       url: "https://github.com/Robert-M-Lucas/Enigma-Simulator",
-      type: GITHUB_LINK,
+      type: githubLink,
     },
   ],
   page: EnigmaEntryPage,

@@ -2,13 +2,13 @@ import P_img from "../../components/project_entry_utils/P_img.tsx"
 import output2 from "./assets/output2.png"
 import output from "./assets/output.png"
 import input from "./assets/input.png"
-import { GITHUB_LINK } from "../../routes/projects/SingleProjectPage/links.tsx"
+import { githubLink } from "../../routes/projects/SingleProjectPage/links.tsx"
 import { Project } from "../../routes/projects/SingleProjectPage/project.ts"
 import ProjWrapper from "../../components/project_entry_utils/project_wrapper/ProjWrapper.tsx"
 import P_p from "../../components/project_entry_utils/P_p.tsx"
 import {
-  RUST,
-  PYTHON,
+  rustTechnology,
+  pythonTechnology,
 } from "../../routes/projects/SingleProjectPage/technology.tsx"
 import P_hr from "../../components/project_entry_utils/P_hr.tsx"
 
@@ -16,13 +16,13 @@ export const SudokuSolverProject: Project = {
   name: "sudoku_solver",
   title: "Sudoku Solver",
   subtitle: "Solving sudoku puzzles",
-  ms_since_epoch: null,
+  msSinceEpoch: null,
   image: { image: output2, alt: "TODO" },
-  technologies: [RUST, PYTHON],
+  technologies: [rustTechnology, pythonTechnology],
   links: [
     {
       url: "https://github.com/Robert-M-Lucas/sudoku-solver-2/tree/master",
-      type: GITHUB_LINK,
+      type: githubLink,
     },
   ],
   page: SudokuSolverEntryPage,

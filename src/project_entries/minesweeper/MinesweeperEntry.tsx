@@ -3,33 +3,33 @@ import timer from "./assets/timer.png"
 import minesweeper from "./assets/minesweeper.jpg"
 import minesweeper_combined from "./assets/minesweeper_combined.png"
 import {
-  GITHUB_LINK,
-  GOOGLE_PLAY_LINK,
+  githubLink,
+  googlePlayLink,
 } from "../../routes/projects/SingleProjectPage/links.tsx"
 import { Project } from "../../routes/projects/SingleProjectPage/project.ts"
 import ProjWrapper from "../../components/project_entry_utils/project_wrapper/ProjWrapper.tsx"
 import P_p from "../../components/project_entry_utils/P_p.tsx"
 import {
-  CSHARP,
-  UNITY,
-  ANDROID,
+  cSharpTechnology,
+  unityTechnology,
+  androidTechnology,
 } from "../../routes/projects/SingleProjectPage/technology.tsx"
 
 export const MinesweeperProject: Project = {
   name: "minesweeper",
   title: "Infinite Minesweeper",
   subtitle: "Minesweeper on an infinite plane",
-  ms_since_epoch: null,
+  msSinceEpoch: null,
   image: { image: minesweeper, alt: "TODO" },
-  technologies: [CSHARP, UNITY, ANDROID],
+  technologies: [cSharpTechnology, unityTechnology, androidTechnology],
   links: [
     {
       url: "https://github.com/Robert-M-Lucas/InfiniteMinesweeper",
-      type: GITHUB_LINK,
+      type: githubLink,
     },
     {
       url: "https://play.google.com/store/apps/details?id=com.DefaultCompany.InfiniteMinesweeper",
-      type: GOOGLE_PLAY_LINK,
+      type: googlePlayLink,
     },
   ],
   page: MinesweeperEntryPage,

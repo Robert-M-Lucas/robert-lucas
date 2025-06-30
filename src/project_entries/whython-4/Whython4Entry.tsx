@@ -1,13 +1,13 @@
 import P_img from "../../components/project_entry_utils/P_img.tsx"
 import tictactoe from "./assets/tictactoe.png"
 import whython_4_short from "./assets/whython_4_short.png"
-import { GITHUB_LINK } from "../../routes/projects/SingleProjectPage/links.tsx"
+import { githubLink } from "../../routes/projects/SingleProjectPage/links.tsx"
 import { Project } from "../../routes/projects/SingleProjectPage/project.ts"
 import ProjWrapper from "../../components/project_entry_utils/project_wrapper/ProjWrapper.tsx"
 import P_p from "../../components/project_entry_utils/P_p.tsx"
 import {
-  COMPILERS,
-  RUST,
+  compilersTechnology,
+  rustTechnology,
 } from "../../routes/projects/SingleProjectPage/technology.tsx"
 import P_a from "../../components/project_entry_utils/P_a.tsx"
 
@@ -16,13 +16,13 @@ export const Whython4Project: Project = {
   title: "Whython 4",
   subtitle:
     "An more modern and maintainable programming language with better flow control and function support. A precursor to Whython-7/8",
-  ms_since_epoch: null,
+  msSinceEpoch: null,
   image: { image: whython_4_short, alt: "TODO" },
-  technologies: [RUST, COMPILERS],
+  technologies: [rustTechnology, compilersTechnology],
   links: [
     {
       url: "https://github.com/Robert-M-Lucas/whython-4",
-      type: GITHUB_LINK,
+      type: githubLink,
     },
   ],
   page: Whython4EntryPage,

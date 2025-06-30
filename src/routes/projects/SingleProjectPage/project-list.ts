@@ -72,7 +72,7 @@ export const SHOWCASE_PROJECT_LIST = [
 export function getCurrentProject() {
   let current_project: Project | null = null
   for (const project of ProjectList) {
-    if (project.currently_working_on) {
+    if (project.currentlyWorkingOn) {
       current_project = project
       break
     }

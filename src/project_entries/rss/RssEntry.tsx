@@ -1,9 +1,9 @@
 import { Project } from "../../routes/projects/SingleProjectPage/project.ts"
-import { RUST } from "../../routes/projects/SingleProjectPage/technology.tsx"
+import { rustTechnology } from "../../routes/projects/SingleProjectPage/technology.tsx"
 import {
-  COPYABLE_COMMAND_LINK,
-  CRATES_LINK,
-  GITHUB_LINK,
+  copyableCommandLink,
+  cratesLink,
+  githubLink,
 } from "../../routes/projects/SingleProjectPage/links.tsx"
 import ProjWrapper from "../../components/project_entry_utils/project_wrapper/ProjWrapper.tsx"
 import usage from "./assets/usage.png"
@@ -27,13 +27,13 @@ export const RssProject: Project = {
   subtitle:
     "Single file Rust projects with embedded binary enable Rust's use as a scripting language",
   image: { image: usage, alt: "Image of the RSS tool recompiling a file" },
-  ms_since_epoch: 1716902340000,
+  msSinceEpoch: 1716902340000,
   page: RssPage,
-  technologies: [RUST],
+  technologies: [rustTechnology],
   links: [
-    { url: "https://github.com/Robert-M-Lucas/rss2", type: GITHUB_LINK },
-    { url: "https://crates.io/crates/rs-script", type: CRATES_LINK },
-    { url: "cargo install rs-script", type: COPYABLE_COMMAND_LINK },
+    { url: "https://github.com/Robert-M-Lucas/rss2", type: githubLink },
+    { url: "https://crates.io/crates/rs-script", type: cratesLink },
+    { url: "cargo install rs-script", type: copyableCommandLink },
   ],
 }
 

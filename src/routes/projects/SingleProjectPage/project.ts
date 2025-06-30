@@ -13,14 +13,14 @@ export const PLACEHOLDER_IMAGE: ProjectImage = {
 }
 
 export interface Project {
-  currently_working_on?: boolean
-  currently_writing?: boolean
+  currentlyWorkingOn?: boolean
+  currentlyWriting?: boolean
   name: string
-  alt_names?: string[]
+  altNames?: string[]
   title: string
-  short_title?: string
+  shortTitle?: string
   subtitle?: string
-  ms_since_epoch: number | null // No date indicates legacy entry
+  msSinceEpoch: number | null // No date indicates legacy entry
   image?: ProjectImage
   technologies: Technology[]
   links: ProjectLink[]
@@ -28,5 +28,5 @@ export interface Project {
 }
 
 export function isProjectLegacy(project: Project) {
-  return project.ms_since_epoch === null
+  return project.msSinceEpoch === null
 }

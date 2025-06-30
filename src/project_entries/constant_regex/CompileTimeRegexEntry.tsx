@@ -1,6 +1,6 @@
 import { Project } from "../../routes/projects/SingleProjectPage/project.ts"
-import { RUST } from "../../routes/projects/SingleProjectPage/technology.tsx"
-import { GITHUB_LINK } from "../../routes/projects/SingleProjectPage/links.tsx"
+import { rustTechnology } from "../../routes/projects/SingleProjectPage/technology.tsx"
+import { githubLink } from "../../routes/projects/SingleProjectPage/links.tsx"
 import ProjWrapper from "../../components/project_entry_utils/project_wrapper/ProjWrapper.tsx"
 import P_p from "../../components/project_entry_utils/P_p.tsx"
 import PLatex from "../../components/project_entry_utils/PLatex.tsx"
@@ -17,20 +17,20 @@ import P_a from "../../components/project_entry_utils/P_a.tsx"
 export const CompileTimeRegexProject: Project = {
   name: "constant_regex",
   title: "Compile Time Regex Automaton",
-  short_title: "Compile Time Regex",
+  shortTitle: "Compile Time Regex",
   subtitle:
     "Compile time regex DFA generation to eliminate regex creation overhead at runtime",
   image: {
     image: performance_img,
     alt: "Image of a performance comparison between this project and other Regex implementations",
   },
-  ms_since_epoch: 1736777940000,
+  msSinceEpoch: 1736777940000,
   page: CompileTimeRegexPage,
-  technologies: [RUST],
+  technologies: [rustTechnology],
   links: [
     {
       url: "https://github.com/Robert-M-Lucas/const_regex",
-      type: GITHUB_LINK,
+      type: githubLink,
     },
   ],
 }

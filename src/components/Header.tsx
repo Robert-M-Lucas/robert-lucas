@@ -1,6 +1,6 @@
 import { Navbar, Nav, Container } from "react-bootstrap"
 import { Link, useLocation } from "react-router-dom"
-import { INDEX_PATH, PROJECTS_PATH } from "../router.tsx"
+import { indexPath, projectsPath } from "../router.tsx"
 import { clearProjectScrollProgress } from "../util/util.ts"
 
 export interface Props {
@@ -21,7 +21,7 @@ export default function Header({ hidden = false }: Props) {
         sticky="top"
       >
         <Container>
-          <Navbar.Brand as={Link} to={INDEX_PATH}>
+          <Navbar.Brand as={Link} to={indexPath}>
             Robert Lucas
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="main-navbar" />
@@ -30,16 +30,16 @@ export default function Header({ hidden = false }: Props) {
               <Nav.Link
                 viewTransition
                 as={Link}
-                to={INDEX_PATH}
-                active={isActive(INDEX_PATH)}
+                to={indexPath}
+                active={isActive(indexPath)}
               >
                 Home
               </Nav.Link>
               <Nav.Link
                 viewTransition
                 as={Link}
-                to={PROJECTS_PATH}
-                active={isActive(PROJECTS_PATH)}
+                to={projectsPath}
+                active={isActive(projectsPath)}
                 onClick={() => {
                   clearProjectScrollProgress()
                 }}

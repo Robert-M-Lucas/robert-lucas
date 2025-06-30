@@ -18,8 +18,8 @@ import { Project } from "../../routes/projects/SingleProjectPage/project.ts"
 import ProjWrapper from "../../components/project_entry_utils/project_wrapper/ProjWrapper.tsx"
 import P_p from "../../components/project_entry_utils/P_p.tsx"
 import {
-  COMPILERS,
-  CPP,
+  compilersTechnology,
+  cppTechnology,
 } from "../../routes/projects/SingleProjectPage/technology.tsx"
 import P_a from "../../components/project_entry_utils/P_a.tsx"
 
@@ -28,9 +28,9 @@ export const ProgrammingLang2Project: Project = {
   title: "Programming Language 2",
   subtitle:
     "Improved programming language with support for many types and conditional logic",
-  ms_since_epoch: null,
+  msSinceEpoch: null,
   image: { image: fizzbuzz, alt: "TODO" },
-  technologies: [CPP, COMPILERS],
+  technologies: [cppTechnology, compilersTechnology],
   links: [],
   page: ProgrammingLang2EntryPage,
 }

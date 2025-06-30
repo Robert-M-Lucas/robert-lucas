@@ -2,13 +2,13 @@ import { Technology } from "../routes/projects/SingleProjectPage/technology.tsx"
 import { ProjectLink } from "../routes/projects/SingleProjectPage/links.tsx"
 
 export interface Props {
-  currently_working_on?: boolean
+  currentlyWorkingOn?: boolean
   technologies: Technology[]
   links?: ProjectLink[]
 }
 
 export default function RenderTechsAndLinks({
-  currently_working_on,
+  currentlyWorkingOn,
   technologies,
   links,
 }: Props) {
@@ -18,7 +18,7 @@ export default function RenderTechsAndLinks({
   ) {
     return (
       <>
-        {currently_working_on && (
+        {currentlyWorkingOn && (
           <i className="text-muted">Currently working on</i>
         )}
       </>
@@ -27,7 +27,7 @@ export default function RenderTechsAndLinks({
 
   return (
     <span>
-      {currently_working_on && (
+      {currentlyWorkingOn && (
         <>
           <i className="text-muted">Currently working on</i> |&nbsp;
         </>

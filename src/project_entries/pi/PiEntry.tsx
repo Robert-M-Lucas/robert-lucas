@@ -1,20 +1,20 @@
-import { GITHUB_LINK } from "../../routes/projects/SingleProjectPage/links.tsx"
+import { githubLink } from "../../routes/projects/SingleProjectPage/links.tsx"
 import { Project } from "../../routes/projects/SingleProjectPage/project.ts"
 import ProjWrapper from "../../components/project_entry_utils/project_wrapper/ProjWrapper.tsx"
 import P_p from "../../components/project_entry_utils/P_p.tsx"
-import { CPP } from "../../routes/projects/SingleProjectPage/technology.tsx"
+import { cppTechnology } from "../../routes/projects/SingleProjectPage/technology.tsx"
 import P_a from "../../components/project_entry_utils/P_a.tsx"
 
 export const PiProject: Project = {
   name: "pi",
   title: "Pi Calculator",
   subtitle: "A program that calculates π using a physics simulation",
-  ms_since_epoch: null,
-  technologies: [CPP],
+  msSinceEpoch: null,
+  technologies: [cppTechnology],
   links: [
     {
       url: "https://github.com/Robert-M-Lucas/Elastic-Collision-Bounce-Calculator",
-      type: GITHUB_LINK,
+      type: githubLink,
     },
   ],
   page: PiEntryPage,

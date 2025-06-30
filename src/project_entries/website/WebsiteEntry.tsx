@@ -9,12 +9,12 @@ import { Project } from "../../routes/projects/SingleProjectPage/project.ts"
 import ProjWrapper from "../../components/project_entry_utils/project_wrapper/ProjWrapper.tsx"
 import P_p from "../../components/project_entry_utils/P_p.tsx"
 import {
-  PYTHON,
-  JAVASCRIPT,
-  HTML,
-  DJANGO,
-  CSS,
-  BOOTSTRAP,
+  pythonTechnology,
+  javascriptTechnology,
+  htmlTechnology,
+  djangoTechnology,
+  cssTechnology,
+  bootstrapTechnology,
 } from "../../routes/projects/SingleProjectPage/technology.tsx"
 import P_a from "../../components/project_entry_utils/P_a.tsx"
 import P_hr from "../../components/project_entry_utils/P_hr.tsx"
@@ -23,9 +23,16 @@ export const WebsiteProject: Project = {
   name: "website",
   title: "Old Website",
   subtitle: "My previous website demonstrating past projects",
-  ms_since_epoch: null,
+  msSinceEpoch: null,
   image: { image: website, alt: "TODO" },
-  technologies: [PYTHON, JAVASCRIPT, BOOTSTRAP, HTML, CSS, DJANGO],
+  technologies: [
+    pythonTechnology,
+    javascriptTechnology,
+    bootstrapTechnology,
+    htmlTechnology,
+    cssTechnology,
+    djangoTechnology,
+  ],
   links: [],
   page: WebsiteEntryPage,
 }

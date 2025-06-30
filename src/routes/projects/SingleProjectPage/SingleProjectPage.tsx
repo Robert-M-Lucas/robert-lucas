@@ -4,7 +4,7 @@ import FooterWrapper from "../../../components/FooterWrapper.tsx"
 import Header from "../../../components/Header.tsx"
 import { Container } from "react-bootstrap"
 import { isProjectLegacy, Project } from "./project.ts"
-import { getProjectPath, PROJECTS_PATH } from "../../../router.tsx"
+import { getProjectPath, projectsPath } from "../../../router.tsx"
 import HeaderSpacer from "../../../components/HeaderSpacer.tsx"
 import RenderTechnologies from "../../../components/RenderTechsAndLinks.tsx"
 import RenderButtonLinks from "../../../components/RenderButtonLinks.tsx"
@@ -32,9 +32,9 @@ export default function SingleProjectPage() {
     }
 
     for (const project of ProjectList) {
-      if (project.alt_names) {
-        for (const alt_name of project.alt_names) {
-          if (alt_name === params.project) {
+      if (project.altNames) {
+        for (const altName of project.altNames) {
+          if (altName === params.project) {
             setTimeout(
               () =>
                 navigate(getProjectPath(project.name), {
@@ -73,7 +73,7 @@ function SingleProjectPageRenderer(project: Project) {
 
   const screenDimensions = useWindowDimensions()
   const remaining = (screenDimensions.width - maxProjectTextWidth) / 2
-  const render_contents_left = remaining > 340
+  const renderContentsLeft = remaining > 340
 
   return (
     <FooterWrapper>
@@ -81,12 +81,12 @@ function SingleProjectPageRenderer(project: Project) {
       <Header />
       <HeaderSpacer />
       <HeadingContext.Provider value={{ headings, registerHeading }}>
-        {render_contents_left && <ProjContents renderLeft={remaining} />}
+        {renderContentsLeft && <ProjContents renderLeft={remaining} />}
         <Container style={{ maxWidth: maxProjectTextWidth }}>
           <div>
             <Link
               viewTransition
-              to={PROJECTS_PATH}
+              to={projectsPath}
               className="text-decoration-none"
             >
               ‹ Projects List
@@ -100,12 +100,12 @@ function SingleProjectPageRenderer(project: Project) {
             large
           />
           <div className="mb-1">
-            <RenderProjectDate ms_since_epoch={project.ms_since_epoch} />
+            <RenderProjectDate msSinceEpoch={project.msSinceEpoch} />
             {project.technologies.length > 0 && (
               <>
                 &nbsp;|&nbsp;
                 <RenderTechnologies
-                  currently_working_on={project.currently_working_on}
+                  currentlyWorkingOn={project.currentlyWorkingOn}
                   technologies={project.technologies}
                 />
               </>
@@ -122,12 +122,12 @@ function SingleProjectPageRenderer(project: Project) {
 
           <RenderButtonLinks links={project.links} />
 
-          {!render_contents_left && <ProjContents />}
+          {!renderContentsLeft && <ProjContents />}
 
           <hr />
 
           {isProjectLegacy(project) && <RenderLegacyWarning />}
-          {project.currently_writing && <RenderIsWritingWarning />}
+          {project.currentlyWriting && <RenderIsWritingWarning />}
 
           {project.page()}
         </Container>

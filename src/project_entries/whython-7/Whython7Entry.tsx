@@ -1,11 +1,11 @@
-import { GITHUB_LINK } from "../../routes/projects/SingleProjectPage/links.tsx"
+import { githubLink } from "../../routes/projects/SingleProjectPage/links.tsx"
 import { Project } from "../../routes/projects/SingleProjectPage/project.ts"
 import ProjWrapper from "../../components/project_entry_utils/project_wrapper/ProjWrapper.tsx"
 import P_p from "../../components/project_entry_utils/P_p.tsx"
 import {
-  COMPILERS,
-  RUST,
-  X86_64_ASM,
+  compilersTechnology,
+  rustTechnology,
+  x86_64_AsmTechnology,
 } from "../../routes/projects/SingleProjectPage/technology.tsx"
 import code from "./assets/code.png"
 import PLink from "../../components/project_entry_utils/PLink.tsx"
@@ -16,13 +16,13 @@ export const Whython7Project: Project = {
   name: "whython-7",
   title: "Whython 7",
   subtitle: "A precursor to Whython-8",
-  ms_since_epoch: null,
+  msSinceEpoch: null,
   image: { image: code, alt: "TODO" },
-  technologies: [RUST, X86_64_ASM, COMPILERS],
+  technologies: [rustTechnology, x86_64_AsmTechnology, compilersTechnology],
   links: [
     {
       url: "https://github.com/Robert-M-Lucas/whython-7",
-      type: GITHUB_LINK,
+      type: githubLink,
     },
   ],
   page: Whython7EntryPage,

@@ -4,14 +4,14 @@ import alphabeta from "./assets/alphabeta.png"
 import minimax from "./assets/minimax.png"
 import dolly_zoom from "./assets/dolly_zoom.svg"
 import chess from "./assets/chess.png"
-import { GITHUB_LINK } from "../../routes/projects/SingleProjectPage/links.tsx"
+import { githubLink } from "../../routes/projects/SingleProjectPage/links.tsx"
 import { Project } from "../../routes/projects/SingleProjectPage/project.ts"
 import ProjWrapper from "../../components/project_entry_utils/project_wrapper/ProjWrapper.tsx"
 import P_p from "../../components/project_entry_utils/P_p.tsx"
 import {
-  CSHARP,
-  NETCODE,
-  UNITY,
+  cSharpTechnology,
+  netcodeTechnology,
+  unityTechnology,
 } from "../../routes/projects/SingleProjectPage/technology.tsx"
 
 export const ChessProject: Project = {
@@ -19,11 +19,11 @@ export const ChessProject: Project = {
   title: "Chess",
   subtitle:
     "A hybrid 3D-2D chess game with local play, multiplayer, custom net code and a chess AI using a minimax algorithm",
-  ms_since_epoch: null,
+  msSinceEpoch: null,
   image: { image: chess, alt: "TODO" },
-  technologies: [CSHARP, NETCODE, UNITY],
+  technologies: [cSharpTechnology, netcodeTechnology, unityTechnology],
   links: [
-    { url: "https://github.com/Robert-M-Lucas/Chess3D", type: GITHUB_LINK },
+    { url: "https://github.com/Robert-M-Lucas/Chess3D", type: githubLink },
   ],
   page: ChessEntryPage,
 }

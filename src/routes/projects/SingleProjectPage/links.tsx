@@ -20,7 +20,7 @@ export interface ProjectLink {
   type: LinkType
 }
 
-export const GOOGLE_PLAY_LINK: LinkType = {
+export const googlePlayLink: LinkType = {
   getTextElement: (url: string) => (
     <a
       className={"fw-bold text-nowrap"}
@@ -48,7 +48,7 @@ export const GOOGLE_PLAY_LINK: LinkType = {
   ),
 }
 
-export const GITHUB_LINK: LinkType = {
+export const githubLink: LinkType = {
   getTextElement: (url: string) => (
     <a
       className={"fw-bold text-nowrap"}
@@ -76,7 +76,7 @@ export const GITHUB_LINK: LinkType = {
   ),
 }
 
-export const CRATES_LINK: LinkType = {
+export const cratesLink: LinkType = {
   getTextElement: (url: string) => (
     <a
       className={"fw-bold text-nowrap"}
@@ -104,7 +104,7 @@ export const CRATES_LINK: LinkType = {
   ),
 }
 
-export const COPYABLE_COMMAND_LINK: LinkType = {
+export const copyableCommandLink: LinkType = {
   getTextElement: (url: string) => (
     <CopyableCommandLinkButton url={url} isButton={false} />
   ),

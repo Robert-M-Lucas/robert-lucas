@@ -4,7 +4,7 @@ import Header from "../../components/Header.tsx"
 import { ProjectSpotlight } from "./ProjectSpotlight.tsx"
 import { getCurrentProject } from "../projects/SingleProjectPage/project-list.ts"
 import { AnimatePresence, motion, Transition } from "framer-motion"
-import { getProjectPath, PROJECTS_PATH } from "../../router.tsx"
+import { getProjectPath, projectsPath } from "../../router.tsx"
 import { Link } from "react-router-dom"
 import { Button } from "react-bootstrap"
 import { clearProjectScrollProgress } from "../../util/util.ts"
@@ -117,7 +117,7 @@ export default function IndexPage() {
                       <Link
                         viewTransition
                         className={"text-decoration-none"}
-                        to={PROJECTS_PATH}
+                        to={projectsPath}
                         onClick={() => {
                           clearProjectScrollProgress()
                         }}

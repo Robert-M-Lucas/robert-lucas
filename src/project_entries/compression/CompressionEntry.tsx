@@ -1,23 +1,23 @@
 import P_img from "../../components/project_entry_utils/P_img.tsx"
 import compression from "./assets/compression.png"
-import { GITHUB_LINK } from "../../routes/projects/SingleProjectPage/links.tsx"
+import { githubLink } from "../../routes/projects/SingleProjectPage/links.tsx"
 import { Project } from "../../routes/projects/SingleProjectPage/project.ts"
 import ProjWrapper from "../../components/project_entry_utils/project_wrapper/ProjWrapper.tsx"
 import P_p from "../../components/project_entry_utils/P_p.tsx"
-import { CSHARP } from "../../routes/projects/SingleProjectPage/technology.tsx"
+import { cSharpTechnology } from "../../routes/projects/SingleProjectPage/technology.tsx"
 
 export const CompressionProject: Project = {
   name: "compression",
   title: "Compression Algorithm",
   subtitle:
     "A simple program to test custom compression algoritms and combinations of algorithms",
-  ms_since_epoch: null,
+  msSinceEpoch: null,
   image: { image: compression, alt: "TODO" },
-  technologies: [CSHARP],
+  technologies: [cSharpTechnology],
   links: [
     {
       url: "https://github.com/Robert-M-Lucas/CompressionAlgorithm",
-      type: GITHUB_LINK,
+      type: githubLink,
     },
   ],
   page: CompressionEntryPage,

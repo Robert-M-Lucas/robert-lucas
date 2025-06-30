@@ -122,9 +122,9 @@ export function ProjectSpotlight() {
       if (img && wrapper) {
         const imgHeight = img.offsetHeight
         const wrapperHeight = wrapper.offsetHeight
-        const new_f = imgHeight > wrapperHeight
-        if (fadeActive !== new_f) {
-          setFadeActive(new_f)
+        const newF = imgHeight > wrapperHeight
+        if (fadeActive !== newF) {
+          setFadeActive(newF)
         }
       }
     }
@@ -177,9 +177,9 @@ export function ProjectSpotlight() {
         <Card.Body className={isMobile ? "px-2 pt-2 pb-1" : ""}>
           <Card.Title>
             <RenderProjectName
-              title={project.short_title ?? project.title}
+              title={project.shortTitle ?? project.title}
               legacy={!isMobile && isProjectLegacy(project)}
-              currently_writing={!isMobile && project.currently_writing}
+              currentlyWriting={!isMobile && project.currentlyWriting}
             />
           </Card.Title>
           <Card.Subtitle>

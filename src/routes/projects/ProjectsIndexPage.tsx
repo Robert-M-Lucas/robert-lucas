@@ -48,7 +48,7 @@ export default function ProjectsIndexPage() {
     sessionStorage.setItem(COMPACT_STORAGE_KEY, String(!compact))
   }
 
-  const current_project = getCurrentProject()
+  const currentProject = getCurrentProject()
 
   return (
     <FooterWrapper>
@@ -59,15 +59,15 @@ export default function ProjectsIndexPage() {
           <div className="pe-2">
             <h1>Projects</h1>
             <p className="text-muted">Click on any project to learn more</p>
-            {current_project && (
+            {currentProject && (
               <p className={"mb-0"}>
                 <Link
                   viewTransition
                   className={"text-decoration-none"}
-                  to={getProjectPath(current_project.name)}
+                  to={getProjectPath(currentProject.name)}
                 >
                   › Jump to my current project (
-                  {current_project.short_title ?? current_project.title})
+                  {currentProject.shortTitle ?? currentProject.title})
                 </Link>
               </p>
             )}
@@ -130,12 +130,12 @@ function CompactEntry({ project }: EntryProps) {
       <RenderProjectName
         title={project.title}
         legacy={isProjectLegacy(project)}
-        currently_writing={project.currently_writing}
+        currentlyWriting={project.currentlyWriting}
       />
       <span className="mb-2">
-        <RenderProjectDate ms_since_epoch={project.ms_since_epoch} /> |&nbsp;
+        <RenderProjectDate msSinceEpoch={project.msSinceEpoch} /> |&nbsp;
         <RenderTechsAndLinks
-          currently_working_on={project.currently_working_on ?? false}
+          currentlyWorkingOn={project.currentlyWorkingOn ?? false}
           technologies={project.technologies}
           links={project.links}
         />
@@ -156,17 +156,17 @@ function ExpandedEntry({ project }: EntryProps) {
     >
       <RenderProjectName
         title={project.title}
-        currently_writing={project.currently_writing}
+        currentlyWriting={project.currentlyWriting}
         margin={!project.subtitle}
         legacy={isProjectLegacy(project)}
       />
       <span className="mb-1">
-        <RenderProjectDate ms_since_epoch={project.ms_since_epoch} />
+        <RenderProjectDate msSinceEpoch={project.msSinceEpoch} />
         {project.technologies.length > 0 && (
           <>
             &nbsp;|&nbsp;
             <RenderTechnologies
-              currently_working_on={project.currently_working_on ?? false}
+              currentlyWorkingOn={project.currentlyWorkingOn ?? false}
               technologies={project.technologies}
             />
           </>

@@ -1,13 +1,13 @@
 import P_img from "../../components/project_entry_utils/P_img.tsx"
 import astar from "./assets/astar.webp"
-import { GOOGLE_PLAY_LINK } from "../../routes/projects/SingleProjectPage/links.tsx"
+import { googlePlayLink } from "../../routes/projects/SingleProjectPage/links.tsx"
 import { Project } from "../../routes/projects/SingleProjectPage/project.ts"
 import ProjWrapper from "../../components/project_entry_utils/project_wrapper/ProjWrapper.tsx"
 import P_p from "../../components/project_entry_utils/P_p.tsx"
 import {
-  CSHARP,
-  UNITY,
-  ANDROID,
+  cSharpTechnology,
+  unityTechnology,
+  androidTechnology,
 } from "../../routes/projects/SingleProjectPage/technology.tsx"
 
 export const AstarProject: Project = {
@@ -15,13 +15,13 @@ export const AstarProject: Project = {
   title: "A* Pathfinding",
   subtitle:
     "A simple program that demonstrates the A* pathfinding algorithm for PC and Android",
-  ms_since_epoch: null,
+  msSinceEpoch: null,
   image: { image: astar, alt: "TODO" },
-  technologies: [CSHARP, UNITY, ANDROID],
+  technologies: [cSharpTechnology, unityTechnology, androidTechnology],
   links: [
     {
       url: "https://play.google.com/store/apps/details?id=com.RobertAppDev.AStar2D",
-      type: GOOGLE_PLAY_LINK,
+      type: googlePlayLink,
     },
   ],
   page: AstarEntryPage,

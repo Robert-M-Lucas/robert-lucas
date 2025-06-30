@@ -3,7 +3,7 @@ export interface Props {
   margin?: boolean
   legacy?: boolean
   large?: boolean
-  currently_writing?: boolean
+  currentlyWriting?: boolean
 }
 
 export default function RenderProjectName({
@@ -11,13 +11,13 @@ export default function RenderProjectName({
   margin = false,
   legacy = false,
   large = false,
-  currently_writing = false,
+  currentlyWriting = false,
 }: Props) {
   return large ? (
     <h1 className={margin ? "mb-3" : "mb-0"}>
       {title}
       {legacy && <span className={"text-muted"}>&nbsp;• [Legacy]</span>}
-      {currently_writing && (
+      {currentlyWriting && (
         <span className={"text-muted"}>&nbsp;• [Currently Writing]</span>
       )}
     </h1>
@@ -25,7 +25,7 @@ export default function RenderProjectName({
     <h2 className={margin ? "mb-3" : "mb-0"}>
       {title}
       {legacy && <span className={"text-muted"}>&nbsp;• [Legacy Project]</span>}
-      {currently_writing && (
+      {currentlyWriting && (
         <span className={"text-muted"}>&nbsp;• [Currently Writing]</span>
       )}
     </h2>

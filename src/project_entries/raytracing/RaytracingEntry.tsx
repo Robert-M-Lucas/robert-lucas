@@ -18,24 +18,24 @@ import indirect from "./assets/indirect.png"
 import raytracing from "./assets/raytracing.svg"
 import render from "./assets/render.png"
 import preview from "./assets/preview.png"
-import { GITHUB_LINK } from "../../routes/projects/SingleProjectPage/links.tsx"
+import { githubLink } from "../../routes/projects/SingleProjectPage/links.tsx"
 import { Project } from "../../routes/projects/SingleProjectPage/project.ts"
 import ProjWrapper from "../../components/project_entry_utils/project_wrapper/ProjWrapper.tsx"
 import P_p from "../../components/project_entry_utils/P_p.tsx"
-import { RUST } from "../../routes/projects/SingleProjectPage/technology.tsx"
+import { rustTechnology } from "../../routes/projects/SingleProjectPage/technology.tsx"
 
 export const RaytracingProject: Project = {
   name: "raytracing",
   title: "Raytracing Engine",
   subtitle:
     "A raytracing engine supporting reflections, refraction, direct lighting and indirect lighting",
-  ms_since_epoch: null,
+  msSinceEpoch: null,
   image: { image: render, alt: "TODO" },
-  technologies: [RUST],
+  technologies: [rustTechnology],
   links: [
     {
       url: "https://github.com/Robert-M-Lucas/raytracing-two",
-      type: GITHUB_LINK,
+      type: githubLink,
     },
   ],
   page: RaytracingEntryPage,

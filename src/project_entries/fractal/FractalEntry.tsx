@@ -4,13 +4,13 @@ import four from "./assets/four.png"
 import three from "./assets/three.png"
 import two from "./assets/two.png"
 import one from "./assets/one.png"
-import { GITHUB_LINK } from "../../routes/projects/SingleProjectPage/links.tsx"
+import { githubLink } from "../../routes/projects/SingleProjectPage/links.tsx"
 import { Project } from "../../routes/projects/SingleProjectPage/project.ts"
 import ProjWrapper from "../../components/project_entry_utils/project_wrapper/ProjWrapper.tsx"
 import P_p from "../../components/project_entry_utils/P_p.tsx"
 import {
-  JAVA,
-  GPU,
+  javaTechnology,
+  gpuTechnology,
 } from "../../routes/projects/SingleProjectPage/technology.tsx"
 import P_ul from "../../components/project_entry_utils/P_ul.tsx"
 import P_li from "../../components/project_entry_utils/P_li.tsx"
@@ -20,13 +20,13 @@ export const FractalProject: Project = {
   title: "Mandlebrot Fractal Explorer",
   subtitle:
     "An app that renders and allows you to explore the Madlebrot (and burning ship) fractal",
-  ms_since_epoch: null,
+  msSinceEpoch: null,
   image: { image: one, alt: "TODO" },
-  technologies: [JAVA, GPU],
+  technologies: [javaTechnology, gpuTechnology],
   links: [
     {
       url: "https://github.com/Robert-M-Lucas/Mandlebrot-Fractal-GPU",
-      type: GITHUB_LINK,
+      type: githubLink,
     },
   ],
   page: FractalEntryPage,

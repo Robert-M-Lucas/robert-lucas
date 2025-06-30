@@ -3,23 +3,23 @@ import options_code from "./assets/options_code.png"
 import code from "./assets/code.png"
 import pattern2 from "./assets/pattern2.png"
 import pattern from "./assets/pattern.png"
-import { GITHUB_LINK } from "../../routes/projects/SingleProjectPage/links.tsx"
+import { githubLink } from "../../routes/projects/SingleProjectPage/links.tsx"
 import { Project } from "../../routes/projects/SingleProjectPage/project.ts"
 import ProjWrapper from "../../components/project_entry_utils/project_wrapper/ProjWrapper.tsx"
 import P_p from "../../components/project_entry_utils/P_p.tsx"
-import { PYTHON } from "../../routes/projects/SingleProjectPage/technology.tsx"
+import { pythonTechnology } from "../../routes/projects/SingleProjectPage/technology.tsx"
 
 export const GeometricPatternProject: Project = {
   name: "geometric_pattern",
   title: "Geometric Pattern Generator",
   subtitle: "Generating a geometric pattern for use in future projects",
-  ms_since_epoch: null,
+  msSinceEpoch: null,
   image: { image: pattern, alt: "TODO" },
-  technologies: [PYTHON],
+  technologies: [pythonTechnology],
   links: [
     {
       url: "https://github.com/Robert-M-Lucas/TriangleGenerator",
-      type: GITHUB_LINK,
+      type: githubLink,
     },
   ],
   page: GeometricPatternEntryPage,

@@ -6,16 +6,16 @@ import react_code from "./assets/react_code.txt"
 import code from "./assets/code.png"
 
 import {
-  BOOTSTRAP,
-  CSS,
-  FIREBASE,
-  HTML,
-  REACT,
-  TYPESCRIPT,
+  bootstrapTechnology,
+  cssTechnology,
+  firebaseTechnology,
+  htmlTechnology,
+  reactTechnology,
+  typescriptTechnology,
 } from "../../routes/projects/SingleProjectPage/technology.tsx"
 import {
   createCustomLink,
-  GITHUB_LINK,
+  githubLink,
 } from "../../routes/projects/SingleProjectPage/links.tsx"
 import ProjWrapper from "../../components/project_entry_utils/project_wrapper/ProjWrapper.tsx"
 import P_p from "../../components/project_entry_utils/P_p.tsx"
@@ -26,20 +26,27 @@ import { WebsiteProject } from "../website/WebsiteEntry.tsx"
 import PCodeSrc from "../../components/project_entry_utils/PCodeSrc.tsx"
 
 export const PortfolioTwoProject: Project = {
-  currently_working_on: true,
-  currently_writing: true,
+  currentlyWorkingOn: true,
+  currentlyWriting: true,
   name: "portfolio_two",
   title: "Portfolio Website (This Website)",
-  short_title: "Portfolio Website",
+  shortTitle: "Portfolio Website",
   image: { image: code, alt: "Image of some code used in this website" },
   subtitle: "This website, created to replace my old portfolio website",
-  ms_since_epoch: 1750860747000,
+  msSinceEpoch: 1750860747000,
   page: PortfolioTwoEntryPage,
-  technologies: [TYPESCRIPT, REACT, FIREBASE, BOOTSTRAP, HTML, CSS],
+  technologies: [
+    typescriptTechnology,
+    reactTechnology,
+    firebaseTechnology,
+    bootstrapTechnology,
+    htmlTechnology,
+    cssTechnology,
+  ],
   links: [
     {
       url: "https://github.com/Robert-M-Lucas/robert-lucas",
-      type: GITHUB_LINK,
+      type: githubLink,
     },
     {
       url: "https://robertlucas.pythonanywhere.com",

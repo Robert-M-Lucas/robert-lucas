@@ -9,17 +9,17 @@ import { Project } from "../../routes/projects/SingleProjectPage/project.ts"
 import ProjWrapper from "../../components/project_entry_utils/project_wrapper/ProjWrapper.tsx"
 import P_p from "../../components/project_entry_utils/P_p.tsx"
 import {
-  CSHARP,
-  UNITY,
+  cSharpTechnology,
+  unityTechnology,
 } from "../../routes/projects/SingleProjectPage/technology.tsx"
 
 export const TerrainGeneratorProject: Project = {
   name: "terrain_generator",
   title: "Random Terrain Generator",
   subtitle: "Generating terrain meshes in Unity using Perlin noise",
-  ms_since_epoch: null,
+  msSinceEpoch: null,
   image: { image: with_water, alt: "TODO" },
-  technologies: [CSHARP, UNITY],
+  technologies: [cSharpTechnology, unityTechnology],
   links: [],
   page: TerrainGeneratorEntryPage,
 }

@@ -1,13 +1,13 @@
 import P_img from "../../components/project_entry_utils/P_img.tsx"
 import tictactoe_cmd from "./assets/tictactoe_cmd.png"
 import tictactoe from "./assets/tictactoe.png"
-import { GITHUB_LINK } from "../../routes/projects/SingleProjectPage/links.tsx"
+import { githubLink } from "../../routes/projects/SingleProjectPage/links.tsx"
 import { Project } from "../../routes/projects/SingleProjectPage/project.ts"
 import ProjWrapper from "../../components/project_entry_utils/project_wrapper/ProjWrapper.tsx"
 import P_p from "../../components/project_entry_utils/P_p.tsx"
 import {
-  COMPILERS,
-  CSHARP,
+  compilersTechnology,
+  cSharpTechnology,
 } from "../../routes/projects/SingleProjectPage/technology.tsx"
 import P_a from "../../components/project_entry_utils/P_a.tsx"
 import P_hr from "../../components/project_entry_utils/P_hr.tsx"
@@ -15,15 +15,15 @@ import P_hr from "../../components/project_entry_utils/P_hr.tsx"
 export const ProgrammingLangProject: Project = {
   name: "programming_lang",
   title: "Custom Programming Language (RLC)",
-  short_title: "Programming Language",
+  shortTitle: "Programming Language",
   subtitle: "Creating my own programming language",
-  ms_since_epoch: null,
+  msSinceEpoch: null,
   image: { image: tictactoe, alt: "TODO" },
-  technologies: [CSHARP, COMPILERS],
+  technologies: [cSharpTechnology, compilersTechnology],
   links: [
     {
       url: "https://github.com/Robert-M-Lucas/ProgrammingLanguage",
-      type: GITHUB_LINK,
+      type: githubLink,
     },
   ],
   page: ProgrammingLangEntryPage,
