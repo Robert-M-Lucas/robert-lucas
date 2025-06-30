@@ -16,7 +16,7 @@ const firebaseConfig = {
   apiKey: "AIzaSyBkMG6UJ1bfGBYl5pQP08rAk3eQBI2Geio",
   authDomain: "robert-lucas.firebaseapp.com",
   projectId: "robert-lucas",
-  storageBucket: "robert-lucas.appspot.com",
+  storageBucket: "robert-lucas.firebasestorage.app",
   messagingSenderId: "597127804780",
   appId: "1:597127804780:web:58a7ea379d53bed90da549",
   measurementId: "G-MQZJQK7SPC",
