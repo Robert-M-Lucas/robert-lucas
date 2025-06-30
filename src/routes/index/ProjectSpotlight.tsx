@@ -70,7 +70,12 @@ export function ProjectSpotlight() {
         changeIndex()
         controls.set("hidden")
         setIsExiting(false)
-        startTimeout()
+        if (paused) {
+          controls.start("visible").then()
+          progressControls.set("start")
+        } else {
+          startTimeout()
+        }
       }, cardTransitionTime + 500)
     )
   }
