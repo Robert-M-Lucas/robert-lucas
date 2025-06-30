@@ -69,7 +69,7 @@ export function ProjectSpotlight() {
       setTimeout(() => {
         changeIndex()
         controls.set("hidden")
-        setIsExiting(false)
+
         if (paused) {
           controls.start("visible").then()
           progressControls.set("start")
@@ -77,6 +77,7 @@ export function ProjectSpotlight() {
         } else {
           startTimeout()
         }
+        setIsExiting(false)
       }, cardTransitionTime + 500)
     )
   }
@@ -213,7 +214,11 @@ export function ProjectSpotlight() {
           className={
             "d-flex justify-content-center align-items-center bg-white"
           }
-          style={{ minHeight: "33px" }}
+          style={{
+            minHeight: "33px",
+            paddingBottom:
+              isMobile && project.links.length > 0 ? "25px" : undefined,
+          }}
         >
           <RenderButtonLinks
             links={isMobile ? project.links.slice(0, 2) : project.links}
@@ -247,10 +252,10 @@ export function ProjectSpotlight() {
             isMobile
               ? {
                   position: "absolute",
-                  bottom: "-2px",
-                  left: "0",
+                  bottom: "5px",
+                  left: "50%",
+                  transform: "translateX(-50%)",
                   color: "gray",
-                  transform: "translateY(100%)",
                 }
               : {
                   position: "absolute",
