@@ -45,9 +45,11 @@ export function ProjectSpotlight() {
     progressControls.set("start")
     progressControls.start("end").then()
     stopTimeout()
+    // console.log("Creating timer")
     setCurrentTimeout(
       setTimeout(
         () => {
+          // console.log("Skipping")
           skipFunc(skipNext)
         },
         projectCycleTime - cardTransitionTime * 2
@@ -56,6 +58,7 @@ export function ProjectSpotlight() {
   }
 
   const stopTimeout = () => {
+    // console.log("Removing timer")
     if (currentTimeout) window.clearTimeout(currentTimeout)
   }
 
