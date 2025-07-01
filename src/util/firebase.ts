@@ -25,11 +25,11 @@ const firebaseConfig = {
 let _app = undefined
 let _auth = undefined
 let _db = undefined
-const USE_EMULATORS = false
+const useEmulators = false
 
 if (import.meta.env.MODE === "test") {
   //
-} else if (IS_DEV && USE_EMULATORS) {
+} else if (IS_DEV && useEmulators) {
   _app = initializeApp(firebaseConfig)
   _auth = getAuth(_app)
   _db = getFirestore(_app)

@@ -6,7 +6,7 @@ import { getCurrentProject } from "../projects/SingleProjectPage/project-list.ts
 import { AnimatePresence, motion, Transition } from "framer-motion"
 import { getProjectPath, projectsPath } from "../../router.tsx"
 import { Link } from "react-router-dom"
-import { Button } from "react-bootstrap"
+import { Button, Container } from "react-bootstrap"
 import { clearProjectScrollProgress } from "../../util/util.ts"
 import { isMobile } from "react-device-detect"
 import ScrollToTop from "../../components/ScrollToTop.tsx"
@@ -58,7 +58,7 @@ export default function IndexPage() {
       <ScrollToTop />
       <div
         className="d-flex flex-column justify-content-between"
-        style={{ height: "100vh" }}
+        style={{ height: "100dvh" }}
       >
         <Header />
 
@@ -75,7 +75,7 @@ export default function IndexPage() {
                   ref={headingRef}
                   key={currentHeading.split(" ").length}
                   initial="hidden"
-                  whileInView="visible"
+                  animate="visible"
                   exit={"hidden"}
                   transition={{ staggerChildren: 0.15 }}
                   className={
@@ -150,6 +150,10 @@ export default function IndexPage() {
             window.location.hash = ""
             window.location.hash = "#continued"
           }}
+          style={{
+            position: "relative",
+            bottom: 0,
+          }}
         >
           Technology, experience, education
         </Button>
@@ -157,7 +161,9 @@ export default function IndexPage() {
         {/*<Header hidden />*/}
       </div>
       <section id={"continued"}>
-        <p>Hello</p>
+        <Container className="mt-4">
+          <h1>{"TODO"} :)</h1>
+        </Container>
       </section>
     </FooterWrapper>
   )
