@@ -1,0 +1,10 @@
+/// Inner data structure for a location
+#[derive(Debug, Clone, Hash)]
+struct InnerLocation {
+    /// File id
+    file_id: FileID,
+    /// Offset in the line, counted from 0
+    offset: usize,
+    /// Line number, counted from 1
+    line: u32,
+}

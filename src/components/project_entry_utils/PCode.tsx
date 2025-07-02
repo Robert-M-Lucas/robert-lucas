@@ -2,7 +2,7 @@ import { a11yLight, CopyBlock } from "react-code-blocks"
 import { Card } from "react-bootstrap"
 import { ReactNode } from "react"
 
-export type supportedLanguages =
+export type SupportedLanguages =
   | "abap"
   | "actionscript"
   | "ada"
@@ -92,7 +92,7 @@ export type supportedLanguages =
 
 export interface Props {
   code: string
-  language: supportedLanguages
+  language: SupportedLanguages
   caption?: string | ReactNode
 }
 
@@ -105,6 +105,7 @@ export default function PCode({ code, language, caption }: Props) {
           language={language}
           showLineNumbers={true}
           theme={a11yLight}
+          customStyle={{ "font-family": "monospace" }}
           codeBlock
         />
       </Card>

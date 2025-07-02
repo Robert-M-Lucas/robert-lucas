@@ -1,0 +1,21 @@
+/// Parses line as a struct
+pub fn parse_struct(s: Span) -> ParseResult<Span, StructToken> {
+    let location = Location::from_span(&s);
+    let (s, _) = tag("struct").parse(s)?;
+    let (s, _) = require_ignored(s)?;
+    let (s, name) = parse_simple_name(s)?;
+    let (s, _) = discard_ignored(s)?;
+    let (s, contents) = parse_default_terminator_content(s, &BRACE_TERMINATOR)?;
+    // Parse attributes as parameters
+    let (_, (attributes, _)) = parse_parameters(contents, None)?;
+
+    Ok((
+        s,
+        StructToken {
+            location,
+            name,
+            attributes,
+            id: None,
+        },
+    ))
+}

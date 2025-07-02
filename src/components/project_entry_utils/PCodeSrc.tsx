@@ -1,9 +1,9 @@
 import { ReactNode, useEffect, useState } from "react"
-import PCode, { supportedLanguages } from "./PCode.tsx"
+import PCode, { SupportedLanguages } from "./PCode.tsx"
 
 export interface Props {
   codeSrc: string
-  language: supportedLanguages
+  language: SupportedLanguages
   caption?: string | ReactNode
 }
 
