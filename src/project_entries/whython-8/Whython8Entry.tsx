@@ -7,6 +7,7 @@ import {
 import { githubLink } from "../../routes/projects/SingleProjectPage/links.tsx"
 import ProjWrapper from "../../components/project_entry_utils/project_wrapper/ProjWrapper.tsx"
 import error from "./assets/error.png"
+import multierror from "./assets/multierror.png"
 import info from "./assets/info.png"
 import P_h1 from "../../components/project_entry_utils/P_h1.tsx"
 import P_p from "../../components/project_entry_utils/P_p.tsx"
@@ -170,6 +171,11 @@ function Whython8Page() {
         message, the contents of the error message will be incorrect or missing
         as the message rereads the file from disk.
       </P_p>
+      <P_img
+        image={multierror}
+        alt={"A Whython-8 error message with multiple components"}
+        caption={"Example of multiple errors being combined"}
+      />
 
       <P_h1>Importing</P_h1>
 
