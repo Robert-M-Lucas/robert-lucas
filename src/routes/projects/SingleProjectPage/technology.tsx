@@ -1,4 +1,4 @@
-import { JSX } from "react"
+import { JSX, lazy, Suspense } from "react"
 import {
   Android,
   BootstrapFill,
@@ -11,15 +11,6 @@ import {
   Typescript,
   Unity,
 } from "react-bootstrap-icons"
-import Rust from "../../../components/icons/Rust.tsx"
-import ReactIcon from "../../../components/icons/ReactIcon.tsx"
-import Java from "../../../components/icons/Java.tsx"
-import CSharp from "../../../components/icons/CSharp.tsx"
-import Python from "../../../components/icons/Python.tsx"
-import CPlusPlus from "../../../components/icons/CPlusPlus.tsx"
-import Html from "../../../components/icons/Html.tsx"
-import Django from "../../../components/icons/Django.tsx"
-import Firebase from "../../../components/icons/Firebase.tsx"
 
 export interface Technology {
   getElement: () => JSX.Element
@@ -34,28 +25,40 @@ export const typescriptTechnology: Technology = {
   ),
 }
 
+// eslint-disable-next-line @typescript-eslint/naming-convention
+const ReactIcon = lazy(() => import("../../../components/icons/ReactIcon"))
 export const reactTechnology: Technology = {
   getElement: () => (
     <span className={"fw-bold text-nowrap"} style={{ color: "#61dafb" }}>
-      <ReactIcon style={{ marginBottom: "4px", marginRight: "4px" }} />
+      <Suspense>
+        <ReactIcon style={{ marginBottom: "4px", marginRight: "4px" }} />
+      </Suspense>
       React
     </span>
   ),
 }
 
+// eslint-disable-next-line @typescript-eslint/naming-convention
+const Rust = lazy(() => import("../../../components/icons/Rust"))
 export const rustTechnology: Technology = {
   getElement: () => (
     <span className={"fw-bold text-nowrap"} style={{ color: "#f74c00" }}>
-      <Rust style={{ marginBottom: "4px", marginRight: "4px" }} />
+      <Suspense>
+        <Rust style={{ marginBottom: "4px", marginRight: "4px" }} />
+      </Suspense>
       Rust
     </span>
   ),
 }
 
+// eslint-disable-next-line @typescript-eslint/naming-convention
+const Java = lazy(() => import("../../../components/icons/Java"))
 export const javaTechnology: Technology = {
   getElement: () => (
     <span className={"fw-bold text-nowrap"} style={{ color: "#5382a1" }}>
-      <Java style={{ marginBottom: "4px", marginRight: "4px" }} />
+      <Suspense>
+        <Java style={{ marginBottom: "4px", marginRight: "4px" }} />
+      </Suspense>
       Java
     </span>
   ),
@@ -70,19 +73,27 @@ export const gpuTechnology: Technology = {
   ),
 }
 
+// eslint-disable-next-line @typescript-eslint/naming-convention
+const CSharp = lazy(() => import("../../../components/icons/CSharp"))
 export const cSharpTechnology: Technology = {
   getElement: () => (
     <span className={"fw-bold text-nowrap"} style={{ color: "#390091" }}>
-      <CSharp style={{ marginBottom: "4px", marginRight: "4px" }} />
+      <Suspense>
+        <CSharp style={{ marginBottom: "4px", marginRight: "4px" }} />
+      </Suspense>
       C#
     </span>
   ),
 }
 
+// eslint-disable-next-line @typescript-eslint/naming-convention
+const Python = lazy(() => import("../../../components/icons/Python"))
 export const pythonTechnology: Technology = {
   getElement: () => (
     <span className={"fw-bold text-nowrap"} style={{ color: "#3671a2" }}>
-      <Python style={{ marginBottom: "4px", marginRight: "4px" }} />
+      <Suspense>
+        <Python style={{ marginBottom: "4px", marginRight: "4px" }} />
+      </Suspense>
       Python
     </span>
   ),
@@ -115,10 +126,14 @@ export const netcodeTechnology: Technology = {
   ),
 }
 
+// eslint-disable-next-line @typescript-eslint/naming-convention
+const CPlusPlus = lazy(() => import("../../../components/icons/CPlusPlus"))
 export const cppTechnology: Technology = {
   getElement: () => (
     <span className={"fw-bold text-nowrap"} style={{ color: "#608ac2" }}>
-      <CPlusPlus style={{ marginBottom: "4px", marginRight: "4px" }} />
+      <Suspense>
+        <CPlusPlus style={{ marginBottom: "4px", marginRight: "4px" }} />
+      </Suspense>
       C++
     </span>
   ),
@@ -134,10 +149,14 @@ export const javascriptTechnology: Technology = {
   ),
 }
 
+// eslint-disable-next-line @typescript-eslint/naming-convention
+const Html = lazy(() => import("../../../components/icons/Html"))
 export const htmlTechnology: Technology = {
   getElement: () => (
     <span className={"fw-bold text-nowrap"} style={{ color: "#e44d26" }}>
-      <Html style={{ marginBottom: "4px", marginRight: "4px" }} />
+      <Suspense>
+        <Html style={{ marginBottom: "4px", marginRight: "4px" }} />
+      </Suspense>
       Html
     </span>
   ),
@@ -152,10 +171,14 @@ export const cssTechnology: Technology = {
   ),
 }
 
+// eslint-disable-next-line @typescript-eslint/naming-convention
+const Django = lazy(() => import("../../../components/icons/Django"))
 export const djangoTechnology: Technology = {
   getElement: () => (
     <span className={"fw-bold text-nowrap"} style={{ color: "#092e20" }}>
-      <Django style={{ marginBottom: "4px", marginRight: "4px" }} />
+      <Suspense>
+        <Django style={{ marginBottom: "4px", marginRight: "4px" }} />
+      </Suspense>
       Django
     </span>
   ),
@@ -191,10 +214,14 @@ export const compilersTechnology: Technology = {
   ),
 }
 
+// eslint-disable-next-line @typescript-eslint/naming-convention
+const Firebase = lazy(() => import("../../../components/icons/Firebase"))
 export const firebaseTechnology: Technology = {
   getElement: () => (
     <span className={"fw-bold text-nowrap"} style={{ color: "#DD2C00" }}>
-      <Firebase style={{ marginBottom: "4px", marginRight: "4px" }} />
+      <Suspense>
+        <Firebase style={{ marginBottom: "4px", marginRight: "4px" }} />
+      </Suspense>
       Firebase
     </span>
   ),

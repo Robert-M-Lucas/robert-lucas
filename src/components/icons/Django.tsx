@@ -1,13 +1,10 @@
-interface IconProps extends React.SVGProps<SVGSVGElement> {
-  size?: string | number
-  color?: string
-}
+import { IconProps } from "./icon-shared.ts"
 
-const Django: React.FC<IconProps> = ({
+export default function Django({
   size = 16,
   color = "currentColor",
   ...props
-}) => {
+}: IconProps) {
   return (
     <svg
       width={size}
@@ -25,5 +22,3 @@ const Django: React.FC<IconProps> = ({
     </svg>
   )
 }
-
-export default Django

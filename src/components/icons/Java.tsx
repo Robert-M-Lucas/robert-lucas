@@ -1,13 +1,10 @@
-interface IconProps extends React.SVGProps<SVGSVGElement> {
-  size?: string | number
-  color?: string
-}
+import { IconProps } from "./icon-shared.ts"
 
-const Java: React.FC<IconProps> = ({
+export default function Java({
   size = 16,
   color = "currentColor",
   ...props
-}) => {
+}: IconProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -27,5 +24,3 @@ const Java: React.FC<IconProps> = ({
     </svg>
   )
 }
-
-export default Java

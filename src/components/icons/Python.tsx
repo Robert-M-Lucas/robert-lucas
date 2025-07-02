@@ -1,14 +1,6 @@
-interface IconProps extends React.SVGProps<SVGSVGElement> {
-  size?: string | number
-  color?: string
-}
+import { IconProps } from "./icon-shared.ts"
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const Python: React.FC<IconProps> = ({
-  size = 16,
-  color = "currentColor",
-  ...props
-}) => {
+export default function Python({ size = 16, ...props }: IconProps) {
   return (
     <svg
       width={size}
@@ -169,5 +161,3 @@ const Python: React.FC<IconProps> = ({
     </svg>
   )
 }
-
-export default Python

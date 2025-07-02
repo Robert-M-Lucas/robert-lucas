@@ -1,13 +1,6 @@
-interface IconProps extends React.SVGProps<SVGSVGElement> {
-  size?: string | number
-  color?: string
-}
+import { IconProps } from "./icon-shared.ts"
 
-const Firebase: React.FC<IconProps> = ({
-  size = 16,
-  color = "currentColor",
-  ...props
-}) => {
+export default function Firebase({ size = 16, ...props }: IconProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -36,4 +29,3 @@ const Firebase: React.FC<IconProps> = ({
     </svg>
   )
 }
-export default Firebase

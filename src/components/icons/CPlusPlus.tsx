@@ -1,14 +1,6 @@
-interface IconProps extends React.SVGProps<SVGSVGElement> {
-  size?: string | number
-  color?: string
-}
+import { IconProps } from "./icon-shared.ts"
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const CPlusPlus: React.FC<IconProps> = ({
-  size = 16,
-  color = "currentColor",
-  ...props
-}) => {
+export default function CPlusPlus({ size, ...props }: IconProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -47,5 +39,3 @@ const CPlusPlus: React.FC<IconProps> = ({
     </svg>
   )
 }
-
-export default CPlusPlus

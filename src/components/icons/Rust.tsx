@@ -1,13 +1,10 @@
-interface IconProps extends React.SVGProps<SVGSVGElement> {
-  size?: string | number
-  color?: string
-}
+import { IconProps } from "./icon-shared.ts"
 
-const Rust: React.FC<IconProps> = ({
+export default function Rust({
   size = 16,
   color = "currentColor",
   ...props
-}) => {
+}: IconProps) {
   return (
     <svg
       version="1.1"
@@ -97,5 +94,3 @@ const Rust: React.FC<IconProps> = ({
     </svg>
   )
 }
-
-export default Rust

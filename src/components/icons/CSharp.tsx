@@ -1,13 +1,10 @@
-interface IconProps extends React.SVGProps<SVGSVGElement> {
-  size?: string | number
-  color?: string
-}
+import { IconProps } from "./icon-shared.ts"
 
-const CSharp: React.FC<IconProps> = ({
+export default function CSharp({
   size = 16,
   color = "currentColor",
   ...props
-}) => {
+}: IconProps) {
   return (
     <svg
       width={size}
@@ -48,5 +45,3 @@ const CSharp: React.FC<IconProps> = ({
     </svg>
   )
 }
-
-export default CSharp
