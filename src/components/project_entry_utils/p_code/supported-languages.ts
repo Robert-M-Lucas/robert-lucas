@@ -1,7 +1,3 @@
-import { a11yLight, CopyBlock } from "react-code-blocks"
-import { Card } from "react-bootstrap"
-import { ReactNode } from "react"
-
 export type SupportedLanguages =
   | "abap"
   | "actionscript"
@@ -89,27 +85,3 @@ export type SupportedLanguages =
   | "xml"
   | "xquery"
   | "yaml"
-
-export interface Props {
-  code: string
-  language: SupportedLanguages
-  caption?: string | ReactNode
-}
-
-export default function PCode({ code, language, caption }: Props) {
-  return (
-    <>
-      <Card className={caption ? "mb-0" : "mb-3"}>
-        <CopyBlock
-          text={code}
-          language={language}
-          showLineNumbers={true}
-          theme={a11yLight}
-          customStyle={{ "font-family": "monospace" }}
-          codeBlock
-        />
-      </Card>
-      {caption && <p className={"text-muted mb-3"}>{caption}</p>}
-    </>
-  )
-}

@@ -21,7 +21,7 @@ import ProjWrapper from "../../components/project_entry_utils/project_wrapper/Pr
 import P_p from "../../components/project_entry_utils/P_p.tsx"
 import P_a from "../../components/project_entry_utils/P_a.tsx"
 import { websiteProject } from "../website/WebsiteEntry.tsx"
-import PCodeSrc from "../../components/project_entry_utils/PCodeSrc.tsx"
+import PCodeSrc from "../../components/project_entry_utils/p_code/PCodeSrc.tsx"
 import PProjLink from "../../components/project_entry_utils/PProjLink.tsx"
 
 export const portfolioTwoProject: Project = {

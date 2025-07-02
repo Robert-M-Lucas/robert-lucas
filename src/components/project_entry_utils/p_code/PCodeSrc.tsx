@@ -1,5 +1,6 @@
 import { ReactNode, useEffect, useState } from "react"
-import PCode, { SupportedLanguages } from "./PCode.tsx"
+import { SupportedLanguages } from "./supported-languages.ts"
+import PCode from "./PCode.tsx"
 
 export interface Props {
   codeSrc: string
