@@ -1,5 +1,5 @@
 import { Card } from "react-bootstrap"
-import { isProjectLegacy } from "../projects/SingleProjectPage/project"
+import { isProjectLegacy } from "../projects/single-project-page/project"
 import RenderTechsAndLinks from "../../components/RenderTechsAndLinks.tsx"
 import RenderButtonLinks from "../../components/RenderButtonLinks.tsx"
 import { motion, useAnimationControls } from "framer-motion"
@@ -10,7 +10,7 @@ import { useNavigate } from "react-router-dom"
 import { isMobile } from "react-device-detect"
 import RenderProjectName from "../../components/RenderProjectName.tsx"
 import { Pause, Play, SkipEnd, SkipStart } from "react-bootstrap-icons"
-import { showcaseProjectList } from "../projects/SingleProjectPage/project-list.ts"
+import { showcaseProjectList } from "../projects/single-project-page/project-list.ts"
 
 const projectCycleTime = 15000
 const cardTransitionTime = 1000

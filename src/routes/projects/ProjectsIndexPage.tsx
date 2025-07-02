@@ -4,10 +4,10 @@ import { Button, Card, Container } from "react-bootstrap"
 import {
   getCurrentProject,
   projectList,
-} from "./SingleProjectPage/project-list.ts"
+} from "./single-project-page/project-list.ts"
 import HeaderSpacer from "../../components/HeaderSpacer.tsx"
 import { useEffect, useState } from "react"
-import { isProjectLegacy, Project } from "./SingleProjectPage/project.ts"
+import { isProjectLegacy, Project } from "./single-project-page/project.ts"
 import RenderTechsAndLinks from "../../components/RenderTechsAndLinks.tsx"
 import RenderProjectDate from "../../components/RenderProjectDate.tsx"
 import RenderTechnologies from "../../components/RenderTechsAndLinks.tsx"

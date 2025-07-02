@@ -1,5 +1,5 @@
-import { Technology } from "../routes/projects/SingleProjectPage/technology.tsx"
-import { ProjectLink } from "../routes/projects/SingleProjectPage/links.tsx"
+import { Technology } from "../routes/projects/single-project-page/technology.tsx"
+import { ProjectLink } from "../routes/projects/single-project-page/links.tsx"
 
 export interface Props {
   currentlyWorkingOn?: boolean

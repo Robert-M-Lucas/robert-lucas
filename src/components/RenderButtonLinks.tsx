@@ -1,4 +1,4 @@
-import { ProjectLink } from "../routes/projects/SingleProjectPage/links.tsx"
+import { ProjectLink } from "../routes/projects/single-project-page/links.tsx"
 
 export interface Props {
   links: ProjectLink[]

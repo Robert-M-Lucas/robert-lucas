@@ -14,7 +14,7 @@ const ProjectsIndexPage = lazy(
 )
 // eslint-disable-next-line @typescript-eslint/naming-convention
 const SingleProjectPage = lazy(
-  () => import("./routes/projects/SingleProjectPage/SingleProjectPage.tsx")
+  () => import("./routes/projects/single-project-page/SingleProjectPage.tsx")
 )
 
 export const router = createBrowserRouter([

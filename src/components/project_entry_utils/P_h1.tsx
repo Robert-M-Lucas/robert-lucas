@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react"
-import { useHeadingContext } from "../../routes/projects/SingleProjectPage/heading-context.ts"
+import { useHeadingContext } from "../../routes/projects/single-project-page/heading-context.ts"
 import slugify from "slugify"
 import { HeadingsProps } from "./P_headings_shared.ts"
 
