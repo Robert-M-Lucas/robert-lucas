@@ -13,7 +13,7 @@ import {
   unityTechnology,
 } from "../../routes/projects/SingleProjectPage/technology.tsx"
 
-export const TerrainGeneratorProject: Project = {
+export const terrainGeneratorProject: Project = {
   name: "terrain_generator",
   title: "Random Terrain Generator",
   subtitle: "Generating terrain meshes in Unity using Perlin noise",

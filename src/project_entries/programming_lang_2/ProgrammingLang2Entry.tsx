@@ -23,7 +23,7 @@ import {
 } from "../../routes/projects/SingleProjectPage/technology.tsx"
 import P_a from "../../components/project_entry_utils/P_a.tsx"
 
-export const ProgrammingLang2Project: Project = {
+export const programmingLang2Project: Project = {
   name: "programming_lang_2",
   title: "Programming Language 2",
   subtitle:

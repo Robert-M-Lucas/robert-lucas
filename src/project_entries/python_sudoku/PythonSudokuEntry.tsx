@@ -15,7 +15,7 @@ import P_h2 from "../../components/project_entry_utils/P_h2.tsx"
 import P_ul from "../../components/project_entry_utils/P_ul.tsx"
 import P_li from "../../components/project_entry_utils/P_li.tsx"
 
-export const PythonSudokuProject: Project = {
+export const pythonSudokuProject: Project = {
   name: "python_sudoku",
   title: "Python Sudoku Solver",
   subtitle:

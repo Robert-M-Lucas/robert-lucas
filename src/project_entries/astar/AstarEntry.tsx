@@ -10,7 +10,7 @@ import {
   androidTechnology,
 } from "../../routes/projects/SingleProjectPage/technology.tsx"
 
-export const AstarProject: Project = {
+export const aStarProject: Project = {
   name: "astar",
   title: "A* Pathfinding",
   subtitle:

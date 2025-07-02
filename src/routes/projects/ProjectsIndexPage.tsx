@@ -3,7 +3,7 @@ import Header from "../../components/Header.tsx"
 import { Button, Card, Container } from "react-bootstrap"
 import {
   getCurrentProject,
-  ProjectList,
+  projectList,
 } from "./SingleProjectPage/project-list.ts"
 import HeaderSpacer from "../../components/HeaderSpacer.tsx"
 import { useEffect, useState } from "react"
@@ -83,7 +83,7 @@ export default function ProjectsIndexPage() {
           </div>
         </div>
 
-        {ProjectList.map((project, i) => (
+        {projectList.map((project, i) => (
           <div key={i}>
             <hr />
             {compact ? (

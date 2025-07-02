@@ -2,7 +2,7 @@ import {
   Heading,
   useHeadingContext,
 } from "../../routes/projects/SingleProjectPage/heading-context.ts"
-import { useState } from "react"
+import { Fragment, useState } from "react"
 import { AnimatePresence, motion } from "framer-motion"
 import { Triangle } from "react-bootstrap-icons"
 
@@ -51,7 +51,7 @@ export default function ProjContents({ renderLeft }: Props) {
     >
       <div className="list-group mb-3">
         {groupedHeadings.map((section, index) => (
-          <>
+          <Fragment key={index}>
             <a
               className="list-group-item list-group-item-action small d-flex justify-content-between"
               href={`#${section.id}`}
@@ -100,7 +100,7 @@ export default function ProjContents({ renderLeft }: Props) {
                   </motion.div>
                 )}
             </AnimatePresence>
-          </>
+          </Fragment>
         ))}
       </div>
     </nav>

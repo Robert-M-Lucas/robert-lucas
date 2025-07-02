@@ -24,7 +24,7 @@ import ProjWrapper from "../../components/project_entry_utils/project_wrapper/Pr
 import P_p from "../../components/project_entry_utils/P_p.tsx"
 import { rustTechnology } from "../../routes/projects/SingleProjectPage/technology.tsx"
 
-export const RaytracingProject: Project = {
+export const raytracingProject: Project = {
   name: "raytracing",
   title: "Raytracing Engine",
   subtitle:

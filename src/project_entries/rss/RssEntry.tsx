@@ -21,7 +21,7 @@ import P_ol from "../../components/project_entry_utils/P_ol.tsx"
 import P_img from "../../components/project_entry_utils/P_img.tsx"
 import PMarkdownSrc from "../../components/project_entry_utils/PMarkdownSrc.tsx"
 
-export const RssProject: Project = {
+export const rssProject: Project = {
   name: "rss",
   title: "RSS",
   subtitle:

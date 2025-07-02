@@ -14,7 +14,7 @@ import PMono from "../../components/project_entry_utils/PMono.tsx"
 import P_h1 from "../../components/project_entry_utils/P_h1.tsx"
 import P_a from "../../components/project_entry_utils/P_a.tsx"
 
-export const CompileTimeRegexProject: Project = {
+export const compileTimeRegexProject: Project = {
   name: "constant_regex",
   title: "Compile Time Regex Automaton",
   shortTitle: "Compile Time Regex",

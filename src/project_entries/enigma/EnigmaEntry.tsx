@@ -12,7 +12,7 @@ import {
 } from "../../routes/projects/SingleProjectPage/technology.tsx"
 import P_a from "../../components/project_entry_utils/P_a.tsx"
 
-export const EnigmaProject: Project = {
+export const enigmaProject: Project = {
   name: "enigma",
   title: "Enigma Simulator",
   subtitle:

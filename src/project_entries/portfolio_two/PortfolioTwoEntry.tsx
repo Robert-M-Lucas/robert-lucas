@@ -20,12 +20,11 @@ import {
 import ProjWrapper from "../../components/project_entry_utils/project_wrapper/ProjWrapper.tsx"
 import P_p from "../../components/project_entry_utils/P_p.tsx"
 import P_a from "../../components/project_entry_utils/P_a.tsx"
-import PLink from "../../components/project_entry_utils/PLink.tsx"
-import { getProjectPath } from "../../router.tsx"
-import { WebsiteProject } from "../website/WebsiteEntry.tsx"
+import { websiteProject } from "../website/WebsiteEntry.tsx"
 import PCodeSrc from "../../components/project_entry_utils/PCodeSrc.tsx"
+import PProjLink from "../../components/project_entry_utils/PProjLink.tsx"
 
-export const PortfolioTwoProject: Project = {
+export const portfolioTwoProject: Project = {
   currentlyWorkingOn: true,
   currentlyWriting: true,
   name: "portfolio_two",
@@ -64,13 +63,12 @@ function PortfolioTwoEntryPage() {
           old portfolio website
         </P_a>
         , the ported write-up of which you can find{" "}
-        <PLink to={getProjectPath(WebsiteProject.name)}>here</PLink>. It was
-        created using Django, a templating framework for Python (i.e. a
-        framework where the server is responsible for generating individual
-        webpages to send to the client). This contrasts React's approach (with
-        which this website is created with) where the website is a single bundle
-        sent to the client (although some parts can be loaded dynamically if too
-        big).
+        <PProjLink to={websiteProject}>here</PProjLink>. It was created using
+        Django, a templating framework for Python (i.e. a framework where the
+        server is responsible for generating individual webpages to send to the
+        client). This contrasts React's approach (with which this website is
+        created with) where the website is a single bundle sent to the client
+        (although some parts can be loaded dynamically if too big).
       </P_p>
 
       <P_p>

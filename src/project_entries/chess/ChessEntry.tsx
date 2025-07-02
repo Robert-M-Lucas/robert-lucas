@@ -14,7 +14,7 @@ import {
   unityTechnology,
 } from "../../routes/projects/SingleProjectPage/technology.tsx"
 
-export const ChessProject: Project = {
+export const chessProject: Project = {
   name: "chess",
   title: "Chess",
   subtitle:

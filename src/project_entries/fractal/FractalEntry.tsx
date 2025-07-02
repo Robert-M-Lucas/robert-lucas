@@ -15,7 +15,7 @@ import {
 import P_ul from "../../components/project_entry_utils/P_ul.tsx"
 import P_li from "../../components/project_entry_utils/P_li.tsx"
 
-export const FractalProject: Project = {
+export const fractalProject: Project = {
   name: "fractal",
   title: "Mandlebrot Fractal Explorer",
   subtitle:

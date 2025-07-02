@@ -6,7 +6,7 @@ import ProjWrapper from "../../components/project_entry_utils/project_wrapper/Pr
 import P_p from "../../components/project_entry_utils/P_p.tsx"
 import { pythonTechnology } from "../../routes/projects/SingleProjectPage/technology.tsx"
 
-export const BezierProject: Project = {
+export const bezierProject: Project = {
   name: "bezier",
   title: "Bézier Curves",
   subtitle: "Demonstation of how bezier curves are formed. Created in PyGame.",

@@ -12,7 +12,7 @@ import {
 import P_a from "../../components/project_entry_utils/P_a.tsx"
 import P_hr from "../../components/project_entry_utils/P_hr.tsx"
 
-export const ProgrammingLangProject: Project = {
+export const programmingLangProject: Project = {
   name: "programming_lang",
   title: "Custom Programming Language (RLC)",
   shortTitle: "Programming Language",

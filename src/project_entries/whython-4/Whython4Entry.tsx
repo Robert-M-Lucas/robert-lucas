@@ -11,7 +11,7 @@ import {
 } from "../../routes/projects/SingleProjectPage/technology.tsx"
 import P_a from "../../components/project_entry_utils/P_a.tsx"
 
-export const Whython4Project: Project = {
+export const whython4Project: Project = {
   name: "whython-4",
   title: "Whython 4",
   subtitle:

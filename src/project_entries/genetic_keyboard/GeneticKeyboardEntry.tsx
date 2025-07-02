@@ -7,7 +7,7 @@ import ProjWrapper from "../../components/project_entry_utils/project_wrapper/Pr
 import P_p from "../../components/project_entry_utils/P_p.tsx"
 import { cSharpTechnology } from "../../routes/projects/SingleProjectPage/technology.tsx"
 
-export const GeneticKeyboardProject: Project = {
+export const geneticKeyboardProject: Project = {
   name: "genetic_keyboard",
   title: "Genetic Keyboard",
   subtitle: "Using a genetic algorithm to create the perfect keyboard",

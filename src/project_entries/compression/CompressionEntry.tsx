@@ -6,7 +6,7 @@ import ProjWrapper from "../../components/project_entry_utils/project_wrapper/Pr
 import P_p from "../../components/project_entry_utils/P_p.tsx"
 import { cSharpTechnology } from "../../routes/projects/SingleProjectPage/technology.tsx"
 
-export const CompressionProject: Project = {
+export const compressionProject: Project = {
   name: "compression",
   title: "Compression Algorithm",
   subtitle:

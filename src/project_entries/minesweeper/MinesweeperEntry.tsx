@@ -15,7 +15,7 @@ import {
   androidTechnology,
 } from "../../routes/projects/SingleProjectPage/technology.tsx"
 
-export const MinesweeperProject: Project = {
+export const minesweeperProject: Project = {
   name: "minesweeper",
   title: "Infinite Minesweeper",
   subtitle: "Minesweeper on an infinite plane",

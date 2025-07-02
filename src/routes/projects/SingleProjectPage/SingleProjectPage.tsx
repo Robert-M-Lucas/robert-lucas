@@ -1,5 +1,5 @@
 import { Link, useNavigate, useParams } from "react-router-dom"
-import { ProjectList } from "./project-list.ts"
+import { projectList } from "./project-list.ts"
 import FooterWrapper from "../../../components/FooterWrapper.tsx"
 import Header from "../../../components/Header.tsx"
 import { Container } from "react-bootstrap"
@@ -16,7 +16,7 @@ import RenderProjectName from "../../../components/RenderProjectName.tsx"
 import RenderIsWritingWarning from "../../../components/RenderIsWritingWarning.tsx"
 import ScrollToTop from "../../../components/ScrollToTop.tsx"
 import { useState } from "react"
-import { Heading, HeadingContext } from "./heading-context.ts"
+import { Heading, headingContext } from "./heading-context.ts"
 import ProjContents from "../../../components/project_entry_utils/ProjContents.tsx"
 import useWindowDimensions from "../../../util/useWindowDimensions.tsx"
 
@@ -25,13 +25,13 @@ export default function SingleProjectPage() {
   const navigate = useNavigate()
 
   if (params.project) {
-    for (const project of ProjectList) {
+    for (const project of projectList) {
       if (project.name === params.project) {
         return SingleProjectPageRenderer(project)
       }
     }
 
-    for (const project of ProjectList) {
+    for (const project of projectList) {
       if (project.altNames) {
         for (const altName of project.altNames) {
           if (altName === params.project) {
@@ -80,7 +80,7 @@ function SingleProjectPageRenderer(project: Project) {
       <ScrollToTop />
       <Header />
       <HeaderSpacer />
-      <HeadingContext.Provider value={{ headings, registerHeading }}>
+      <headingContext.Provider value={{ headings, registerHeading }}>
         {renderContentsLeft && <ProjContents renderLeft={remaining} />}
         <Container style={{ maxWidth: maxProjectTextWidth }}>
           <div>
@@ -131,7 +131,7 @@ function SingleProjectPageRenderer(project: Project) {
 
           {project.page()}
         </Container>
-      </HeadingContext.Provider>
+      </headingContext.Provider>
     </FooterWrapper>
   )
 }

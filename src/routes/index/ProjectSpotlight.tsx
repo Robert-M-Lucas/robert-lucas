@@ -10,14 +10,14 @@ import { useNavigate } from "react-router-dom"
 import { isMobile } from "react-device-detect"
 import RenderProjectName from "../../components/RenderProjectName.tsx"
 import { Pause, Play, SkipEnd, SkipStart } from "react-bootstrap-icons"
-import { SHOWCASE_PROJECT_LIST } from "../projects/SingleProjectPage/project-list.ts"
+import { showcaseProjectList } from "../projects/SingleProjectPage/project-list.ts"
 
 const projectCycleTime = 15000
 const cardTransitionTime = 1000
 
 export function ProjectSpotlight() {
   const [projectIndex, setProjectIndex] = useState<number>(
-    Math.floor(Math.random() * SHOWCASE_PROJECT_LIST.length)
+    Math.floor(Math.random() * showcaseProjectList.length)
   )
   const [paused, setPaused] = useState(false)
 
@@ -87,7 +87,7 @@ export function ProjectSpotlight() {
 
   const skipNext = () => {
     setProjectIndex((prev) => {
-      if (prev + 1 == SHOWCASE_PROJECT_LIST.length) {
+      if (prev + 1 == showcaseProjectList.length) {
         return 0
       } else {
         return prev + 1
@@ -98,7 +98,7 @@ export function ProjectSpotlight() {
   const skipPrev = () => {
     setProjectIndex((prev) => {
       if (prev == 0) {
-        return SHOWCASE_PROJECT_LIST.length - 1
+        return showcaseProjectList.length - 1
       } else {
         return prev - 1
       }
@@ -147,7 +147,7 @@ export function ProjectSpotlight() {
     return () => window.removeEventListener("resize", checkHeight)
   }, [img, wrapper])
 
-  const project = SHOWCASE_PROJECT_LIST[projectIndex]
+  const project = showcaseProjectList[projectIndex]
 
   return (
     <motion.div

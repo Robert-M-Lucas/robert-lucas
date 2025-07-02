@@ -19,7 +19,7 @@ import {
 import P_a from "../../components/project_entry_utils/P_a.tsx"
 import P_hr from "../../components/project_entry_utils/P_hr.tsx"
 
-export const WebsiteProject: Project = {
+export const websiteProject: Project = {
   name: "website",
   title: "Old Website",
   subtitle: "My previous website demonstrating past projects",
