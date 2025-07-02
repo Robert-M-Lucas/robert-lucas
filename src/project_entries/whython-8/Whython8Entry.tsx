@@ -101,14 +101,14 @@ function Whython8Page() {
         </P_a>{" "}
         enum, with the success variant <PMono>(Span, StructToken)</PMono> and
         the error variant being a generic error struct, including support for
-        multiple errors, or errors within errors. The nom blueprint for creating
+        multiple errors or errors within errors. The nom blueprint for creating
         parsing functions is that they should, on success, return{" "}
         <PMono>([remaining text to parse], [thing that has been parsed])</PMono>{" "}
         and this explains the following lines 4 - 10, where <PMono>s</PMono> is
         what's left after the parser is applied, and the other part of the tuple
         either stores or discards the result. If you are new to Rust, the{" "}
         <PMono>?</PMono> operator returns the error from the function if the
-        value is an error, otherwise evaluating to the success variants
+        value is an error, otherwise evaluating to the success variant's
         contents.
       </P_p>
       <P_p>
@@ -135,26 +135,26 @@ function Whython8Page() {
         </P_li>
         <P_li>
           <PMono>parse_parameters</PMono> - parse parameter list (here used to
-          get struct attributes as the attribute and argument syntax is
+          get struct attributes as the attribute and parameter syntax is
           near-identical)
         </P_li>
       </P_ol>
       <P_p>
-        What is, in my opinion, one of the largest strengths of nom is that of
-        all these functions, only <PMono>tag</PMono> is provided by nom which
+        What is, in my opinion, one of the largest strengths out of nom is that
+        of all these functions, only <PMono>tag</PMono> is provided by nom which
         demonstrates how easy it is to implement your own functions as nom
-        mainly provides a blueprint for parser functions, rather than a
+        mainly provides a blueprint for parser functions rather than a
         framework.
       </P_p>
 
       <P_h1>Error handling</P_h1>
       <P_p>
-        Building on the work the parser does, very rich error messages are
-        possible as at any point in the compilation process, the origin of the
-        current data can be retrieved at any time. Notably, neither the
-        surrounding file context, nor the piece of code, is stored in the{" "}
-        <PMono>Location</PMono> struct that is used in the compilation process
-        greatly improving performance and reducing memory use due to copying.
+        Building on the work the parser does, rich error messages are possible
+        as at any point in the compilation process, the origin of the current
+        data can be retrieved at any time. Notably, neither the surrounding file
+        context, nor the piece of code, is stored in the <PMono>Location</PMono>{" "}
+        struct that is used in the compilation process greatly improving
+        performance and reducing memory use due to copying.
       </P_p>
       <PCodeSrc codeSrc={inner_location} language={"rust"} />
       <P_p>
