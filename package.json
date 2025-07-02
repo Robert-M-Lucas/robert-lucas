@@ -60,10 +60,13 @@
     "prettier": "^3.6.2",
     "rollup-plugin-visualizer": "^6.0.3",
     "sharp": "^0.34.2",
+    "svgo": "^4.0.0",
     "terser": "^5.43.1",
     "ts-node": "^10.9.2",
     "typescript": "^5.8.3",
     "vite": "^7.0.0",
+    "vite-plugin-image-optimizer": "^2.0.2",
+    "vite-plugin-vsharp": "^1.9.1",
     "vitest": "^3.2.4"
   }
 }

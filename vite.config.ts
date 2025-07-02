@@ -1,6 +1,8 @@
 import { defineConfig } from "vite"
 import react from "@vitejs/plugin-react-swc"
 import { visualizer } from "rollup-plugin-visualizer"
+import vsharp from "vite-plugin-vsharp"
+import { ViteImageOptimizer } from "vite-plugin-image-optimizer"
 // import * as fs from "node:fs";
 // import sharp from "sharp";
 
@@ -14,19 +16,7 @@ export default defineConfig({
       brotliSize: true, // Show brotli compressed size
       filename: "bundle-analysis.html", // Output file name
     }),
-    // {
-    //     name: 'image-metadata',
-    //     enforce: 'pre',
-    //     async load(id) {
-    //         if (/\.(png|jpe?g|gif)$/.test(id)) {
-    //             const buffer = fs.readFileSync(id)
-    //             const { width, height } = await sharp(buffer).metadata()
-    //             const url = `/@fs${id}`
-    //
-    //             return `export default ${JSON.stringify({ src: url, width, height })}`
-    //         }
-    //     },
-    // },
+    ViteImageOptimizer({}),
   ],
   // build: {
   //   minify: "terser", // or 'terser', or false
