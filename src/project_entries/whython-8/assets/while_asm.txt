@@ -1,0 +1,11 @@
+[unique start tag]:
+[generated assembly for the while condition]
+cmp [while condition output], 0
+jz [unique end tag] ; Leave loop if condition fails
+
+[generated assembly for while contents]
+
+jmp [unique start tag] ; Jump to condition check
+
+[unique end tag]:
+...

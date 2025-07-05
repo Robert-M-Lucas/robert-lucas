@@ -25,6 +25,9 @@ import circular_type from "./assets/circular_type.png"
 import resolve_type_sizes from "./assets/resolve_type_sizes.txt"
 import evaluable_tokens from "./assets/evaluable_tokens.txt"
 import useHeadingRef from "../../components/project-entry-utils/headings/useHeadingRef.ts"
+import line_tokens from "./assets/line_tokens.txt"
+import initialisation_line from "./assets/initialisation_line.txt"
+// import while_asm from "./assets/while_asm.txt"
 
 export default function Whython8EntryPage() {
   const parsingRef = useHeadingRef()
@@ -313,12 +316,49 @@ export default function Whython8EntryPage() {
           functions being added to the set as they are called by functions. It
           also manages some global state such as constant data that needs to be
           appended in the <PMono>section .data_readonly</PMono> part of the
-          assembly file and information/warnings emitted during the compilation
-          process.
+          assembly file, identifiers that need to be unique throughout the
+          entire assembly file, and information/warnings emitted during the
+          compilation process.
         </P_p>
-
+        <P_p>
+          Notably, this could very easily be multithreaded which I may do in the
+          future (along with creating a test case complex enough to justify
+          this).
+        </P_p>
         <P_h2>Function/line Compilation</P_h2>
+        <P_p>
+          The next step in the compilation process is iterating through each
+          line a given function and compiling them. The definition of a line
+          here is more abstract than what you might expect as, for example, an
+          entire if statement including ifs, elifs, elses, their conditions, and
+          their contents all count as a single line, again thanks to the work of
+          the parser.
+        </P_p>
+        <PCodeSrc
+          codeSrc={line_tokens}
+          language={"rust"}
+          caption={"All possible line tokens and the if token"}
+        />
+        <P_p>
+          As such, this step is also recursive allowing easy handling of the
+          control flow in assembly at the current depth, handing off nested
+          components to a recursion. Any evaluable e.g. the condition within an
+          if statement, the value of an assignment, the value of a return, a
+          function, etc. is handled by evaluable compilation.
+        </P_p>
+        <PCodeSrc
+          codeSrc={initialisation_line}
+          language={"rust"}
+          caption={
+            <>
+              An example of how an initialisation line is handled (
+              <PMono>let x = ...</PMono>). This is simpler than most lines as it
+              has no control flow handling.
+            </>
+          }
+        />
         <P_h2>Evaluable Compilation Types</P_h2>
+        <P_p>...</P_p>
         <P_h2>Unrandom</P_h2>
       </>
 

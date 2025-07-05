@@ -1,0 +1,27 @@
+LineTokens::Initialisation(it) => {
+    let (name, type_name, value) = (it.name(), it.type_name(), it.value());
+
+    let address = if let Some(type_name) = type_name {
+        global_table.add_local_variable_named(
+            name.name().clone(),
+            type_name,
+            local_variables,
+        )?
+    }
+    else {
+        let t = compile_evaluable_type_only(fid, value, local_variables, global_table, global_tracker)?;
+        global_table.add_local_variable_named_typed(
+            name.name().clone(),
+            t,
+            local_variables,
+        )?
+    };
+    contents.other(&compile_evaluable_into(
+        fid,
+        value,
+        address,
+        local_variables,
+        global_table,
+        global_tracker,
+    )?);
+}

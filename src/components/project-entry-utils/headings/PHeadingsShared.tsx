@@ -26,13 +26,13 @@ export default function PHeadingsShared({ level, hProps }: Props) {
   }, [id, level, registerHeading, text])
 
   useEffect(() => {
-    if (headingRef) {
+    if (headingRef && !headingRef.headingID) {
       headingRef.emitFunction({
         id: id,
         contents: children,
       })
     }
-  })
+  }, [children, headingRef, id])
 
   let index = undefined
   let i = 0

@@ -19,7 +19,11 @@ export default function PCode({ code, language, caption }: Props) {
           <PCodeInternal code={code} language={language} />
         </Suspense>
       </Card>
-      {caption && <p className={"text-muted mb-3"}>{caption}</p>}
+      {caption && (
+        <p className={"text-muted mb-3"} style={{ textAlign: "justify" }}>
+          {caption}
+        </p>
+      )}
     </>
   )
 }

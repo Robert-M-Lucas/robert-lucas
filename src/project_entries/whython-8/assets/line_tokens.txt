@@ -1,0 +1,24 @@
+/// A token holding all types of lines
+#[derive(Debug)]
+pub enum LineTokens {
+    Initialisation(InitialisationToken),
+    If(IfToken),
+    While(WhileToken),
+    Return(ReturnToken),
+    Break(BreakToken),
+    NoOp(EvaluableToken),
+    Typequery(TypequeryToken),
+    #[cfg(debug_assertions)]
+    Marker(MarkerToken),
+}
+
+/// Token holding an if statement
+#[derive(Debug, Getters)]
+pub struct IfToken {
+    #[allow(dead_code)]
+    location: Location,
+    if_condition: EvaluableToken,
+    if_contents: Vec<LineTokens>,
+    elif_condition_contents: Vec<(EvaluableToken, Vec<LineTokens>)>,
+    else_contents: Option<Vec<LineTokens>>,
+}
