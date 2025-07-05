@@ -24,6 +24,7 @@ import PHeadingLink from "../../components/project_entry_utils/PHeadingLink.tsx"
 import circular_import from "./assets/circular_import.png"
 import circular_type from "./assets/circular_type.png"
 import resolve_type_sizes from "./assets/resolve_type_sizes.txt"
+import evaluable_tokens from "./assets/evaluable_tokens.txt"
 
 export default function Whython8EntryPage() {
   const [errorHandlingID, setErrorHandlingID] = useState<undefined | string>(
@@ -37,7 +38,7 @@ export default function Whython8EntryPage() {
       <>
         <P_h2>Preface</P_h2>
         <P_p>
-          As this project write up is being written after I got fed up with the
+          As this project write-up is being written after I got fed up with the
           structure of my{" "}
           <P_a href={"https://robertlucas.pythonanywhere.com"}>
             previous website
@@ -142,6 +143,27 @@ export default function Whython8EntryPage() {
           as nom mainly provides a blueprint for parser functions rather than a
           framework.
         </P_p>
+        <P_h2>Parsing Evaluables</P_h2>
+        <P_p>
+          All of the earlier examples of easy-to-use, clean, and modular parsing
+          code can be completely discarded when discussing the code for parsing
+          'evaluables' (e.g. <PMono>x*(y+z.func())</PMono>). While the nom style
+          of recursive parsing is great in general, in this case where there is
+          operator precedence among multiple non-bracketed operations and
+          operators that can be used both as prefix and infix operators, there
+          isn't much of a way around repeated passes of the list of tokens each
+          time replacing some groups of token with a single one representing
+          that operation (similar to wrapping them in brackets).
+        </P_p>
+        <PCodeSrc
+          codeSrc={evaluable_tokens}
+          language={"rust"}
+          caption={
+            <>
+              Parsing output of <PMono>(3-x)+y*z</PMono>.
+            </>
+          }
+        />
       </>
 
       {/*Error Handling*/}
@@ -267,13 +289,25 @@ export default function Whython8EntryPage() {
       {/*Compilation*/}
       <>
         <P_h1>Compilation</P_h1>
-        <P_h2>Evaluable</P_h2>
+        <P_p>
+          Compilation, as you might expect, was the hardest part of this
+          project.
+        </P_p>
+        <P_h2>Starting Compilation</P_h2>
+        <P_h2>Line Types</P_h2>
+        <P_h2>Evaluable Compilation Types</P_h2>
         <P_h2>Unrandom</P_h2>
       </>
 
       {/*Assembly*/}
       <>
         <P_h1>Assembly</P_h1>
+      </>
+
+      {/*Other*/}
+      <>
+        <P_h1>Other</P_h1>
+        <P_p>This was just a brief ...</P_p>
       </>
 
       {/*Future Work*/}

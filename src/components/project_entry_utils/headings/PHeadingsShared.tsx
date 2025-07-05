@@ -41,7 +41,7 @@ export default function PHeadingsShared({ level, hProps }: Props) {
   switch (level) {
     case 1:
       return (
-        <h2 id={id} ref={ref}>
+        <h2 id={id} ref={ref} className={"pt-1"}>
           {index && `${index}. `}
           {children}
         </h2>

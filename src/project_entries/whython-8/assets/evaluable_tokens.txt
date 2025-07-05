@@ -1,0 +1,43 @@
+EvaluableToken {
+    location: ...,
+    token: InfixOperator(
+        EvaluableToken {
+            location: ...,
+            token: InfixOperator(
+                EvaluableToken {
+                    location: ...,
+                    token: InfixOperator(
+                        EvaluableToken {
+                            location: ...,
+                            token: Literal(LiteralToken { location: ..., literal: Int(3), }),
+                        },
+                        OperatorToken { location: ..., operator: Subtract, },
+                        EvaluableToken {
+                            location: ...,
+                            token: Name(
+                                SimpleNameToken { location: ..., name: "x", },
+                                None,
+                            ),
+                        },
+                    ),
+                },
+                OperatorToken { location: ..., operator: Add },
+                EvaluableToken {
+                    location: ...,
+                    token: Name(
+                        SimpleNameToken { location: ..., name: "y" },
+                        None,
+                    ),
+                },
+            ),
+        },
+        OperatorToken { location: ..., operator: Multiply },
+        EvaluableToken {
+            location: ...,
+            token: Name(
+                SimpleNameToken { location: ..., name: "z" },
+                None,
+            ),
+        },
+    ),
+}
