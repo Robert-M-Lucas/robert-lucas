@@ -10,15 +10,15 @@ import RenderTechnologies from "../../../components/RenderTechsAndLinks.tsx"
 import RenderButtonLinks from "../../../components/RenderButtonLinks.tsx"
 import RenderProjectDate from "../../../components/RenderProjectDate.tsx"
 import FullscreenCenter from "../../../components/FullscreenCenter.tsx"
-import P_img from "../../../components/project_entry_utils/P_img.tsx"
+import P_img from "../../../components/project-entry-utils/P_img.tsx"
 import RenderLegacyWarning from "../../../components/RenderLegacyWarning.tsx"
 import RenderProjectName from "../../../components/RenderProjectName.tsx"
 import RenderIsWritingWarning from "../../../components/RenderIsWritingWarning.tsx"
 import ScrollToTop from "../../../components/ScrollToTop.tsx"
 import { useState } from "react"
 import { Heading, headingContext } from "./heading-context.ts"
-import ProjContents from "../../../components/project_entry_utils/ProjContents.tsx"
-import useWindowDimensions from "../../../util/useWindowDimensions.tsx"
+import ProjContents from "../../../components/project-entry-utils/ProjContents.tsx"
+import useWindowDimensions from "../../../util/useWindowDimensions.ts"
 
 export default function SingleProjectPage() {
   const params = useParams()

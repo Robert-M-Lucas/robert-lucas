@@ -1,10 +1,10 @@
-import P_img from "../../components/project_entry_utils/P_img.tsx"
+import P_img from "../../components/project-entry-utils/P_img.tsx"
 import enigma_data from "./assets/enigma_data.png"
 import python from "./assets/python.png"
 import enigma from "./assets/enigma.png"
-import ProjWrapper from "../../components/project_entry_utils/project_wrapper/ProjWrapper.tsx"
-import P_p from "../../components/project_entry_utils/P_p.tsx"
-import P_a from "../../components/project_entry_utils/P_a.tsx"
+import ProjWrapper from "../../components/project-entry-utils/project_wrapper/ProjWrapper.tsx"
+import P_p from "../../components/project-entry-utils/P_p.tsx"
+import P_a from "../../components/project-entry-utils/P_a.tsx"
 
 export default function EnigmaEntryPage() {
   return (

@@ -1,13 +1,13 @@
-import P_img from "../../components/project_entry_utils/P_img.tsx"
+import P_img from "../../components/project-entry-utils/P_img.tsx"
 import place2 from "./assets/place2.png"
 import place from "./assets/place.png"
 import project_data from "./assets/project_data.png"
 import projects_code from "./assets/projects_code.png"
 import private_page from "./assets/private_page.png"
-import ProjWrapper from "../../components/project_entry_utils/project_wrapper/ProjWrapper.tsx"
-import P_p from "../../components/project_entry_utils/P_p.tsx"
-import P_a from "../../components/project_entry_utils/P_a.tsx"
-import P_hr from "../../components/project_entry_utils/P_hr.tsx"
+import ProjWrapper from "../../components/project-entry-utils/project_wrapper/ProjWrapper.tsx"
+import P_p from "../../components/project-entry-utils/P_p.tsx"
+import P_a from "../../components/project-entry-utils/P_a.tsx"
+import P_hr from "../../components/project-entry-utils/P_hr.tsx"
 
 export default function WebsiteEntryPage() {
   return (

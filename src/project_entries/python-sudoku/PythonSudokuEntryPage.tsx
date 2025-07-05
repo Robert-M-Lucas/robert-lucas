@@ -1,14 +1,14 @@
-import P_img from "../../components/project_entry_utils/P_img.tsx"
+import P_img from "../../components/project-entry-utils/P_img.tsx"
 import rust_timings from "./assets/rust_timings.png"
 import timings from "./assets/timings.png"
-import ProjWrapper from "../../components/project_entry_utils/project_wrapper/ProjWrapper.tsx"
-import P_p from "../../components/project_entry_utils/P_p.tsx"
-import P_a from "../../components/project_entry_utils/P_a.tsx"
-import P_h1 from "../../components/project_entry_utils/headings/P_h1.tsx"
-import P_h3 from "../../components/project_entry_utils/headings/P_h3.tsx"
-import P_h2 from "../../components/project_entry_utils/headings/P_h2.tsx"
-import P_ul from "../../components/project_entry_utils/P_ul.tsx"
-import P_li from "../../components/project_entry_utils/P_li.tsx"
+import ProjWrapper from "../../components/project-entry-utils/project_wrapper/ProjWrapper.tsx"
+import P_p from "../../components/project-entry-utils/P_p.tsx"
+import P_a from "../../components/project-entry-utils/P_a.tsx"
+import P_h1 from "../../components/project-entry-utils/headings/P_h1.tsx"
+import P_h3 from "../../components/project-entry-utils/headings/P_h3.tsx"
+import P_h2 from "../../components/project-entry-utils/headings/P_h2.tsx"
+import P_ul from "../../components/project-entry-utils/P_ul.tsx"
+import P_li from "../../components/project-entry-utils/P_li.tsx"
 
 export default function PythonSudokuEntryPage() {
   return (

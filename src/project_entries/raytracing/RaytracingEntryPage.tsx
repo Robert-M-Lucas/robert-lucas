@@ -1,4 +1,4 @@
-import P_img from "../../components/project_entry_utils/P_img.tsx"
+import P_img from "../../components/project-entry-utils/P_img.tsx"
 import failed5 from "./assets/failed5.png"
 import failed4 from "./assets/failed4.png"
 import failed3 from "./assets/failed3.png"
@@ -18,8 +18,8 @@ import indirect from "./assets/indirect.png"
 import raytracing from "./assets/raytracing.svg"
 import render from "./assets/render.png"
 import preview from "./assets/preview.png"
-import ProjWrapper from "../../components/project_entry_utils/project_wrapper/ProjWrapper.tsx"
-import P_p from "../../components/project_entry_utils/P_p.tsx"
+import ProjWrapper from "../../components/project-entry-utils/project_wrapper/ProjWrapper.tsx"
+import P_p from "../../components/project-entry-utils/P_p.tsx"
 
 export default function RaytracingEntryPage() {
   return (

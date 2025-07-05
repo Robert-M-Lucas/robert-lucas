@@ -1,14 +1,14 @@
-import ProjWrapper from "../../components/project_entry_utils/project_wrapper/ProjWrapper.tsx"
-import P_p from "../../components/project_entry_utils/P_p.tsx"
-import PLatex from "../../components/project_entry_utils/PLatex.tsx"
+import ProjWrapper from "../../components/project-entry-utils/project_wrapper/ProjWrapper.tsx"
+import P_p from "../../components/project-entry-utils/P_p.tsx"
+import PLatex from "../../components/project-entry-utils/PLatex.tsx"
 import insane from "./assets/insane.txt"
 import sane from "./assets/sane.txt"
 import performance from "./assets/performance.txt"
 import generated from "./assets/generated.txt"
-import PCodeSrc from "../../components/project_entry_utils/p_code/PCodeSrc.tsx"
-import PMono from "../../components/project_entry_utils/PMono.tsx"
-import P_h1 from "../../components/project_entry_utils/headings/P_h1.tsx"
-import P_a from "../../components/project_entry_utils/P_a.tsx"
+import PCodeSrc from "../../components/project-entry-utils/p-code/PCodeSrc.tsx"
+import PMono from "../../components/project-entry-utils/PMono.tsx"
+import P_h1 from "../../components/project-entry-utils/headings/P_h1.tsx"
+import P_a from "../../components/project-entry-utils/P_a.tsx"
 
 export default function CompileTimeRegexEntryPage() {
   return (

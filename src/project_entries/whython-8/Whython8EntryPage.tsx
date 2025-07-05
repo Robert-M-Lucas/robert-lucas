@@ -1,36 +1,35 @@
-import ProjWrapper from "../../components/project_entry_utils/project_wrapper/ProjWrapper.tsx"
+import ProjWrapper from "../../components/project-entry-utils/project_wrapper/ProjWrapper.tsx"
 import error from "./assets/error.png"
 import multierror from "./assets/multierror.png"
 import info from "./assets/info.png"
-import P_h1 from "../../components/project_entry_utils/headings/P_h1.tsx"
-import P_p from "../../components/project_entry_utils/P_p.tsx"
-import P_h2 from "../../components/project_entry_utils/headings/P_h2.tsx"
-import P_a from "../../components/project_entry_utils/P_a.tsx"
-import PProjLink from "../../components/project_entry_utils/PProjLink.tsx"
+import P_h1 from "../../components/project-entry-utils/headings/P_h1.tsx"
+import P_p from "../../components/project-entry-utils/P_p.tsx"
+import P_h2 from "../../components/project-entry-utils/headings/P_h2.tsx"
+import P_a from "../../components/project-entry-utils/P_a.tsx"
+import PProjLink from "../../components/project-entry-utils/PProjLink.tsx"
 import nom_example from "./assets/nom_example.txt"
 import inner_location from "./assets/inner_location.txt"
 import importing from "./assets/importing.txt"
 import import_importing from "./assets/import_import.txt"
 import use_importing from "./assets/use_import.txt"
-import PCodeSrc from "../../components/project_entry_utils/p_code/PCodeSrc.tsx"
-import PMono from "../../components/project_entry_utils/PMono.tsx"
-import P_ol from "../../components/project_entry_utils/P_ol.tsx"
-import P_li from "../../components/project_entry_utils/P_li.tsx"
-import P_img from "../../components/project_entry_utils/P_img.tsx"
+import PCodeSrc from "../../components/project-entry-utils/p-code/PCodeSrc.tsx"
+import PMono from "../../components/project-entry-utils/PMono.tsx"
+import P_ol from "../../components/project-entry-utils/P_ol.tsx"
+import P_li from "../../components/project-entry-utils/P_li.tsx"
+import P_img from "../../components/project-entry-utils/P_img.tsx"
 import { portfolioTwoProject } from "../portfolio_two/portfolio-two.tsx"
 import { whython7Project } from "../whython-7/whython-7.tsx"
-import { useState } from "react"
-import PHeadingLink from "../../components/project_entry_utils/PHeadingLink.tsx"
+import PHeadingLink from "../../components/project-entry-utils/PHeadingLink.tsx"
 import circular_import from "./assets/circular_import.png"
 import circular_type from "./assets/circular_type.png"
 import resolve_type_sizes from "./assets/resolve_type_sizes.txt"
 import evaluable_tokens from "./assets/evaluable_tokens.txt"
+import useHeadingRef from "../../components/project-entry-utils/headings/useHeadingRef.ts"
 
 export default function Whython8EntryPage() {
-  const [errorHandlingID, setErrorHandlingID] = useState<undefined | string>(
-    undefined
-  )
-  const [parsingID, setParsingID] = useState<undefined | string>(undefined)
+  const parsingRef = useHeadingRef()
+  const errorHandlingRef = useHeadingRef()
+  const nameResolutionRef = useHeadingRef()
 
   return (
     <ProjWrapper>
@@ -55,7 +54,7 @@ export default function Whython8EntryPage() {
 
       {/*Parsing*/}
       <>
-        <P_h1 emitID={setParsingID}>Parsing</P_h1>
+        <P_h1 headingRef={parsingRef}>Parsing</P_h1>
         <P_p>
           Parsing is potentially one of the greatest steps forward this version
           makes over previous iterations, as it enables a large amount of the
@@ -168,7 +167,7 @@ export default function Whython8EntryPage() {
 
       {/*Error Handling*/}
       <>
-        <P_h1 emitID={setErrorHandlingID}>Error handling</P_h1>
+        <P_h1 headingRef={errorHandlingRef}>Error Handling</P_h1>
         <P_p>
           Building on the work the parser does, rich error messages are possible
           as at any point in the compilation process, the origin of the current
@@ -226,8 +225,10 @@ export default function Whython8EntryPage() {
           in a <PMono>/</PMono>) imported/used all the files within that folder
           (non-recursively). The whole system used a global hash table tree of{" "}
           <PMono>FileIDs</PMono> (which you may recognise from{" "}
-          <PHeadingLink href={errorHandlingID}>Error Handling</PHeadingLink>)
-          and <PMono>FolderIDs</PMono> allowing fast tree traversals of files
+          <PHeadingLink href={errorHandlingRef.headingID}>
+            {errorHandlingRef.headingContents}
+          </PHeadingLink>
+          ) and <PMono>FolderIDs</PMono> allowing fast tree traversals of files
           included in compilation and only lightweight file references being
           stored with tokens for error reporting.
         </P_p>
@@ -245,13 +246,15 @@ export default function Whython8EntryPage() {
 
       {/*Name Resolution*/}
       <>
-        <P_h1>Name Resolution</P_h1>
+        <P_h1 headingRef={nameResolutionRef}>Name Resolution</P_h1>
         <P_p>
           Name resolution was relatively easy to implement due to the
           well-structured tokens emitted from the{" "}
-          <PHeadingLink href={parsingID}>Parsing</PHeadingLink> step with only
-          some tedium coming from the data transformations in the multiple steps
-          of the resolution process:
+          <PHeadingLink href={parsingRef.headingID}>
+            {parsingRef.headingContents}
+          </PHeadingLink>{" "}
+          step with only some tedium coming from the data transformations in the
+          multiple steps of the resolution process:
         </P_p>
         <P_ol>
           <P_li>Register all the types that exist</P_li>
@@ -291,10 +294,30 @@ export default function Whython8EntryPage() {
         <P_h1>Compilation</P_h1>
         <P_p>
           Compilation, as you might expect, was the hardest part of this
-          project.
+          project, although this was made a lot easier by doing as much work as
+          possible in the{" "}
+          <PHeadingLink href={parsingRef.headingID}>
+            {parsingRef.headingContents}
+          </PHeadingLink>{" "}
+          and{" "}
+          <PHeadingLink href={nameResolutionRef.headingID}>
+            {nameResolutionRef.headingContents}
+          </PHeadingLink>{" "}
+          steps.
         </P_p>
         <P_h2>Starting Compilation</P_h2>
-        <P_h2>Line Types</P_h2>
+        <P_p>
+          The top level of the compilation process keeps track of all the
+          functions remaining to be compiled, starting with just the main
+          function, and calls the function to compile each function, with other
+          functions being added to the set as they are called by functions. It
+          also manages some global state such as constant data that needs to be
+          appended in the <PMono>section .data_readonly</PMono> part of the
+          assembly file and information/warnings emitted during the compilation
+          process.
+        </P_p>
+
+        <P_h2>Function/line Compilation</P_h2>
         <P_h2>Evaluable Compilation Types</P_h2>
         <P_h2>Unrandom</P_h2>
       </>

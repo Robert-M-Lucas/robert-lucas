@@ -1,12 +1,12 @@
-import P_img from "../../components/project_entry_utils/P_img.tsx"
+import P_img from "../../components/project-entry-utils/P_img.tsx"
 import low_poly from "./assets/low_poly.png"
 import with_water from "./assets/with_water.png"
 import all_layers from "./assets/all_layers.png"
 import two_layers from "./assets/two_layers.png"
 import one_layer from "./assets/one_layer.png"
 import perlin from "./assets/perlin.png"
-import ProjWrapper from "../../components/project_entry_utils/project_wrapper/ProjWrapper.tsx"
-import P_p from "../../components/project_entry_utils/P_p.tsx"
+import ProjWrapper from "../../components/project-entry-utils/project_wrapper/ProjWrapper.tsx"
+import P_p from "../../components/project-entry-utils/P_p.tsx"
 
 export default function TerrainGeneratorEntryPage() {
   return (

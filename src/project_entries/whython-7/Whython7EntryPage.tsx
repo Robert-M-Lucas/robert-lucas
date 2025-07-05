@@ -1,6 +1,6 @@
-import ProjWrapper from "../../components/project_entry_utils/project_wrapper/ProjWrapper.tsx"
-import P_p from "../../components/project_entry_utils/P_p.tsx"
-import PProjLink from "../../components/project_entry_utils/PProjLink.tsx"
+import ProjWrapper from "../../components/project-entry-utils/project_wrapper/ProjWrapper.tsx"
+import P_p from "../../components/project-entry-utils/P_p.tsx"
+import PProjLink from "../../components/project-entry-utils/PProjLink.tsx"
 import { whython8Project } from "../whython-8/whython-8.tsx"
 
 export default function Whython7EntryPage() {

@@ -1,10 +1,10 @@
-import P_img from "../../components/project_entry_utils/P_img.tsx"
+import P_img from "../../components/project-entry-utils/P_img.tsx"
 import options_code from "./assets/options_code.png"
 import code from "./assets/code.png"
 import pattern2 from "./assets/pattern2.png"
 import pattern from "./assets/pattern.png"
-import ProjWrapper from "../../components/project_entry_utils/project_wrapper/ProjWrapper.tsx"
-import P_p from "../../components/project_entry_utils/P_p.tsx"
+import ProjWrapper from "../../components/project-entry-utils/project_wrapper/ProjWrapper.tsx"
+import P_p from "../../components/project-entry-utils/P_p.tsx"
 
 export default function GeometricPatternEntryPage() {
   return (

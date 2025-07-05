@@ -1,4 +1,4 @@
-import P_img from "../../components/project_entry_utils/P_img.tsx"
+import P_img from "../../components/project-entry-utils/P_img.tsx"
 import execute from "./assets/execute.png"
 import save_compiled from "./assets/save_compiled.png"
 import go_to_if from "./assets/go_to_if.png"
@@ -14,9 +14,9 @@ import handle_line from "./assets/handle_line.png"
 import lexical_result from "./assets/lexical_result.png"
 import output from "./assets/output.png"
 import fizzbuzz from "./assets/fizzbuzz.png"
-import ProjWrapper from "../../components/project_entry_utils/project_wrapper/ProjWrapper.tsx"
-import P_p from "../../components/project_entry_utils/P_p.tsx"
-import P_a from "../../components/project_entry_utils/P_a.tsx"
+import ProjWrapper from "../../components/project-entry-utils/project_wrapper/ProjWrapper.tsx"
+import P_p from "../../components/project-entry-utils/P_p.tsx"
+import P_a from "../../components/project-entry-utils/P_a.tsx"
 
 export default function ProgrammingLang2EntryPage() {
   return (

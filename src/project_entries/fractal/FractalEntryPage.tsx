@@ -1,13 +1,13 @@
-import P_img from "../../components/project_entry_utils/P_img.tsx"
+import P_img from "../../components/project-entry-utils/P_img.tsx"
 import five from "./assets/five.png"
 import four from "./assets/four.png"
 import three from "./assets/three.png"
 import two from "./assets/two.png"
 import one from "./assets/one.png"
-import ProjWrapper from "../../components/project_entry_utils/project_wrapper/ProjWrapper.tsx"
-import P_p from "../../components/project_entry_utils/P_p.tsx"
-import P_ul from "../../components/project_entry_utils/P_ul.tsx"
-import P_li from "../../components/project_entry_utils/P_li.tsx"
+import ProjWrapper from "../../components/project-entry-utils/project_wrapper/ProjWrapper.tsx"
+import P_p from "../../components/project-entry-utils/P_p.tsx"
+import P_ul from "../../components/project-entry-utils/P_ul.tsx"
+import P_li from "../../components/project-entry-utils/P_li.tsx"
 
 export default function FractalEntryPage() {
   return (

@@ -1,11 +1,12 @@
-import React, { ReactNode, useEffect, useRef } from "react"
+import { ReactNode, useEffect, useRef } from "react"
 import { useHeadingContext } from "../../../routes/projects/single-project-page/heading-context.ts"
 import slugify from "slugify"
+import { HeadingRef } from "./useHeadingRef.ts"
 
 export interface HeadingsProps {
   children?: ReactNode
   contentsTitle?: string
-  emitID?: React.Dispatch<React.SetStateAction<string | undefined>>
+  headingRef?: HeadingRef
 }
 
 interface Props {
@@ -14,7 +15,7 @@ interface Props {
 }
 
 export default function PHeadingsShared({ level, hProps }: Props) {
-  const { children, contentsTitle, emitID } = hProps
+  const { children, contentsTitle, headingRef } = hProps
   const ref = useRef<HTMLHeadingElement>(null)
   const { headings, registerHeading } = useHeadingContext()
   const text = contentsTitle ?? (typeof children === "string" ? children : "")
@@ -25,7 +26,12 @@ export default function PHeadingsShared({ level, hProps }: Props) {
   }, [id, level, registerHeading, text])
 
   useEffect(() => {
-    if (emitID) emitID(id)
+    if (headingRef) {
+      headingRef.emitFunction({
+        id: id,
+        contents: children,
+      })
+    }
   })
 
   let index = undefined

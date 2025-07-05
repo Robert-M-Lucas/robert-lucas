@@ -1,10 +1,10 @@
-import P_img from "../../components/project_entry_utils/P_img.tsx"
+import P_img from "../../components/project-entry-utils/P_img.tsx"
 import output2 from "./assets/output2.png"
 import output from "./assets/output.png"
 import input from "./assets/input.png"
-import ProjWrapper from "../../components/project_entry_utils/project_wrapper/ProjWrapper.tsx"
-import P_p from "../../components/project_entry_utils/P_p.tsx"
-import P_hr from "../../components/project_entry_utils/P_hr.tsx"
+import ProjWrapper from "../../components/project-entry-utils/project_wrapper/ProjWrapper.tsx"
+import P_p from "../../components/project-entry-utils/P_p.tsx"
+import P_hr from "../../components/project-entry-utils/P_hr.tsx"
 
 export default function SudokuSolverEntryPage() {
   return (

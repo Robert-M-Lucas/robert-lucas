@@ -1,10 +1,10 @@
-import P_img from "../../components/project_entry_utils/P_img.tsx"
+import P_img from "../../components/project-entry-utils/P_img.tsx"
 import heatmap from "./assets/heatmap.png"
 import alphabeta from "./assets/alphabeta.png"
 import minimax from "./assets/minimax.png"
 import dolly_zoom from "./assets/dolly_zoom.svg"
-import ProjWrapper from "../../components/project_entry_utils/project_wrapper/ProjWrapper.tsx"
-import P_p from "../../components/project_entry_utils/P_p.tsx"
+import ProjWrapper from "../../components/project-entry-utils/project_wrapper/ProjWrapper.tsx"
+import P_p from "../../components/project-entry-utils/P_p.tsx"
 
 export default function ChessEntryPage() {
   return (
