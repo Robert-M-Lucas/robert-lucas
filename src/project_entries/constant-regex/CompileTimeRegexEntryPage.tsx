@@ -7,7 +7,7 @@ import performance from "./assets/performance.txt"
 import generated from "./assets/generated.txt"
 import PCodeSrc from "../../components/project_entry_utils/p_code/PCodeSrc.tsx"
 import PMono from "../../components/project_entry_utils/PMono.tsx"
-import P_h1 from "../../components/project_entry_utils/P_h1.tsx"
+import P_h1 from "../../components/project_entry_utils/headings/P_h1.tsx"
 import P_a from "../../components/project_entry_utils/P_a.tsx"
 
 export default function CompileTimeRegexEntryPage() {

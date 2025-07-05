@@ -1,0 +1,5 @@
+import std/linked_list;
+
+fn main() -> int {
+    let l: LinkedList = linked_list::LinkedList::new();
+    ...
