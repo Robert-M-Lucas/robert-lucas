@@ -17,7 +17,7 @@ import RenderIsWritingWarning from "../../../components/RenderIsWritingWarning.t
 import ScrollToTop from "../../../components/ScrollToTop.tsx"
 import { useState } from "react"
 import { Heading, headingContext } from "./heading-context.ts"
-import ProjContents from "../../../components/project-entry-utils/ProjContents.tsx"
+import ProjContents from "../../../components/ProjContents.tsx"
 import useWindowDimensions from "../../../util/useWindowDimensions.ts"
 
 export default function SingleProjectPage() {

@@ -9,7 +9,7 @@ import {
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-expect-error
 import firebase from "firebase/compat"
-import { IS_DEV } from "./util"
+import { isDev } from "./util"
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -29,7 +29,7 @@ const useEmulators = false
 
 if (import.meta.env.MODE === "test") {
   //
-} else if (IS_DEV && useEmulators) {
+} else if (isDev && useEmulators) {
   _app = initializeApp(firebaseConfig)
   _auth = getAuth(_app)
   _db = getFirestore(_app)

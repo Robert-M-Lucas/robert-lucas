@@ -16,16 +16,16 @@ import { Link, useNavigate } from "react-router-dom"
 import { getProjectPath } from "../../router.tsx"
 import RenderProjectName from "../../components/RenderProjectName.tsx"
 
-const COMPACT_STORAGE_KEY = "compactProjectView"
-export const SCROLL_STORAGE_KEY = "scrollProjectView"
+const compactStorageKey = "compactProjectView"
+export const scrollStorageKey = "scrollProjectView"
 
 export default function ProjectsIndexPage() {
   const [compact, setCompact] = useState(() => {
-    return sessionStorage.getItem(COMPACT_STORAGE_KEY) === "true"
+    return sessionStorage.getItem(compactStorageKey) === "true"
   })
 
   useEffect(() => {
-    const savedScroll = sessionStorage.getItem(SCROLL_STORAGE_KEY)
+    const savedScroll = sessionStorage.getItem(scrollStorageKey)
     if (savedScroll) {
       window.scrollTo({
         left: 0,
@@ -37,7 +37,7 @@ export default function ProjectsIndexPage() {
 
   useEffect(() => {
     const handleScroll = () => {
-      sessionStorage.setItem(SCROLL_STORAGE_KEY, window.scrollY.toString())
+      sessionStorage.setItem(scrollStorageKey, window.scrollY.toString())
     }
     window.addEventListener("scroll", handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
@@ -45,7 +45,7 @@ export default function ProjectsIndexPage() {
 
   const handleCompactClick = () => {
     setCompact(!compact)
-    sessionStorage.setItem(COMPACT_STORAGE_KEY, String(!compact))
+    sessionStorage.setItem(compactStorageKey, String(!compact))
   }
 
   const currentProject = getCurrentProject()

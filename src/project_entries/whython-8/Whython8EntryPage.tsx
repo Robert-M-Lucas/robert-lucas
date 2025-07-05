@@ -27,6 +27,7 @@ import evaluable_tokens from "./assets/evaluable_tokens.txt"
 import useHeadingRef from "../../components/project-entry-utils/headings/useHeadingRef.ts"
 import line_tokens from "./assets/line_tokens.txt"
 import initialisation_line from "./assets/initialisation_line.txt"
+import P_ul from "../../components/project-entry-utils/P_ul.tsx"
 // import while_asm from "./assets/while_asm.txt"
 
 export default function Whython8EntryPage() {
@@ -325,7 +326,7 @@ export default function Whython8EntryPage() {
           future (along with creating a test case complex enough to justify
           this).
         </P_p>
-        <P_h2>Function/line Compilation</P_h2>
+        <P_h2>Function/Line Compilation</P_h2>
         <P_p>
           The next step in the compilation process is iterating through each
           line a given function and compiling them. The definition of a line
@@ -358,8 +359,58 @@ export default function Whython8EntryPage() {
           }
         />
         <P_h2>Evaluable Compilation Types</P_h2>
-        <P_p>...</P_p>
-        <P_h2>Unrandom</P_h2>
+        <P_p>
+          Compiling evaluable sections was the hardest part of the hardest part
+          of this project due to it needing to be able to compile evaluable
+          sections in 4 very similar ways that had enough code overlap to make
+          annoying to maintain separately but had just enough difference between
+          them to not be combinable. Were I to remake this project, this is
+          certainly something I'd focus on. The 4 types of compilation were as
+          follows:
+        </P_p>
+        <P_ol>
+          <P_li>
+            <PMono>new</PMono> - Place the result into a new variable and return
+            a reference to that variable
+            <P_ul>
+              <P_li>
+                Used heavily by <PMono>reference</PMono> where there needs to be
+                a reference of something that does not exist e.g. a literal, an
+                operation result, etc.
+              </P_li>
+            </P_ul>
+          </P_li>
+          <P_li>
+            <PMono>into</PMono> - Place the result into a specified existing
+            variable
+            <P_ul>
+              <P_li>
+                This could be used in the last step of an assignment where the
+                result needs to be placed into a variable
+              </P_li>
+            </P_ul>
+          </P_li>
+          <P_li>
+            <PMono>reference</PMono> - Return a reference to the result
+            <P_ul>
+              <P_li>
+                This could be used in intermediary steps of an evaluation as it
+                is being recursively compiled. Usually used instead of{" "}
+                <PMono>new</PMono> as it can provide performance gains.
+              </P_li>
+            </P_ul>
+          </P_li>
+          <P_li>
+            <PMono>type_only</PMono> - Evaluate only the type of the result (no
+            assembly generated)
+            <P_ul>
+              <P_li>
+                Can be used to determine whether types are correct, work out how
+                much space to reserve, etc.
+              </P_li>
+            </P_ul>
+          </P_li>
+        </P_ol>
       </>
 
       {/*Assembly*/}
