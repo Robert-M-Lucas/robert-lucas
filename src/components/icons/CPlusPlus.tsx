@@ -1,6 +1,6 @@
 import { IconProps } from "./icon-shared.ts"
 
-export default function CPlusPlus({ size, ...props }: IconProps) {
+export default function CPlusPlus({ size = 16, ...props }: IconProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
