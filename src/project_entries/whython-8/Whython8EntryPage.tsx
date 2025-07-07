@@ -29,6 +29,7 @@ import line_tokens from "./assets/line_tokens.txt"
 import initialisation_line from "./assets/initialisation_line.txt"
 import P_ul from "../../components/project-entry-utils/P_ul.tsx"
 // import while_asm from "./assets/while_asm.txt"
+import prefix_op from "./assets/prefix_op.txt"
 
 export default function Whython8EntryPage() {
   const parsingRef = useHeadingRef()
@@ -411,6 +412,17 @@ export default function Whython8EntryPage() {
             </P_ul>
           </P_li>
         </P_ol>
+        <P_p>
+          Here's an example of the code to perform a prefix operation (e.g.{" "}
+          <PMono>!x</PMono>):
+        </P_p>
+        <PCodeSrc codeSrc={prefix_op} language={"rust"} />
+        <P_p>
+          Note that line 40 would be omitted in the <PMono>into</PMono>{" "}
+          compilation type as the output location would already exist. An
+          additional check that the result of the operation was the expected
+          type would also have to be performed.
+        </P_p>
       </>
 
       {/*Assembly*/}

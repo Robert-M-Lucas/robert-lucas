@@ -1,0 +1,60 @@
+EvaluableTokens::PrefixOperator(op, lhs) => {
+    let lhs_type = type_only::compile_evaluable_type_only(
+        fid,
+        lhs,
+        local_variables,
+        global_table,
+        global_tracker,
+    )?;
+
+    // Handle special cases for referencing and dereferencing
+    match op.operator() { /*...*/ };
+
+    let operator_fn = global_table.get_operator_function(
+        *lhs_type.type_id(),
+        op,
+        PrefixOrInfixEx::Prefix,
+    )?;
+    let operator_signature = global_table.get_function_signature(operator_fn);
+    let uses_self = operator_signature.self_type().uses_self();
+
+    // Infix operator function (can be user-defined) has wrong number of arguments
+    if operator_signature.args().len() != 1 {
+        return WErr::ne(
+            EvalErrs::InfixOpWrongArgumentCount(
+                op.operator().to_str().to_string(),
+                global_table
+                    .get_type(*lhs_type.type_id())
+                    .name()
+                    .to_string(),
+                op.operator()
+                    .get_method_name(PrefixOrInfixEx::Prefix)
+                    .unwrap(),
+                operator_signature.args().len(),
+            ),
+            op.location().clone(),
+        );
+    }
+
+    let return_type = operator_signature.return_type().clone();
+    let return_into = return_type
+        .map(|rt| global_table.add_local_variable_unnamed(rt.clone(), local_variables));
+
+    // 'call_function' here can also generate inline assembly (norm for operations on
+    // built-in types) as opposed to just calling an (assembly) function
+    let (asm, _) = call_function(
+        fid,
+        operator_fn,
+        uses_self,
+        et.location(),
+        &op.operator()
+            .get_method_name(PrefixOrInfixEx::Prefix)
+            .unwrap(),
+        &[Left(lhs)],
+        return_into.clone(),
+        global_table,
+        local_variables,
+        global_tracker,
+    )?;
+    (asm, return_into)
+}
