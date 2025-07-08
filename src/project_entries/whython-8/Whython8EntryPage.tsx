@@ -35,6 +35,7 @@ export default function Whython8EntryPage() {
   const parsingRef = useHeadingRef()
   const errorHandlingRef = useHeadingRef()
   const nameResolutionRef = useHeadingRef()
+  const llvmRef = useHeadingRef()
 
   return (
     <ProjWrapper>
@@ -428,6 +429,26 @@ export default function Whython8EntryPage() {
       {/*Assembly*/}
       <>
         <P_h1>Assembly</P_h1>
+        <P_p>
+          This project compiled code directly to x86_64 assembly with no
+          intermediary code (such as{" "}
+          <PHeadingLink href={llvmRef.headingID}>
+            {llvmRef.headingContents}
+          </PHeadingLink>
+          ). This was achieved by generating NASM code as text, and then using
+          NASM to assemble it. Generating machine code directly could quite
+          likely be practical due to the simplicity of assembling, and that my
+          code uses only a known subset of assembly. While this could be
+          interesting, especially as it might allow me to go further into
+          assembly optimisations e.g. building a model of the CPU registers
+          virtually and using that model to calculate their most efficient use,
+          I currently plan to use LLVM, if I ever revisit this project, as it
+          enables cross-platform compilation and is overall easier to target
+          than assembly.
+        </P_p>
+        <P_p></P_p>
+        <P_h2>Unrandom</P_h2>
+        <P_h2>Markers</P_h2>
       </>
 
       {/*Other*/}
@@ -441,7 +462,7 @@ export default function Whython8EntryPage() {
         <P_h1>Future Work</P_h1>
         <P_h2>Better Importing</P_h2>
         <P_h2>Assembly Optimisation</P_h2>
-        <P_h2>LLVM</P_h2>
+        <P_h2 headingRef={llvmRef}>LLVM</P_h2>
       </>
     </ProjWrapper>
   )
