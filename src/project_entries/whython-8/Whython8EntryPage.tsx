@@ -40,6 +40,8 @@ import unrandom from "./assets/unrandom.txt"
 import deref_impl from "./assets/deref_impl.txt"
 import iter_error from "./assets/iter_error.png"
 import linked_list_why from "./assets/linked_list_why.txt"
+import cmd_output from "./assets/cmd_output.png"
+import cmd_output_why from "./assets/cmd_output_why.txt"
 
 export default function Whython8EntryPage() {
   const parsingRef = useHeadingRef()
@@ -619,6 +621,15 @@ export default function Whython8EntryPage() {
         <P_h1>Examples</P_h1>
         <P_h2>Linked List Implementation</P_h2>
         <PCodeSrc codeSrc={linked_list_why} language={"rust"} />
+        <P_h2>Command Line Output</P_h2>
+        <PCodeSrc codeSrc={cmd_output_why} language={"rust"} />
+        <P_img
+          image={cmd_output}
+          alt={"Command line output of running Whython-8"}
+          caption={
+            "The compiled binary can, of course, be executed on its own which would result in only the text between the lines being outputted."
+          }
+        />
       </>
     </ProjWrapper>
   )
