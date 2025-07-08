@@ -1,0 +1,32 @@
+#[cfg(debug_assertions)]
+pub struct DHashMap<A, B, S = BuildHasherDefault<DefaultHasher>> {
+    inner: HashMap<A, B, S>
+}
+
+#[cfg(not(debug_assertions))]
+pub struct DHashMap<A, B, S = RandomState> {
+    inner: DHashMap<A, B, S>
+}
+
+#[cfg(debug_assertions)]
+impl<A, B> DHashMap<A, B, BuildHasherDefault<DefaultHasher>> {
+    pub fn new() -> DHashMap<A, B, BuildHasherDefault<DefaultHasher>> {
+        DHashMap {
+            inner: HashMap::with_hasher(BuildHasherDefault::new())
+        }
+    }
+}
+
+impl<A, B, S> Deref for DHashMap<A, B, S> {
+    type Target = HashMap<A, B, S>;
+
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+
+impl<A, B, S> DerefMut for DHashMap<A, B, S> {
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}

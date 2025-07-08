@@ -1,0 +1,9 @@
+impl<K, V> HashMap<K, V, RandomState> {
+    ...
+    #[inline]
+    #[must_use]
+    #[stable(feature = "rust1", since = "1.0.0")]
+    pub fn new() -> HashMap<K, V, RandomState> {
+        Default::default()
+    }
+...

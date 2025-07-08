@@ -1,0 +1,9 @@
+...
+mov rax, qword [rbp-16]
+mov rdx, qword [rbp-24]
+add qword [rax], rdx
+; After add before return
+mov qword [rbp-32], 0
+mov rax, qword [rbp-32]
+leave
+ret

@@ -1,3 +1,5 @@
+import React from "react"
+
 export interface Props {
   muted?: boolean
   children?: React.ReactNode

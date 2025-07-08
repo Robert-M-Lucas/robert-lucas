@@ -1,0 +1,5 @@
+#[cfg(debug_assertions)]
+pub type DHashMap<A, B> = HashMap<A, B, BuildHasherDefault<DefaultHasher>>;
+
+#[cfg(not(debug_assertions))]
+pub type DHashMap<A, B> = HashMap<A, B>;
