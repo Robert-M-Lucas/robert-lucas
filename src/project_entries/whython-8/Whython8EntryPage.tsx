@@ -42,12 +42,15 @@ import iter_error from "./assets/iter_error.png"
 import linked_list_why from "./assets/linked_list_why.txt"
 import cmd_output from "./assets/cmd_output.png"
 import cmd_output_why from "./assets/cmd_output_why.txt"
+import bad_asm_why from "./assets/bad_asm_why.txt"
+import bad_asm from "./assets/bad_asm.txt"
 
 export default function Whython8EntryPage() {
   const parsingRef = useHeadingRef()
   const errorHandlingRef = useHeadingRef()
   const nameResolutionRef = useHeadingRef()
   const llvmRef = useHeadingRef()
+  const linkedListRef = useHeadingRef()
 
   return (
     <ProjWrapper>
@@ -243,7 +246,7 @@ export default function Whython8EntryPage() {
           in a <PMono>/</PMono>) imported/used all the files within that folder
           (non-recursively). The whole system used a global hash table tree of{" "}
           <PMono>FileIDs</PMono> (which you may recognise from{" "}
-          <PHeadingLink href={errorHandlingRef.headingID}>
+          <PHeadingLink heading_id={errorHandlingRef.headingID}>
             {errorHandlingRef.headingContents}
           </PHeadingLink>
           ) and <PMono>FolderIDs</PMono> allowing fast tree traversals of files
@@ -268,7 +271,7 @@ export default function Whython8EntryPage() {
         <P_p>
           Name resolution was relatively easy to implement due to the
           well-structured tokens emitted from the{" "}
-          <PHeadingLink href={parsingRef.headingID}>
+          <PHeadingLink heading_id={parsingRef.headingID}>
             {parsingRef.headingContents}
           </PHeadingLink>{" "}
           step with only some tedium coming from the data transformations in the
@@ -314,11 +317,11 @@ export default function Whython8EntryPage() {
           Compilation, as you might expect, was the hardest part of this
           project, although this was made a lot easier by doing as much work as
           possible in the{" "}
-          <PHeadingLink href={parsingRef.headingID}>
+          <PHeadingLink heading_id={parsingRef.headingID}>
             {parsingRef.headingContents}
           </PHeadingLink>{" "}
           and{" "}
-          <PHeadingLink href={nameResolutionRef.headingID}>
+          <PHeadingLink heading_id={nameResolutionRef.headingID}>
             {nameResolutionRef.headingContents}
           </PHeadingLink>{" "}
           steps.
@@ -444,7 +447,7 @@ export default function Whython8EntryPage() {
         <P_p>
           This project compiled code directly to x86_64 assembly with no
           intermediary code (such as{" "}
-          <PHeadingLink href={llvmRef.headingID}>
+          <PHeadingLink heading_id={llvmRef.headingID}>
             {llvmRef.headingContents}
           </PHeadingLink>
           ). This was achieved by generating NASM code as text, and then using
@@ -605,21 +608,138 @@ export default function Whython8EntryPage() {
           any coding project I've done as any poor decisions made earlier
           quickly come back to bite you.
         </P_p>
-        <P_p>I also ...</P_p>
       </>
 
       {/*Future Work*/}
       <>
         <P_h1>Future Work</P_h1>
-        <P_h2>Better Importing</P_h2>
+        <P_h2>Arrays and Slicing</P_h2>
+        <P_p>
+          Probably the most obvious missing feature is support for arrays (and
+          slicing would also be nice). Fundamentally, support for arrays
+          required an addition to the type system however as I didn't have
+          arrays on my feature list until the compiling step was essentially
+          working, this wasn't included from the start. With some large
+          refactoring (although nothing particularly difficult), arrays could be
+          added however with the amount of time already spent on this project, I
+          decided to polish the current feature set, as opposed to adding new
+          ones.
+        </P_p>
+        <P_h2>Reference Coercion</P_h2>
+        <P_p>
+          In{" "}
+          <PHeadingLink heading_id={linkedListRef.headingID}>
+            {linkedListRef.headingContents}
+          </PHeadingLink>
+          , you might notice the constant use of the <PMono>*</PMono>{" "}
+          dereferencing operator. This is because in this language, if a
+          variable is not a reference, it is treated as being used by-value and
+          is free to be copied. As such any attribute being accessed (e.g.{" "}
+          <PMono>node.next</PMono>) returns a reference so that the original{" "}
+          <PMono>next</PMono> can be modified, rather than a copy of it. As
+          such, references often need to be dereferenced to get the underlying
+          value. This could be fixed by extending the type system to keep track
+          of when a non-reference is linked to a variable.
+        </P_p>
         <P_h2>Assembly Optimisation</P_h2>
+        <P_p>
+          The assembly includes a lot of redundant instructions as each bit of
+          generated assembly is meant to work completely independently of
+          others. Here is an example of Whython code, along with the generated
+          assembly for the function body:
+        </P_p>
+        <PCodeSrc codeSrc={bad_asm_why} language={"rust"} />
+        <PCodeSrc codeSrc={bad_asm} language={"text"} />
+        <P_p>
+          With line numbers denoted in square brackets, heres what happens in
+          order:
+        </P_p>
+        <P_ol>
+          <P_li>
+            [1-2] - 7 and 13 are moved into the addresses for <PMono>a</PMono>{" "}
+            and <PMono>b</PMono> respectively.
+          </P_li>
+          <P_li>
+            [3-6] - the values of <PMono>a</PMono> and <PMono>b</PMono> are both
+            copied into new variables.
+          </P_li>
+          <P_li>
+            [7-14] - the two values are compared, setting a boolean to 0 if
+            false, and 1 if true.
+          </P_li>
+          <P_li>
+            [15-] - the if statement is run conditionally based on the value of
+            the boolean
+          </P_li>
+        </P_ol>
+        <P_p>
+          There are some obvious improvements to be made here, such as the
+          variables being initialised, then being copied to new addresses before
+          being compared, instead of simply being compared at their existing
+          addresses. Another example is that when the values are compared,
+          instead of conditionally setting a boolean to true or false, the if
+          statement could directly be conditionally run.
+        </P_p>
+        <P_p>
+          While these improvements are easy to spot from the generated assembly,
+          fixing a lot of these issues would require coding special cases and
+          making the compiling system less modular and less maintainable. An
+          interesting approach might be to have an intermediary interface that
+          we tell what we are trying to do in assembly, and it writes the
+          assembly allowing it to implement special cases without complicating
+          the compiling code, potentially also modelling registers and how they
+          are used to reduce copying. Another approach might be to create a
+          separate program that analyses and optimises assembly, without any
+          insight from the compiler during compilation although I do believe
+          this would be more complicated. This is mostly irrelevant, however, if
+          I do choose to move to{" "}
+          <PHeadingLink heading_id={llvmRef.headingID}>
+            {llvmRef.headingContents}
+          </PHeadingLink>
+          .
+        </P_p>
         <P_h2 headingRef={llvmRef}>LLVM</P_h2>
+        <P_p>
+          LLVM is the final technology that, if used in my next iteration, would
+          allow me to create a production-ready programming language. It is a
+          collection of technologies, namely an Intermediate Representation (IR)
+          code that LLVM backends can then compile to a very large number of
+          architectures. This would allow the language to finally work on
+          multiple platforms, and its adherence to calling conventions would
+          allow it to interact with C libraries. It also has a large number of
+          optimisation features, and its code being slightly higher level than
+          assembly makes the compilation step easier.
+        </P_p>
+        <P_p>
+          Despite being aware of LLVM before starting this iteration of Whython
+          and being aware of its advantages, I still decided against using it.
+          While a large number of 'real' programming languages (e.g. Rust) use
+          LLVM, my aim with this iteration was to get very close to the bare
+          metal, learning about not just what, for example, the Rust compiler
+          was doing but going all the way down to what LLVM is doing in Rust's
+          compiler. I am, however, strongly considering using it should I ever
+          revisit Whython as I would likely want my next iteration to be a
+          production-ready language with no rough edges, and LLVM would take a
+          large (if not impossible, should you count support for different
+          architectures) weight off of my shoulders.
+        </P_p>
+        <P_h2>Miscellaneous</P_h2>
+        <P_ul>
+          <P_li>
+            Improve importing - allow importing individual functions and marking
+            functions as public.
+          </P_li>
+          <P_li>
+            Type parameter - add support for type parameters e.g. a single
+            linked list implementation being able to hold any type.
+          </P_li>
+        </P_ul>
       </>
 
       {/*Examples*/}
       <>
         <P_h1>Examples</P_h1>
-        <P_h2>Linked List Implementation</P_h2>
+        <P_h2 headingRef={linkedListRef}>Linked List Implementation</P_h2>
         <PCodeSrc codeSrc={linked_list_why} language={"rust"} />
         <P_h2>Command Line Output</P_h2>
         <PCodeSrc codeSrc={cmd_output_why} language={"rust"} />

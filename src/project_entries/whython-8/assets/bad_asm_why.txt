@@ -1,0 +1,8 @@
+fn main() -> int {
+    let a = 7;
+    let b = 13;
+    if (a == b) {
+        return 1;
+    }
+    return 0;
+}

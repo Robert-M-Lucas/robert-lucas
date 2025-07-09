@@ -1,15 +1,15 @@
 import { ReactNode } from "react"
 
 export interface Props {
-  href: string | undefined
+  heading_id: string | undefined
   children?: ReactNode
 }
 
-export default function PHeadingLink({ href, children }: Props) {
+export default function PHeadingLink({ heading_id, children }: Props) {
   return (
     <a
-      href={href ? `#${href}` : ""}
-      className={"text-decoration-none" + (href ? "" : " text-muted")}
+      href={heading_id ? `#${heading_id}` : ""}
+      className={"text-decoration-none" + (heading_id ? "" : " text-muted")}
     >
       #{children}
     </a>
