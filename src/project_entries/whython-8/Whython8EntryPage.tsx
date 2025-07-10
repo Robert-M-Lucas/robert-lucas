@@ -733,6 +733,10 @@ export default function Whython8EntryPage() {
             Type parameter - add support for type parameters e.g. a single
             linked list implementation being able to hold any type.
           </P_li>
+          <P_li>
+            Immutability - variables requiring mutability to be specified at
+            declaration.
+          </P_li>
         </P_ul>
       </>
 
