@@ -183,7 +183,7 @@ export function ProjectSpotlight() {
           })
       }}
     >
-      <Card style={{ width: "min(90vw, 900px)" }}>
+      <Card className="shadow" style={{ width: "min(90vw, 900px)" }}>
         <Card.Body className={isMobile ? "px-2 pt-2 pb-1" : ""}>
           <Card.Title>
             <RenderProjectName

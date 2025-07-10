@@ -1,7 +1,8 @@
 import FooterWrapper from "../../components/FooterWrapper"
 import Header from "../../components/Header.tsx"
-import { Button, Card, Container } from "react-bootstrap"
+import { Button, Card, CardBody, Container } from "react-bootstrap"
 import {
+  flagshipProject,
   getCurrentProject,
   projectList,
 } from "./single-project-page/project-list.ts"
@@ -57,7 +58,7 @@ export default function ProjectsIndexPage() {
       <Container className="pb-5" style={{ maxWidth: "1000px" }}>
         <div className="d-flex justify-content-between">
           <div className="pe-2">
-            <h1>Projects</h1>
+            <h1 className="display-3">Projects</h1>
             <p className="text-muted">Click on any project to learn more</p>
             {currentProject && (
               <p className={"mb-0"}>
@@ -81,6 +82,15 @@ export default function ProjectsIndexPage() {
               {compact ? "Switch to expanded view" : "Switch to compact view"}
             </Button>
           </div>
+        </div>
+
+        <div>
+          <hr />
+          <Card className="shadow">
+            <CardBody>
+              <ExpandedEntry project={flagshipProject} flagship />
+            </CardBody>
+          </Card>
         </div>
 
         {projectList.map((project, i) => (
@@ -116,6 +126,7 @@ export default function ProjectsIndexPage() {
 
 interface EntryProps {
   project: Project
+  flagship?: boolean
 }
 
 function CompactEntry({ project }: EntryProps) {
@@ -145,7 +156,7 @@ function CompactEntry({ project }: EntryProps) {
   )
 }
 
-function ExpandedEntry({ project }: EntryProps) {
+function ExpandedEntry({ project, flagship }: EntryProps) {
   const navigate = useNavigate()
   return (
     <div
@@ -160,6 +171,11 @@ function ExpandedEntry({ project }: EntryProps) {
         margin={!project.subtitle}
         legacy={isProjectLegacy(project)}
       />
+      {flagship && (
+        <h6 className="card-subtitle mb-1 text-body-secondary">
+          Featured Project
+        </h6>
+      )}
       <span className="mb-1">
         <RenderProjectDate msSinceEpoch={project.msSinceEpoch} />
         {project.technologies.length > 0 && (

@@ -12,7 +12,7 @@ import { lazy, Suspense } from "react"
 const Whython8EntryPage = lazy(() => import("./Whython8EntryPage"))
 
 export const whython8Project: Project = {
-  currentlyWriting: true,
+  currentlyWriting: false,
   name: "whython-8",
   title: "Whython 8",
   subtitle:

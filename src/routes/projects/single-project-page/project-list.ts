@@ -69,6 +69,8 @@ export const showcaseProjectList = [
   geometricPatternProject,
 ]
 
+export const flagshipProject = whython8Project
+
 export function getCurrentProject() {
   let currentProject: Project | null = null
   for (const project of projectList) {
