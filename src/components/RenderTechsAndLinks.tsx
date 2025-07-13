@@ -42,7 +42,7 @@ export default function RenderTechsAndLinks({
             {technology.getIcon()} {technology.name}
           </span>
 
-          {i !== technologies.length - 1 && <>•&nbsp;</>}
+          {i !== technologies.length - 1 && <>&nbsp;•&nbsp;</>}
         </span>
       ))}
 

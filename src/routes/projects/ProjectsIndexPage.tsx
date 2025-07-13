@@ -16,6 +16,7 @@ import RenderButtonLinks from "../../components/RenderButtonLinks.tsx"
 import { Link, useNavigate } from "react-router-dom"
 import { getProjectPath } from "../../router.tsx"
 import RenderProjectName from "../../components/RenderProjectName.tsx"
+import { allTechnologies } from "./single-project-page/technology.tsx"
 
 const compactStorageKey = "compactProjectView"
 export const scrollStorageKey = "scrollProjectView"
@@ -24,6 +25,9 @@ export default function ProjectsIndexPage() {
   const [compact, setCompact] = useState(() => {
     return sessionStorage.getItem(compactStorageKey) === "true"
   })
+
+  const [filters, setFilters] = useState<Set<string>>(new Set())
+  const [dummy, setDummy] = useState<boolean>(false)
 
   useEffect(() => {
     const savedScroll = sessionStorage.getItem(scrollStorageKey)
@@ -82,6 +86,43 @@ export default function ProjectsIndexPage() {
               {compact ? "Switch to expanded view" : "Switch to compact view"}
             </Button>
           </div>
+        </div>
+
+        <div className={"d-flex flex-wrap justify-content-between"}>
+          {allTechnologies.map((technology, i) => (
+            <Button
+              variant={
+                filters.has(technology.id) ? "success" : "outline-secondary"
+              }
+              className={"mb-1 mx-1 flex-grow-1"}
+              key={i}
+              style={{ padding: "6px 6px 4px 6px" }}
+              onClick={
+                filters.has(technology.id)
+                  ? () => {
+                      filters.delete(technology.id)
+                      setFilters(filters)
+                      setDummy(!dummy)
+                    }
+                  : () => {
+                      const nFilters = filters.add(technology.id)
+                      setFilters(nFilters)
+                      setDummy(!dummy)
+                    }
+              }
+            >
+              <span
+                className="badge rounded-pill bg-white"
+                style={{
+                  color: technology.color,
+                  fontSize: "0.9em",
+                  padding: "5px 10px 3px 10px",
+                }}
+              >
+                {technology.getIcon()} {technology.name}
+              </span>
+            </Button>
+          ))}
         </div>
 
         <div>
