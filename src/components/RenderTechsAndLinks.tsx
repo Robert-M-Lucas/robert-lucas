@@ -5,12 +5,24 @@ export interface Props {
   currentlyWorkingOn?: boolean
   technologies: Technology[]
   links?: ProjectLink[]
+  highlights?: Set<string>
+}
+
+function shouldHighlight(
+  technology: Technology,
+  highlights: Set<string>
+): boolean {
+  for (const t of highlights) {
+    if (t === technology.id) return true
+  }
+  return false
 }
 
 export default function RenderTechsAndLinks({
   currentlyWorkingOn,
   technologies,
   links,
+  highlights,
 }: Props) {
   if (
     technologies.length === 0 &&
@@ -33,18 +45,36 @@ export default function RenderTechsAndLinks({
         </>
       )}
 
-      {technologies.map((technology, i) => (
-        <span key={i}>
-          <span
-            className={"fw-bold text-nowrap"}
-            style={{ color: technology.color }}
-          >
-            {technology.getIcon()} {technology.name}
-          </span>
+      {technologies.map((technology, i) => {
+        const highlight = highlights && shouldHighlight(technology, highlights)
+        return (
+          <span key={i}>
+            <span
+              className={
+                "fw-bold mb-1 text-nowrap" +
+                (highlight ? " badge rounded-pill" : "")
+              }
+              style={{
+                ...{ color: technology.color },
+                ...(highlight
+                  ? {
+                      outlineWidth: "2px",
+                      outlineStyle: "solid",
+                      fontSize: "16px",
+                      padding: "2px 7px 0 7px",
+                      outlineColor: "rgb(25, 135, 84)",
+                      backgroundColor: "rgb(236,243,240)",
+                    }
+                  : {}),
+              }}
+            >
+              {technology.getIcon()} {technology.name}
+            </span>
 
-          {i !== technologies.length - 1 && <>&nbsp;•&nbsp;</>}
-        </span>
-      ))}
+            {i !== technologies.length - 1 && <>&nbsp;•&nbsp;</>}
+          </span>
+        )
+      })}
 
       {technologies.length > 0 && links && links.length > 0 && <>|&nbsp;</>}
 

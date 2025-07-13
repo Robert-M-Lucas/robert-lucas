@@ -16,10 +16,30 @@ import RenderButtonLinks from "../../components/RenderButtonLinks.tsx"
 import { Link, useNavigate } from "react-router-dom"
 import { getProjectPath } from "../../router.tsx"
 import RenderProjectName from "../../components/RenderProjectName.tsx"
-import { allTechnologies } from "./single-project-page/technology.tsx"
+import {
+  allTechnologies,
+  Technology,
+} from "./single-project-page/technology.tsx"
 
 const compactStorageKey = "compactProjectView"
 export const scrollStorageKey = "scrollProjectView"
+
+function projectShouldShow(
+  projectTechnologies: Technology[],
+  filters: Set<string>
+) {
+  if (filters.size === 0) return true
+  for (const ft of filters) {
+    let has = false
+    for (const pt of projectTechnologies) {
+      if (pt.id === ft) {
+        has = true
+      }
+    }
+    if (!has) return false
+  }
+  return true
+}
 
 export default function ProjectsIndexPage() {
   const [compact, setCompact] = useState(() => {
@@ -125,25 +145,31 @@ export default function ProjectsIndexPage() {
           ))}
         </div>
 
-        <div>
-          <hr />
-          <Card className="shadow">
-            <CardBody>
-              <ExpandedEntry project={flagshipProject} flagship />
-            </CardBody>
-          </Card>
-        </div>
-
-        {projectList.map((project, i) => (
-          <div key={i}>
+        {filters.size === 0 && (
+          <div>
             <hr />
-            {compact ? (
-              <CompactEntry project={project} />
-            ) : (
-              <ExpandedEntry project={project} />
-            )}
+            <Card className="shadow">
+              <CardBody>
+                <ExpandedEntry project={flagshipProject} flagship />
+              </CardBody>
+            </Card>
           </div>
-        ))}
+        )}
+
+        {projectList.map((project, i) =>
+          projectShouldShow(project.technologies, filters) ? (
+            <div key={i}>
+              <hr />
+              {compact ? (
+                <CompactEntry project={project} highlights={filters} />
+              ) : (
+                <ExpandedEntry project={project} highlights={filters} />
+              )}
+            </div>
+          ) : (
+            <></>
+          )
+        )}
 
         <hr />
         <Card className={"mt-5 text-center"}>
@@ -167,10 +193,11 @@ export default function ProjectsIndexPage() {
 
 interface EntryProps {
   project: Project
+  highlights?: Set<string>
   flagship?: boolean
 }
 
-function CompactEntry({ project }: EntryProps) {
+function CompactEntry({ project, highlights }: EntryProps) {
   const navigate = useNavigate()
   return (
     <div
@@ -189,6 +216,7 @@ function CompactEntry({ project }: EntryProps) {
         <RenderTechsAndLinks
           currentlyWorkingOn={project.currentlyWorkingOn ?? false}
           technologies={project.technologies}
+          highlights={highlights}
           links={project.links}
         />
       </span>
@@ -197,7 +225,7 @@ function CompactEntry({ project }: EntryProps) {
   )
 }
 
-function ExpandedEntry({ project, flagship }: EntryProps) {
+function ExpandedEntry({ project, highlights, flagship }: EntryProps) {
   const navigate = useNavigate()
   return (
     <div
@@ -225,6 +253,7 @@ function ExpandedEntry({ project, flagship }: EntryProps) {
             <RenderTechnologies
               currentlyWorkingOn={project.currentlyWorkingOn ?? false}
               technologies={project.technologies}
+              highlights={highlights}
             />
           </>
         )}
