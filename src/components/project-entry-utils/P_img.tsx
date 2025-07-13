@@ -61,8 +61,7 @@ export default function P_img(props: PImgProps) {
           cursor: "pointer",
         }}
         onClick={() => {
-          console.log(setImage)
-          setImage!(props)
+          if (setImage) setImage(props)
         }}
       />
       {caption && (
