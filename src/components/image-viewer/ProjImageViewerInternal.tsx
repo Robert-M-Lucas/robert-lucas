@@ -1,8 +1,7 @@
 import { PImgProps } from "../project-entry-utils/P_img.tsx"
 import Modal from "react-bootstrap/Modal"
-import Zoom from "react-medium-image-zoom"
-import "react-medium-image-zoom/dist/styles.css"
 import { Image } from "react-bootstrap"
+import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch"
 
 export interface Props {
   image: PImgProps | null
@@ -17,15 +16,27 @@ export default function ProjImageViewerInternal({ image, handleClose }: Props) {
           <Modal.Header closeButton>
             <Modal.Title>{image.alt}</Modal.Title>
           </Modal.Header>
-          <Modal.Body className="text-center">
-            <Zoom>
-              <Image
-                src={image.image}
-                className={"w-100"}
-                alt={image.alt}
-                fluid
-              />
-            </Zoom>
+          <Modal.Body className="text-center p-2">
+            <TransformWrapper
+              wheel={{ step: 50 }}
+              pinch={{ step: 5 }}
+              doubleClick={{ mode: "reset" }}
+              panning={{ velocityDisabled: true }}
+              minScale={0.5}
+              initialScale={1}
+            >
+              <TransformComponent>
+                <Image
+                  src={image.image}
+                  alt={image.alt}
+                  style={{
+                    width: "90vw",
+                    objectFit: "contain",
+                  }}
+                  fluid
+                />
+              </TransformComponent>
+            </TransformWrapper>
           </Modal.Body>
         </>
       )}
