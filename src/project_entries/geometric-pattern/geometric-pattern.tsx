@@ -14,7 +14,7 @@ export const geometricPatternProject: Project = {
   title: "Geometric Pattern Generator",
   subtitle: "Generating a geometric pattern for use in future projects",
   msSinceEpoch: null,
-  image: { image: pattern, alt: "TODO" },
+  image: { image: pattern, alt: "No alt text" },
   technologies: [pythonTechnology],
   links: [
     {

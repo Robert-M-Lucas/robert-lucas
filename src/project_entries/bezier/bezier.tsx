@@ -12,7 +12,7 @@ export const bezierProject: Project = {
   title: "Bézier Curves",
   subtitle: "Demonstation of how bezier curves are formed. Created in PyGame.",
   msSinceEpoch: null,
-  image: { image: bezier, alt: "TODO" },
+  image: { image: bezier, alt: "No alt text" },
   technologies: [pythonTechnology],
   links: [
     {

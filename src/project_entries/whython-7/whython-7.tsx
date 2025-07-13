@@ -16,7 +16,7 @@ export const whython7Project: Project = {
   title: "Whython 7",
   subtitle: "A precursor to Whython-8",
   msSinceEpoch: null,
-  image: { image: code, alt: "TODO" },
+  image: { image: code, alt: "No alt text" },
   technologies: [rustTechnology, x86_64_AsmTechnology, compilersTechnology],
   links: [
     {

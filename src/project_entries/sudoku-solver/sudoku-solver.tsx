@@ -15,7 +15,7 @@ export const sudokuSolverProject: Project = {
   title: "Sudoku Solver",
   subtitle: "Solving sudoku puzzles",
   msSinceEpoch: null,
-  image: { image: output2, alt: "TODO" },
+  image: { image: output2, alt: "No alt text" },
   technologies: [rustTechnology, pythonTechnology],
   links: [
     {

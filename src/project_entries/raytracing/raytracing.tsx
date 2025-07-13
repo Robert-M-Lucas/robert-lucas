@@ -13,7 +13,7 @@ export const raytracingProject: Project = {
   subtitle:
     "A raytracing engine supporting reflections, refraction, direct lighting and indirect lighting",
   msSinceEpoch: null,
-  image: { image: render, alt: "TODO" },
+  image: { image: render, alt: "No alt text" },
   technologies: [rustTechnology],
   links: [
     {

@@ -13,7 +13,7 @@ export const compressionProject: Project = {
   subtitle:
     "A simple program to test custom compression algoritms and combinations of algorithms",
   msSinceEpoch: null,
-  image: { image: compression, alt: "TODO" },
+  image: { image: compression, alt: "No alt text" },
   technologies: [cSharpTechnology],
   links: [
     {

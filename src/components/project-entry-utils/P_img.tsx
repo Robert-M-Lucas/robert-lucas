@@ -1,11 +1,18 @@
-import React, { RefObject, useEffect, useRef, useState } from "react"
+import React, {
+  RefObject,
+  useContext,
+  useEffect,
+  useRef,
+  useState,
+} from "react"
+import { ImageViewerContext } from "../image-viewer/image-viewer-context.ts"
 
 export interface ImageSource {
   name: string
   url: string
 }
 
-export interface Props {
+export interface PImgProps {
   image: string
   alt: string
   caption?: string | React.ReactNode
@@ -13,13 +20,8 @@ export interface Props {
   legacyNaturalWidth?: boolean
 }
 
-export default function P_img({
-  image,
-  alt,
-  caption,
-  source,
-  legacyNaturalWidth,
-}: Props) {
+export default function P_img(props: PImgProps) {
+  const { image, alt, caption, source, legacyNaturalWidth } = props
   const imgRef: RefObject<HTMLImageElement | null> = useRef(null)
   const [width, setWidth] = useState("auto")
 
@@ -43,6 +45,8 @@ export default function P_img({
     }
   }, [image, legacyNaturalWidth, imgRef])
 
+  const { setImage } = useContext(ImageViewerContext)
+
   return (
     <div style={{ maxWidth: "100%" }} className="mb-2">
       <img
@@ -54,6 +58,11 @@ export default function P_img({
           width: width === "auto" ? "auto" : `${width}`,
           maxWidth: "100%",
           maxHeight: legacyNaturalWidth ? undefined : "80vh",
+          cursor: "pointer",
+        }}
+        onClick={() => {
+          console.log(setImage)
+          setImage!(props)
         }}
       />
       {caption && (

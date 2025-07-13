@@ -18,7 +18,7 @@ export const programmingLangProject: Project = {
   shortTitle: "Programming Language",
   subtitle: "Creating my own programming language",
   msSinceEpoch: null,
-  image: { image: tictactoe, alt: "TODO" },
+  image: { image: tictactoe, alt: "No alt text" },
   technologies: [cSharpTechnology, compilersTechnology],
   links: [
     {

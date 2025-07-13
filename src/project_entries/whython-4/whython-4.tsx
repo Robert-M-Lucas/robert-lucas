@@ -16,7 +16,7 @@ export const whython4Project: Project = {
   subtitle:
     "An more modern and maintainable programming language with better flow control and function support. A precursor to Whython-7/8",
   msSinceEpoch: null,
-  image: { image: whython_4_short, alt: "TODO" },
+  image: { image: whython_4_short, alt: "No alt text" },
   technologies: [rustTechnology, compilersTechnology],
   links: [
     {

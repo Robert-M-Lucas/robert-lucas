@@ -16,7 +16,7 @@ export const fractalProject: Project = {
   subtitle:
     "An app that renders and allows you to explore the Madlebrot (and burning ship) fractal",
   msSinceEpoch: null,
-  image: { image: one, alt: "TODO" },
+  image: { image: one, alt: "No alt text" },
   technologies: [javaTechnology, gpuTechnology],
   links: [
     {

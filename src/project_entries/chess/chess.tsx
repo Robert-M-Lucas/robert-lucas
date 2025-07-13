@@ -17,7 +17,7 @@ export const chessProject: Project = {
   subtitle:
     "A hybrid 3D-2D chess game with local play, multiplayer, custom net code and a chess AI using a minimax algorithm",
   msSinceEpoch: null,
-  image: { image: chess, alt: "TODO" },
+  image: { image: chess, alt: "No alt text" },
   technologies: [cSharpTechnology, netcodeTechnology, unityTechnology],
   links: [
     { url: "https://github.com/Robert-M-Lucas/Chess3D", type: githubLink },

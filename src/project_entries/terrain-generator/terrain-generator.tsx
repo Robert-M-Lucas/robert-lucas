@@ -16,7 +16,7 @@ export const terrainGeneratorProject: Project = {
   title: "Random Terrain Generator",
   subtitle: "Generating terrain meshes in Unity using Perlin noise",
   msSinceEpoch: null,
-  image: { image: with_water, alt: "TODO" },
+  image: { image: with_water, alt: "No alt text" },
   technologies: [cSharpTechnology, unityTechnology],
   links: [],
   page: () => (

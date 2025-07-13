@@ -19,7 +19,7 @@ export const minesweeperProject: Project = {
   title: "Infinite Minesweeper",
   subtitle: "Minesweeper on an infinite plane",
   msSinceEpoch: null,
-  image: { image: minesweeper, alt: "TODO" },
+  image: { image: minesweeper, alt: "No alt text" },
   technologies: [cSharpTechnology, unityTechnology, androidTechnology],
   links: [
     {

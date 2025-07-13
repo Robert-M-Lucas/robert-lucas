@@ -16,7 +16,7 @@ export const enigmaProject: Project = {
   subtitle:
     "An enigma simulator with support for almost all the features of the real machine",
   msSinceEpoch: null,
-  image: { image: enigma, alt: "TODO" },
+  image: { image: enigma, alt: "No alt text" },
   technologies: [cSharpTechnology, unityTechnology],
   links: [
     {

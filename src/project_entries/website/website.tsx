@@ -15,7 +15,7 @@ export const websiteProject: Project = {
   title: "Old Website",
   subtitle: "My previous website demonstrating past projects",
   msSinceEpoch: null,
-  image: { image: website, alt: "TODO" },
+  image: { image: website, alt: "No alt text" },
   technologies: [
     pythonTechnology,
     javascriptTechnology,

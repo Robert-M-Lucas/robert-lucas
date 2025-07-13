@@ -17,7 +17,7 @@ export const aStarProject: Project = {
   subtitle:
     "A simple program that demonstrates the A* pathfinding algorithm for PC and Android",
   msSinceEpoch: null,
-  image: { image: astar, alt: "TODO" },
+  image: { image: astar, alt: "No alt text" },
   technologies: [cSharpTechnology, unityTechnology, androidTechnology],
   links: [
     {

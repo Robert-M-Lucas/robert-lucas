@@ -17,7 +17,7 @@ export const programmingLang2Project: Project = {
   subtitle:
     "Improved programming language with support for many types and conditional logic",
   msSinceEpoch: null,
-  image: { image: fizzbuzz, alt: "TODO" },
+  image: { image: fizzbuzz, alt: "No alt text" },
   technologies: [cppTechnology, compilersTechnology],
   links: [],
   page: () => (

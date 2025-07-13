@@ -19,6 +19,7 @@ import { useState } from "react"
 import { Heading, headingContext } from "./heading-context.ts"
 import ProjContents from "../../../components/ProjContents.tsx"
 import useWindowDimensions from "../../../util/useWindowDimensions.ts"
+import ProjImageViewerContext from "../../../components/image-viewer/ProjImgViewerContext.tsx"
 
 export default function SingleProjectPage() {
   const params = useParams()
@@ -83,53 +84,55 @@ function SingleProjectPageRenderer(project: Project) {
       <headingContext.Provider value={{ headings, registerHeading }}>
         {renderContentsLeft && <ProjContents renderLeft={remaining} />}
         <Container className="mb-5" style={{ maxWidth: maxProjectTextWidth }}>
-          <div>
-            <Link
-              viewTransition
-              to={projectsPath}
-              className="text-decoration-none"
-            >
-              ‹ Projects List
-            </Link>
-          </div>
+          <ProjImageViewerContext>
+            <div>
+              <Link
+                viewTransition
+                to={projectsPath}
+                className="text-decoration-none"
+              >
+                ‹ Projects List
+              </Link>
+            </div>
 
-          <RenderProjectName
-            title={project.title}
-            margin={!project.subtitle}
-            legacy={isProjectLegacy(project)}
-            large
-          />
-          <div className="mb-1">
-            <RenderProjectDate msSinceEpoch={project.msSinceEpoch} />
-            {project.technologies.length > 0 && (
-              <>
-                &nbsp;|&nbsp;
-                <RenderTechnologies
-                  currentlyWorkingOn={project.currentlyWorkingOn}
-                  technologies={project.technologies}
-                />
-              </>
+            <RenderProjectName
+              title={project.title}
+              margin={!project.subtitle}
+              legacy={isProjectLegacy(project)}
+              large
+            />
+            <div className="mb-1">
+              <RenderProjectDate msSinceEpoch={project.msSinceEpoch} />
+              {project.technologies.length > 0 && (
+                <>
+                  &nbsp;|&nbsp;
+                  <RenderTechnologies
+                    currentlyWorkingOn={project.currentlyWorkingOn}
+                    technologies={project.technologies}
+                  />
+                </>
+              )}
+            </div>
+
+            {project.image && (
+              <P_img image={project.image.image} alt={project.image.alt} />
             )}
-          </div>
 
-          {project.image && (
-            <P_img image={project.image.image} alt={project.image.alt} />
-          )}
+            {project.subtitle && (
+              <p className="text-muted mb-2">{project.subtitle}</p>
+            )}
 
-          {project.subtitle && (
-            <p className="text-muted mb-2">{project.subtitle}</p>
-          )}
+            <RenderButtonLinks links={project.links} />
 
-          <RenderButtonLinks links={project.links} />
+            {!renderContentsLeft && <ProjContents />}
 
-          {!renderContentsLeft && <ProjContents />}
+            <hr />
 
-          <hr />
+            {isProjectLegacy(project) && <RenderLegacyWarning />}
+            {project.currentlyWriting && <RenderIsWritingWarning />}
 
-          {isProjectLegacy(project) && <RenderLegacyWarning />}
-          {project.currentlyWriting && <RenderIsWritingWarning />}
-
-          {project.page()}
+            {project.page()}
+          </ProjImageViewerContext>
         </Container>
       </headingContext.Provider>
     </FooterWrapper>

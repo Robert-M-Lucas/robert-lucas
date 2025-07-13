@@ -14,7 +14,7 @@ export const geneticKeyboardProject: Project = {
   title: "Genetic Keyboard",
   subtitle: "Using a genetic algorithm to create the perfect keyboard",
   msSinceEpoch: null,
-  image: { image: keyboard, alt: "TODO" },
+  image: { image: keyboard, alt: "No alt text" },
   technologies: [cSharpTechnology],
   links: [
     {
