@@ -35,7 +35,13 @@ export default function RenderTechsAndLinks({
 
       {technologies.map((technology, i) => (
         <span key={i}>
-          {technology.getElement()}{" "}
+          <span
+            className={"fw-bold text-nowrap"}
+            style={{ color: technology.color }}
+          >
+            {technology.getIcon()} {technology.name}
+          </span>
+
           {i !== technologies.length - 1 && <>•&nbsp;</>}
         </span>
       ))}
