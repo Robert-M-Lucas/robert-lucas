@@ -16,12 +16,16 @@ export default function ProjImageViewerInternal({ image, handleClose }: Props) {
           <Modal.Header closeButton>
             <Modal.Title>{image.alt}</Modal.Title>
           </Modal.Header>
-          <Modal.Body className="text-center p-2">
+          <Modal.Body
+            className="text-center p-2"
+            style={{ background: "lightgrey" }}
+          >
             <TransformWrapper
               wheel={{ step: 50 }}
               pinch={{ step: 5 }}
-              doubleClick={{ mode: "reset" }}
+              doubleClick={{ mode: "toggle" }}
               panning={{ velocityDisabled: true }}
+              smooth={true}
               minScale={0.5}
               initialScale={1}
             >
@@ -31,6 +35,7 @@ export default function ProjImageViewerInternal({ image, handleClose }: Props) {
                   alt={image.alt}
                   style={{
                     width: "90vw",
+                    height: "70vh",
                     objectFit: "contain",
                   }}
                   fluid
