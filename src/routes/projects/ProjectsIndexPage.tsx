@@ -20,6 +20,7 @@ import {
   allTechnologies,
   Technology,
 } from "./single-project-page/technology.tsx"
+import "./project-index-page.css"
 
 const compactStorageKey = "compactProjectView"
 export const scrollStorageKey = "scrollProjectView"
@@ -109,40 +110,43 @@ export default function ProjectsIndexPage() {
         </div>
 
         <div className={"d-flex flex-wrap justify-content-between"}>
-          {allTechnologies.map((technology, i) => (
-            <Button
-              variant={
-                filters.has(technology.id) ? "success" : "outline-secondary"
-              }
-              className={"mb-1 mx-1 flex-grow-1"}
-              key={i}
-              style={{ padding: "6px 6px 4px 6px" }}
-              onClick={
-                filters.has(technology.id)
-                  ? () => {
-                      filters.delete(technology.id)
-                      setFilters(filters)
-                      setDummy(!dummy)
-                    }
-                  : () => {
-                      const nFilters = filters.add(technology.id)
-                      setFilters(nFilters)
-                      setDummy(!dummy)
-                    }
-              }
-            >
-              <span
-                className="badge rounded-pill bg-white"
-                style={{
-                  color: technology.color,
-                  fontSize: "0.9em",
-                  padding: "5px 10px 3px 10px",
-                }}
+          {allTechnologies.map((technology, i) => {
+            const highlight = filters.has(technology.id)
+            return (
+              <Button
+                variant={highlight ? "success" : "outline-secondary"}
+                className={
+                  "mb-1 mx-1 flex-grow-1" + (highlight ? "" : " hover-light")
+                }
+                key={i}
+                style={{ padding: "6px 6px 4px 6px" }}
+                onClick={
+                  filters.has(technology.id)
+                    ? () => {
+                        filters.delete(technology.id)
+                        setFilters(filters)
+                        setDummy(!dummy)
+                      }
+                    : () => {
+                        const nFilters = filters.add(technology.id)
+                        setFilters(nFilters)
+                        setDummy(!dummy)
+                      }
+                }
               >
-                {technology.getIcon()} {technology.name}
-              </span>
-            </Button>
-          ))}
+                <span
+                  className="badge rounded-pill bg-white"
+                  style={{
+                    color: technology.color,
+                    fontSize: "0.9em",
+                    padding: "5px 10px 3px 10px",
+                  }}
+                >
+                  {technology.getIcon()} {technology.name}
+                </span>
+              </Button>
+            )
+          })}
         </div>
 
         {filters.size === 0 && (

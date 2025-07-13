@@ -63,7 +63,7 @@ export default function RenderTechsAndLinks({
                       fontSize: "16px",
                       padding: "2px 7px 0 7px",
                       outlineColor: "rgb(25, 135, 84)",
-                      backgroundColor: "rgb(236,243,240)",
+                      backgroundColor: "rgb(235,241,238)",
                     }
                   : {}),
               }}
