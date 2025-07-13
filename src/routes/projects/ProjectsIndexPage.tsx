@@ -88,7 +88,9 @@ export default function ProjectsIndexPage() {
     sessionStorage.setItem(compactStorageKey, String(!compact))
   }
 
-  // const currentProject = getCurrentProject()
+  const filteredProjects = projectList.filter((project) =>
+    projectShouldShow(project.technologies, filters)
+  )
 
   return (
     <FooterWrapper>
@@ -174,36 +176,38 @@ export default function ProjectsIndexPage() {
           </div>
         )}
 
-        {projectList.map((project, i) =>
-          projectShouldShow(project.technologies, filters) ? (
-            <div key={i}>
-              <hr />
-              {compact ? (
-                <CompactEntry project={project} highlights={filters} />
-              ) : (
-                <ExpandedEntry project={project} highlights={filters} />
-              )}
-            </div>
-          ) : (
-            <></>
-          )
-        )}
+        {filteredProjects.map((project, i) => (
+          <div key={i}>
+            <hr />
+            {compact ? (
+              <CompactEntry project={project} highlights={filters} />
+            ) : (
+              <ExpandedEntry project={project} highlights={filters} />
+            )}
+          </div>
+        ))}
 
         <hr />
-        <Card className={"mt-5 text-center"}>
-          <Card.Title className={"mt-3"}>Migration in progress</Card.Title>
-          <Card.Body>
-            This list is incomplete as projects are still being transferred from
-            my{" "}
-            <a
-              href={"https://robertlucas.pythonanywhere.com"}
-              target={"_blank"}
-            >
-              old website
-            </a>
-            .
-          </Card.Body>
-        </Card>
+
+        {filteredProjects.length === 0 ? (
+          <Card className={"mt-5 text-center"}>
+            <Card.Title className={"mt-3"}>No Projects</Card.Title>
+            <Card.Body>
+              While no projects were found with the selected filters, I may
+              still have worked on a similar project that hasn't made it onto
+              this website - feel free to ask me :)
+            </Card.Body>
+          </Card>
+        ) : (
+          <Card className={"mt-5 text-center"}>
+            <Card.Title className={"mt-3"}>No More Projects</Card.Title>
+            <Card.Body>
+              While there are no more projects for the selected filters, I may
+              still have worked on a similar project that hasn't made it onto
+              this website - feel free to ask me :)
+            </Card.Body>
+          </Card>
+        )}
       </Container>
     </FooterWrapper>
   )
