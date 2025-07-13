@@ -82,7 +82,7 @@ function SingleProjectPageRenderer(project: Project) {
       <HeaderSpacer />
       <headingContext.Provider value={{ headings, registerHeading }}>
         {renderContentsLeft && <ProjContents renderLeft={remaining} />}
-        <Container style={{ maxWidth: maxProjectTextWidth }}>
+        <Container className="mb-5" style={{ maxWidth: maxProjectTextWidth }}>
           <div>
             <Link
               viewTransition

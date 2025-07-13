@@ -3,7 +3,6 @@ import Header from "../../components/Header.tsx"
 import { Button, Card, CardBody, Container } from "react-bootstrap"
 import {
   flagshipProject,
-  getCurrentProject,
   projectList,
 } from "./single-project-page/project-list.ts"
 import HeaderSpacer from "../../components/HeaderSpacer.tsx"
@@ -13,7 +12,7 @@ import RenderTechsAndLinks from "../../components/RenderTechsAndLinks.tsx"
 import RenderProjectDate from "../../components/RenderProjectDate.tsx"
 import RenderTechnologies from "../../components/RenderTechsAndLinks.tsx"
 import RenderButtonLinks from "../../components/RenderButtonLinks.tsx"
-import { Link, useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import { getProjectPath } from "../../router.tsx"
 import RenderProjectName from "../../components/RenderProjectName.tsx"
 import {
@@ -74,7 +73,7 @@ export default function ProjectsIndexPage() {
     sessionStorage.setItem(compactStorageKey, String(!compact))
   }
 
-  const currentProject = getCurrentProject()
+  // const currentProject = getCurrentProject()
 
   return (
     <FooterWrapper>
@@ -85,18 +84,18 @@ export default function ProjectsIndexPage() {
           <div className="pe-2">
             <h1 className="display-3">Projects</h1>
             <p className="text-muted">Click on any project to learn more</p>
-            {currentProject && (
-              <p className={"mb-0"}>
-                <Link
-                  viewTransition
-                  className={"text-decoration-none"}
-                  to={getProjectPath(currentProject.name)}
-                >
-                  › Jump to my current project (
-                  {currentProject.shortTitle ?? currentProject.title})
-                </Link>
-              </p>
-            )}
+            {/*{currentProject && (*/}
+            {/*  <p className={"mb-0"}>*/}
+            {/*    <Link*/}
+            {/*      viewTransition*/}
+            {/*      className={"text-decoration-none"}*/}
+            {/*      to={getProjectPath(currentProject.name)}*/}
+            {/*    >*/}
+            {/*      › Jump to my current project (*/}
+            {/*      {currentProject.shortTitle ?? currentProject.title})*/}
+            {/*    </Link>*/}
+            {/*  </p>*/}
+            {/*)}*/}
           </div>
           <div>
             <Button
@@ -150,8 +149,8 @@ export default function ProjectsIndexPage() {
         </div>
 
         {filters.size === 0 && (
-          <div>
-            <hr />
+          <div className={"mt-3"}>
+            {/*<hr />*/}
             <Card className="shadow">
               <CardBody>
                 <ExpandedEntry project={flagshipProject} flagship />
