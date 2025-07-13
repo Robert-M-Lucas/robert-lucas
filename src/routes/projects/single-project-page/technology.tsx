@@ -13,10 +13,14 @@ import {
 } from "react-bootstrap-icons"
 
 export interface Technology {
+  id: string
+  name: string
   getElement: () => JSX.Element
 }
 
 export const typescriptTechnology: Technology = {
+  id: "typescript",
+  name: "TypeScript",
   getElement: () => (
     <span className={"fw-bold text-nowrap"} style={{ color: "#3178c6" }}>
       <Typescript style={{ marginBottom: "4px", marginRight: "4px" }} />
@@ -28,6 +32,8 @@ export const typescriptTechnology: Technology = {
 // eslint-disable-next-line @typescript-eslint/naming-convention
 const ReactIcon = lazy(() => import("../../../components/icons/ReactIcon"))
 export const reactTechnology: Technology = {
+  id: "react",
+  name: "React",
   getElement: () => (
     <span className={"fw-bold text-nowrap"} style={{ color: "#61dafb" }}>
       <Suspense>
@@ -41,6 +47,8 @@ export const reactTechnology: Technology = {
 // eslint-disable-next-line @typescript-eslint/naming-convention
 const Rust = lazy(() => import("../../../components/icons/Rust"))
 export const rustTechnology: Technology = {
+  id: "rust",
+  name: "Rust",
   getElement: () => (
     <span className={"fw-bold text-nowrap"} style={{ color: "#f74c00" }}>
       <Suspense>
@@ -54,6 +62,8 @@ export const rustTechnology: Technology = {
 // eslint-disable-next-line @typescript-eslint/naming-convention
 const Java = lazy(() => import("../../../components/icons/Java"))
 export const javaTechnology: Technology = {
+  id: "java",
+  name: "Java",
   getElement: () => (
     <span className={"fw-bold text-nowrap"} style={{ color: "#5382a1" }}>
       <Suspense>
@@ -65,6 +75,8 @@ export const javaTechnology: Technology = {
 }
 
 export const gpuTechnology: Technology = {
+  id: "gpu",
+  name: "GPU",
   getElement: () => (
     <span className={"fw-bold text-nowrap"} style={{ color: "#77b900" }}>
       <GpuCard style={{ marginBottom: "4px", marginRight: "4px" }} />
@@ -76,6 +88,8 @@ export const gpuTechnology: Technology = {
 // eslint-disable-next-line @typescript-eslint/naming-convention
 const CSharp = lazy(() => import("../../../components/icons/CSharp"))
 export const cSharpTechnology: Technology = {
+  id: "csharp",
+  name: "C#",
   getElement: () => (
     <span className={"fw-bold text-nowrap"} style={{ color: "#390091" }}>
       <Suspense>
@@ -89,6 +103,8 @@ export const cSharpTechnology: Technology = {
 // eslint-disable-next-line @typescript-eslint/naming-convention
 const Python = lazy(() => import("../../../components/icons/Python"))
 export const pythonTechnology: Technology = {
+  id: "python",
+  name: "Python",
   getElement: () => (
     <span className={"fw-bold text-nowrap"} style={{ color: "#3671a2" }}>
       <Suspense>
@@ -100,6 +116,8 @@ export const pythonTechnology: Technology = {
 }
 
 export const unityTechnology: Technology = {
+  id: "unity",
+  name: "Unity",
   getElement: () => (
     <span className={"fw-bold text-nowrap"} style={{ color: "#000000" }}>
       <Unity style={{ marginBottom: "4px", marginRight: "4px" }} />
@@ -109,6 +127,8 @@ export const unityTechnology: Technology = {
 }
 
 export const androidTechnology: Technology = {
+  id: "android",
+  name: "Android",
   getElement: () => (
     <span className={"fw-bold text-nowrap"} style={{ color: "#2edf85" }}>
       <Android style={{ marginRight: "4px" }} />
@@ -118,6 +138,8 @@ export const androidTechnology: Technology = {
 }
 
 export const netcodeTechnology: Technology = {
+  id: "netcode",
+  name: "Netcode",
   getElement: () => (
     <span className={"fw-bold text-nowrap"} style={{ color: "#000000" }}>
       <HddNetwork style={{ marginBottom: "4px", marginRight: "4px" }} />
@@ -129,6 +151,8 @@ export const netcodeTechnology: Technology = {
 // eslint-disable-next-line @typescript-eslint/naming-convention
 const CPlusPlus = lazy(() => import("../../../components/icons/CPlusPlus"))
 export const cppTechnology: Technology = {
+  id: "cpp",
+  name: "C++",
   getElement: () => (
     <span className={"fw-bold text-nowrap"} style={{ color: "#608ac2" }}>
       <Suspense>
@@ -141,10 +165,12 @@ export const cppTechnology: Technology = {
 
 // Not original colour bc awful contrast
 export const javascriptTechnology: Technology = {
+  id: "javascript",
+  name: "JavaScript",
   getElement: () => (
     <span className={"fw-bold text-nowrap"} style={{ color: "#ead30f" }}>
       <Javascript style={{ marginBottom: "4px", marginRight: "4px" }} />
-      Javascript
+      JavaScript
     </span>
   ),
 }
@@ -152,21 +178,25 @@ export const javascriptTechnology: Technology = {
 // eslint-disable-next-line @typescript-eslint/naming-convention
 const Html = lazy(() => import("../../../components/icons/Html"))
 export const htmlTechnology: Technology = {
+  id: "html",
+  name: "HTML",
   getElement: () => (
     <span className={"fw-bold text-nowrap"} style={{ color: "#e44d26" }}>
       <Suspense>
         <Html style={{ marginBottom: "4px", marginRight: "4px" }} />
       </Suspense>
-      Html
+      HTML
     </span>
   ),
 }
 
 export const cssTechnology: Technology = {
+  id: "css",
+  name: "CSS",
   getElement: () => (
     <span className={"fw-bold text-nowrap"} style={{ color: "#214ce5" }}>
       <Css style={{ marginBottom: "4px", marginRight: "4px" }} />
-      Css
+      CSS
     </span>
   ),
 }
@@ -174,6 +204,8 @@ export const cssTechnology: Technology = {
 // eslint-disable-next-line @typescript-eslint/naming-convention
 const Django = lazy(() => import("../../../components/icons/Django"))
 export const djangoTechnology: Technology = {
+  id: "django",
+  name: "Django",
   getElement: () => (
     <span className={"fw-bold text-nowrap"} style={{ color: "#092e20" }}>
       <Suspense>
@@ -185,6 +217,8 @@ export const djangoTechnology: Technology = {
 }
 
 export const bootstrapTechnology: Technology = {
+  id: "bootstrap",
+  name: "Bootstrap",
   getElement: () => (
     <span className={"fw-bold text-nowrap"} style={{ color: "#7952b3" }}>
       <BootstrapFill style={{ marginBottom: "4px", marginRight: "4px" }} />
@@ -195,6 +229,8 @@ export const bootstrapTechnology: Technology = {
 
 // eslint-disable-next-line @typescript-eslint/naming-convention
 export const x86_64_AsmTechnology: Technology = {
+  id: "x86_64",
+  name: "x86-64 ASM",
   getElement: () => (
     <span className={"fw-bold text-nowrap"} style={{ color: "#782a2a" }}>
       <Cpu style={{ marginBottom: "4px", marginRight: "4px" }} />
@@ -204,6 +240,8 @@ export const x86_64_AsmTechnology: Technology = {
 }
 
 export const compilersTechnology: Technology = {
+  id: "compilers",
+  name: "Compilers",
   getElement: () => (
     <span className={"fw-bold text-nowrap"} style={{ color: "#3365b8" }}>
       <FileEarmarkBinaryFill
@@ -217,6 +255,8 @@ export const compilersTechnology: Technology = {
 // eslint-disable-next-line @typescript-eslint/naming-convention
 const Firebase = lazy(() => import("../../../components/icons/Firebase"))
 export const firebaseTechnology: Technology = {
+  id: "firebase",
+  name: "Firebase",
   getElement: () => (
     <span className={"fw-bold text-nowrap"} style={{ color: "#DD2C00" }}>
       <Suspense>
@@ -226,3 +266,25 @@ export const firebaseTechnology: Technology = {
     </span>
   ),
 }
+
+export const allTechnologies: Technology[] = [
+  typescriptTechnology,
+  reactTechnology,
+  rustTechnology,
+  javaTechnology,
+  gpuTechnology,
+  cSharpTechnology,
+  pythonTechnology,
+  unityTechnology,
+  androidTechnology,
+  netcodeTechnology,
+  cppTechnology,
+  javascriptTechnology,
+  htmlTechnology,
+  cssTechnology,
+  djangoTechnology,
+  bootstrapTechnology,
+  x86_64_AsmTechnology,
+  compilersTechnology,
+  firebaseTechnology,
+]

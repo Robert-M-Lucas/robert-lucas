@@ -3,7 +3,7 @@ import { isProjectLegacy } from "../projects/single-project-page/project"
 import RenderTechsAndLinks from "../../components/RenderTechsAndLinks.tsx"
 import RenderButtonLinks from "../../components/RenderButtonLinks.tsx"
 import { motion, useAnimationControls } from "framer-motion"
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import "./blur-bottom.css"
 import { getProjectPath } from "../../router.tsx"
 import { useNavigate } from "react-router-dom"
@@ -36,20 +36,15 @@ export function ProjectSpotlight() {
   const controls = useAnimationControls()
   const progressControls = useAnimationControls()
 
-  const [currentTimeout, setCurrentTimeout] = useState<NodeJS.Timeout | null>(
-    null
-  )
+  const currentTimeout = useRef<NodeJS.Timeout | null>(null)
 
   const startTimeout = () => {
     controls.start("visible").then()
     progressControls.set("start")
     progressControls.start("end").then()
-    stopTimeout()
-    // console.log("Creating timer")
-    setCurrentTimeout(
+    replaceTimeout(
       setTimeout(
         () => {
-          // console.log("Skipping")
           skipFunc(skipNext)
         },
         projectCycleTime - cardTransitionTime * 2
@@ -57,18 +52,24 @@ export function ProjectSpotlight() {
     )
   }
 
+  const replaceTimeout = (timeout: NodeJS.Timeout) => {
+    stopTimeout()
+    currentTimeout.current = timeout
+  }
+
   const stopTimeout = () => {
-    // console.log("Removing timer")
-    if (currentTimeout) window.clearTimeout(currentTimeout)
+    if (currentTimeout.current) {
+      window.clearTimeout(currentTimeout.current)
+      currentTimeout.current = null
+    }
   }
 
   const skipFunc = (changeIndex: () => void) => {
     if (isExiting) return
-    stopTimeout()
     setIsExiting(true)
     controls.start("hidden").then()
 
-    setCurrentTimeout(
+    replaceTimeout(
       setTimeout(() => {
         changeIndex()
         controls.set("hidden")
@@ -121,11 +122,13 @@ export function ProjectSpotlight() {
   }
 
   useEffect(() => {
-    if (!currentTimeout) startTimeout()
-    return () => {
-      if (currentTimeout) window.clearTimeout(currentTimeout)
+    if (!currentTimeout.current) {
+      startTimeout()
     }
-  })
+    return () => {
+      stopTimeout()
+    }
+  }, [])
 
   useEffect(() => {
     const checkHeight = () => {

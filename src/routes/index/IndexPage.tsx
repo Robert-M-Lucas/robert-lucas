@@ -162,7 +162,9 @@ export default function IndexPage() {
       </div>
       <section id={"continued"}>
         <Container className="mt-4">
-          <h1>{"TODO"} :)</h1>
+          <h1>Technology</h1>
+          <h1>Experience</h1>
+          <h1>Education</h1>
         </Container>
       </section>
     </FooterWrapper>
