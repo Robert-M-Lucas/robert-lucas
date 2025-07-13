@@ -5,6 +5,8 @@ import { lazy, Suspense } from "react"
 export const indexPath = "/"
 export const projectsPath = "/projects"
 export const getProjectPath = (project: string) => `${projectsPath}/${project}`
+export const getProjectTechnologyQuery = (technologies: string[]) =>
+  `${projectsPath}?techs=${technologies.join(",")}`
 
 // eslint-disable-next-line @typescript-eslint/naming-convention
 const IndexPage = lazy(() => import("./routes/index/IndexPage.tsx"))

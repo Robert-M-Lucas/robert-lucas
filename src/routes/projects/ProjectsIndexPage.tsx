@@ -20,6 +20,7 @@ import {
   Technology,
 } from "./single-project-page/technology.tsx"
 import "./project-index-page.css"
+import { useQuery } from "../../util/useQuery.ts"
 
 const compactStorageKey = "compactProjectView"
 export const scrollStorageKey = "scrollProjectView"
@@ -46,8 +47,22 @@ export default function ProjectsIndexPage() {
     return sessionStorage.getItem(compactStorageKey) === "true"
   })
 
+  const query = useQuery()
   const [filters, setFilters] = useState<Set<string>>(new Set())
   const [dummy, setDummy] = useState<boolean>(false)
+
+  useEffect(() => {
+    const techs = query.get("techs")
+    if (!techs) return
+    setFilters(() => {
+      const filters = new Set<string>()
+      for (const tech of techs.split(",")) {
+        filters.add(tech)
+      }
+      setDummy((dummy) => !dummy)
+      return filters
+    })
+  }, [])
 
   useEffect(() => {
     const savedScroll = sessionStorage.getItem(scrollStorageKey)
