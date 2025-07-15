@@ -21,6 +21,7 @@ import {
 } from "./single-project-page/technology.tsx"
 import "./project-index-page.css"
 import { useQuery } from "../../util/useQuery.ts"
+import { redirectWithShiftAndViewTransition } from "../../util/util.ts"
 
 const compactStorageKey = "compactProjectView"
 export const scrollStorageKey = "scrollProjectView"
@@ -70,6 +71,12 @@ export default function ProjectsIndexPage() {
       window.scrollTo({
         left: 0,
         top: parseInt(savedScroll, 10),
+        behavior: "instant",
+      })
+    } else {
+      window.scrollTo({
+        left: 0,
+        top: 0,
         behavior: "instant",
       })
     }
@@ -224,8 +231,12 @@ function CompactEntry({ project, highlights }: EntryProps) {
   return (
     <div
       style={{ cursor: "pointer" }}
-      onClick={async () =>
-        navigate(getProjectPath(project.name), { viewTransition: true })
+      onClick={(e) =>
+        redirectWithShiftAndViewTransition(
+          navigate,
+          getProjectPath(project.name),
+          e
+        )
       }
     >
       <RenderProjectName
@@ -252,8 +263,12 @@ function ExpandedEntry({ project, highlights, flagship }: EntryProps) {
   return (
     <div
       style={{ cursor: "pointer" }}
-      onClick={async () =>
-        navigate(getProjectPath(project.name), { viewTransition: true })
+      onClick={(e) =>
+        redirectWithShiftAndViewTransition(
+          navigate,
+          getProjectPath(project.name),
+          e
+        )
       }
     >
       <RenderProjectName

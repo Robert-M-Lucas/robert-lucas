@@ -11,6 +11,8 @@ import { isMobile } from "react-device-detect"
 import RenderProjectName from "../../components/RenderProjectName.tsx"
 import { Pause, Play, SkipEnd, SkipStart } from "react-bootstrap-icons"
 import { showcaseProjectList } from "../projects/single-project-page/project-list.ts"
+import { redirectWithShiftAndViewTransition } from "../../util/util.ts"
+import "./project-spotlight.css"
 
 const projectCycleTime = 15000
 const cardTransitionTime = 1000
@@ -179,11 +181,13 @@ export function ProjectSpotlight() {
         },
       }}
       style={isExiting ? { pointerEvents: "none" } : { cursor: "pointer" }}
-      onClick={async () => {
+      onClick={(e) => {
         if (!isExiting)
-          navigate(getProjectPath(project.name), {
-            viewTransition: true,
-          })
+          redirectWithShiftAndViewTransition(
+            navigate,
+            getProjectPath(project.name),
+            e
+          )
       }}
     >
       <Card className="shadow" style={{ width: "min(90vw, 900px)" }}>
@@ -274,6 +278,7 @@ export function ProjectSpotlight() {
           <SkipStart
             size={25}
             style={{ cursor: "pointer" }}
+            className={"hover-darken"}
             onClick={(e) => {
               skipFunc(skipPrev)
               e.stopPropagation()
@@ -283,6 +288,7 @@ export function ProjectSpotlight() {
             <Play
               size={25}
               style={{ cursor: "pointer" }}
+              className={"hover-darken"}
               onClick={(e) => {
                 e.stopPropagation()
                 togglePause()
@@ -292,6 +298,7 @@ export function ProjectSpotlight() {
             <Pause
               size={25}
               style={{ cursor: "pointer" }}
+              className={"hover-darken"}
               onClick={(e) => {
                 e.stopPropagation()
                 togglePause()
@@ -301,6 +308,7 @@ export function ProjectSpotlight() {
           <SkipEnd
             size={25}
             style={{ cursor: "pointer" }}
+            className={"hover-darken"}
             onClick={(e) => {
               skipFunc(skipNext)
               e.stopPropagation()

@@ -26,7 +26,7 @@ export default function ProjImageViewerInternal({ image, handleClose }: Props) {
               doubleClick={{ mode: "toggle" }}
               panning={{ velocityDisabled: true }}
               smooth={true}
-              minScale={0.5}
+              minScale={0.8}
               initialScale={1}
             >
               <TransformComponent>

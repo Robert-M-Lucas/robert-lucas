@@ -2,7 +2,7 @@ import React, { RefObject, useEffect, useRef, useState } from "react"
 import FooterWrapper from "../../components/FooterWrapper.tsx"
 import Header from "../../components/Header.tsx"
 import { ProjectSpotlight } from "./ProjectSpotlight.tsx"
-import { getCurrentProject } from "../projects/single-project-page/project-list.ts"
+import { flagshipProject } from "../projects/single-project-page/project-list.ts"
 import { AnimatePresence, motion, Transition } from "framer-motion"
 import {
   getProjectPath,
@@ -16,6 +16,7 @@ import { isMobile } from "react-device-detect"
 import ScrollToTop from "../../components/ScrollToTop.tsx"
 import { allTechnologies } from "../projects/single-project-page/technology.tsx"
 import "./index-page.css"
+import { scrollStorageKey } from "../projects/ProjectsIndexPage.tsx"
 
 const transition: Transition = { duration: 1.3, ease: [0.25, 0.1, 0.25, 1] }
 const variants = {
@@ -57,8 +58,6 @@ export default function IndexPage() {
       }
     }
   }, [])
-
-  const currentProject = getCurrentProject()
 
   return (
     <FooterWrapper>
@@ -111,14 +110,14 @@ export default function IndexPage() {
                       </React.Fragment>
                     ))}
                   </h1>
-                  {showSubtitle && currentProject && (
+                  {showSubtitle && (
                     <motion.span transition={transition} variants={variants}>
                       <Link
                         viewTransition
                         className={"text-decoration-none"}
-                        to={getProjectPath(currentProject.name)}
+                        to={getProjectPath(flagshipProject.name)}
                       >
-                        › Jump to my current project
+                        › Jump to featured project
                       </Link>
                       &nbsp;&nbsp;/&nbsp;&nbsp;
                       <Link
@@ -171,7 +170,7 @@ export default function IndexPage() {
         <Container className="mt-4">
           <h1>Technology</h1>
           <p className="text-muted">
-            Click on a technology to see project using it
+            Click on a technology to see projects using it
           </p>
           <div className={"d-flex flex-wrap justify-content-between"}>
             {allTechnologies.map((technology, i) => {
@@ -181,11 +180,12 @@ export default function IndexPage() {
                   className={"mb-1 mx-1 flex-grow-1 hover-light"}
                   key={i}
                   style={{ padding: "6px 6px 4px 6px" }}
-                  onClick={() =>
+                  onClick={() => {
+                    sessionStorage.removeItem(scrollStorageKey)
                     navigate(getProjectTechnologyQuery([technology.id]), {
                       viewTransition: true,
                     })
-                  }
+                  }}
                 >
                   <span
                     className="badge rounded-pill bg-white"
