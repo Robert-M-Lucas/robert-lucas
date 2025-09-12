@@ -172,7 +172,7 @@ export default function IndexPage() {
           <p className="text-muted">
             Click on a technology to see projects using it
           </p>
-          <div className={"d-flex flex-wrap justify-content-between"}>
+          <div className={"d-flex flex-wrap justify-content-between mb-3"}>
             {allTechnologies.map((technology, i) => {
               return (
                 <Button
@@ -203,7 +203,9 @@ export default function IndexPage() {
           </div>
 
           <h1>Experience</h1>
+          <p>Todo</p>
           <h1>Education</h1>
+          <p>Todo</p>
         </Container>
       </section>
     </FooterWrapper>

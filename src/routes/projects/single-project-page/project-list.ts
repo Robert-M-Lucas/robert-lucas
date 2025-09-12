@@ -22,8 +22,10 @@ import { websiteProject } from "../../../project_entries/website/website.tsx"
 import { whython4Project } from "../../../project_entries/whython-4/whython-4.tsx"
 import { whython7Project } from "../../../project_entries/whython-7/whython-7.tsx"
 import { whython8Project } from "../../../project_entries/whython-8/whython-8.tsx"
+import { hMailProject } from "../../../project_entries/h-mail/h-mail.tsx"
 
 export const projectList = [
+  hMailProject,
   portfolioTwoProject,
   rssProject,
   compileTimeRegexProject,
