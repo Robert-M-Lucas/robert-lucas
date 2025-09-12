@@ -19,7 +19,7 @@ const PortfolioTwoEntryPage = lazy(() => import("./PortfolioTwoEntryPage"))
 
 export const portfolioTwoProject: Project = {
   currentlyWorkingOn: true,
-  currentlyWriting: true,
+  currentlyWriting: false,
   name: "portfolio_two",
   title: "Portfolio Website (This Website)",
   shortTitle: "Portfolio Website",
