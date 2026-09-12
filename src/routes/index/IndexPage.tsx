@@ -17,6 +17,7 @@ import ScrollToTop from "../../components/ScrollToTop.tsx"
 import { allTechnologies } from "../projects/single-project-page/technology.tsx"
 import "./index-page.css"
 import { scrollStorageKey } from "../projects/ProjectsIndexPage.tsx"
+import { ArrowDown, GraphDownArrow } from "react-bootstrap-icons"
 
 const transition: Transition = { duration: 1.3, ease: [0.25, 0.1, 0.25, 1] }
 const variants = {
@@ -32,7 +33,7 @@ export default function IndexPage() {
   const [showSubtitle, setShowSubtitle] = useState(false)
   const navigate = useNavigate()
 
-  const timeout: RefObject<NodeJS.Timeout | null> = useRef(null)
+  const timeout: RefObject<ReturnType<typeof setTimeout> | null> = useRef(null)
 
   useEffect(() => {
     if (timeout.current) {
@@ -151,61 +152,113 @@ export default function IndexPage() {
           className={
             "text-nowrap mb-2 mx-2" + (isMobile ? "" : " align-self-center")
           }
-          variant={"outline-success"}
+          variant={"outline-primary"}
           onClick={() => {
-            window.location.hash = ""
-            window.location.hash = "#continued"
+            document
+              .getElementById("continued")
+              ?.scrollIntoView({ behavior: "smooth" })
           }}
           style={{
             position: "relative",
             bottom: 0,
           }}
         >
-          Technology, experience, education
+          Technology, Experience, Education{" "}
+          <ArrowDown style={{ marginBottom: "3px" }} />
         </Button>
 
         {/*<Header hidden />*/}
       </div>
       <section id={"continued"}>
-        <Container className="mt-4">
-          <h1>Technology</h1>
-          <p className="text-muted">
-            Click on a technology to see projects using it
-          </p>
-          <div className={"d-flex flex-wrap justify-content-between mb-3"}>
-            {allTechnologies.map((technology, i) => {
-              return (
-                <Button
-                  variant={"outline-secondary"}
-                  className={"mb-1 mx-1 flex-grow-1 hover-light"}
-                  key={i}
-                  style={{ padding: "6px 6px 4px 6px" }}
-                  onClick={() => {
-                    sessionStorage.removeItem(scrollStorageKey)
-                    navigate(getProjectTechnologyQuery([technology.id]), {
-                      viewTransition: true,
-                    })
-                  }}
-                >
-                  <span
-                    className="badge rounded-pill bg-white"
-                    style={{
-                      color: technology.color,
-                      fontSize: "0.9em",
-                      padding: "5px 10px 3px 10px",
+        <Container className="pt-4">
+          <div className={"mb-4"}>
+            <h1 className={"display-3"}>Technology</h1>
+            <p className="text-muted">
+              Click on a technology to see projects using it
+            </p>
+            <div className={"d-flex flex-wrap justify-content-between mb-3"}>
+              {allTechnologies.map((technology, i) => {
+                return (
+                  <Button
+                    variant={"outline-secondary"}
+                    className={"mb-1 mx-1 flex-grow-1 hover-light"}
+                    key={i}
+                    style={{ padding: "6px 6px 4px 6px" }}
+                    onClick={() => {
+                      sessionStorage.removeItem(scrollStorageKey)
+                      navigate(getProjectTechnologyQuery([technology.id]), {
+                        viewTransition: true,
+                      })
                     }}
                   >
-                    {technology.getIcon()} {technology.name}
-                  </span>
-                </Button>
-              )
-            })}
+                    <span
+                      className="badge rounded-pill bg-white"
+                      style={{
+                        color: technology.color,
+                        fontSize: "0.9em",
+                        padding: "5px 10px 3px 10px",
+                      }}
+                    >
+                      {technology.getIcon()} {technology.name}
+                    </span>
+                  </Button>
+                )
+              })}
+            </div>
           </div>
 
-          <h1>Experience</h1>
-          <p>Todo</p>
-          <h1>Education</h1>
-          <p>Todo</p>
+          <div className={"mb-4"}>
+            <h1 className={"display-3"}>Experience</h1>
+            <h2>Trio Motion Technology</h2>
+
+            <p>
+              In placerat elit non mi gravida lacinia id quis nulla. Nullam
+              dolor mi, porttitor nec sapien a, facilisis mattis ex. Cras ut
+              ornare lacus, a iaculis velit. Morbi placerat nisi vitae venenatis
+              viverra. Quisque eu pulvinar ante. Donec porta arcu vel odio
+              sollicitudin, eu aliquam arcu imperdiet. Aenean hendrerit
+              fermentum ante eget ornare. Pellentesque ullamcorper nisl tortor,
+              in vehicula tellus efficitur nec. Curabitur ac ligula interdum,
+              ultricies tortor nec, sodales erat. Donec fringilla maximus nisl
+              sit amet accumsan. Morbi a nisl lobortis augue egestas imperdiet
+              in aliquam mauris. Phasellus nec augue fringilla arcu condimentum
+              bibendum id eu quam. Aliquam posuere ornare est, at vulputate
+              ipsum malesuada ut. Etiam consequat vestibulum fermentum.
+            </p>
+          </div>
+          <div className={"mb-4"}>
+            <h1 className={"display-3"}>Education</h1>
+            <h2>University of Bath</h2>
+            <p>
+              In placerat elit non mi gravida lacinia id quis nulla. Nullam
+              dolor mi, porttitor nec sapien a, facilisis mattis ex. Cras ut
+              ornare lacus, a iaculis velit. Morbi placerat nisi vitae venenatis
+              viverra. Quisque eu pulvinar ante. Donec porta arcu vel odio
+              sollicitudin, eu aliquam arcu imperdiet. Aenean hendrerit
+              fermentum ante eget ornare. Pellentesque ullamcorper nisl tortor,
+              in vehicula tellus efficitur nec. Curabitur ac ligula interdum,
+              ultricies tortor nec, sodales erat. Donec fringilla maximus nisl
+              sit amet accumsan. Morbi a nisl lobortis augue egestas imperdiet
+              in aliquam mauris. Phasellus nec augue fringilla arcu condimentum
+              bibendum id eu quam. Aliquam posuere ornare est, at vulputate
+              ipsum malesuada ut. Etiam consequat vestibulum fermentum.
+            </p>
+            <h2>Mark Rutherford Sixth Form</h2>
+            <p>
+              In placerat elit non mi gravida lacinia id quis nulla. Nullam
+              dolor mi, porttitor nec sapien a, facilisis mattis ex. Cras ut
+              ornare lacus, a iaculis velit. Morbi placerat nisi vitae venenatis
+              viverra. Quisque eu pulvinar ante. Donec porta arcu vel odio
+              sollicitudin, eu aliquam arcu imperdiet. Aenean hendrerit
+              fermentum ante eget ornare. Pellentesque ullamcorper nisl tortor,
+              in vehicula tellus efficitur nec. Curabitur ac ligula interdum,
+              ultricies tortor nec, sodales erat. Donec fringilla maximus nisl
+              sit amet accumsan. Morbi a nisl lobortis augue egestas imperdiet
+              in aliquam mauris. Phasellus nec augue fringilla arcu condimentum
+              bibendum id eu quam. Aliquam posuere ornare est, at vulputate
+              ipsum malesuada ut. Etiam consequat vestibulum fermentum.
+            </p>
+          </div>
         </Container>
       </section>
     </FooterWrapper>

@@ -18,9 +18,7 @@ const projectCycleTime = 15000
 const cardTransitionTime = 1000
 
 export function ProjectSpotlight() {
-  const [projectIndex, setProjectIndex] = useState<number>(
-    Math.floor(Math.random() * showcaseProjectList.length)
-  )
+  const [projectIndex, setProjectIndex] = useState<number>(0)
   const [paused, setPaused] = useState(false)
 
   const [wrapper, setWrapper] = useState<HTMLDivElement | null>(null)
@@ -34,11 +32,10 @@ export function ProjectSpotlight() {
   const [fadeActive, setFadeActive] = useState(false)
   const [isExiting, setIsExiting] = useState(false)
   const navigate = useNavigate()
-
   const controls = useAnimationControls()
   const progressControls = useAnimationControls()
 
-  const currentTimeout = useRef<NodeJS.Timeout | null>(null)
+  const currentTimeout = useRef<ReturnType<typeof setTimeout> | null>(null)
 
   const startTimeout = () => {
     controls.start("visible").then()
@@ -54,7 +51,7 @@ export function ProjectSpotlight() {
     )
   }
 
-  const replaceTimeout = (timeout: NodeJS.Timeout) => {
+  const replaceTimeout = (timeout: ReturnType<typeof setTimeout>) => {
     stopTimeout()
     currentTimeout.current = timeout
   }
@@ -90,20 +87,32 @@ export function ProjectSpotlight() {
 
   const skipNext = () => {
     setProjectIndex((prev) => {
-      if (prev + 1 == showcaseProjectList.length) {
-        return 0
-      } else {
-        return prev + 1
+      let curr = prev
+      while (true) {
+        if (curr + 1 == showcaseProjectList.length) {
+          curr = 0
+        } else {
+          curr += 1
+        }
+        if (showcaseProjectList[curr].msSinceEpoch !== null) {
+          return curr
+        }
       }
     })
   }
 
   const skipPrev = () => {
     setProjectIndex((prev) => {
-      if (prev == 0) {
-        return showcaseProjectList.length - 1
-      } else {
-        return prev - 1
+      let curr = prev
+      while (true) {
+        if (curr == 0) {
+          curr = showcaseProjectList.length - 1
+        } else {
+          curr -= 1
+        }
+        if (showcaseProjectList[curr].msSinceEpoch !== null) {
+          return curr
+        }
       }
     })
   }
