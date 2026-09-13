@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom"
 import { indexPath } from "../router.tsx"
+import strftime from "strftime"
 
 type HeightUnit = "px" | "rem" | "vh"
 type HeightProp = `${number}${HeightUnit}` | "0"
@@ -34,7 +35,7 @@ export function Footer({ margin = "0" }: Props) {
           </li>
         </ul>
         <p className="text-center text-muted mb-0">
-          Portfolio Website © 2025 Robert Lucas
+          Portfolio Website © {strftime("%Y")} Robert Lucas
         </p>
       </div>
     </footer>

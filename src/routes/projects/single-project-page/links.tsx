@@ -121,7 +121,9 @@ function CopyableCommandLinkButton({
   isButton: boolean
 }) {
   const [clicked, setClicked] = useState(false)
-  const [timeoutS, setTimeoutS] = useState<NodeJS.Timeout | null>(null)
+  const [timeoutS, setTimeoutS] = useState<ReturnType<
+    typeof setTimeout
+  > | null>(null)
 
   useEffect(() => {
     return () => {
