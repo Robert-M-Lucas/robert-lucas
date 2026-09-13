@@ -87,32 +87,20 @@ export function ProjectSpotlight() {
 
   const skipNext = () => {
     setProjectIndex((prev) => {
-      let curr = prev
-      while (true) {
-        if (curr + 1 == showcaseProjectList.length) {
-          curr = 0
-        } else {
-          curr += 1
-        }
-        if (showcaseProjectList[curr].msSinceEpoch !== null) {
-          return curr
-        }
+      if (prev + 1 == showcaseProjectList.length) {
+        return 0
+      } else {
+        return prev + 1
       }
     })
   }
 
   const skipPrev = () => {
     setProjectIndex((prev) => {
-      let curr = prev
-      while (true) {
-        if (curr == 0) {
-          curr = showcaseProjectList.length - 1
-        } else {
-          curr -= 1
-        }
-        if (showcaseProjectList[curr].msSinceEpoch !== null) {
-          return curr
-        }
+      if (prev == 0) {
+        return showcaseProjectList.length - 1
+      } else {
+        return prev - 1
       }
     })
   }

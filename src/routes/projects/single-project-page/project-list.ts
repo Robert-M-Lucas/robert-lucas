@@ -46,6 +46,7 @@ export const projectList = [
   programmingLangProject,
   bezierProject,
   piProject,
+  sudokuSolverProject,
   compressionProject,
   geometricPatternProject,
 ]
@@ -58,17 +59,9 @@ export const showcaseProjectList = [
   pythonSudokuProject,
   raytracingProject,
   terrainGeneratorProject,
-  websiteProject,
   chessProject,
   minesweeperProject,
   fractalProject,
-  whython4Project,
-  sudokuSolverProject,
-  geneticKeyboardProject,
-  aStarProject,
-  enigmaProject,
-  bezierProject,
-  geometricPatternProject,
 ]
 
 export const flagshipProject = whython8Project
