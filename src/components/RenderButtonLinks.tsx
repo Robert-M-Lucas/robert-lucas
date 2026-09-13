@@ -13,6 +13,14 @@ export default function RenderButtonLinks({ links }: Props) {
     <div className="mb-1" style={{ lineHeight: "45px" }}>
       {links.map((link, i) => (
         <span key={i}>
+          {(() => {
+            console.log(link)
+            return ""
+          })()}
+          {(() => {
+            console.log(link.type)
+            return ""
+          })()}
           {link.type.getButtonElement(link.url)}{" "}
           {i !== links.length - 1 && <span className="mx-1"></span>}
         </span>
