@@ -17,7 +17,7 @@ import ScrollToTop from "../../components/ScrollToTop.tsx"
 import { allTechnologies } from "../projects/single-project-page/technology.tsx"
 import "./index-page.css"
 import { scrollStorageKey } from "../projects/ProjectsIndexPage.tsx"
-import { ArrowDown, Globe, GraphDownArrow } from "react-bootstrap-icons"
+import { ArrowDown, Globe } from "react-bootstrap-icons"
 
 const transition: Transition = { duration: 1.3, ease: [0.25, 0.1, 0.25, 1] }
 const variants = {
