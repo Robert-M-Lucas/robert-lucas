@@ -14,10 +14,6 @@ export default function RenderButtonLinks({ links }: Props) {
       {links.map((link, i) => (
         <span key={i}>
           {(() => {
-            console.log(link)
-            return ""
-          })()}
-          {(() => {
             console.log(link.type)
             return ""
           })()}
