@@ -1,24 +1,8 @@
-import React, {
-  RefObject,
-  useContext,
-  useEffect,
-  useRef,
-  useState,
-} from "react"
-import { ImageViewerContext } from "../image-viewer/image-viewer-context.ts"
-
-export interface ImageSource {
-  name: string
-  url: string
-}
-
-export interface PImgProps {
-  image: string
-  alt: string
-  caption?: string | React.ReactNode
-  source?: ImageSource
-  legacyNaturalWidth?: boolean
-}
+import { RefObject, useContext, useEffect, useRef, useState } from "react"
+import {
+  ImageViewerContext,
+  PImgProps,
+} from "../image-viewer/image-viewer-context.ts"
 
 export default function P_img(props: PImgProps) {
   const { image, alt, caption, source, legacyNaturalWidth } = props

@@ -1,8 +1,8 @@
 import { ReactNode } from "react"
 import { Link } from "react-router-dom"
 import { Project } from "../../routes/projects/single-project-page/project.ts"
-import { getProjectPath } from "../../router.tsx"
 import { FileEarmarkText } from "react-bootstrap-icons"
+import { getProjectPath } from "../../routingConstants.ts"
 
 export interface Props {
   to: Project

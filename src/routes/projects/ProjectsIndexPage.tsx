@@ -13,7 +13,6 @@ import RenderProjectDate from "../../components/RenderProjectDate.tsx"
 import RenderTechnologies from "../../components/RenderTechsAndLinks.tsx"
 import RenderButtonLinks from "../../components/RenderButtonLinks.tsx"
 import { useNavigate } from "react-router-dom"
-import { getProjectPath } from "../../router.tsx"
 import RenderProjectName from "../../components/RenderProjectName.tsx"
 import {
   allTechnologies,
@@ -21,10 +20,13 @@ import {
 } from "./single-project-page/technology.tsx"
 import "./project-index-page.css"
 import { useQuery } from "../../util/useQuery.ts"
-import { redirectWithShiftAndViewTransition } from "../../util/util.ts"
+import {
+  redirectWithShiftAndViewTransition,
+  scrollStorageKey,
+} from "../../util/util.ts"
+import { getProjectPath } from "../../routingConstants.ts"
 
 const compactStorageKey = "compactProjectView"
-export const scrollStorageKey = "scrollProjectView"
 
 function projectShouldShow(
   projectTechnologies: Technology[],

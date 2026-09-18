@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
-import { indexPath } from "../router.tsx"
 import strftime from "strftime"
+import { indexPath } from "../routingConstants.ts"
 
 type HeightUnit = "px" | "rem" | "vh"
 type HeightProp = `${number}${HeightUnit}` | "0"

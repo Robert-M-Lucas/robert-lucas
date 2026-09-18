@@ -1,7 +1,7 @@
-import { PImgProps } from "../project-entry-utils/P_img.tsx"
 import Modal from "react-bootstrap/Modal"
 import { Image } from "react-bootstrap"
 import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch"
+import { PImgProps } from "./image-viewer-context.ts"
 
 export interface Props {
   image: PImgProps | null

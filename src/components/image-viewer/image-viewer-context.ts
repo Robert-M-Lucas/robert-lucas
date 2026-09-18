@@ -1,5 +1,17 @@
 import { Context, createContext, Dispatch, SetStateAction } from "react"
-import { PImgProps } from "../project-entry-utils/P_img.tsx"
+
+export interface ImageSource {
+  name: string
+  url: string
+}
+
+export interface PImgProps {
+  image: string
+  alt: string
+  caption?: string | React.ReactNode
+  source?: ImageSource
+  legacyNaturalWidth?: boolean
+}
 
 // eslint-disable-next-line @typescript-eslint/naming-convention
 export const ImageViewerContext: Context<{
