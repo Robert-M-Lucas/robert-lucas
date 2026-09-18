@@ -65,6 +65,7 @@
     "ts-node": "^10.9.2",
     "typescript": "^7.0.2",
     "vite": "^8.3.0",
+    "vite-plugin-circular-dependency": "^0.6.0",
     "vite-plugin-image-optimizer": "^2.0.3",
     "vite-plugin-vsharp": "^1.9.1",
     "vitest": "^5.0.0"

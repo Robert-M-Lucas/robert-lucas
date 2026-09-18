@@ -4,7 +4,6 @@ import FooterWrapper from "../../../components/FooterWrapper.tsx"
 import Header from "../../../components/Header.tsx"
 import { Container } from "react-bootstrap"
 import { isProjectLegacy, Project } from "./project.ts"
-import { getProjectPath, projectsPath } from "../../../router.tsx"
 import HeaderSpacer from "../../../components/HeaderSpacer.tsx"
 import RenderTechnologies from "../../../components/RenderTechsAndLinks.tsx"
 import RenderButtonLinks from "../../../components/RenderButtonLinks.tsx"
@@ -20,6 +19,7 @@ import { Heading, headingContext } from "./heading-context.ts"
 import ProjContents from "../../../components/ProjContents.tsx"
 import useWindowDimensions from "../../../util/useWindowDimensions.ts"
 import ProjImageViewerContext from "../../../components/image-viewer/ProjImgViewerContext.tsx"
+import { getProjectPath, projectsPath } from "../../../routingConstants.ts"
 
 export default function SingleProjectPage() {
   const params = useParams()

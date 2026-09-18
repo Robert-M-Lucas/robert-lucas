@@ -5,7 +5,6 @@ import RenderButtonLinks from "../../components/RenderButtonLinks.tsx"
 import { motion, useAnimationControls } from "framer-motion"
 import { useEffect, useRef, useState } from "react"
 import "./blur-bottom.css"
-import { getProjectPath } from "../../router.tsx"
 import { useNavigate } from "react-router-dom"
 import { isMobile } from "react-device-detect"
 import RenderProjectName from "../../components/RenderProjectName.tsx"
@@ -13,6 +12,7 @@ import { Pause, Play, SkipEnd, SkipStart } from "react-bootstrap-icons"
 import { showcaseProjectList } from "../projects/single-project-page/project-list.ts"
 import { redirectWithShiftAndViewTransition } from "../../util/util.ts"
 import "./project-spotlight.css"
+import { getProjectPath } from "../../routingConstants.ts"
 
 const projectCycleTime = 15000
 const cardTransitionTime = 1000

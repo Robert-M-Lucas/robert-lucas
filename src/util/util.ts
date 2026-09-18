@@ -1,4 +1,3 @@
-import { scrollStorageKey } from "../routes/projects/ProjectsIndexPage.tsx"
 import { NavigateFunction } from "react-router-dom"
 import React from "react"
 
@@ -9,6 +8,8 @@ export interface ImpImage {
   width: number
   height: number
 }
+
+export const scrollStorageKey = "scrollProjectView"
 
 export function clearProjectScrollProgress() {
   sessionStorage.setItem(scrollStorageKey, window.scrollY.toString())

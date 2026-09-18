@@ -1,7 +1,7 @@
 import { Navbar, Nav, Container } from "react-bootstrap"
 import { Link, useLocation } from "react-router-dom"
-import { indexPath, projectsPath } from "../router.tsx"
 import { clearProjectScrollProgress } from "../util/util.ts"
+import { indexPath, projectsPath } from "../routingConstants.ts"
 
 export interface Props {
   hidden?: boolean

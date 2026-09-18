@@ -4,20 +4,22 @@ import Header from "../../components/Header.tsx"
 import { ProjectSpotlight } from "./ProjectSpotlight.tsx"
 import { flagshipProject } from "../projects/single-project-page/project-list.ts"
 import { AnimatePresence, motion, Transition } from "framer-motion"
-import {
-  getProjectPath,
-  getProjectTechnologyQuery,
-  projectsPath,
-} from "../../router.tsx"
 import { Link, useNavigate } from "react-router-dom"
 import { Button, Container } from "react-bootstrap"
-import { clearProjectScrollProgress } from "../../util/util.ts"
+import {
+  clearProjectScrollProgress,
+  scrollStorageKey,
+} from "../../util/util.ts"
 import { isMobile } from "react-device-detect"
 import ScrollToTop from "../../components/ScrollToTop.tsx"
 import { allTechnologies } from "../projects/single-project-page/technology.tsx"
 import "./index-page.css"
-import { scrollStorageKey } from "../projects/ProjectsIndexPage.tsx"
 import { ArrowDown, Globe } from "react-bootstrap-icons"
+import {
+  getProjectPath,
+  getProjectTechnologyQuery,
+  projectsPath,
+} from "../../routingConstants.ts"
 
 const transition: Transition = { duration: 1.3, ease: [0.25, 0.1, 0.25, 1] }
 const variants = {

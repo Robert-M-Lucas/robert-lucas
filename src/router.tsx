@@ -1,12 +1,7 @@
 import { createBrowserRouter } from "react-router-dom"
 import ErrorPage from "./error/ErrorPage.tsx"
 import { lazy, Suspense } from "react"
-
-export const indexPath = "/"
-export const projectsPath = "/projects"
-export const getProjectPath = (project: string) => `${projectsPath}/${project}`
-export const getProjectTechnologyQuery = (technologies: string[]) =>
-  `${projectsPath}?techs=${technologies.join(",")}`
+import { getProjectPath, indexPath, projectsPath } from "./routingConstants.ts"
 
 // eslint-disable-next-line @typescript-eslint/naming-convention
 const IndexPage = lazy(() => import("./routes/index/IndexPage.tsx"))

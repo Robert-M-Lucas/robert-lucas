@@ -1,6 +1,5 @@
 import { lazy, ReactNode, Suspense, useState } from "react"
-import { PImgProps } from "../project-entry-utils/P_img.tsx"
-import { ImageViewerContext } from "./image-viewer-context.ts"
+import { ImageViewerContext, PImgProps } from "./image-viewer-context.ts"
 
 export interface Props {
   children: ReactNode
