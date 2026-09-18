@@ -76,9 +76,6 @@ export const githubLink: LinkType = {
   ),
 }
 
-console.log("??")
-console.log(githubLink)
-
 export const cratesLink: LinkType = {
   getTextElement: (url: string) => (
     <a

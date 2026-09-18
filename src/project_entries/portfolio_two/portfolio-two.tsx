@@ -50,6 +50,3 @@ export const portfolioTwoProject: Project = {
     },
   ],
 }
-
-console.log("!!")
-console.log(githubLink)
