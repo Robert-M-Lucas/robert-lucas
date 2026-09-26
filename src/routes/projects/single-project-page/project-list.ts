@@ -52,16 +52,14 @@ export const projectList = [
 ]
 
 export const showcaseProjectList = [
+  hMailProject,
+  whython8Project,
   portfolioTwoProject,
   rssProject,
   compileTimeRegexProject,
-  whython8Project,
   pythonSudokuProject,
   raytracingProject,
-  terrainGeneratorProject,
   chessProject,
-  minesweeperProject,
-  fractalProject,
 ]
 
 export const flagshipProject = whython8Project
